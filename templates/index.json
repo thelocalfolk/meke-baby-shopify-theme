@@ -9,7 +9,7 @@
  */
 {
   "sections": {
-    "meke_hero_main": {
+    "meke_baby_hero_CAYE4r": {
       "type": "meke-baby-hero",
       "name": "Mekè Baby Hero",
       "settings": {
@@ -19,10 +19,10 @@
         "heading": "A better way to feed.",
         "subheading": "Mekè Baby gives you a considered feeding system designed to remove uncertainty and support safe, consistent feeding — every time.",
         "button_label": "Shop by Solution",
-        "button_link": "shopify://collections/all",
+        "button_link": "",
         "button_style": "primary",
-        "content_position": "center",
-        "min_height": 100
+        "content_position": "flex-end",
+        "min_height": 55
       }
     },
     "product_list_fa6P9H": {
@@ -221,7 +221,7 @@
     }
   },
   "order": [
-    "meke_hero_main",
+    "meke_baby_hero_CAYE4r",
     "product_list_fa6P9H"
   ]
 }
