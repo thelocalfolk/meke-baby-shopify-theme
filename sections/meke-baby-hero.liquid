@@ -1,3 +1,6 @@
+Here's the complete updated file:
+
+```liquid
 {%- liquid
   assign bg_image = section.settings.image
   assign fallback_url = section.settings.image_url
@@ -9,10 +12,9 @@
 
 <div
   id="MekeBabyHero-{{ section.id }}"
-  class="meke-hero"
+  class="meke-hero color-{{ section.settings.color_scheme }}"
   style="
     min-height: {{ section.settings.min_height }}svh;
-    --hero-text-color: {{ section.settings.text_color }};
     --hero-align: {{ section.settings.content_position }};
     {% if bg_image != blank %}
       background-image: url('{{ bg_image | image_url: width: 2400 }}');
@@ -36,7 +38,7 @@
       {%- endif -%}
 
       {%- if section.settings.button_label != blank -%}
-        <a
+        
           href="{{ section.settings.button_link | default: '#' }}"
           class="{{ btn_class }}"
         >
@@ -67,7 +69,7 @@
     flex-direction: column;
     gap: 20px;
     max-width: 560px;
-    color: var(--hero-text-color, #ffffff);
+    color: rgb(var(--color-foreground));
   }
 
   .meke-hero__stars {
@@ -82,7 +84,7 @@
     font-weight: 400;
     line-height: 1.05;
     margin: 0;
-    color: var(--hero-text-color, #ffffff);
+    color: rgb(var(--color-foreground-heading));
   }
 
   .meke-hero__subheading {
@@ -136,10 +138,10 @@
       "content": "Content"
     },
     {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color",
-      "default": "#ffffff"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
     },
     {
       "type": "text",
@@ -218,3 +220,4 @@
   ]
 }
 {% endschema %}
+```
