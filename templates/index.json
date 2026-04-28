@@ -65,7 +65,7 @@
             "text": "<p>Parents are expected to navigate feeding through fragmented advice, outdated methods, and conflicting opinions. So you improvise. You second guess. You create your own rules just to feel in control.<br/><br/>That’s not how something this important should work.</p>",
             "width": "fit-content",
             "max_width": "normal",
-            "alignment": "left",
+            "alignment": "center",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
