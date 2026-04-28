@@ -36,7 +36,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2>New arrivals</h2>",
+            "text": "<h3>It’s not you. It’s the system.</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -62,7 +62,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+            "text": "<p>Parents are expected to navigate feeding through fragmented advice, outdated methods, and conflicting opinions. So you improvise. You second guess. You create your own rules just to feel in control.<br/><br/>That’s not how something this important should work.</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -83,27 +83,11 @@
             "padding-inline-end": 0
           },
           "blocks": {}
-        },
-        "button_4AiLrz": {
-          "type": "button",
-          "name": "t:names.button",
-          "settings": {
-            "label": "Shop now",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
         }
       },
       "block_order": [
         "text_F8ffRg",
-        "text_CGhHpE",
-        "button_4AiLrz"
+        "text_CGhHpE"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
