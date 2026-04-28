@@ -21,8 +21,8 @@
         "button_label": "Shop by Solution",
         "button_link": "",
         "button_style": "primary",
-        "content_position": "flex-end",
-        "min_height": 55
+        "content_position": "center",
+        "min_height": 100
       }
     },
     "product_list_fa6P9H": {
