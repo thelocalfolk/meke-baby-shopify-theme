@@ -184,6 +184,7 @@
             "product_list_button_FjEJin": {
               "type": "_product-list-button",
               "name": "t:names.product_list_button",
+              "disabled": true,
               "settings": {
                 "label": "View all",
                 "open_in_new_tab": false,
@@ -240,11 +241,11 @@
               "name": "t:names.product_review_stars",
               "settings": {
                 "stars_style": "shaded",
-                "show_number": true,
+                "show_number": false,
                 "rating_color": "primary",
                 "type_preset": "paragraph",
                 "width": "100%",
-                "alignment": "left"
+                "alignment": "center"
               },
               "blocks": {}
             },
@@ -280,9 +281,9 @@
                 "show_sale_price_first": true,
                 "show_installments": false,
                 "show_tax_info": false,
-                "type_preset": "h6",
+                "type_preset": "h5",
                 "width": "100%",
-                "alignment": "left",
+                "alignment": "center",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
