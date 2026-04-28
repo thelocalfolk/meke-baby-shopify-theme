@@ -9,7 +9,7 @@
  */
 {
   "sections": {
-    "meke_baby_hero_Eic3Yx": {
+    "meke_baby_hero_cJizPc": {
       "type": "meke-baby-hero",
       "name": "Mekè Baby Hero",
       "settings": {
@@ -21,8 +21,8 @@
         "button_label": "Shop by Solution",
         "button_link": "",
         "button_style": "primary",
-        "content_position": "center",
-        "min_height": 100
+        "content_position": "flex-end",
+        "min_height": 55
       }
     },
     "product_list_fa6P9H": {
@@ -221,7 +221,7 @@
     }
   },
   "order": [
-    "meke_baby_hero_Eic3Yx",
+    "meke_baby_hero_cJizPc",
     "product_list_fa6P9H"
   ]
 }
