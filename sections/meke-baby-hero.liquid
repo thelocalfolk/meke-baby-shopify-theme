@@ -1,6 +1,10 @@
 {%- liquid
   assign bg_image = section.settings.image
   assign fallback_url = section.settings.image_url
+  assign btn_class = 'button'
+  if section.settings.button_style == 'secondary'
+    assign btn_class = 'button-secondary'
+  endif
 -%}
 
 <div
@@ -8,6 +12,8 @@
   class="meke-hero"
   style="
     min-height: {{ section.settings.min_height }}svh;
+    --hero-text-color: {{ section.settings.text_color }};
+    --hero-align: {{ section.settings.content_position }};
     {% if bg_image != blank %}
       background-image: url('{{ bg_image | image_url: width: 2400 }}');
     {% elsif fallback_url != blank %}
@@ -32,7 +38,7 @@
       {%- if section.settings.button_label != blank -%}
         <a
           href="{{ section.settings.button_link | default: '#' }}"
-          class="meke-hero__button"
+          class="{{ btn_class }}"
         >
           {{ section.settings.button_label }}
         </a>
@@ -46,7 +52,7 @@
     background-size: cover;
     background-position: center;
     display: flex;
-    align-items: flex-end;
+    align-items: var(--hero-align, flex-end);
     position: relative;
   }
 
@@ -61,7 +67,7 @@
     flex-direction: column;
     gap: 20px;
     max-width: 560px;
-    color: #ffffff;
+    color: var(--hero-text-color, #ffffff);
   }
 
   .meke-hero__stars {
@@ -76,7 +82,7 @@
     font-weight: 400;
     line-height: 1.05;
     margin: 0;
-    color: #ffffff;
+    color: var(--hero-text-color, #ffffff);
   }
 
   .meke-hero__subheading {
@@ -84,27 +90,6 @@
     line-height: 1.55;
     max-width: 400px;
     margin: 0;
-  }
-
-  .meke-hero__button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 28px;
-    border-radius: 50px;
-    background: rgba(210, 195, 228, 0.88);
-    color: #2a2020;
-    text-decoration: none;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    width: fit-content;
-    transition: background 0.2s ease;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-  }
-
-  .meke-hero__button:hover {
-    background: rgba(210, 195, 228, 1);
   }
 
   @media screen and (max-width: 749px) {
@@ -151,6 +136,12 @@
       "content": "Content"
     },
     {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
       "type": "text",
       "id": "star_rating",
       "label": "Star rating text",
@@ -184,8 +175,29 @@
       "label": "Link"
     },
     {
+      "type": "select",
+      "id": "button_style",
+      "label": "Style",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" }
+      ],
+      "default": "primary"
+    },
+    {
       "type": "header",
       "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Content position",
+      "options": [
+        { "value": "flex-start", "label": "Top" },
+        { "value": "center", "label": "Middle" },
+        { "value": "flex-end", "label": "Bottom" }
+      ],
+      "default": "flex-end"
     },
     {
       "type": "range",
