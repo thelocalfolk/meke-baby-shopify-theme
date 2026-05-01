@@ -977,14 +977,17 @@
         "video_testimonial_cYnGGJ": {
           "type": "video_testimonial",
           "settings": {
-            "caption": "This made our feeding routine so much easier.",
-            "name": "Sarah K.",
-            "location": "Mum of 2, Melbourne"
+            "video": "shopify://files/videos/tolstoy_87c2a764-53d5-4338-98b1-7b7993a0dc20.webm",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
           }
         },
         "video_testimonial_jHdiCw": {
           "type": "video_testimonial",
           "settings": {
+            "video_url": "",
             "caption": "Finally, something my baby actually enjoys.",
             "name": "James R.",
             "location": "Dad of 1, Sydney"
@@ -993,6 +996,7 @@
         "video_testimonial_W4mJkd": {
           "type": "video_testimonial",
           "settings": {
+            "video_url": "",
             "caption": "Clear instructions, consistent results.",
             "name": "Priya M.",
             "location": "Mum of 3, Brisbane"
@@ -1001,6 +1005,7 @@
         "video_testimonial_4c4dja": {
           "type": "video_testimonial",
           "settings": {
+            "video_url": "",
             "caption": "Worth every cent. The whole family feels it.",
             "name": "Tom & Anna",
             "location": "Parents, Perth"
@@ -1016,7 +1021,22 @@
       "name": "Video feedback carousel",
       "settings": {
         "heading": "Real feedback from real families",
+        "heading_type_preset": "h3",
+        "heading_font": "var(--font-heading--family)",
+        "heading_font_size": "2.5rem",
+        "heading_line_height": "tight",
+        "heading_letter_spacing": "normal",
+        "heading_case": "none",
+        "heading_color": "#735e51",
         "subheading": "Used in real routines, by parents who want clarity and consistency in how they feed.",
+        "subheading_type_preset": "paragraph",
+        "subheading_font": "var(--font-body--family)",
+        "subheading_font_size": "1rem",
+        "subheading_line_height": "normal",
+        "subheading_letter_spacing": "normal",
+        "subheading_case": "none",
+        "subheading_color": "#9c8474",
+        "text_alignment": "center",
         "section_width": "page-width",
         "columns": 4,
         "mobile_columns": "1",
