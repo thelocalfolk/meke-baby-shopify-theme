@@ -858,6 +858,118 @@
         "padding-block-start": 0,
         "padding-block-end": 100
       }
+    },
+    "category_grid_U8Br8F": {
+      "type": "category-grid",
+      "blocks": {
+        "card_CWGF9k": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "custom_link": "",
+            "title": "Feeding Systems",
+            "description": "A complete end-to-end approach to feeding with clarity at every step.",
+            "show_button": true,
+            "button_label": "Shop Now",
+            "text_position": "bottom-left",
+            "text_alignment": "inherit",
+            "use_text_color_override": false,
+            "text_color_override": "#FFFFFF",
+            "show_overlay": true,
+            "use_overlay_override": false,
+            "overlay_color_override": "#000000",
+            "overlay_opacity_override": 15
+          }
+        },
+        "card_qy9a9A": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "custom_link": "",
+            "title": "Milk Warmers",
+            "description": "Precision-designed for consistent, reliable feeding.",
+            "show_button": true,
+            "button_label": "Shop Now",
+            "text_position": "bottom-left",
+            "text_alignment": "inherit",
+            "use_text_color_override": false,
+            "text_color_override": "#FFFFFF",
+            "show_overlay": true,
+            "use_overlay_override": false,
+            "overlay_color_override": "#000000",
+            "overlay_opacity_override": 15
+          }
+        },
+        "card_MgCrw3": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "custom_link": "",
+            "title": "On-the-Go Essentials",
+            "description": "Built to maintain standards when starting solids.",
+            "show_button": true,
+            "button_label": "Shop Now",
+            "text_position": "bottom-left",
+            "text_alignment": "inherit",
+            "use_text_color_override": false,
+            "text_color_override": "#FFFFFF",
+            "show_overlay": true,
+            "use_overlay_override": false,
+            "overlay_color_override": "#000000",
+            "overlay_opacity_override": 15
+          }
+        },
+        "card_YikQ3B": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "custom_link": "",
+            "title": "Storage & Prep",
+            "description": "Clear, safe storage and cleaning solutions designed for real-life use.",
+            "show_button": true,
+            "button_label": "Shop Now",
+            "text_position": "bottom-left",
+            "text_alignment": "inherit",
+            "use_text_color_override": false,
+            "text_color_override": "#FFFFFF",
+            "show_overlay": true,
+            "use_overlay_override": false,
+            "overlay_color_override": "#000000",
+            "overlay_opacity_override": 15
+          }
+        }
+      },
+      "block_order": [
+        "card_CWGF9k",
+        "card_qy9a9A",
+        "card_MgCrw3",
+        "card_YikQ3B"
+      ],
+      "name": "Category Grid",
+      "settings": {
+        "section_heading": "",
+        "section_subheading": "",
+        "heading_alignment": "left",
+        "section_width": "page-width",
+        "columns_desktop": 2,
+        "columns_mobile": "1",
+        "grid_gap": 16,
+        "grid_gap_mobile": 12,
+        "card_radius": 12,
+        "card_aspect_ratio": "16/9",
+        "card_aspect_ratio_mobile": "4/3",
+        "text_color": "#FFFFFF",
+        "text_alignment": "left",
+        "text_padding": 32,
+        "overlay_color": "#000000",
+        "overlay_opacity": 15,
+        "button_background": "#928076",
+        "button_text_color": "#FFFFFF",
+        "button_radius": 50,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
     }
   },
   "order": [
@@ -865,6 +977,7 @@
     "section_GnUWHg",
     "product_list_PaTrKA",
     "section_wmnq9j",
-    "section_gijhtr"
+    "section_gijhtr",
+    "category_grid_U8Br8F"
   ]
 }
