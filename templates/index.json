@@ -874,7 +874,7 @@
             "text_position": "bottom-left",
             "text_alignment": "inherit",
             "use_text_color_override": false,
-            "text_color_override": "#FFFFFF",
+            "text_color_override": "#ffffff",
             "show_overlay": true,
             "use_overlay_override": false,
             "overlay_color_override": "#000000",
@@ -893,7 +893,7 @@
             "text_position": "bottom-left",
             "text_alignment": "inherit",
             "use_text_color_override": false,
-            "text_color_override": "#FFFFFF",
+            "text_color_override": "#ffffff",
             "show_overlay": true,
             "use_overlay_override": false,
             "overlay_color_override": "#000000",
@@ -912,7 +912,7 @@
             "text_position": "bottom-left",
             "text_alignment": "inherit",
             "use_text_color_override": false,
-            "text_color_override": "#FFFFFF",
+            "text_color_override": "#ffffff",
             "show_overlay": true,
             "use_overlay_override": false,
             "overlay_color_override": "#000000",
@@ -931,7 +931,7 @@
             "text_position": "bottom-left",
             "text_alignment": "inherit",
             "use_text_color_override": false,
-            "text_color_override": "#FFFFFF",
+            "text_color_override": "#ffffff",
             "show_overlay": true,
             "use_overlay_override": false,
             "overlay_color_override": "#000000",
@@ -958,17 +958,80 @@
         "card_radius": 12,
         "card_aspect_ratio": "16/9",
         "card_aspect_ratio_mobile": "4/3",
-        "text_color": "#FFFFFF",
+        "text_color": "#ffffff",
         "text_alignment": "left",
         "text_padding": 32,
         "overlay_color": "#000000",
         "overlay_opacity": 15,
         "button_background": "#928076",
-        "button_text_color": "#FFFFFF",
+        "button_text_color": "#ffffff",
         "button_radius": 50,
         "color_scheme": "scheme-2",
         "padding-block-start": 40,
         "padding-block-end": 40
+      }
+    },
+    "video_feedback_carousel_VwrJbW": {
+      "type": "video-feedback-carousel",
+      "blocks": {
+        "video_testimonial_cYnGGJ": {
+          "type": "video_testimonial",
+          "settings": {
+            "caption": "This made our feeding routine so much easier.",
+            "name": "Sarah K.",
+            "location": "Mum of 2, Melbourne"
+          }
+        },
+        "video_testimonial_jHdiCw": {
+          "type": "video_testimonial",
+          "settings": {
+            "caption": "Finally, something my baby actually enjoys.",
+            "name": "James R.",
+            "location": "Dad of 1, Sydney"
+          }
+        },
+        "video_testimonial_W4mJkd": {
+          "type": "video_testimonial",
+          "settings": {
+            "caption": "Clear instructions, consistent results.",
+            "name": "Priya M.",
+            "location": "Mum of 3, Brisbane"
+          }
+        },
+        "video_testimonial_4c4dja": {
+          "type": "video_testimonial",
+          "settings": {
+            "caption": "Worth every cent. The whole family feels it.",
+            "name": "Tom & Anna",
+            "location": "Parents, Perth"
+          }
+        }
+      },
+      "block_order": [
+        "video_testimonial_cYnGGJ",
+        "video_testimonial_jHdiCw",
+        "video_testimonial_W4mJkd",
+        "video_testimonial_4c4dja"
+      ],
+      "name": "Video feedback carousel",
+      "settings": {
+        "heading": "Real feedback from real families",
+        "subheading": "Used in real routines, by parents who want clarity and consistency in how they feed.",
+        "section_width": "page-width",
+        "columns": 4,
+        "mobile_columns": "1",
+        "columns_gap": 16,
+        "aspect_ratio": "9 / 16",
+        "card_radius": 12,
+        "autoplay": false,
+        "loop": true,
+        "hide_controls": false,
+        "icons_style": "chevron",
+        "icons_shape": "none",
+        "infinite": false,
+        "color_scheme": "",
+        "padding-block-start": 64,
+        "padding-block-end": 64
       }
     }
   },
@@ -978,6 +1041,7 @@
     "product_list_PaTrKA",
     "section_wmnq9j",
     "section_gijhtr",
-    "category_grid_U8Br8F"
+    "category_grid_U8Br8F",
+    "video_feedback_carousel_VwrJbW"
   ]
 }
