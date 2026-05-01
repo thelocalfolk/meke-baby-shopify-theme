@@ -1,0 +1,579 @@
+{%- liquid
+  assign section_settings = section.settings
+  assign blocks = section.blocks
+  assign block_count = blocks.size
+
+  if section_settings.section_width == 'page-width'
+    assign slideshow_gutters = 'start end'
+    assign gutter_style = '--gutter-slide-width: var(--util-page-margin-offset);'
+  else
+    assign slideshow_gutters = null
+    assign gutter_style = '--gutter-slide-width: 0px;'
+  endif
+
+  assign show_arrows = false
+  if section_settings.icons_style != 'none'
+    assign show_arrows = true
+  endif
+-%}
+
+<div class="section-background color-{{ section_settings.color_scheme }}"></div>
+
+<div
+  class="
+    section
+    section--{{ section_settings.section_width }}
+    color-{{ section_settings.color_scheme }}
+    section-video-feedback
+    spacing-style
+  "
+  style="
+    {% render 'spacing-style', settings: section_settings %}
+    --vfc-columns-desktop: {{ section_settings.columns }};
+    --vfc-columns-mobile: {{ section_settings.mobile_columns }};
+    --vfc-gap: {{ section_settings.columns_gap }}px;
+    --vfc-card-radius: {{ section_settings.card_radius }}px;
+    --vfc-aspect-ratio: {{ section_settings.aspect_ratio }};
+  "
+  data-testid="video-feedback-carousel"
+>
+  {%- if section_settings.heading != blank or section_settings.subheading != blank -%}
+    <header class="video-feedback__header text-center">
+      {%- if section_settings.heading != blank -%}
+        <h2 class="video-feedback__heading h2">{{ section_settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section_settings.subheading != blank -%}
+        <p class="video-feedback__subheading">{{ section_settings.subheading }}</p>
+      {%- endif -%}
+    </header>
+  {%- endif -%}
+
+  {%- if block_count > 0 -%}
+    {%- capture slides -%}
+      {%- for block in blocks -%}
+        {%- liquid
+          assign b = block.settings
+          assign has_video = false
+          if b.video != blank
+            assign has_video = true
+          elsif b.video_url != blank
+            assign has_video = true
+          endif
+        -%}
+        {%- capture slide_inner -%}
+          <article class="vfc-card" {{ block.shopify_attributes }}>
+            <div class="vfc-card__media">
+              {%- if has_video -%}
+                {%- if b.video != blank -%}
+                  {%- comment -%} Native Shopify video object {%- endcomment -%}
+                  {%- render 'video',
+                    video: b.video,
+                    video_autoplay: section_settings.autoplay,
+                    video_loop: section_settings.loop,
+                    video_class: 'vfc-card__video',
+                    video_preview_image: b.cover_image | default: b.video.preview_image,
+                    disable_controls: section_settings.hide_controls
+                  -%}
+                {%- elsif b.video_url != blank -%}
+                  {%- comment -%} External URL (YouTube / Vimeo) {%- endcomment -%}
+                  {%- render 'video',
+                    video_from_url: true,
+                    video: b.video_url.id,
+                    video_type: b.video_url.type,
+                    video_autoplay: section_settings.autoplay,
+                    video_loop: section_settings.loop,
+                    video_class: 'vfc-card__video',
+                    video_preview_image: b.cover_image,
+                    video_alt: b.name,
+                    disable_controls: section_settings.hide_controls
+                  -%}
+                {%- endif -%}
+              {%- else -%}
+                {%- comment -%} Placeholder for the theme editor {%- endcomment -%}
+                <div class="vfc-card__placeholder">
+                  {{ 'lifestyle-1' | placeholder_svg_tag: 'vfc-card__placeholder-svg' }}
+                </div>
+              {%- endif -%}
+            </div>
+
+            {%- if b.name != blank or b.location != blank or b.caption != blank -%}
+              <div class="vfc-card__content">
+                {%- if b.caption != blank -%}
+                  <p class="vfc-card__caption">{{ b.caption }}</p>
+                {%- endif -%}
+                {%- if b.name != blank -%}
+                  <p class="vfc-card__name">{{ b.name }}</p>
+                {%- endif -%}
+                {%- if b.location != blank -%}
+                  <p class="vfc-card__location">{{ b.location }}</p>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </article>
+        {%- endcapture -%}
+
+        {%- render 'slideshow-slide',
+          index: forloop.index0,
+          children: slide_inner,
+          class: 'vfc-slide'
+        -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+
+    <div
+      class="vfc-carousel-wrap"
+      style="{{ gutter_style }}"
+    >
+      {%- render 'slideshow',
+        ref: 'videoFeedbackCarousel',
+        class: 'vfc-carousel',
+        slides: slides,
+        slide_count: block_count,
+        show_arrows: show_arrows,
+        icon_style: section_settings.icons_style,
+        icon_shape: section_settings.icons_shape,
+        auto_hide_controls: false,
+        infinite: section_settings.infinite,
+        initial_slide: 0,
+        slideshow_gutters: slideshow_gutters
+      -%}
+    </div>
+  {%- else -%}
+    <p class="vfc-empty">{{ 'onboarding.no_content' | t: default: 'Add testimonial blocks to get started.' }}</p>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .section-video-feedback {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-lg, 32px);
+  }
+
+  .video-feedback__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm, 12px);
+    align-items: center;
+    text-align: center;
+    padding-inline: var(--page-margin, 16px);
+  }
+
+  .video-feedback__heading {
+    margin: 0;
+  }
+
+  .video-feedback__subheading {
+    margin: 0;
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text, 0.7));
+    max-width: 60ch;
+  }
+
+  /* Carousel wrapper */
+  .vfc-carousel-wrap {
+    width: 100%;
+    position: relative;
+    container-type: inline-size;
+    container-name: video-feedback-carousel;
+  }
+
+  .vfc-carousel {
+    --slide-width: clamp(220px, 70vw, 360px);
+    width: 100%;
+    position: relative;
+  }
+
+  .vfc-carousel slideshow-slides {
+    gap: var(--vfc-gap);
+    padding-block: 8px;
+  }
+
+  .vfc-slide {
+    width: var(--slide-width);
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+
+  /* Desktop: size slides based on column count */
+  @container video-feedback-carousel (min-width: 750px) {
+    .vfc-carousel .vfc-slide {
+      --slide-width: calc(
+        (100% - (var(--vfc-gap) * (var(--vfc-columns-desktop) - 1))) /
+          var(--vfc-columns-desktop)
+      );
+    }
+  }
+
+  /* Mobile column behaviour */
+  @container video-feedback-carousel (max-width: 749px) {
+    .vfc-carousel .vfc-slide {
+      --slide-width: calc(
+        (100% - (var(--vfc-gap) * (var(--vfc-columns-mobile) - 1)) - 32px) /
+          var(--vfc-columns-mobile)
+      );
+    }
+  }
+
+  /* Card */
+  .vfc-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .vfc-card__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: var(--vfc-aspect-ratio, 9 / 16);
+    border-radius: var(--vfc-card-radius, 12px);
+    overflow: hidden;
+    background-color: rgb(var(--color-foreground-rgb) / 0.05);
+  }
+
+  .vfc-card__video,
+  .vfc-card__media video,
+  .vfc-card__media iframe,
+  .vfc-card__media deferred-media,
+  .vfc-card__media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    border-radius: inherit;
+    display: block;
+  }
+
+  .vfc-card__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vfc-card__placeholder-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+
+  .vfc-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-inline: 4px;
+  }
+
+  .vfc-card__caption {
+    font-size: var(--font-paragraph-size, 1rem);
+    margin: 0 0 4px;
+  }
+
+  .vfc-card__name {
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .vfc-card__location {
+    margin: 0;
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text, 0.7));
+    font-size: 0.875em;
+  }
+
+  .vfc-empty {
+    text-align: center;
+    padding: 48px 16px;
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text, 0.6));
+  }
+
+  /* Hide arrows when at boundaries (Horizon already handles the disabled state) */
+  .vfc-carousel slideshow-arrows {
+    padding-inline: var(--util-page-margin-offset);
+  }
+
+  .vfc-carousel .slideshow-control[disabled] {
+    opacity: 0.3;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Video feedback carousel",
+  "tag": "section",
+  "class": "section-video-feedback-wrapper",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real feedback from real families"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Used in real routines, by parents who want clarity and consistency in how they feed."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns on desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Columns on mobile",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "Gap between cards",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Card aspect ratio",
+      "options": [
+        { "value": "9 / 16", "label": "Portrait (9:16)" },
+        { "value": "3 / 4", "label": "Tall (3:4)" },
+        { "value": "1", "label": "Square (1:1)" },
+        { "value": "4 / 5", "label": "Reels (4:5)" },
+        { "value": "16 / 9", "label": "Landscape (16:9)" }
+      ],
+      "default": "9 / 16"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Video playback"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay videos",
+      "info": "Videos will be muted when autoplaying.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop videos",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_controls",
+      "label": "Hide playback controls",
+      "info": "Only the play/pause button will be available.",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Carousel navigation"
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "Arrow style",
+      "options": [
+        { "value": "arrow", "label": "Arrows" },
+        { "value": "chevron", "label": "Chevrons" },
+        { "value": "arrows_large", "label": "Large arrows" },
+        { "value": "chevron_large", "label": "Large chevrons" },
+        { "value": "none", "label": "None" }
+      ],
+      "default": "chevron"
+    },
+    {
+      "type": "select",
+      "id": "icons_shape",
+      "label": "Arrow background",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "circle", "label": "Circle" },
+        { "value": "square", "label": "Square" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.icons_style != 'none' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "infinite",
+      "label": "Loop carousel",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video_testimonial",
+      "name": "Video testimonial",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Video"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Upload an MP4 to your Shopify Files. Leave blank to use an external URL below."
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "External video URL",
+          "accept": ["youtube", "vimeo"],
+          "info": "Used only if no video is uploaded above."
+        },
+        {
+          "type": "image_picker",
+          "id": "cover_image",
+          "label": "Cover image",
+          "info": "Optional. Shown before the video plays. Falls back to the video's own preview frame."
+        },
+        {
+          "type": "header",
+          "content": "Caption"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Quote / caption"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer name"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location or role",
+          "info": "e.g. \"Mum of 2, Melbourne\""
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Video feedback carousel",
+      "blocks": [
+        {
+          "type": "video_testimonial",
+          "settings": {
+            "caption": "This made our feeding routine so much easier.",
+            "name": "Sarah K.",
+            "location": "Mum of 2, Melbourne"
+          }
+        },
+        {
+          "type": "video_testimonial",
+          "settings": {
+            "caption": "Finally, something my baby actually enjoys.",
+            "name": "James R.",
+            "location": "Dad of 1, Sydney"
+          }
+        },
+        {
+          "type": "video_testimonial",
+          "settings": {
+            "caption": "Clear instructions, consistent results.",
+            "name": "Priya M.",
+            "location": "Mum of 3, Brisbane"
+          }
+        },
+        {
+          "type": "video_testimonial",
+          "settings": {
+            "caption": "Worth every cent. The whole family feels it.",
+            "name": "Tom & Anna",
+            "location": "Parents, Perth"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
