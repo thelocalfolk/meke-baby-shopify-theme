@@ -35,6 +35,8 @@
     --bss-vertical-align: {{ section.settings.vertical_alignment }};
     --bss-body-size: {{ section.settings.body_size }}px;
     --bss-image-aspect: {{ aspect_value }};
+    --bss-button-padding-x: {{ section.settings.button_padding_x }}px;
+    --bss-button-padding-y: {{ section.settings.button_padding_y }}px;
   "
 >
   <div class="brand-story-split__grid">
@@ -56,7 +58,7 @@
 
         {%- if section.settings.button_label != blank -%}
           <div class="brand-story-split__cta">
-            <a href="{{ section.settings.button_link | default: '#' }}" class="{{ btn_class }}">{{ section.settings.button_label | escape }}</a>
+            <a href="{{ section.settings.button_link | default: '#' }}" class="{{ btn_class }} brand-story-split__button">{{ section.settings.button_label | escape }}</a>
           </div>
         {%- endif -%}
       </div>
@@ -146,6 +148,11 @@
 
   .brand-story-split__cta {
     margin-block-start: 8px;
+  }
+
+  .brand-story-split__button {
+    padding-inline: var(--bss-button-padding-x, 32px);
+    padding-block: var(--bss-button-padding-y, 14px);
   }
 
   .brand-story-split__image-col {
@@ -338,6 +345,20 @@
         { "value": "secondary", "label": "Secondary" }
       ],
       "default": "primary"
+    },
+    {
+      "type": "range",
+      "id": "button_padding_x",
+      "label": "Button horizontal padding",
+      "min": 12, "max": 80, "step": 1,
+      "default": 32, "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_padding_y",
+      "label": "Button vertical padding",
+      "min": 8, "max": 40, "step": 1,
+      "default": 14, "unit": "px"
     },
     {
       "type": "header",
