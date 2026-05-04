@@ -4213,3 +4213,13 @@ product-recommendations:has([data-has-recommendations='false']) {
     translate: 0px var(--atc-destination, 0px);
   }
 }
+
+
+/* Round the corners on featured blog post carousel images */
+.featured-blog-posts .featured-blog-posts-card__image,
+.featured-blog-posts .featured-blog-posts-card__image .resource-image__image,
+.featured-blog-posts .featured-blog-posts-card__image img,
+.featured-blog-posts .blog-placeholder-svg {
+  border-radius: 16px;
+  overflow: hidden;
+}
