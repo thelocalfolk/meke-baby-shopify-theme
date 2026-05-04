@@ -1,0 +1,466 @@
+{% comment %}
+  Section: Feature Cards Carousel
+  Horizontally scrollable grid of tall image cards with pill label (top-left),
+  large overlay heading and body text (bottom). Desktop: 3 cards side-by-side.
+  Mobile: touch-scrollable single-card view with peek.
+  Built for the Mekè Baby Horizon theme — matches meke-baby-hero conventions.
+{% endcomment %}
+
+{%- liquid
+  assign block_count = section.blocks.size
+-%}
+
+<div
+  id="FeatureCardsCarousel-{{ section.id }}"
+  class="feature-cards-carousel color-{{ section.settings.color_scheme }}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    --fcc-card-height: {{ section.settings.card_height }}px;
+    --fcc-card-radius: {{ section.settings.card_border_radius }}px;
+    --fcc-label-bg: {{ section.settings.label_bg }};
+    --fcc-label-color: {{ section.settings.label_color }};
+    --fcc-card-heading-color: {{ section.settings.card_heading_color }};
+    --fcc-card-body-color: {{ section.settings.card_body_color }};
+    --fcc-heading-size: {{ section.settings.heading_size }}px;
+    --fcc-block-count: {{ block_count }};
+  "
+>
+  <div class="feature-cards-carousel__inner page-width">
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="feature-cards-carousel__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="feature-cards-carousel__track" role="list">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'card' -%}
+            <div
+              class="feature-cards-carousel__card"
+              role="listitem"
+              style="--fcc-block-heading-size: {{ block.settings.heading_size }}px;"
+              {{ block.shopify_attributes }}
+            >
+              {%- if block.settings.link != blank -%}
+                <a class="feature-cards-carousel__card-link" href="{{ block.settings.link }}" aria-label="{{ block.settings.heading | escape }}">
+              {%- endif -%}
+
+              <div class="feature-cards-carousel__card-image">
+                {%- if block.settings.image != blank -%}
+                  {%- assign card_alt = block.settings.heading | escape -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 900
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '400,600,900',
+                      sizes: '(max-width: 749px) 85vw, 33vw',
+                      alt: card_alt,
+                      class: 'feature-cards-carousel__img'
+                  }}
+                {%- else -%}
+                  {{ 'lifestyle-1' | placeholder_svg_tag: 'feature-cards-carousel__img feature-cards-carousel__img--placeholder' }}
+                {%- endif -%}
+              </div>
+
+              <div class="feature-cards-carousel__overlay" aria-hidden="true"></div>
+
+              <div class="feature-cards-carousel__card-content">
+                {%- if block.settings.label != blank -%}
+                  <span class="feature-cards-carousel__label">{{ block.settings.label | escape }}</span>
+                {%- endif -%}
+
+                <div class="feature-cards-carousel__card-text">
+                  {%- if block.settings.heading != blank -%}
+                    <p class="feature-cards-carousel__card-heading">{{ block.settings.heading | escape }}</p>
+                  {%- endif -%}
+                  {%- if block.settings.body != blank -%}
+                    <p class="feature-cards-carousel__card-body">{{ block.settings.body | escape }}</p>
+                  {%- endif -%}
+                </div>
+              </div>
+
+              {%- if block.settings.link != blank -%}
+                </a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% stylesheet %}
+  .feature-cards-carousel {
+    box-sizing: border-box;
+  }
+
+  .feature-cards-carousel__inner {
+    padding-inline: max(2rem, 5vw);
+  }
+
+  /* Section heading */
+  .feature-cards-carousel__heading {
+    font-family: var(--font-public-sans--family);
+    font-size: var(--fcc-heading-size, 24px);
+    font-weight: 400;
+    color: rgb(var(--color-foreground-heading));
+    margin: 0 0 24px;
+    line-height: 1.2;
+  }
+
+  /* Scrollable track */
+  .feature-cards-carousel__track {
+    display: grid;
+    grid-template-columns: repeat(var(--fcc-block-count, 3), 1fr);
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .feature-cards-carousel__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Card */
+  .feature-cards-carousel__card {
+    position: relative;
+    height: var(--fcc-card-height, 580px);
+    border-radius: var(--fcc-card-radius, 12px);
+    overflow: hidden;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    min-width: 0;
+  }
+
+  /* Linked card — reset anchor styles */
+  .feature-cards-carousel__card-link {
+    display: contents;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Background image */
+  .feature-cards-carousel__card-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .feature-cards-carousel__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .feature-cards-carousel__img--placeholder {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Gradient overlay */
+  .feature-cards-carousel__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      transparent 25%,
+      rgba(0, 0, 0, 0.15) 55%,
+      rgba(0, 0, 0, 0.70) 100%
+    );
+  }
+
+  /* Content layer */
+  .feature-cards-carousel__card-content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  /* Pill label */
+  .feature-cards-carousel__label {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: var(--fcc-label-bg, #F0EFED);
+    color: var(--fcc-label-color, #1a1a1a);
+    font-family: var(--font-public-sans--family);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    padding: 7px 16px;
+    border-radius: 100px;
+    line-height: 1;
+  }
+
+  /* Bottom text block */
+  .feature-cards-carousel__card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .feature-cards-carousel__card-heading {
+    margin: 0;
+    font-family: var(--font-public-sans--family);
+    font-size: var(--fcc-block-heading-size, 32px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--fcc-card-heading-color, #ffffff);
+  }
+
+  .feature-cards-carousel__card-body {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--fcc-card-body-color, rgba(255, 255, 255, 0.80));
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 749px) {
+    .feature-cards-carousel {
+      padding-top: {{ section.settings.mobile_padding_top }}px !important;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px !important;
+    }
+
+    .feature-cards-carousel__inner {
+      padding-inline: 0;
+    }
+
+    .feature-cards-carousel__heading {
+      padding-inline: 1.25rem;
+      margin-bottom: 16px;
+    }
+
+    .feature-cards-carousel__track {
+      grid-template-columns: repeat(var(--fcc-block-count, 3), 85vw);
+      padding-inline: 1.25rem;
+      gap: 12px;
+    }
+
+    .feature-cards-carousel__card {
+      height: 500px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .feature-cards-carousel__track {
+      scroll-behavior: auto;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Feature Cards Carousel",
+  "tag": "section",
+  "class": "feature-cards-section-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "Why parents choose Mekè Baby"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 16,
+      "max": 48,
+      "step": 1,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Card appearance"
+    },
+    {
+      "type": "range",
+      "id": "card_height",
+      "label": "Card height (desktop)",
+      "min": 300,
+      "max": 800,
+      "step": 20,
+      "default": 580,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "label_bg",
+      "label": "Pill label background",
+      "default": "#F0EFED"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Pill label text colour",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "card_heading_color",
+      "label": "Card heading colour",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_body_color",
+      "label": "Card body text colour",
+      "default": "#ffffffcc"
+    },
+    {
+      "type": "header",
+      "content": "Layout & Spacing"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Top padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Bottom padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Feature card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Pill label",
+          "default": "Feature"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Card heading",
+          "default": "Your compelling headline here"
+        },
+        {
+          "type": "range",
+          "id": "heading_size",
+          "label": "Card heading size",
+          "min": 18,
+          "max": 60,
+          "step": 1,
+          "default": 32,
+          "unit": "px"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Card body text",
+          "default": "Short supporting description that adds context to the heading above."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Card link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature Cards Carousel",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "label": "Remove the uncertainty",
+            "heading": "Go anywhere, without the anxiety",
+            "body": "The café, the car. 3am feed, a date night, a flight. This is the product that removes feeding from your list of things that could go wrong."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "label": "Material integrity",
+            "heading": "Made with medical-grade stainless steel",
+            "body": "Five-layer, microplastic, BPA & PFAS free medical-grade stainless steel for superior thermal performance and purity."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "label": "A better alternative",
+            "heading": "No thermos. No microwave workarounds.",
+            "body": "Replaces inconsistent heating methods with a single, consistent process that works the same way, every time."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
