@@ -1,0 +1,339 @@
+<script
+  src="{{ 'marquee.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<div
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} award-marquee spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  {%- if section.settings.heading != blank -%}
+    <div class="award-marquee__heading-wrapper">
+      <{{ section.settings.heading_tag }} class="award-marquee__heading">
+        {{ section.settings.heading | escape }}
+      </{{ section.settings.heading_tag }}>
+    </div>
+  {%- endif -%}
+
+  <marquee-component
+    class="award-marquee__track gap-style"
+    style="
+      {% render 'gap-style', value: section.settings.gap_between_logos, name: 'marquee-gap' %}
+      --marquee-direction: {{ section.settings.movement_direction }};
+      --award-logo-height: {{ section.settings.logo_height }}px;
+      --award-logo-height-mobile: {{ section.settings.logo_height_mobile }}px;
+    "
+    data-speed-factor="{{ section.settings.speed }}"
+    data-movement-direction="{{ section.settings.movement_direction }}"
+  >
+    <div class="marquee__wrapper" ref="wrapper">
+      <div class="marquee__content" ref="content">
+        <div class="marquee__repeated-items" ref="marqueeItems[]">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'award_logo' -%}
+              {%- assign logo_img = block.settings.image -%}
+              {%- if logo_img != blank -%}
+                <div class="award-logo-item" {{ block.shopify_attributes }}>
+                  {%- if block.settings.link != blank -%}
+                    <a href="{{ block.settings.link }}" class="award-logo-item__link" aria-label="{{ block.settings.alt_text | default: 'Award logo' | escape }}">
+                  {%- endif -%}
+                  {{
+                    logo_img
+                    | image_url: width: 400
+                    | image_tag:
+                      class: 'award-logo-item__image',
+                      alt: block.settings.alt_text | default: logo_img.alt | default: 'Award logo',
+                      loading: 'lazy',
+                      widths: '100, 150, 200, 300, 400'
+                  }}
+                  {%- if block.settings.link != blank -%}
+                    </a>
+                  {%- endif -%}
+                </div>
+              {%- else -%}
+                {%- comment -%} Placeholder in theme editor when no image is set {%- endcomment -%}
+                <div class="award-logo-item award-logo-item--placeholder" {{ block.shopify_attributes }}>
+                  <div class="award-logo-item__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </marquee-component>
+</div>
+
+{% stylesheet %}
+  .award-marquee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap, 20px);
+    overflow: hidden;
+  }
+
+  .award-marquee__heading-wrapper {
+    text-align: center;
+    width: 100%;
+  }
+
+  .award-marquee__heading {
+    margin: 0;
+  }
+
+  /* Marquee track */
+  .award-marquee__track {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .marquee__wrapper {
+    display: flex;
+    gap: var(--marquee-gap, 40px);
+    width: fit-content;
+    white-space: nowrap;
+  }
+
+  .marquee__content {
+    min-width: max-content;
+    display: flex;
+    gap: var(--marquee-gap, 40px);
+  }
+
+  .marquee__repeated-items {
+    min-width: max-content;
+    display: flex;
+    gap: var(--marquee-gap, 40px);
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    marquee-component:not([data-disabled]) .marquee__wrapper {
+      animation: marquee-motion var(--marquee-speed) linear infinite var(--marquee-direction);
+    }
+  }
+
+  @keyframes marquee-motion {
+    to {
+      transform: translate3d(calc(-50% - (var(--marquee-gap, 40px) / 2)), 0, 0);
+    }
+  }
+
+  /* Individual logo items */
+  .award-logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .award-logo-item__link {
+    display: flex;
+    align-items: center;
+  }
+
+  .award-logo-item__image {
+    height: var(--award-logo-height, 80px);
+    width: auto;
+    object-fit: contain;
+    display: block;
+
+    @media screen and (max-width: 749px) {
+      height: var(--award-logo-height-mobile, 60px);
+    }
+  }
+
+  .award-logo-item--placeholder {
+    height: var(--award-logo-height, 80px);
+    width: var(--award-logo-height, 80px);
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+  }
+
+  .award-logo-item__placeholder {
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+  }
+
+  .award-logo-item__placeholder svg {
+    width: 100%;
+    height: 100%;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Award Logo Marquee",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "blocks": [
+    {
+      "type": "award_logo",
+      "name": "Award Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Award badge image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt text",
+          "info": "Describe the award for accessibility"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Multi award winning"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading HTML tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "p",  "label": "Paragraph" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "header",
+      "content": "Logo size"
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "label": "Logo height (desktop)",
+      "min": 40,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "logo_height_mobile",
+      "label": "Logo height (mobile)",
+      "min": 30,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Marquee behaviour"
+    },
+    {
+      "type": "select",
+      "id": "movement_direction",
+      "label": "Scroll direction",
+      "options": [
+        { "value": "reverse", "label": "Left (forward)" },
+        { "value": "normal",  "label": "Right (reverse)" }
+      ],
+      "default": "reverse"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Speed",
+      "info": "Higher = faster",
+      "min": 5,
+      "max": 80,
+      "step": 5,
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "gap_between_logos",
+      "label": "Gap between logos",
+      "min": 8,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "full-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    }
+  ],
+  "presets": [
+    {
+      "name": "Award Logo Marquee",
+      "category": "Brand",
+      "blocks": {
+        "logo_1": { "type": "award_logo" },
+        "logo_2": { "type": "award_logo" },
+        "logo_3": { "type": "award_logo" },
+        "logo_4": { "type": "award_logo" },
+        "logo_5": { "type": "award_logo" }
+      },
+      "block_order": ["logo_1", "logo_2", "logo_3", "logo_4", "logo_5"]
+    }
+  ]
+}
+{% endschema %}
