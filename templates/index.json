@@ -1221,14 +1221,14 @@
         "heading_line_height": "tight",
         "heading_letter_spacing": "normal",
         "heading_case": "none",
-        "heading_color": "#1a1a1a",
+        "heading_color": "#928076",
         "card_width": 380,
         "card_height": 580,
         "card_gap": 16,
         "card_border_radius": 12,
         "label_size": 13,
         "section_width": "full-width",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "padding-block-start": 64,
         "padding-block-end": 64
       }
