@@ -1635,6 +1635,8 @@
         "button_label": "About Us",
         "button_link": "",
         "button_style": "primary",
+        "button_padding_x": 41,
+        "button_padding_y": 14,
         "image": "shopify://shop_images/Rectangle_9.png",
         "image_aspect_ratio": "natural",
         "padding_top": 0,
