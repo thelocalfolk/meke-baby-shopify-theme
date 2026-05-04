@@ -103,46 +103,86 @@
       {%- for block in blocks -%}
         {%- liquid
           assign b = block.settings
-          assign has_video = false
+          assign has_uploaded = false
+          assign has_url = false
           if b.video != blank
-            assign has_video = true
+            assign has_uploaded = true
           elsif b.video_url != blank
-            assign has_video = true
+            assign has_url = true
           endif
+
+          # Pick a poster image. Prefer the merchant's cover image, fall back to the video's own preview frame.
+          assign poster_image = b.cover_image | default: b.video.preview_image
         -%}
         {%- capture slide_inner -%}
-          <article class="vfc-card" {{ block.shopify_attributes }}>
+          <article class="vfc-card" data-vfc-card data-vfc-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
             <div class="vfc-card__media">
-              {%- if has_video -%}
-                {%- if b.video != blank -%}
-                  {%- comment -%} Native Shopify video object {%- endcomment -%}
-                  {%- render 'video',
-                    video: b.video,
-                    video_autoplay: section_settings.autoplay,
-                    video_loop: section_settings.loop,
-                    video_class: 'vfc-card__video',
-                    video_preview_image: b.cover_image | default: b.video.preview_image,
-                    disable_controls: section_settings.hide_controls
-                  -%}
-                {%- elsif b.video_url != blank -%}
-                  {%- comment -%} External URL (YouTube / Vimeo) {%- endcomment -%}
-                  {%- render 'video',
-                    video_from_url: true,
-                    video: b.video_url.id,
-                    video_type: b.video_url.type,
-                    video_autoplay: section_settings.autoplay,
-                    video_loop: section_settings.loop,
-                    video_class: 'vfc-card__video',
-                    video_preview_image: b.cover_image,
-                    video_alt: b.name,
-                    disable_controls: section_settings.hide_controls
-                  -%}
-                {%- endif -%}
+              {%- if has_uploaded -%}
+                {%- comment -%}
+                  Render <video> directly (not via deferred-media) so we can play/pause it
+                  programmatically the moment it becomes the centered slide.
+                {%- endcomment -%}
+                <video
+                  class="vfc-card__video"
+                  data-vfc-video
+                  playsinline
+                  muted
+                  {% if section_settings.loop_videos %}loop{% endif %}
+                  {% unless section_settings.center_play %}controls{% endunless %}
+                  preload="metadata"
+                  {% if poster_image != blank %}
+                    poster="{{ poster_image | image_url: width: 1200 }}"
+                  {% endif %}
+                >
+                  {%- for source in b.video.sources -%}
+                    <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                  {%- endfor -%}
+                </video>
+              {%- elsif has_url -%}
+                {%- comment -%}
+                  External videos (YouTube/Vimeo): keep deferred-media because we can't
+                  reliably autoplay-with-sound through cross-origin iframes.
+                {%- endcomment -%}
+                {%- render 'video',
+                  video_from_url: true,
+                  video: b.video_url.id,
+                  video_type: b.video_url.type,
+                  video_autoplay: false,
+                  video_loop: section_settings.loop_videos,
+                  video_class: 'vfc-card__video vfc-card__video--external',
+                  video_preview_image: b.cover_image,
+                  video_alt: b.name
+                -%}
               {%- else -%}
-                {%- comment -%} Placeholder for the theme editor {%- endcomment -%}
                 <div class="vfc-card__placeholder">
                   {{ 'lifestyle-1' | placeholder_svg_tag: 'vfc-card__placeholder-svg' }}
                 </div>
+              {%- endif -%}
+
+              {%- if has_uploaded and section_settings.center_play -%}
+                {%- comment -%} Mute toggle - shown only on the centered card via CSS {%- endcomment -%}
+                <button
+                  type="button"
+                  class="vfc-card__mute-toggle"
+                  data-vfc-mute-toggle
+                  aria-label="{{ 'accessibility.toggle_audio' | t: default: 'Toggle audio' }}"
+                  aria-pressed="true"
+                >
+                  <span class="vfc-card__mute-icon vfc-card__mute-icon--muted" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                      <line x1="23" y1="9" x2="17" y2="15"></line>
+                      <line x1="17" y1="9" x2="23" y2="15"></line>
+                    </svg>
+                  </span>
+                  <span class="vfc-card__mute-icon vfc-card__mute-icon--unmuted" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                    </svg>
+                  </span>
+                </button>
               {%- endif -%}
             </div>
 
@@ -170,9 +210,10 @@
       {%- endfor -%}
     {%- endcapture -%}
 
-    <div
+    <video-feedback-carousel
       class="vfc-carousel-wrap"
       style="{{ gutter_style }}"
+      data-center-play="{{ section_settings.center_play }}"
     >
       {%- render 'slideshow',
         ref: 'videoFeedbackCarousel',
@@ -187,7 +228,7 @@
         initial_slide: 0,
         slideshow_gutters: slideshow_gutters
       -%}
-    </div>
+    </video-feedback-carousel>
   {%- else -%}
     <p class="vfc-empty">{{ 'onboarding.no_content' | t: default: 'Add testimonial blocks to get started.' }}</p>
   {%- endif -%}
@@ -365,7 +406,232 @@
   .vfc-carousel .slideshow-control[disabled] {
     opacity: 0.3;
   }
+
+  /* Mute toggle button - hidden by default, shown only on the active centered card */
+  .vfc-card__mute-toggle {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgb(0 0 0 / 0.55);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 2;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .vfc-card__mute-toggle:hover,
+  .vfc-card__mute-toggle:focus-visible {
+    background: rgb(0 0 0 / 0.75);
+  }
+
+  .vfc-card__mute-toggle svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Show the appropriate icon based on aria-pressed (true = muted) */
+  .vfc-card__mute-toggle[aria-pressed='true'] .vfc-card__mute-icon--unmuted,
+  .vfc-card__mute-toggle[aria-pressed='false'] .vfc-card__mute-icon--muted {
+    display: none;
+  }
+
+  /* Only show the toggle on the active (centered) card */
+  .vfc-card[data-vfc-active='true'] .vfc-card__mute-toggle {
+    display: flex;
+  }
+
+  /* Subtle visual hint that the active card is the one playing - cursor only */
+  .vfc-card[data-vfc-active='true'] {
+    cursor: default;
+  }
+
+  /* Make non-active video posters slightly more prominent so they read as paused */
+  .vfc-card:not([data-vfc-active='true']) .vfc-card__video {
+    /* No size change as requested - just keep video paused via JS */
+  }
 {% endstylesheet %}
+
+<script type="module">
+  /**
+   * VideoFeedbackCarousel
+   * --------------------
+   * Wraps the slideshow component and ensures that the card whose center is
+   * closest to the viewport center is the only one playing its video.
+   *
+   * Behaviour:
+   *  - On first interaction (or visibility), the centered card's video plays muted.
+   *  - The mute toggle on the active card unmutes/mutes; this preference persists
+   *    across slide changes within the session.
+   *  - When the carousel scrolls out of viewport, all videos pause.
+   */
+  if (!customElements.get('video-feedback-carousel')) {
+    class VideoFeedbackCarousel extends HTMLElement {
+      constructor() {
+        super();
+        this._activeCard = null;
+        this._userMuted = true; // start muted; honour autoplay policies
+        this._inViewport = false;
+        this._rafId = null;
+      }
+
+      connectedCallback() {
+        // Allow the slideshow component to upgrade and render first
+        requestAnimationFrame(() => this._init());
+      }
+
+      disconnectedCallback() {
+        if (this._scrollHandler) {
+          this._scroller?.removeEventListener('scroll', this._scrollHandler);
+        }
+        if (this._intersectionObserver) {
+          this._intersectionObserver.disconnect();
+        }
+        if (this._rafId) cancelAnimationFrame(this._rafId);
+      }
+
+      _init() {
+        // Allow merchants to disable the center-play behaviour
+        if (this.dataset.centerPlay === 'false') return;
+
+        this._slideshow = this.querySelector('slideshow-component');
+        this._scroller = this.querySelector('slideshow-slides');
+        this._cards = Array.from(this.querySelectorAll('[data-vfc-card]'));
+
+        if (!this._scroller || !this._cards.length) return;
+
+        // Recompute center on scroll (debounced to RAF)
+        this._scrollHandler = () => {
+          if (this._rafId) return;
+          this._rafId = requestAnimationFrame(() => {
+            this._rafId = null;
+            this._updateActiveCard();
+          });
+        };
+        this._scroller.addEventListener('scroll', this._scrollHandler, { passive: true });
+
+        // Wire mute toggles
+        this.querySelectorAll('[data-vfc-mute-toggle]').forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this._userMuted = !this._userMuted;
+            this._applyMuteState();
+            this._updateMuteButtons();
+          });
+        });
+
+        // Pause all videos when the carousel leaves the viewport
+        this._intersectionObserver = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              this._inViewport = entry.isIntersecting;
+              if (!this._inViewport) {
+                this._pauseAllVideos();
+              } else {
+                this._updateActiveCard();
+              }
+            }
+          },
+          { threshold: 0.25 }
+        );
+        this._intersectionObserver.observe(this);
+
+        // Recompute on resize (column count may change)
+        this._resizeObserver = new ResizeObserver(() => this._updateActiveCard());
+        this._resizeObserver.observe(this);
+
+        // Initial computation
+        this._updateActiveCard();
+      }
+
+      _updateActiveCard() {
+        if (!this._inViewport) return;
+        const scrollerRect = this._scroller.getBoundingClientRect();
+        const scrollerCenter = scrollerRect.left + scrollerRect.width / 2;
+
+        let closestCard = null;
+        let smallestDistance = Infinity;
+
+        for (const card of this._cards) {
+          const rect = card.getBoundingClientRect();
+          // Only consider cards that are actually within the scroller viewport
+          if (rect.right < scrollerRect.left || rect.left > scrollerRect.right) continue;
+          const cardCenter = rect.left + rect.width / 2;
+          const distance = Math.abs(cardCenter - scrollerCenter);
+          if (distance < smallestDistance) {
+            smallestDistance = distance;
+            closestCard = card;
+          }
+        }
+
+        if (closestCard && closestCard !== this._activeCard) {
+          this._setActiveCard(closestCard);
+        }
+      }
+
+      _setActiveCard(card) {
+        // Pause whatever was playing
+        if (this._activeCard) {
+          this._activeCard.removeAttribute('data-vfc-active');
+          const prevVideo = this._activeCard.querySelector('[data-vfc-video]');
+          if (prevVideo) {
+            prevVideo.pause();
+          }
+        }
+
+        this._activeCard = card;
+        card.setAttribute('data-vfc-active', 'true');
+
+        const video = card.querySelector('[data-vfc-video]');
+        if (video) {
+          video.muted = this._userMuted;
+          // play() returns a promise; if it rejects (e.g. unmuted autoplay blocked)
+          // we fall back to muted playback so the video still starts.
+          const playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {
+              if (!video.muted) {
+                video.muted = true;
+                this._userMuted = true;
+                this._updateMuteButtons();
+                video.play().catch(() => {});
+              }
+            });
+          }
+        }
+
+        this._updateMuteButtons();
+      }
+
+      _applyMuteState() {
+        if (!this._activeCard) return;
+        const video = this._activeCard.querySelector('[data-vfc-video]');
+        if (video) video.muted = this._userMuted;
+      }
+
+      _updateMuteButtons() {
+        this.querySelectorAll('[data-vfc-mute-toggle]').forEach((btn) => {
+          btn.setAttribute('aria-pressed', String(this._userMuted));
+        });
+      }
+
+      _pauseAllVideos() {
+        this.querySelectorAll('[data-vfc-video]').forEach((v) => v.pause());
+      }
+    }
+
+    customElements.define('video-feedback-carousel', VideoFeedbackCarousel);
+  }
+</script>
 
 {% schema %}
 {
@@ -662,24 +928,21 @@
       "content": "Video playback"
     },
     {
-      "type": "checkbox",
-      "id": "autoplay",
-      "label": "Autoplay videos",
-      "info": "Videos will be muted when autoplaying.",
-      "default": false
+      "type": "paragraph",
+      "content": "The video in the centered position auto-plays muted. Customers can tap the speaker icon to unmute. As they scroll the carousel, the active video always follows the center."
     },
     {
       "type": "checkbox",
-      "id": "loop",
-      "label": "Loop videos",
+      "id": "center_play",
+      "label": "Auto-play centered video",
+      "info": "When enabled, only the centered video plays. Other videos pause until they reach the center.",
       "default": true
     },
     {
       "type": "checkbox",
-      "id": "hide_controls",
-      "label": "Hide playback controls",
-      "info": "Only the play/pause button will be available.",
-      "default": false
+      "id": "loop_videos",
+      "label": "Loop videos",
+      "default": true
     },
     {
       "type": "header",
