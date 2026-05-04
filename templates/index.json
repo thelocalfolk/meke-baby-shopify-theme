@@ -988,27 +988,27 @@
           "type": "video_testimonial",
           "settings": {
             "video_url": "",
-            "caption": "Finally, something my baby actually enjoys.",
-            "name": "James R.",
-            "location": "Dad of 1, Sydney"
+            "caption": "",
+            "name": "",
+            "location": ""
           }
         },
         "video_testimonial_W4mJkd": {
           "type": "video_testimonial",
           "settings": {
             "video_url": "",
-            "caption": "Clear instructions, consistent results.",
-            "name": "Priya M.",
-            "location": "Mum of 3, Brisbane"
+            "caption": "",
+            "name": "",
+            "location": ""
           }
         },
         "video_testimonial_4c4dja": {
           "type": "video_testimonial",
           "settings": {
             "video_url": "",
-            "caption": "Worth every cent. The whole family feels it.",
-            "name": "Tom & Anna",
-            "location": "Parents, Perth"
+            "caption": "",
+            "name": "",
+            "location": ""
           }
         }
       },
