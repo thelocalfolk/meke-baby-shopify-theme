@@ -58,7 +58,7 @@
 
   {%- if blocks.size > 0 -%}
     <div class="feature-cards__track-clip">
-    <div class="feature-cards__track" role="list">
+      <div class="feature-cards__track" role="list">
       {%- for block in blocks -%}
         {%- if block.type == 'card' -%}
           {%- liquid
@@ -163,21 +163,21 @@
 
 {% stylesheet %}
   .section-feature-cards {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-md, 24px);
+    row-gap: var(--gap-md, 24px);
   }
 
-  /* Section heading — padded to match page margin */
+  /* Heading sits in the center column (default grid-column: 2) */
   .feature-cards__heading {
     margin: 0;
     color: var(--color, inherit);
-    padding-inline: var(--page-margin, 16px);
   }
 
-  /* Clip wrapper — constrains the visible width, allows scroll to bleed right naturally */
+  /* Track clip spans from center column to right edge (columns 2–3) */
   .feature-cards__track-clip {
+    grid-column: 2 / -1;
     overflow: hidden;
+    /* Add spacing between heading and track */
+    margin-block-start: var(--gap-md, 24px);
   }
 
   /* Scrollable track */
@@ -189,9 +189,6 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding-inline: var(--page-margin, 16px);
-    /* Extra right padding so the peek card is half visible */
-    padding-inline-end: calc(var(--page-margin, 16px) + var(--fcc-card-width, 380px) * 0.35);
   }
 
   .feature-cards__track::-webkit-scrollbar {
@@ -291,6 +288,11 @@
   .feature-cards__card-body {
     margin: 0;
     color: var(--color, rgba(255, 255, 255, 0.80));
+  }
+
+  /* For full-width sections, track clip spans all columns */
+  .section--full-width .feature-cards__track-clip {
+    grid-column: 1 / -1;
   }
 
   /* Mobile */
