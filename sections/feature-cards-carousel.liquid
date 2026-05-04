@@ -164,16 +164,16 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-md, 24px);
-    overflow: hidden;
   }
 
-  /* Section heading — inside the section container, inherits page padding */
+  /* Section heading — padded to match page margin */
   .feature-cards__heading {
     margin: 0;
     color: var(--color, inherit);
+    padding-inline: var(--page-margin, 16px);
   }
 
-  /* Scrollable track — left edge aligns with heading, right bleeds for peek */
+  /* Scrollable track */
   .feature-cards__track {
     display: flex;
     flex-direction: row;
@@ -182,6 +182,7 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    padding-inline: var(--page-margin, 16px);
   }
 
   .feature-cards__track::-webkit-scrollbar {
