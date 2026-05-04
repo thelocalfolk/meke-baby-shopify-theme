@@ -1120,6 +1120,7 @@
         "movement_direction": "reverse",
         "speed": 25,
         "gap_between_logos": 48,
+        "heading_gap": 36,
         "section_width": "full-width",
         "color_scheme": "scheme-2",
         "padding-block-start": 32,
