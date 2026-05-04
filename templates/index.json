@@ -1156,6 +1156,31 @@
             "link": ""
           }
         },
+        "card_XQMqcG": {
+          "type": "card",
+          "settings": {
+            "label": "Feature",
+            "heading": "Your compelling headline here",
+            "card_heading_preset": "h3",
+            "card_heading_font": "var(--font-heading--family)",
+            "card_heading_font_size": "2rem",
+            "card_heading_line_height": "tight",
+            "card_heading_letter_spacing": "normal",
+            "card_heading_case": "none",
+            "card_heading_color": "#ffffff",
+            "body": "Short supporting description that adds context to the heading above.",
+            "card_body_preset": "paragraph",
+            "card_body_font": "var(--font-body--family)",
+            "card_body_font_size": "0.875rem",
+            "card_body_line_height": "normal",
+            "card_body_letter_spacing": "normal",
+            "card_body_case": "none",
+            "card_body_color": "#cccccc",
+            "card_padding": 20,
+            "content_gap": 10,
+            "link": ""
+          }
+        },
         "card_YmDb8W": {
           "type": "card",
           "settings": {
@@ -1169,6 +1194,31 @@
             "card_heading_case": "none",
             "card_heading_color": "#ffffff",
             "body": "Five-layer, microplastic, BPA & PFAS free medical-grade stainless steel for superior thermal performance and purity.",
+            "card_body_preset": "paragraph",
+            "card_body_font": "var(--font-body--family)",
+            "card_body_font_size": "0.875rem",
+            "card_body_line_height": "normal",
+            "card_body_letter_spacing": "normal",
+            "card_body_case": "none",
+            "card_body_color": "#cccccc",
+            "card_padding": 20,
+            "content_gap": 10,
+            "link": ""
+          }
+        },
+        "card_HpEqnh": {
+          "type": "card",
+          "settings": {
+            "label": "Feature",
+            "heading": "Your compelling headline here",
+            "card_heading_preset": "h3",
+            "card_heading_font": "var(--font-heading--family)",
+            "card_heading_font_size": "2rem",
+            "card_heading_line_height": "tight",
+            "card_heading_letter_spacing": "normal",
+            "card_heading_case": "none",
+            "card_heading_color": "#ffffff",
+            "body": "Short supporting description that adds context to the heading above.",
             "card_body_preset": "paragraph",
             "card_body_font": "var(--font-body--family)",
             "card_body_font_size": "0.875rem",
@@ -1209,7 +1259,9 @@
       },
       "block_order": [
         "card_CkbnKM",
+        "card_XQMqcG",
         "card_YmDb8W",
+        "card_HpEqnh",
         "card_gXqUVJ"
       ],
       "name": "Feature Cards Carousel",
