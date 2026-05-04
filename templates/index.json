@@ -1641,7 +1641,7 @@
         "image_aspect_ratio": "natural",
         "padding_top": 0,
         "padding_bottom": 0,
-        "mobile_padding_top": 48,
+        "mobile_padding_top": 0,
         "mobile_padding_bottom": 48,
         "text_inline_padding": 80
       }
