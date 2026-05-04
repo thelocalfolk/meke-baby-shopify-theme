@@ -1,8 +1,8 @@
 {% comment %}
   Section: Feature Cards Carousel
-  Horizontally scrollable carousel of tall image cards with pill label (top-left),
-  large overlay heading and body text (bottom). Fixed card width ensures cards
-  always carousel rather than shrink — right-edge card is half-visible to signal scroll.
+  Horizontally scrollable carousel of tall image cards with frosted glass pill label
+  (top-left), large overlay heading and body text (bottom). Fixed card width ensures
+  cards always carousel rather than shrink — right-edge card is half-visible to signal scroll.
   Typography follows the same preset + custom pattern as video-feedback-carousel.
   Built for the Mekè Baby Horizon theme.
 {% endcomment %}
@@ -49,8 +49,6 @@
     --fcc-card-radius: {{ ss.card_border_radius }}px;
     --fcc-card-width: {{ ss.card_width }}px;
     --fcc-gap: {{ ss.card_gap }}px;
-    --fcc-label-bg: {{ ss.label_bg }};
-    --fcc-label-color: {{ ss.label_color }};
     --fcc-label-size: {{ ss.label_size }}px;
   "
 >
@@ -59,106 +57,104 @@
   {%- endif -%}
 
   {%- if blocks.size > 0 -%}
-    <div class="feature-cards__track-outer">
-      <div class="feature-cards__track" role="list">
-        {%- for block in blocks -%}
-          {%- if block.type == 'card' -%}
-            {%- liquid
-              assign bs = block.settings
+    <div class="feature-cards__track" role="list">
+      {%- for block in blocks -%}
+        {%- if block.type == 'card' -%}
+          {%- liquid
+            assign bs = block.settings
 
-              # Card heading style
-              assign card_heading_style = ''
-              if bs.card_heading_color != blank and bs.card_heading_color != ''
-                assign card_heading_style = card_heading_style | append: '--color: ' | append: bs.card_heading_color | append: ';'
-              endif
-              if bs.card_heading_preset == 'custom'
-                assign ch_font_weight = bs.card_heading_font | replace: 'family', 'weight'
-                assign card_heading_style = card_heading_style | append: '--font-family: ' | append: bs.card_heading_font | append: ';'
-                assign card_heading_style = card_heading_style | append: '--font-weight: ' | append: ch_font_weight | append: ';'
-                assign card_heading_style = card_heading_style | append: '--font-size: ' | append: bs.card_heading_font_size | append: ';'
-                assign card_heading_style = card_heading_style | append: '--text-transform: ' | append: bs.card_heading_case | append: ';'
-                assign card_heading_style = card_heading_style | append: '--line-height: var(--line-height--heading-' | append: bs.card_heading_line_height | append: ');'
-                assign card_heading_style = card_heading_style | append: '--letter-spacing: var(--letter-spacing--heading-' | append: bs.card_heading_letter_spacing | append: ');'
-              endif
-              if bs.card_heading_preset == 'custom'
-                assign card_heading_class = 'feature-cards__card-heading custom-typography custom-font-size'
-              else
-                assign card_heading_class = 'feature-cards__card-heading ' | append: bs.card_heading_preset
-              endif
+            # Card heading style
+            assign card_heading_style = ''
+            if bs.card_heading_color != blank and bs.card_heading_color != ''
+              assign card_heading_style = card_heading_style | append: '--color: ' | append: bs.card_heading_color | append: ';'
+            endif
+            if bs.card_heading_preset == 'custom'
+              assign ch_font_weight = bs.card_heading_font | replace: 'family', 'weight'
+              assign card_heading_style = card_heading_style | append: '--font-family: ' | append: bs.card_heading_font | append: ';'
+              assign card_heading_style = card_heading_style | append: '--font-weight: ' | append: ch_font_weight | append: ';'
+              assign card_heading_style = card_heading_style | append: '--font-size: ' | append: bs.card_heading_font_size | append: ';'
+              assign card_heading_style = card_heading_style | append: '--text-transform: ' | append: bs.card_heading_case | append: ';'
+              assign card_heading_style = card_heading_style | append: '--line-height: var(--line-height--heading-' | append: bs.card_heading_line_height | append: ');'
+              assign card_heading_style = card_heading_style | append: '--letter-spacing: var(--letter-spacing--heading-' | append: bs.card_heading_letter_spacing | append: ');'
+            endif
+            if bs.card_heading_preset == 'custom'
+              assign card_heading_class = 'feature-cards__card-heading custom-typography custom-font-size'
+            else
+              assign card_heading_class = 'feature-cards__card-heading ' | append: bs.card_heading_preset
+            endif
 
-              # Card body style
-              assign card_body_style = ''
-              if bs.card_body_color != blank and bs.card_body_color != ''
-                assign card_body_style = card_body_style | append: '--color: ' | append: bs.card_body_color | append: ';'
-              endif
-              if bs.card_body_preset == 'custom'
-                assign cb_font_weight = bs.card_body_font | replace: 'family', 'weight'
-                assign card_body_style = card_body_style | append: '--font-family: ' | append: bs.card_body_font | append: ';'
-                assign card_body_style = card_body_style | append: '--font-weight: ' | append: cb_font_weight | append: ';'
-                assign card_body_style = card_body_style | append: '--font-size: ' | append: bs.card_body_font_size | append: ';'
-                assign card_body_style = card_body_style | append: '--text-transform: ' | append: bs.card_body_case | append: ';'
-                assign card_body_style = card_body_style | append: '--line-height: var(--line-height--body-' | append: bs.card_body_line_height | append: ');'
-                assign card_body_style = card_body_style | append: '--letter-spacing: var(--letter-spacing--body-' | append: bs.card_body_letter_spacing | append: ');'
-              endif
-              if bs.card_body_preset == 'custom'
-                assign card_body_class = 'feature-cards__card-body custom-typography custom-font-size'
-              else
-                assign card_body_class = 'feature-cards__card-body ' | append: bs.card_body_preset
-              endif
-            -%}
+            # Card body style
+            assign card_body_style = ''
+            if bs.card_body_color != blank and bs.card_body_color != ''
+              assign card_body_style = card_body_style | append: '--color: ' | append: bs.card_body_color | append: ';'
+            endif
+            if bs.card_body_preset == 'custom'
+              assign cb_font_weight = bs.card_body_font | replace: 'family', 'weight'
+              assign card_body_style = card_body_style | append: '--font-family: ' | append: bs.card_body_font | append: ';'
+              assign card_body_style = card_body_style | append: '--font-weight: ' | append: cb_font_weight | append: ';'
+              assign card_body_style = card_body_style | append: '--font-size: ' | append: bs.card_body_font_size | append: ';'
+              assign card_body_style = card_body_style | append: '--text-transform: ' | append: bs.card_body_case | append: ';'
+              assign card_body_style = card_body_style | append: '--line-height: var(--line-height--body-' | append: bs.card_body_line_height | append: ');'
+              assign card_body_style = card_body_style | append: '--letter-spacing: var(--letter-spacing--body-' | append: bs.card_body_letter_spacing | append: ');'
+            endif
+            if bs.card_body_preset == 'custom'
+              assign card_body_class = 'feature-cards__card-body custom-typography custom-font-size'
+            else
+              assign card_body_class = 'feature-cards__card-body ' | append: bs.card_body_preset
+            endif
+          -%}
 
-            <div
-              class="feature-cards__card"
-              role="listitem"
-              style="--fcc-content-gap: {{ bs.content_gap }}px;"
-              {{ block.shopify_attributes }}
-            >
-              {%- if bs.link != blank -%}
-                <a class="feature-cards__card-link" href="{{ bs.link }}" aria-label="{{ bs.heading | escape }}">
-              {%- endif -%}
+          <div
+            class="feature-cards__card"
+            role="listitem"
+            style="--fcc-content-gap: {{ bs.content_gap }}px;"
+            {{ block.shopify_attributes }}
+          >
+            {%- if bs.link != blank -%}
+              <a class="feature-cards__card-link" href="{{ bs.link }}" aria-label="{{ bs.heading | escape }}">
+            {%- endif -%}
 
-              <div class="feature-cards__card-image">
-                {%- if bs.image != blank -%}
-                  {%- assign card_alt = bs.heading | escape -%}
-                  {{
-                    bs.image
-                    | image_url: width: 900
-                    | image_tag:
-                      loading: 'lazy',
-                      widths: '400,600,900',
-                      sizes: '(max-width: 749px) 85vw, 400px',
-                      alt: card_alt,
-                      class: 'feature-cards__img'
-                  }}
-                {%- else -%}
-                  {{ 'lifestyle-1' | placeholder_svg_tag: 'feature-cards__img feature-cards__img--placeholder' }}
-                {%- endif -%}
-              </div>
-
-              <div class="feature-cards__overlay" aria-hidden="true"></div>
-
-              <div class="feature-cards__card-content" style="padding: {{ bs.card_padding }}px;">
-                {%- if bs.label != blank -%}
-                  <span class="feature-cards__label">{{ bs.label | escape }}</span>
-                {%- endif -%}
-
-                <div class="feature-cards__card-text">
-                  {%- if bs.heading != blank -%}
-                    <p class="{{ card_heading_class }}" style="{{ card_heading_style }}">{{ bs.heading | escape }}</p>
-                  {%- endif -%}
-                  {%- if bs.body != blank -%}
-                    <p class="{{ card_body_class }}" style="{{ card_body_style }}">{{ bs.body | escape }}</p>
-                  {%- endif -%}
-                </div>
-              </div>
-
-              {%- if bs.link != blank -%}
-                </a>
+            <div class="feature-cards__card-image">
+              {%- if bs.image != blank -%}
+                {%- assign card_alt = bs.heading | escape -%}
+                {{
+                  bs.image
+                  | image_url: width: 900
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '400,600,900',
+                    sizes: '(max-width: 749px) 85vw, 400px',
+                    alt: card_alt,
+                    class: 'feature-cards__img'
+                }}
+              {%- else -%}
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'feature-cards__img feature-cards__img--placeholder' }}
               {%- endif -%}
             </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
+
+            <div class="feature-cards__overlay" aria-hidden="true"></div>
+
+            <div class="feature-cards__card-content" style="padding: {{ bs.card_padding }}px;">
+              {%- if bs.label != blank -%}
+                <span class="feature-cards__label">{{ bs.label | escape }}</span>
+              {%- endif -%}
+
+              <div class="feature-cards__card-text">
+                {%- if bs.heading != blank -%}
+                  <p class="{{ card_heading_class }}" style="{{ card_heading_style }}">{{ bs.heading | escape }}</p>
+                {%- endif -%}
+                {%- if bs.body != blank -%}
+                  <p class="{{ card_body_class }}" style="{{ card_body_style }}">{{ bs.body | escape }}</p>
+                {%- endif -%}
+              </div>
+            </div>
+
+            {%- if bs.link != blank -%}
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
     </div>
   {%- endif -%}
 </div>
@@ -171,19 +167,13 @@
     overflow: hidden;
   }
 
-  /* Section heading */
+  /* Section heading — inside the section container, inherits page padding */
   .feature-cards__heading {
     margin: 0;
-    padding-inline: var(--page-margin, 16px);
     color: var(--color, inherit);
   }
 
-  /* Outer wrapper allows right bleed for peek */
-  .feature-cards__track-outer {
-    margin-inline-end: calc(-1 * var(--util-page-margin-offset, 0px));
-  }
-
-  /* Scrollable track */
+  /* Scrollable track — stays inside the section container but bleeds right for peek */
   .feature-cards__track {
     display: flex;
     flex-direction: row;
@@ -192,9 +182,10 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding-inline-start: var(--page-margin, 16px);
-    /* Half card peek on right */
-    padding-inline-end: calc(var(--fcc-card-width, 380px) / 2);
+    /* Right padding creates the half-card peek on the right edge */
+    padding-inline-end: calc(var(--fcc-card-width, 380px) * 0.4);
+    /* Allow the track to bleed past the section container on the right */
+    margin-inline-end: calc(-1 * var(--fcc-card-width, 380px) * 0.4);
   }
 
   .feature-cards__track::-webkit-scrollbar {
@@ -262,18 +253,21 @@
     justify-content: space-between;
   }
 
-  /* Pill label */
+  /* Frosted glass pill label */
   .feature-cards__label {
     display: inline-block;
     align-self: flex-start;
-    background-color: var(--fcc-label-bg, rgba(240, 239, 237, 0.90));
-    color: var(--fcc-label-color, #1a1a1a);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #ffffff;
     font-size: var(--fcc-label-size, 13px);
     font-weight: 500;
-    letter-spacing: 0.01em;
-    padding: 7px 16px;
+    letter-spacing: 0.02em;
+    padding: 8px 20px;
     border-radius: 100px;
     line-height: 1;
+    border: 1px solid rgba(255, 255, 255, 0.20);
   }
 
   /* Bottom text block */
@@ -297,7 +291,8 @@
   /* Mobile */
   @media screen and (max-width: 749px) {
     .feature-cards__track {
-      padding-inline-end: calc(var(--fcc-card-width, 380px) / 2);
+      padding-inline-end: calc(var(--fcc-card-width, 380px) * 0.4);
+      margin-inline-end: calc(-1 * var(--fcc-card-width, 380px) * 0.4);
     }
 
     .feature-cards__card {
@@ -333,6 +328,7 @@
       "type": "select",
       "id": "heading_type_preset",
       "label": "Heading style",
+      "info": "Inherits font, size and weight from your theme typography settings",
       "options": [
         { "value": "h1", "label": "H1" },
         { "value": "h2", "label": "H2" },
@@ -373,9 +369,7 @@
         { "value": "2.5rem", "label": "40px" },
         { "value": "3rem", "label": "48px" },
         { "value": "3.5rem", "label": "56px" },
-        { "value": "4.5rem", "label": "72px" },
-        { "value": "5.5rem", "label": "88px" },
-        { "value": "7.5rem", "label": "120px" }
+        { "value": "4.5rem", "label": "72px" }
       ],
       "default": "2.5rem",
       "visible_if": "{{ section.settings.heading_type_preset == 'custom' }}"
@@ -421,8 +415,7 @@
       "type": "color",
       "id": "heading_color",
       "label": "Heading colour",
-      "default": "#1a1a1a",
-      "info": "Overrides the colour scheme default"
+      "default": "#1a1a1a"
     },
     {
       "type": "header",
@@ -471,18 +464,6 @@
     {
       "type": "header",
       "content": "Pill label"
-    },
-    {
-      "type": "color",
-      "id": "label_bg",
-      "label": "Label background",
-      "default": "#F0EFED"
-    },
-    {
-      "type": "color",
-      "id": "label_color",
-      "label": "Label text colour",
-      "default": "#1a1a1a"
     },
     {
       "type": "range",

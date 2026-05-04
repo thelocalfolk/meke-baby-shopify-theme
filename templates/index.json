@@ -1127,20 +1127,38 @@
         "padding-block-end": 56
       }
     },
-    "feature_cards_carousel_D8fHKc": {
+    "feature_cards_carousel_ExDjCG": {
       "type": "feature-cards-carousel",
       "blocks": {
-        "card_6trM7n": {
+        "card_gECKFJ": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_49.png",
+            "label": "Feature",
+            "heading": "Your compelling headline here",
+            "body": "Short supporting description that adds context to the heading above.",
+            "link": ""
+          }
+        },
+        "card_AEatPG": {
+          "type": "card",
+          "settings": {
+            "label": "Feature",
+            "heading": "Your compelling headline here",
+            "body": "Short supporting description that adds context to the heading above.",
+            "link": ""
+          }
+        },
+        "card_Chjaqb": {
+          "type": "card",
+          "settings": {
             "label": "Remove the uncertainty",
             "heading": "Go anywhere, without the anxiety",
             "body": "The café, the car. 3am feed, a date night, a flight. This is the product that removes feeding from your list of things that could go wrong.",
             "link": ""
           }
         },
-        "card_L4ecxV": {
+        "card_V9k6Cm": {
           "type": "card",
           "settings": {
             "label": "Material integrity",
@@ -1149,7 +1167,7 @@
             "link": ""
           }
         },
-        "card_mRfXFf": {
+        "card_9U9ng3": {
           "type": "card",
           "settings": {
             "label": "A better alternative",
@@ -1160,18 +1178,18 @@
         }
       },
       "block_order": [
-        "card_6trM7n",
-        "card_L4ecxV",
-        "card_mRfXFf"
+        "card_gECKFJ",
+        "card_AEatPG",
+        "card_Chjaqb",
+        "card_V9k6Cm",
+        "card_9U9ng3"
       ],
       "name": "Feature Cards Carousel",
       "settings": {
         "heading": "Why parents choose Mekè Baby",
-        "card_height": 500,
+        "card_height": 580,
         "card_border_radius": 12,
-        "label_bg": "#F0EFED",
-        "label_color": "#1a1a1a",
-        "color_scheme": "scheme-2"
+        "color_scheme": ""
       }
     }
   },
@@ -1184,6 +1202,6 @@
     "category_grid_U8Br8F",
     "video_feedback_carousel_VwrJbW",
     "award_logo_marquee_NXRjyJ",
-    "feature_cards_carousel_D8fHKc"
+    "feature_cards_carousel_ExDjCG"
   ]
 }
