@@ -1,0 +1,415 @@
+{% comment %}
+  Section: Brand Story Split
+  Two-column layout with text on one side (heading, body, button) and an image on
+  the other. Image position can be flipped left/right per section.
+  Built for the Mekè Baby Horizon theme — matches meke-baby-hero conventions:
+  page-width inner container, color_scheme wrapper, button / button-secondary
+  classes, 749px mobile breakpoint, var(--font-public-sans--family).
+{% endcomment %}
+
+{%- liquid
+  assign btn_class = 'button'
+  if section.settings.button_style == 'secondary'
+    assign btn_class = 'button-secondary'
+  endif
+
+  assign aspect_value = section.settings.image_aspect_ratio
+  if aspect_value == 'natural'
+    assign aspect_value = 'auto'
+  endif
+
+  assign heading_size_desktop = section.settings.heading_size
+  assign heading_size_mobile_value = section.settings.heading_size_mobile
+-%}
+
+<div
+  id="BrandStorySplit-{{ section.id }}"
+  class="brand-story-split color-{{ section.settings.color_scheme }} brand-story-split--image-{{ section.settings.image_position }}"
+  style="
+    --bss-padding-top: {{ section.settings.padding_top }}px;
+    --bss-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --bss-padding-top-mobile: {{ section.settings.mobile_padding_top }}px;
+    --bss-padding-bottom-mobile: {{ section.settings.mobile_padding_bottom }}px;
+    --bss-text-max-width: {{ section.settings.text_max_width }}px;
+    --bss-text-inline-padding: {{ section.settings.text_inline_padding }}px;
+    --bss-vertical-align: {{ section.settings.vertical_alignment }};
+    --bss-body-size: {{ section.settings.body_size }}px;
+    --bss-image-aspect: {{ aspect_value }};
+  "
+>
+  <div class="brand-story-split__grid">
+    <div class="brand-story-split__text-col">
+      <div class="brand-story-split__text-inner">
+        {%- if section.settings.heading != blank -%}
+          <h2
+            class="brand-story-split__heading"
+            style="
+              {% if heading_size_desktop > 0 %}--bss-heading-size: {{ heading_size_desktop }}px;{% endif %}
+              {% if heading_size_mobile_value > 0 %}--bss-heading-size-mobile: {{ heading_size_mobile_value }}px;{% endif %}
+            "
+          >{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.body != blank -%}
+          <div class="brand-story-split__body">{{ section.settings.body }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <div class="brand-story-split__cta">
+            <a href="{{ section.settings.button_link | default: '#' }}" class="{{ btn_class }}">{{ section.settings.button_label | escape }}</a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="brand-story-split__image-col">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1600
+          | image_tag:
+            loading: 'lazy',
+            sizes: '(max-width: 749px) 100vw, 50vw',
+            widths: '400,600,800,1000,1200,1600',
+            class: 'brand-story-split__image',
+            alt: section.settings.image.alt | escape
+        }}
+      {%- else -%}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'brand-story-split__image brand-story-split__image--placeholder' }}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .brand-story-split {
+    padding-block-start: var(--bss-padding-top);
+    padding-block-end: var(--bss-padding-bottom);
+  }
+
+  .brand-story-split__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: var(--bss-vertical-align, center);
+    gap: 0;
+  }
+
+  .brand-story-split--image-left .brand-story-split__text-col {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .brand-story-split--image-left .brand-story-split__image-col {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .brand-story-split__text-col {
+    display: flex;
+    align-items: var(--bss-vertical-align, center);
+    padding-inline: var(--bss-text-inline-padding, 80px);
+    padding-block: 24px;
+  }
+
+  .brand-story-split__text-inner {
+    width: 100%;
+    max-width: var(--bss-text-max-width, 520px);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .brand-story-split__heading {
+    font-family: var(--font-public-sans--family);
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0;
+    color: rgb(var(--color-foreground-heading));
+    {%- if section.settings.heading_size > 0 -%}
+      font-size: var(--bss-heading-size, 40px);
+    {%- endif -%}
+  }
+
+  .brand-story-split__body {
+    font-size: var(--bss-body-size, 15px);
+    line-height: 1.6;
+    color: rgb(var(--color-foreground));
+  }
+
+  .brand-story-split__body > * {
+    margin: 0;
+  }
+
+  .brand-story-split__body > * + * {
+    margin-block-start: 1em;
+  }
+
+  .brand-story-split__cta {
+    margin-block-start: 8px;
+  }
+
+  .brand-story-split__image-col {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .brand-story-split__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .brand-story-split[style*="--bss-image-aspect: auto"] .brand-story-split__image {
+    height: auto;
+  }
+
+  .brand-story-split:not([style*="--bss-image-aspect: auto"]) .brand-story-split__image {
+    aspect-ratio: var(--bss-image-aspect);
+  }
+
+  .brand-story-split__image--placeholder {
+    background-color: rgb(var(--color-foreground) / 0.05);
+  }
+
+  @media screen and (max-width: 749px) {
+    .brand-story-split {
+      padding-block-start: var(--bss-padding-top-mobile);
+      padding-block-end: var(--bss-padding-bottom-mobile);
+    }
+
+    .brand-story-split__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .brand-story-split--image-left .brand-story-split__text-col,
+    .brand-story-split__text-col {
+      grid-column: 1;
+      grid-row: 2;
+      padding-inline: 1.25rem;
+      padding-block: 32px;
+    }
+
+    .brand-story-split--image-left .brand-story-split__image-col,
+    .brand-story-split__image-col {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .brand-story-split__text-inner {
+      max-width: 100%;
+      gap: 20px;
+    }
+
+    .brand-story-split__heading {
+      {%- if section.settings.heading_size_mobile > 0 -%}
+        font-size: var(--bss-heading-size-mobile, 32px);
+      {%- endif -%}
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Brand Story Split",
+  "tag": "section",
+  "class": "brand-story-split-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position (desktop)",
+      "options": [
+        { "value": "right", "label": "Right" },
+        { "value": "left", "label": "Left" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Text vertical alignment",
+      "options": [
+        { "value": "flex-start", "label": "Top" },
+        { "value": "center", "label": "Centre" },
+        { "value": "flex-end", "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "text_max_width",
+      "label": "Text column max width",
+      "min": 360, "max": 720, "step": 10,
+      "default": 520, "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Colour"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built from real experience by a real mum."
+    },
+    {
+      "type": "select",
+      "id": "heading_type_preset",
+      "label": "Heading style preset",
+      "info": "Inherits from your theme typography settings",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "paragraph", "label": "Paragraph" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size override (desktop)",
+      "info": "Set to 0 to use the preset default",
+      "min": 0, "max": 80, "step": 1,
+      "default": 0, "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size override (mobile)",
+      "info": "Set to 0 to use the preset default",
+      "min": 0, "max": 56, "step": 1,
+      "default": 0, "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Body text"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body text",
+      "default": "<p>Mekè Baby began with a simple question — am I doing this properly? Like many parents, the experience of feeding was shaped by conflicting advice, unclear systems, and moments of uncertainty. Not from a lack of care, but from a lack of clarity. What started as a personal frustration became the foundation for something more considered — a feeding system designed to remove guesswork and bring consistency, confidence, and calm to every step.</p>"
+    },
+    {
+      "type": "range",
+      "id": "body_size",
+      "label": "Body text size",
+      "min": 12, "max": 22, "step": 1,
+      "default": 15, "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "About Us"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        { "value": "natural", "label": "Natural (no crop)" },
+        { "value": "1/1", "label": "Square (1:1)" },
+        { "value": "4/3", "label": "Landscape (4:3)" },
+        { "value": "3/2", "label": "Landscape (3:2)" },
+        { "value": "16/9", "label": "Widescreen (16:9)" },
+        { "value": "3/4", "label": "Portrait (3:4)" },
+        { "value": "2/3", "label": "Portrait (2:3)" }
+      ],
+      "default": "natural"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding (desktop)",
+      "min": 0, "max": 200, "step": 4,
+      "default": 80, "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding (desktop)",
+      "min": 0, "max": 200, "step": 4,
+      "default": 80, "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Top padding (mobile)",
+      "min": 0, "max": 120, "step": 4,
+      "default": 48, "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Bottom padding (mobile)",
+      "min": 0, "max": 120, "step": 4,
+      "default": 48, "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "text_inline_padding",
+      "label": "Text column inline padding (desktop)",
+      "min": 0, "max": 160, "step": 4,
+      "default": 80, "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Story Split"
+    }
+  ]
+}
+{% endschema %}
