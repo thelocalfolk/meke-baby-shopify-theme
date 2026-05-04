@@ -1114,6 +1114,7 @@
       "name": "Award Logo Marquee",
       "settings": {
         "heading": "Multi award winning",
+        "type_preset": "h3",
         "logo_height": 80,
         "logo_height_mobile": 60,
         "movement_direction": "reverse",
@@ -1122,7 +1123,7 @@
         "section_width": "full-width",
         "color_scheme": "scheme-2",
         "padding-block-start": 32,
-        "padding-block-end": 32
+        "padding-block-end": 56
       }
     }
   },
