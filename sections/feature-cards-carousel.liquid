@@ -173,7 +173,7 @@
     color: var(--color, inherit);
   }
 
-  /* Scrollable track — stays inside the section container but bleeds right for peek */
+  /* Scrollable track — left edge aligns with heading, right bleeds for peek */
   .feature-cards__track {
     display: flex;
     flex-direction: row;
@@ -182,10 +182,6 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    /* Right padding creates the half-card peek on the right edge */
-    padding-inline-end: calc(var(--fcc-card-width, 380px) * 0.4);
-    /* Allow the track to bleed past the section container on the right */
-    margin-inline-end: calc(-1 * var(--fcc-card-width, 380px) * 0.4);
   }
 
   .feature-cards__track::-webkit-scrollbar {
@@ -267,7 +263,6 @@
     padding: 8px 20px;
     border-radius: 100px;
     line-height: 1;
-    border: 1px solid rgba(255, 255, 255, 0.20);
   }
 
   /* Bottom text block */
@@ -290,11 +285,6 @@
 
   /* Mobile */
   @media screen and (max-width: 749px) {
-    .feature-cards__track {
-      padding-inline-end: calc(var(--fcc-card-width, 380px) * 0.4);
-      margin-inline-end: calc(-1 * var(--fcc-card-width, 380px) * 0.4);
-    }
-
     .feature-cards__card {
       width: min(var(--fcc-card-width, 380px), 80vw);
       height: 500px;

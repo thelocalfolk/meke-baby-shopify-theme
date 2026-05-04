@@ -1134,7 +1134,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_49.png",
-            "label": "Feature",
+            "label": "Remove the uncertainty",
             "heading": "Your compelling headline here",
             "card_heading_preset": "h3",
             "card_heading_font": "var(--font-heading--family)",
