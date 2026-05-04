@@ -57,6 +57,7 @@
   {%- endif -%}
 
   {%- if blocks.size > 0 -%}
+    <div class="feature-cards__track-clip">
     <div class="feature-cards__track" role="list">
       {%- for block in blocks -%}
         {%- if block.type == 'card' -%}
@@ -156,6 +157,7 @@
         {%- endif -%}
       {%- endfor -%}
     </div>
+    </div>
   {%- endif -%}
 </div>
 
@@ -173,6 +175,11 @@
     padding-inline: var(--page-margin, 16px);
   }
 
+  /* Clip wrapper — constrains the visible width, allows scroll to bleed right naturally */
+  .feature-cards__track-clip {
+    overflow: hidden;
+  }
+
   /* Scrollable track */
   .feature-cards__track {
     display: flex;
@@ -183,6 +190,8 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding-inline: var(--page-margin, 16px);
+    /* Extra right padding so the peek card is half visible */
+    padding-inline-end: calc(var(--page-margin, 16px) + var(--fcc-card-width, 380px) * 0.35);
   }
 
   .feature-cards__track::-webkit-scrollbar {
@@ -261,7 +270,7 @@
     font-size: var(--fcc-label-size, 13px);
     font-weight: 500;
     letter-spacing: 0.02em;
-    padding: 12px 25px;
+    padding: 8px 28px;
     border-radius: 100px;
     line-height: 1;
   }
