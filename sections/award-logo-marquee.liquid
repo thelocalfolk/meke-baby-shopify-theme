@@ -12,9 +12,12 @@
 >
   {%- if section.settings.heading != blank -%}
     <div class="award-marquee__heading-wrapper">
-      <{{ section.settings.heading_tag }} class="award-marquee__heading">
+      <p
+        class="award-marquee__heading {{ section.settings.type_preset }}"
+        style="{% render 'typography-style', settings: section.settings %}"
+      >
         {{ section.settings.heading | escape }}
-      </{{ section.settings.heading_tag }}>
+      </p>
     </div>
   {%- endif -%}
 
@@ -207,14 +210,17 @@
     },
     {
       "type": "select",
-      "id": "heading_tag",
-      "label": "Heading HTML tag",
+      "id": "type_preset",
+      "label": "Style preset",
+      "info": "Inherits from your theme typography settings",
       "options": [
+        { "value": "paragraph", "label": "Paragraph" },
         { "value": "h1", "label": "H1" },
         { "value": "h2", "label": "H2" },
         { "value": "h3", "label": "H3" },
         { "value": "h4", "label": "H4" },
-        { "value": "p",  "label": "Paragraph" }
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
       ],
       "default": "h2"
     },

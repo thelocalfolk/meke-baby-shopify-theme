@@ -1060,9 +1060,69 @@
         "icons_style": "chevron",
         "icons_shape": "none",
         "infinite": false,
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "padding-block-start": 64,
         "padding-block-end": 64
+      }
+    },
+    "award_logo_marquee_NXRjyJ": {
+      "type": "award-logo-marquee",
+      "blocks": {
+        "award_logo_QfpRdc": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_QUTyrc": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_fMNmMj": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_34TE4g": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_thgHpY": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "award_logo_QfpRdc",
+        "award_logo_QUTyrc",
+        "award_logo_fMNmMj",
+        "award_logo_34TE4g",
+        "award_logo_thgHpY"
+      ],
+      "name": "Award Logo Marquee",
+      "settings": {
+        "heading": "Multi award winning",
+        "logo_height": 80,
+        "logo_height_mobile": 60,
+        "movement_direction": "reverse",
+        "speed": 25,
+        "gap_between_logos": 48,
+        "section_width": "full-width",
+        "color_scheme": "scheme-2",
+        "padding-block-start": 32,
+        "padding-block-end": 32
       }
     }
   },
@@ -1073,6 +1133,7 @@
     "section_wmnq9j",
     "section_gijhtr",
     "category_grid_U8Br8F",
-    "video_feedback_carousel_VwrJbW"
+    "video_feedback_carousel_VwrJbW",
+    "award_logo_marquee_NXRjyJ"
   ]
 }
