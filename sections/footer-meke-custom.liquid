@@ -291,22 +291,20 @@
 
   #section-{{ section.id }} .mb-footer__form-row {
     display: flex;
-    gap: 0;
-    border-radius: var(--style-border-radius-pills, 100px);
-    overflow: hidden;
-    background: var(--color-input-background, #fff);
-    padding: 4px;
+    gap: 0.5rem;
+    align-items: center;
   }
 
   #section-{{ section.id }} .mb-footer__email-input {
     flex: 1;
     border: none;
-    background: transparent;
-    padding: 0.6rem 1rem;
+    background: var(--color-input-background, #fff);
+    padding: 0.75rem 1.25rem;
     font-size: 0.875rem;
     color: var(--color-input-text, #111);
     outline: none;
     min-width: 0;
+    border-radius: var(--style-border-radius-pills, 100px);
   }
 
   #section-{{ section.id }} .mb-footer__email-input::placeholder {
