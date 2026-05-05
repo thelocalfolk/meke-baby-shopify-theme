@@ -320,14 +320,18 @@
     font-size: 0.875rem;
     font-weight: 500;
     border-radius: var(--style-border-radius-pills, 100px);
-    background-color: rgb(var(--color-button));
-    color: rgb(var(--color-button-text));
+    background-color: var(--color-secondary-button-background);
+    color: var(--color-secondary-button-text);
+    border: 1px solid var(--color-secondary-button-border);
     white-space: nowrap;
     transition: opacity 0.2s ease;
   }
 
   #section-{{ section.id }} .mb-footer__signup-btn:hover {
-    opacity: 0.85;
+    background-color: var(--color-secondary-button-hover-background);
+    color: var(--color-secondary-button-hover-text);
+    border-color: var(--color-secondary-button-hover-border);
+    opacity: 1;
   }
 
   #section-{{ section.id }} .mb-footer__form-success,
