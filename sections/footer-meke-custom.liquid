@@ -441,9 +441,17 @@
       background: none;
       border: none;
       border-bottom: 1px solid currentColor;
-      padding: 0.6rem 0;
+      padding: 0.75rem 0;
       cursor: pointer;
       color: currentColor;
+      font-size: 0.875rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    #section-{{ section.id }} .mb-footer__nav-heading {
+      margin: 0;
+      line-height: 1;
     }
 
     #section-{{ section.id }} .mb-footer__nav-list {
@@ -460,10 +468,16 @@
     #section-{{ section.id }} .mb-footer__nav-chevron {
       transition: transform 0.3s ease;
       display: flex;
+      align-items: center;
+      flex-shrink: 0;
     }
 
     #section-{{ section.id }} .mb-footer__nav-col.is-open .mb-footer__nav-chevron {
       transform: rotate(180deg);
+    }
+
+    #section-{{ section.id }} .mb-footer__signup-col {
+      margin-top: 2.5rem;
     }
   }
 
