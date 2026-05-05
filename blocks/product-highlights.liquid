@@ -1,28 +1,19 @@
 {% comment %}
   Block: Product Highlights
   Theme: Horizon — Meke Baby
-  Renders a list of icon + text rows driven by product metafields.
-  Add this block inside the product details column in the theme editor.
-  Metafields required (Admin → Settings → Custom data → Products):
-    custom.highlight_icon_1 — File (image)
-    custom.highlight_text_1 — Single line text
-    custom.highlight_icon_2 — File (image)
-    custom.highlight_text_2 — Single line text
-    custom.highlight_icon_3 — File (image)
-    custom.highlight_text_3 — Single line text
-    custom.highlight_icon_4 — File (image)
-    custom.highlight_text_4 — Single line text
+  Renders up to 4 icon + text rows.
+  Icons and text are entered directly in the theme editor right-hand panel.
 {% endcomment %}
 
 {%- liquid
-  assign icon_1 = product.metafields.custom.highlight_icon_1.value
-  assign text_1 = product.metafields.custom.highlight_text_1.value
-  assign icon_2 = product.metafields.custom.highlight_icon_2.value
-  assign text_2 = product.metafields.custom.highlight_text_2.value
-  assign icon_3 = product.metafields.custom.highlight_icon_3.value
-  assign text_3 = product.metafields.custom.highlight_text_3.value
-  assign icon_4 = product.metafields.custom.highlight_icon_4.value
-  assign text_4 = product.metafields.custom.highlight_text_4.value
+  assign icon_1 = block.settings.highlight_icon_1
+  assign text_1 = block.settings.highlight_text_1
+  assign icon_2 = block.settings.highlight_icon_2
+  assign text_2 = block.settings.highlight_text_2
+  assign icon_3 = block.settings.highlight_icon_3
+  assign text_3 = block.settings.highlight_text_3
+  assign icon_4 = block.settings.highlight_icon_4
+  assign text_4 = block.settings.highlight_text_4
 -%}
 
 {%- if text_1 != blank or text_2 != blank or text_3 != blank or text_4 != blank -%}
@@ -141,6 +132,62 @@
   "name": "Product Highlights",
   "tag": null,
   "settings": [
+    {
+      "type": "header",
+      "content": "Row 1"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text_1",
+      "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "highlight_icon_1",
+      "label": "Icon"
+    },
+    {
+      "type": "header",
+      "content": "Row 2"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text_2",
+      "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "highlight_icon_2",
+      "label": "Icon"
+    },
+    {
+      "type": "header",
+      "content": "Row 3"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text_3",
+      "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "highlight_icon_3",
+      "label": "Icon"
+    },
+    {
+      "type": "header",
+      "content": "Row 4"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text_4",
+      "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "highlight_icon_4",
+      "label": "Icon"
+    },
     {
       "type": "header",
       "content": "Layout"
