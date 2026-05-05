@@ -259,13 +259,13 @@
             "afterpay_on_site_messaging_payments_messaging_amjaBL": {
               "type": "shopify://apps/afterpay-on-site-messaging/blocks/payments-messaging/f45a5524-d177-4475-bf59-281efd2215a8",
               "settings": {
-                "text_align": "inherit",
-                "margin_top": 16,
+                "text_align": "center",
+                "margin_top": -15,
                 "margin_bottom": 16,
                 "color": "",
-                "size": "md",
+                "size": "xs",
                 "intro_text": "or",
-                "show_interest_free": true,
+                "show_interest_free": false,
                 "payment_amount_is_bold": true,
                 "show_with": true,
                 "logo_type": "badge",
