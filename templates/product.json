@@ -12,6 +12,12 @@
     "main": {
       "type": "product-information",
       "blocks": {
+        "tolstoy_ads_image_video_carousel_block_tE3mHE": {
+          "type": "shopify://apps/tolstoy-ads-image-video/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "publishId"
+          }
+        },
         "media-gallery": {
           "type": "_product-media-gallery",
           "static": true,
@@ -380,6 +386,9 @@
           ]
         }
       },
+      "block_order": [
+        "tolstoy_ads_image_video_carousel_block_tE3mHE"
+      ],
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
