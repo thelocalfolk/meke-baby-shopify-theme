@@ -1,60 +1,57 @@
 # Claude Code — Shopify Theme Project
 
-## ⚙️ PROJECT DETAILS (update these for each client)
+## ⚙️ PROJECT DETAILS
 
 - **Store name:** Meke Baby
 - **Theme:** Horizon
 - **Store status:** Live store
-- **Custom sections already built:** [list them here, or write "none yet"]
-- **Metafield namespaces in use:** [e.g. custom.tagline — or write "none"]
-- **Notes:** [anything else Claude should know about this client]
+- **GitHub repo connected to:** Development theme (not the live/published theme)
+- **Dev theme ID:** 78574584107
+- **Custom sections already built:** sections/footer-meke-custom.liquid
+- **Metafield namespaces in use:** none yet
+- **Notes:** The GitHub repo is connected to a dev theme only. All design changes made directly in the Shopify Theme Editor are stored in config/settings_data.json — this file must never be touched, overwritten, or pulled. Do not edit sections/footer.liquid (native Horizon footer) — the custom footer is sections/footer-meke-custom.liquid.
 
 ---
 
-## 🔒 SAFETY RULES (keep these the same every project)
+## 🔒 SAFETY RULES
 
 - Never push directly to the live/published theme
-- Always use a development theme or duplicate for testing
-- Never edit config/settings_data.json — this file contains the client's live theme editor settings and must not be overwritten
-- Always include `--ignore=config/settings_data.json` with `shopify theme dev` and `shopify theme push` to prevent overwriting Theme Editor settings
+- Always push to the development theme only, using the dev theme ID above
+- **Always use this exact push command:**
+  `shopify theme push --theme 78574584107 --ignore=config/settings_data.json`
+- **Always use this exact pull command (if ever needed):**
+  `shopify theme pull --theme 78574584107 --ignore=config/settings_data.json`
+- Never edit config/settings_data.json — this file stores all Theme Editor design changes and must never be overwritten
+- Never remove config/settings_data.json from .gitignore
 - Run `shopify theme check` and fix all errors before any push
 - Keep commits small — one change at a time, not big bundles of changes
 - Test changes on a real Shopify preview URL, not just localhost
 
 ---
 
-## 🟢 NEW BUILD — Claude behaviour (use this section for new stores)
-
-*Delete this section if this is a live store*
-
-- You can build freely and create new files
-- Suggest approaches before implementing large changes
-- Follow Shopify OS 2.0 structure: assets/, config/, layout/, sections/, snippets/, templates/, locales/
-- Use `{% render %}` not `{% include %}`
-- Use JSON templates in templates/ folder, not .liquid templates
-
----
-
-## 🔴 LIVE STORE — Claude behaviour (use this section for live stores with real data)
-
-*Delete this section if this is a new build*
+## 🔴 LIVE STORE — Claude behaviour
 
 - This store has real customers and live orders — be careful
-- **Always ask me before editing any existing file**
-- **Always ask me before pushing anything anywhere**
-- Only create new files (new snippets/sections) freely — editing existing ones needs my approval first
+- **Always ask before editing any existing file**
+- **Always ask before pushing anything anywhere**
+- Only create new files (new snippets/sections) freely — editing existing ones needs approval first
 - If something looks risky, flag it and wait for confirmation
 - Suggest changes with explanation before making them
 
 ---
 
-## 📐 CODE STANDARDS (keep these the same every project)
+## 📐 CODE STANDARDS
 
 - Prefer `{% render %}` over `{% include %}`
 - Always check metafields exist before outputting: `{% if product.metafields.custom.key != blank %}`
 - Validate all schema JSON — broken schema silently breaks the Theme Editor
 - Every new section needs a comment at the top explaining what it does
 - Do not create folders outside the standard Shopify theme structure
+- Use Australian English in all comments, labels, and default copy (colour, customise, optimisation, behaviour)
+- Scope all CSS to `#section-{{ section.id }}` to prevent style bleed
+- Always use `image_url: width: X` filter — never `.url` or `.src` directly
+- Wrap every optional element in a `blank` conditional so empty fields don't render empty markup
+- Always include a preset so sections can be added in the Theme Editor
 
 ---
 
@@ -67,8 +64,8 @@
 
 ## ❓ WHAT CLAUDE MUST ASK BEFORE DOING
 
-- Editing any existing section, snippet, or layout file (on live stores)
+- Editing any existing section, snippet, or layout file
 - Anything involving config/settings_data.json
-- Pushing to any theme (dev or live)
+- Pushing or pulling to any theme (dev or live)
 - Deleting any file
-- Installing new dependencie
+- Installing new dependencies
