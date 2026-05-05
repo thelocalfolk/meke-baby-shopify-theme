@@ -194,18 +194,6 @@
                 "price_tVjtKg"
               ]
             },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
@@ -311,7 +299,6 @@
           },
           "block_order": [
             "group_icgrde",
-            "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "afterpay_on_site_messaging_payments_messaging_amjaBL",
