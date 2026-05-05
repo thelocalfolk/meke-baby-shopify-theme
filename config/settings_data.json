@@ -243,7 +243,7 @@
           "foreground": "#ffffff",
           "primary": "#ffffff",
           "primary_hover": "#ffffffb0",
-          "border": "#ffffffb0",
+          "border": "#dccbe4",
           "shadow": "#928076",
           "primary_button_background": "#ffffff",
           "primary_button_text": "#000000",
