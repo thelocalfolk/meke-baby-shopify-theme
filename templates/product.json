@@ -320,7 +320,7 @@
               "type": "_divider",
               "name": "t:names.divider",
               "settings": {
-                "thickness": 1.5,
+                "thickness": 1,
                 "corner_radius": "square",
                 "width_percent": 100,
                 "padding-block-start": 0,
@@ -353,6 +353,18 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "divider_pAPbWb": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -363,7 +375,8 @@
             "afterpay_on_site_messaging_payments_messaging_amjaBL",
             "text_PCnFnc",
             "divider_FeVbJ6",
-            "text_irTxHq"
+            "text_irTxHq",
+            "divider_pAPbWb"
           ]
         }
       },
