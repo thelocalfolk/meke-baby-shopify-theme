@@ -6,7 +6,7 @@
 - **Theme:** Horizon
 - **Store status:** Live store
 - **GitHub repo connected to:** Development theme (not the live/published theme)
-- **Dev theme ID:** 78574584107
+- **Dev theme ID:** 187250016555
 - **Custom sections already built:** sections/footer-meke-custom.liquid
 - **Metafield namespaces in use:** none yet
 - **Notes:** The GitHub repo is connected to a dev theme only. All design changes made directly in the Shopify Theme Editor are stored in config/settings_data.json — this file must never be touched, overwritten, or pulled. Do not edit sections/footer.liquid (native Horizon footer) — the custom footer is sections/footer-meke-custom.liquid.
@@ -18,9 +18,9 @@
 - Never push directly to the live/published theme
 - Always push to the development theme only, using the dev theme ID above
 - **Always use this exact push command:**
-  `shopify theme push --theme 78574584107 --ignore=config/settings_data.json`
+  `shopify theme push --theme 187250016555 --ignore=config/settings_data.json`
 - **Always use this exact pull command (if ever needed):**
-  `shopify theme pull --theme 78574584107 --ignore=config/settings_data.json`
+  `shopify theme pull --theme 187250016555 --ignore=config/settings_data.json`
 - Never edit config/settings_data.json — this file stores all Theme Editor design changes and must never be overwritten
 - Never remove config/settings_data.json from .gitignore
 - Run `shopify theme check` and fix all errors before any push
