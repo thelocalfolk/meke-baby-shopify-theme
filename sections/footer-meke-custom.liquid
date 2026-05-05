@@ -40,14 +40,16 @@
       {%- comment -%} Nav column 1 {%- endcomment -%}
       {%- if menu_1_list.links.size > 0 -%}
         <div class="mb-footer__nav-col">
-          <button class="mb-footer__nav-toggle" aria-expanded="false">
-            {%- if section.settings.menu_1_heading != blank -%}
+          {%- if section.settings.menu_1_heading != blank -%}
+            <div class="mb-footer__nav-header">
               <span class="mb-footer__nav-heading">{{ section.settings.menu_1_heading | escape }}</span>
-            {%- endif -%}
-            <span class="mb-footer__nav-chevron" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg>
-            </span>
-          </button>
+              <button class="mb-footer__nav-toggle" aria-expanded="false" aria-label="Toggle {{ section.settings.menu_1_heading | escape }} menu">
+                <span class="mb-footer__nav-chevron" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg>
+                </span>
+              </button>
+            </div>
+          {%- endif -%}
           <ul class="mb-footer__nav-list">
             {%- for link in menu_1_list.links -%}
               <li>
@@ -61,14 +63,16 @@
       {%- comment -%} Nav column 2 {%- endcomment -%}
       {%- if menu_2_list.links.size > 0 -%}
         <div class="mb-footer__nav-col">
-          <button class="mb-footer__nav-toggle" aria-expanded="false">
-            {%- if section.settings.menu_2_heading != blank -%}
+          {%- if section.settings.menu_2_heading != blank -%}
+            <div class="mb-footer__nav-header">
               <span class="mb-footer__nav-heading">{{ section.settings.menu_2_heading | escape }}</span>
-            {%- endif -%}
-            <span class="mb-footer__nav-chevron" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg>
-            </span>
-          </button>
+              <button class="mb-footer__nav-toggle" aria-expanded="false" aria-label="Toggle {{ section.settings.menu_2_heading | escape }} menu">
+                <span class="mb-footer__nav-chevron" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg>
+                </span>
+              </button>
+            </div>
+          {%- endif -%}
           <ul class="mb-footer__nav-list">
             {%- for link in menu_2_list.links -%}
               <li>
@@ -82,14 +86,16 @@
       {%- comment -%} Nav column 3 {%- endcomment -%}
       {%- if menu_3_list.links.size > 0 -%}
         <div class="mb-footer__nav-col">
-          <button class="mb-footer__nav-toggle" aria-expanded="false">
-            {%- if section.settings.menu_3_heading != blank -%}
+          {%- if section.settings.menu_3_heading != blank -%}
+            <div class="mb-footer__nav-header">
               <span class="mb-footer__nav-heading">{{ section.settings.menu_3_heading | escape }}</span>
-            {%- endif -%}
-            <span class="mb-footer__nav-chevron" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg>
-            </span>
-          </button>
+              <button class="mb-footer__nav-toggle" aria-expanded="false" aria-label="Toggle {{ section.settings.menu_3_heading | escape }} menu">
+                <span class="mb-footer__nav-chevron" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="16" height="16" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg>
+                </span>
+              </button>
+            </div>
+          {%- endif -%}
           <ul class="mb-footer__nav-list">
             {%- for link in menu_3_list.links -%}
               <li>
@@ -424,20 +430,23 @@
 
   /* ── Mobile nav accordion ── */
   @media screen and (max-width: 749px) {
-    #section-{{ section.id }} .mb-footer__nav-toggle {
+    #section-{{ section.id }} .mb-footer__nav-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 100%;
-      background: none;
-      border: none;
       border-bottom: 1px solid currentColor;
       padding: 0.75rem 0;
       cursor: pointer;
+    }
+
+    #section-{{ section.id }} .mb-footer__nav-toggle {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
       color: currentColor;
-      font-size: 0.875rem;
-      font-weight: 600;
-      line-height: 1;
+      display: flex;
+      align-items: center;
     }
 
     #section-{{ section.id }} .mb-footer__nav-heading {
@@ -476,10 +485,12 @@
   }
 
   @media screen and (min-width: 750px) {
+    #section-{{ section.id }} .mb-footer__nav-header {
+      display: block;
+    }
+
     #section-{{ section.id }} .mb-footer__nav-toggle {
-      display: contents;
-      font-weight: inherit;
-      color: inherit;
+      display: none;
     }
 
     #section-{{ section.id }} .mb-footer__nav-heading {
@@ -487,13 +498,9 @@
       font-weight: 600;
       letter-spacing: 0.02em;
       margin: 0;
-      color: currentColor;
       padding-bottom: 2rem;
       display: block;
-    }
-
-    #section-{{ section.id }} .mb-footer__nav-chevron {
-      display: none;
+      color: currentColor;
     }
   }
   @media screen and (max-width: 749px) {
@@ -513,23 +520,25 @@
       var section = document.getElementById('section-{{ section.id }}');
       if (!section) return;
 
-      var toggles = section.querySelectorAll('.mb-footer__nav-toggle');
+      var headers = section.querySelectorAll('.mb-footer__nav-header');
 
-      toggles.forEach(function (toggle) {
-        toggle.addEventListener('click', function () {
-          var col = toggle.closest('.mb-footer__nav-col');
+      headers.forEach(function (header) {
+        header.addEventListener('click', function () {
+          var col = header.closest('.mb-footer__nav-col');
+          var toggle = header.querySelector('.mb-footer__nav-toggle');
           var isOpen = col.classList.contains('is-open');
 
           // Close all
           section.querySelectorAll('.mb-footer__nav-col').forEach(function (c) {
             c.classList.remove('is-open');
-            c.querySelector('.mb-footer__nav-toggle').setAttribute('aria-expanded', 'false');
+            var t = c.querySelector('.mb-footer__nav-toggle');
+            if (t) t.setAttribute('aria-expanded', 'false');
           });
 
           // Open clicked if it was closed
           if (!isOpen) {
             col.classList.add('is-open');
-            toggle.setAttribute('aria-expanded', 'true');
+            if (toggle) toggle.setAttribute('aria-expanded', 'true');
           }
         });
       });
