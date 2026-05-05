@@ -194,6 +194,25 @@
                 "price_tVjtKg"
               ]
             },
+            "product_highlights_ThMQX4": {
+              "type": "product-highlights",
+              "name": "Product Highlights",
+              "settings": {
+                "highlight_text_1": "{{ closest.product.metafields.custom.product_highlights_text.value }}",
+                "highlight_icon_1": "{{ closest.product.metafields.custom.product_hightlights_icon.value }}",
+                "highlight_text_2": "{{ closest.product.metafields.custom.product_highlights_text_2.value }}",
+                "highlight_icon_2": "{{ closest.product.metafields.custom.product_highlights_icon_2.value }}",
+                "highlight_text_3": "{{ closest.product.metafields.custom.product_highlights_text_3.value }}",
+                "highlight_icon_3": "{{ closest.product.metafields.custom.product_highlights_icon_3.value }}",
+                "highlight_text_4": "{{ closest.product.metafields.custom.product_highlights_text_4.value }}",
+                "highlight_icon_4": "{{ closest.product.metafields.custom.product_highlights_icon_4.value }}",
+                "icon_size": 18,
+                "row_gap": 10,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
@@ -299,6 +318,7 @@
           },
           "block_order": [
             "group_icgrde",
+            "product_highlights_ThMQX4",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "afterpay_on_site_messaging_payments_messaging_amjaBL",
