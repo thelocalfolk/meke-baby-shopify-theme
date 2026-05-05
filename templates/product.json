@@ -160,6 +160,10 @@
                   },
                   "blocks": {}
                 },
+                "judge_me_reviews_preview_badge_mYBdfF": {
+                  "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+                  "settings": {}
+                },
                 "price_tVjtKg": {
                   "type": "price",
                   "settings": {
@@ -186,6 +190,7 @@
               "block_order": [
                 "text_xrnftG",
                 "text_exkQcC",
+                "judge_me_reviews_preview_badge_mYBdfF",
                 "price_tVjtKg"
               ]
             },
