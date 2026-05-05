@@ -294,22 +294,23 @@
     gap: 0;
     border-radius: var(--style-border-radius-pills, 100px);
     overflow: hidden;
-    background: var(--color-background, #fff);
+    background: var(--color-input-background, #fff);
+    padding: 4px;
   }
 
   #section-{{ section.id }} .mb-footer__email-input {
     flex: 1;
     border: none;
     background: transparent;
-    padding: 0.75rem 1rem;
+    padding: 0.6rem 1rem;
     font-size: 0.875rem;
-    color: var(--color-foreground, #111);
+    color: var(--color-input-text, #111);
     outline: none;
     min-width: 0;
   }
 
   #section-{{ section.id }} .mb-footer__email-input::placeholder {
-    color: var(--color-foreground, #111);
+    color: var(--color-input-text, #111);
     opacity: 0.5;
   }
 
