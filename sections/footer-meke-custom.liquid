@@ -1,0 +1,645 @@
+{% comment %}
+  Section: Meke Baby Footer
+  Custom footer for the Meke Baby store — Horizon theme.
+  Includes: centred logo, 4-column grid (3 nav menus + email signup with social icons),
+  IP/legal richtext block, and bottom bar with copyright and designer credit.
+  All content is merchant-editable via the Theme Editor.
+{% endcomment %}
+
+{%- liquid
+  assign menu_1_list = linklists[section.settings.menu_1]
+  assign menu_2_list = linklists[section.settings.menu_2]
+  assign menu_3_list = linklists[section.settings.menu_3]
+-%}
+
+<footer
+  id="section-{{ section.id }}"
+  class="mb-footer color-{{ section.settings.color_scheme }}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="mb-footer__inner section--page-width">
+
+    {%- comment -%} ── Logo ── {%- endcomment -%}
+    <div class="mb-footer__logo-wrap">
+      {%- if section.settings.logo != blank -%}
+        {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
+        <a href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }}">
+          {{ section.settings.logo | image_url: width: 400 | image_tag: loading: 'eager', alt: logo_alt, class: 'mb-footer__logo-img' }}
+        </a>
+      {%- else -%}
+        <a href="{{ routes.root_url }}" class="mb-footer__shop-name">{{ shop.name | escape }}</a>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} ── 4-column grid ── {%- endcomment -%}
+    <div class="mb-footer__main">
+
+      {%- comment -%} Nav column 1 {%- endcomment -%}
+      {%- if menu_1_list.links.size > 0 -%}
+        <div class="mb-footer__nav-col">
+          {%- if section.settings.menu_1_heading != blank -%}
+            <p class="mb-footer__nav-heading">{{ section.settings.menu_1_heading | escape }}</p>
+          {%- endif -%}
+          <ul class="mb-footer__nav-list">
+            {%- for link in menu_1_list.links -%}
+              <li>
+                <a href="{{ link.url }}" class="mb-footer__nav-link">{{ link.title | escape }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} Nav column 2 {%- endcomment -%}
+      {%- if menu_2_list.links.size > 0 -%}
+        <div class="mb-footer__nav-col">
+          {%- if section.settings.menu_2_heading != blank -%}
+            <p class="mb-footer__nav-heading">{{ section.settings.menu_2_heading | escape }}</p>
+          {%- endif -%}
+          <ul class="mb-footer__nav-list">
+            {%- for link in menu_2_list.links -%}
+              <li>
+                <a href="{{ link.url }}" class="mb-footer__nav-link">{{ link.title | escape }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} Nav column 3 {%- endcomment -%}
+      {%- if menu_3_list.links.size > 0 -%}
+        <div class="mb-footer__nav-col">
+          {%- if section.settings.menu_3_heading != blank -%}
+            <p class="mb-footer__nav-heading">{{ section.settings.menu_3_heading | escape }}</p>
+          {%- endif -%}
+          <ul class="mb-footer__nav-list">
+            {%- for link in menu_3_list.links -%}
+              <li>
+                <a href="{{ link.url }}" class="mb-footer__nav-link">{{ link.title | escape }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} Email signup + social column {%- endcomment -%}
+      <div class="mb-footer__signup-col">
+
+        {%- if section.settings.signup_heading != blank -%}
+          <p class="mb-footer__signup-heading">{{ section.settings.signup_heading | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.signup_subtext != blank -%}
+          <p class="mb-footer__signup-subtext">{{ section.settings.signup_subtext | escape }}</p>
+        {%- endif -%}
+
+        {%- form 'customer', id: 'mb-footer-newsletter' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="mb-footer__form-row">
+            <input
+              type="email"
+              name="contact[email]"
+              id="mb-footer-email"
+              class="mb-footer__email-input"
+              placeholder="{{ section.settings.email_placeholder | default: 'Email' | escape }}"
+              autocomplete="email"
+              aria-label="{{ section.settings.email_placeholder | default: 'Email' | escape }}"
+              required
+            >
+            <button type="submit" class="mb-footer__signup-btn">
+              {{ section.settings.signup_button_label | default: 'Sign Up' | escape }}
+            </button>
+          </div>
+          {%- if form.posted_successfully? -%}
+            <p class="mb-footer__form-success">Thanks for subscribing!</p>
+          {%- endif -%}
+          {%- if form.errors -%}
+            <p class="mb-footer__form-error">Please enter a valid email address.</p>
+          {%- endif -%}
+        {%- endform -%}
+
+        {%- comment -%} Social icons {%- endcomment -%}
+        <div class="mb-footer__social">
+          {%- if section.settings.social_instagram != blank -%}
+            <a href="{{ section.settings.social_instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="mb-footer__social-link">
+              <svg class="mb-footer__social-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                {%- render 'icon', icon: 'instagram' -%}
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.social_facebook != blank -%}
+            <a href="{{ section.settings.social_facebook }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="mb-footer__social-link">
+              <svg class="mb-footer__social-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                {%- render 'icon', icon: 'facebook' -%}
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.social_tiktok != blank -%}
+            <a href="{{ section.settings.social_tiktok }}" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="mb-footer__social-link">
+              <svg class="mb-footer__social-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                {%- render 'icon', icon: 'tiktok' -%}
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.social_pinterest != blank -%}
+            <a href="{{ section.settings.social_pinterest }}" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" class="mb-footer__social-link">
+              <svg class="mb-footer__social-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                {%- render 'icon', icon: 'pinterest' -%}
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+
+      </div>
+    </div>
+
+    {%- comment -%} ── Legal / IP block ── {%- endcomment -%}
+    {%- if section.settings.legal_text != blank -%}
+      <div class="mb-footer__legal">
+        {{ section.settings.legal_text }}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ── Bottom bar ── {%- endcomment -%}
+    <div class="mb-footer__bottom">
+      <p class="mb-footer__copyright">
+        &copy; {{ 'now' | date: '%Y' }}. {{ shop.name | escape }}. {{ section.settings.copyright_text | default: 'All rights reserved.' | escape }}
+      </p>
+      {%- if section.settings.designer_name != blank -%}
+        <p class="mb-footer__designer">
+          {%- if section.settings.designer_prefix != blank -%}
+            {{ section.settings.designer_prefix | escape }}
+          {%- endif -%}
+          {%- if section.settings.designer_url != blank -%}
+            <a href="{{ section.settings.designer_url }}" target="_blank" rel="noopener noreferrer">{{ section.settings.designer_name | escape }}</a>
+          {%- else -%}
+            {{ section.settings.designer_name | escape }}
+          {%- endif -%}
+        </p>
+      {%- endif -%}
+    </div>
+
+  </div>
+</footer>
+
+{% stylesheet %}
+  #section-{{ section.id }}.mb-footer {
+    width: 100%;
+  }
+
+  #section-{{ section.id }} .mb-footer__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding-inline: var(--container-gutter, 2rem);
+  }
+
+  /* ── Logo ── */
+  #section-{{ section.id }} .mb-footer__logo-wrap {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+  }
+
+  #section-{{ section.id }} .mb-footer__logo-img {
+    max-width: 200px;
+    height: auto;
+  }
+
+  #section-{{ section.id }} .mb-footer__shop-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  /* ── 4-column grid ── */
+  #section-{{ section.id }} .mb-footer__main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    #section-{{ section.id }} .mb-footer__main {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    #section-{{ section.id }} .mb-footer__main {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  /* ── Nav columns ── */
+  #section-{{ section.id }} .mb-footer__nav-heading {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin: 0 0 1rem;
+    color: currentColor;
+  }
+
+  #section-{{ section.id }} .mb-footer__nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  #section-{{ section.id }} .mb-footer__nav-link {
+    font-size: 0.875rem;
+    color: currentColor;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  #section-{{ section.id }} .mb-footer__nav-link:hover {
+    opacity: 1;
+  }
+
+  /* ── Email signup column ── */
+  #section-{{ section.id }} .mb-footer__signup-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  #section-{{ section.id }} .mb-footer__signup-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: currentColor;
+  }
+
+  #section-{{ section.id }} .mb-footer__signup-subtext {
+    font-size: 0.875rem;
+    margin: 0;
+    opacity: 0.8;
+    color: currentColor;
+  }
+
+  #section-{{ section.id }} .mb-footer__form-row {
+    display: flex;
+    gap: 0;
+    border-radius: var(--style-border-radius-pills, 100px);
+    overflow: hidden;
+    background: var(--color-background, #fff);
+  }
+
+  #section-{{ section.id }} .mb-footer__email-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    color: var(--color-foreground, #111);
+    outline: none;
+    min-width: 0;
+  }
+
+  #section-{{ section.id }} .mb-footer__email-input::placeholder {
+    color: var(--color-foreground, #111);
+    opacity: 0.5;
+  }
+
+  #section-{{ section.id }} .mb-footer__signup-btn {
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--style-border-radius-pills, 100px);
+    background-color: {{ section.settings.button_colour }};
+    color: {{ section.settings.button_text_colour }};
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+  }
+
+  #section-{{ section.id }} .mb-footer__signup-btn:hover {
+    opacity: 0.85;
+  }
+
+  #section-{{ section.id }} .mb-footer__form-success,
+  #section-{{ section.id }} .mb-footer__form-error {
+    font-size: 0.8125rem;
+    margin: 0.5rem 0 0;
+  }
+
+  #section-{{ section.id }} .mb-footer__form-success {
+    opacity: 0.8;
+  }
+
+  #section-{{ section.id }} .mb-footer__form-error {
+    color: var(--color-error, #8B0000);
+  }
+
+  /* ── Social icons ── */
+  #section-{{ section.id }} .mb-footer__social {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  #section-{{ section.id }} .mb-footer__social-link {
+    color: currentColor;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+  }
+
+  #section-{{ section.id }} .mb-footer__social-link:hover {
+    opacity: 1;
+  }
+
+  #section-{{ section.id }} .mb-footer__social-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: currentColor;
+  }
+
+  /* ── Legal block ── */
+  #section-{{ section.id }} .mb-footer__legal {
+    padding-bottom: 3rem;
+    font-size: 0.75rem;
+    line-height: 1.7;
+    opacity: 0.7;
+    max-width: 600px;
+  }
+
+  #section-{{ section.id }} .mb-footer__legal p {
+    margin: 0 0 0.5rem;
+  }
+
+  /* ── Bottom bar ── */
+  #section-{{ section.id }} .mb-footer__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 1px solid currentColor;
+    border-top-color: rgba(255, 255, 255, 0.15);
+    padding-top: 1.5rem;
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  @media screen and (min-width: 750px) {
+    #section-{{ section.id }} .mb-footer__bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  #section-{{ section.id }} .mb-footer__copyright,
+  #section-{{ section.id }} .mb-footer__designer {
+    margin: 0;
+  }
+
+  #section-{{ section.id }} .mb-footer__designer a {
+    color: currentColor;
+    text-decoration: underline;
+  }
+
+  /* ── Mobile padding ── */
+  @media screen and (max-width: 749px) {
+    #section-{{ section.id }}.mb-footer {
+      padding-top: {{ section.settings.mobile_padding_top }}px;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Meke Baby Footer",
+  "tag": "div",
+  "class": "mb-footer-wrapper",
+  "enabled_on": {
+    "groups": ["footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "header",
+      "content": "Navigation columns"
+    },
+    {
+      "type": "text",
+      "id": "menu_1_heading",
+      "label": "Column 1 heading",
+      "default": "Shop"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Column 1 menu",
+      "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_heading",
+      "label": "Column 2 heading",
+      "default": "Mekë Baby"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Column 2 menu",
+      "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "menu_3_heading",
+      "label": "Column 3 heading",
+      "default": "Housekeeping"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_3",
+      "label": "Column 3 menu",
+      "default": "footer"
+    },
+    {
+      "type": "header",
+      "content": "Email signup"
+    },
+    {
+      "type": "text",
+      "id": "signup_heading",
+      "label": "Signup heading",
+      "default": "Enjoy $20 off your first order"
+    },
+    {
+      "type": "text",
+      "id": "signup_subtext",
+      "label": "Signup subtext",
+      "default": "Sign up to receive your welcome offer."
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email input placeholder",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "signup_button_label",
+      "label": "Button label",
+      "default": "Sign Up"
+    },
+    {
+      "type": "color",
+      "id": "button_colour",
+      "label": "Button colour",
+      "default": "#c4b5c8"
+    },
+    {
+      "type": "color",
+      "id": "button_text_colour",
+      "label": "Button text colour",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Social media"
+    },
+    {
+      "type": "url",
+      "id": "social_instagram",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "social_facebook",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "social_tiktok",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "url",
+      "id": "social_pinterest",
+      "label": "Pinterest URL"
+    },
+    {
+      "type": "header",
+      "content": "Legal text"
+    },
+    {
+      "type": "richtext",
+      "id": "legal_text",
+      "label": "IP / legal text",
+      "default": "<p>The Meke Baby milk warmer is subject to the following design applications and registrations belonging to Meke Baby Pty Ltd:</p><p>• Australian Design Registration No. 202311301<br/>• Australian Design Registration \"Go-Box\" : 202515053<br/>• New Zealand Design Application No. 431963<br/>• UK Design Registration No. 6275215</p><p>We are committed to safeguarding our intellectual property and brand from unauthorised use.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Bottom bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "default": "All rights reserved."
+    },
+    {
+      "type": "text",
+      "id": "designer_prefix",
+      "label": "Designer credit prefix",
+      "default": "Website Design by"
+    },
+    {
+      "type": "text",
+      "id": "designer_name",
+      "label": "Designer name",
+      "default": "Good Manners"
+    },
+    {
+      "type": "url",
+      "id": "designer_url",
+      "label": "Designer URL"
+    },
+    {
+      "type": "header",
+      "content": "Colour scheme"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Top padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Bottom padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meke Baby Footer"
+    }
+  ]
+}
+{% endschema %}
