@@ -110,7 +110,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: var(--font-paragraph--size, 0.875rem);
+    font-size: {{ block.settings.text_size }};
     line-height: var(--font-paragraph--line-height, 1.5);
     color: var(--color-foreground);
   }
@@ -211,6 +211,17 @@
       "step": 2,
       "default": 10,
       "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Text size",
+      "options": [
+        { "value": "0.75rem", "label": "Small" },
+        { "value": "0.875rem", "label": "Medium" },
+        { "value": "1rem", "label": "Large" }
+      ],
+      "default": "0.875rem"
     },
     {
       "type": "header",
