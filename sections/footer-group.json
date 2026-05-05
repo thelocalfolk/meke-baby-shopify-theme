@@ -15,6 +15,7 @@
       "type": "footer-meke-custom",
       "name": "Meke Baby Footer",
       "settings": {
+        "logo": "shopify://shop_images/Group_32_1.png",
         "menu_1_heading": "Shop",
         "menu_1": "footer",
         "menu_2_heading": "Mekë Baby",
