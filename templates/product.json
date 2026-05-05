@@ -208,6 +208,7 @@
                 "highlight_icon_4": "{{ closest.product.metafields.custom.product_highlights_icon_4.value }}",
                 "icon_size": 18,
                 "row_gap": 10,
+                "text_size": "0.75rem",
                 "padding-block-start": 0,
                 "padding-block-end": 0
               },
