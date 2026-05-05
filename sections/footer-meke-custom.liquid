@@ -320,8 +320,8 @@
     font-size: 0.875rem;
     font-weight: 500;
     border-radius: var(--style-border-radius-pills, 100px);
-    background-color: {{ section.settings.button_colour }};
-    color: {{ section.settings.button_text_colour }};
+    background-color: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
     white-space: nowrap;
     transition: opacity 0.2s ease;
   }
@@ -507,18 +507,6 @@
       "id": "signup_button_label",
       "label": "Button label",
       "default": "Sign Up"
-    },
-    {
-      "type": "color",
-      "id": "button_colour",
-      "label": "Button colour",
-      "default": "#c4b5c8"
-    },
-    {
-      "type": "color",
-      "id": "button_text_colour",
-      "label": "Button text colour",
-      "default": "#ffffff"
     },
     {
       "type": "header",
