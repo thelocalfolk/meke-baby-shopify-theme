@@ -194,17 +194,6 @@
                 "price_tVjtKg"
               ]
             },
-            "product_highlights_h4ADiX": {
-              "type": "product-highlights",
-              "name": "Product Highlights",
-              "settings": {
-                "icon_size": 28,
-                "row_gap": 10,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
@@ -310,7 +299,6 @@
           },
           "block_order": [
             "group_icgrde",
-            "product_highlights_h4ADiX",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "afterpay_on_site_messaging_payments_messaging_amjaBL",
