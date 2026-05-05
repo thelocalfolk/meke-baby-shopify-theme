@@ -1,0 +1,199 @@
+{% comment %}
+  Block: Product Highlights
+  Theme: Horizon — Meke Baby
+  Renders a list of icon + text rows driven by product metafields.
+  Add this block inside the product details column in the theme editor.
+  Metafields required (Admin → Settings → Custom data → Products):
+    custom.highlight_icon_1 — File (image)
+    custom.highlight_text_1 — Single line text
+    custom.highlight_icon_2 — File (image)
+    custom.highlight_text_2 — Single line text
+    custom.highlight_icon_3 — File (image)
+    custom.highlight_text_3 — Single line text
+    custom.highlight_icon_4 — File (image)
+    custom.highlight_text_4 — Single line text
+{% endcomment %}
+
+{%- liquid
+  assign icon_1 = product.metafields.custom.highlight_icon_1.value
+  assign text_1 = product.metafields.custom.highlight_text_1.value
+  assign icon_2 = product.metafields.custom.highlight_icon_2.value
+  assign text_2 = product.metafields.custom.highlight_text_2.value
+  assign icon_3 = product.metafields.custom.highlight_icon_3.value
+  assign text_3 = product.metafields.custom.highlight_text_3.value
+  assign icon_4 = product.metafields.custom.highlight_icon_4.value
+  assign text_4 = product.metafields.custom.highlight_text_4.value
+-%}
+
+{%- if text_1 != blank or text_2 != blank or text_3 != blank or text_4 != blank -%}
+  <div
+    id="block-{{ block.id }}"
+    class="product-highlights"
+    {{ block.shopify_attributes }}
+  >
+    <ul class="product-highlights__list">
+
+      {%- if text_1 != blank -%}
+        <li class="product-highlights__item">
+          {%- if icon_1 != blank -%}
+            <img
+              src="{{ icon_1 | image_url: width: 56 }}"
+              alt=""
+              class="product-highlights__icon"
+              width="{{ block.settings.icon_size }}"
+              height="{{ block.settings.icon_size }}"
+              aria-hidden="true"
+              loading="lazy"
+            >
+          {%- endif -%}
+          <span class="product-highlights__text">{{ text_1 }}</span>
+        </li>
+      {%- endif -%}
+
+      {%- if text_2 != blank -%}
+        <li class="product-highlights__item">
+          {%- if icon_2 != blank -%}
+            <img
+              src="{{ icon_2 | image_url: width: 56 }}"
+              alt=""
+              class="product-highlights__icon"
+              width="{{ block.settings.icon_size }}"
+              height="{{ block.settings.icon_size }}"
+              aria-hidden="true"
+              loading="lazy"
+            >
+          {%- endif -%}
+          <span class="product-highlights__text">{{ text_2 }}</span>
+        </li>
+      {%- endif -%}
+
+      {%- if text_3 != blank -%}
+        <li class="product-highlights__item">
+          {%- if icon_3 != blank -%}
+            <img
+              src="{{ icon_3 | image_url: width: 56 }}"
+              alt=""
+              class="product-highlights__icon"
+              width="{{ block.settings.icon_size }}"
+              height="{{ block.settings.icon_size }}"
+              aria-hidden="true"
+              loading="lazy"
+            >
+          {%- endif -%}
+          <span class="product-highlights__text">{{ text_3 }}</span>
+        </li>
+      {%- endif -%}
+
+      {%- if text_4 != blank -%}
+        <li class="product-highlights__item">
+          {%- if icon_4 != blank -%}
+            <img
+              src="{{ icon_4 | image_url: width: 56 }}"
+              alt=""
+              class="product-highlights__icon"
+              width="{{ block.settings.icon_size }}"
+              height="{{ block.settings.icon_size }}"
+              aria-hidden="true"
+              loading="lazy"
+            >
+          {%- endif -%}
+          <span class="product-highlights__text">{{ text_4 }}</span>
+        </li>
+      {%- endif -%}
+
+    </ul>
+  </div>
+{%- endif -%}
+
+<style>
+  #block-{{ block.id }} .product-highlights__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.row_gap }}px;
+  }
+
+  #block-{{ block.id }} .product-highlights__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: var(--font-paragraph--size, 0.875rem);
+    line-height: var(--font-paragraph--line-height, 1.5);
+    color: var(--color-foreground);
+  }
+
+  #block-{{ block.id }} .product-highlights__icon {
+    flex-shrink: 0;
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    object-fit: contain;
+  }
+
+  #block-{{ block.id }} .product-highlights__text {
+    flex: 1;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Product Highlights",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 56,
+      "step": 2,
+      "default": 28,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Gap between rows",
+      "min": 4,
+      "max": 40,
+      "step": 2,
+      "default": 10,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Highlights"
+    }
+  ]
+}
+{% endschema %}
