@@ -253,6 +253,7 @@
     padding-top: 0;
     padding-bottom: 0;
     padding-right: 24px;
+    background-color: {{ section.settings.background_color }};
   }
 
   #section-{{ section.id }} .comparison-table-section__heading {
@@ -430,6 +431,11 @@
       padding-left: 16px;
       /* Subtle shadow so content scrolling behind it looks clean */
       box-shadow: 4px 0 8px -4px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Keep sticky background solid during hover — prevents coloured cells bleeding through */
+    #section-{{ section.id }} .comparison-table__row:hover .comparison-table__row-label {
+      background-color: {{ section.settings.background_color }} !important;
     }
 
     /* Each data column snaps flush to the right edge of the sticky label column */
