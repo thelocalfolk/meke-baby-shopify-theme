@@ -396,9 +396,12 @@
       overflow-x: scroll;
       -webkit-overflow-scrolling: touch;
       scroll-snap-type: x mandatory;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE/Edge */
-      padding: 0 16px;
+      /* scroll-padding-left offsets snapping by the sticky column width
+         so data columns snap into view clear of the label column */
+      scroll-padding-left: 150px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 0 16px 0 0;
     }
 
     /* Hide scrollbar in webkit */
@@ -406,31 +409,35 @@
       display: none;
     }
 
-    /* Table fills at least the viewport width */
+    /* Table auto layout so sticky column dictates its own width */
     #section-{{ section.id }} .comparison-table {
       table-layout: auto;
       min-width: 100%;
     }
 
-    /* Sticky row-label column — stays visible while swiping */
+    /* Sticky row-label column — stays pinned while swiping */
     #section-{{ section.id }} .comparison-table__row-label-header,
     #section-{{ section.id }} .comparison-table__row-label {
       position: sticky;
       left: 0;
       z-index: 2;
       background-color: {{ section.settings.background_color }};
-      min-width: 130px;
-      max-width: 140px;
+      width: 150px;
+      min-width: 150px;
+      max-width: 150px;
       font-size: 12px;
-      padding-right: 12px;
+      padding-right: 16px;
+      padding-left: 16px;
+      /* Subtle shadow so content scrolling behind it looks clean */
+      box-shadow: 4px 0 8px -4px rgba(0, 0, 0, 0.08);
     }
 
-    /* Each data column snaps into view individually */
+    /* Each data column snaps flush to the right edge of the sticky label column */
     #section-{{ section.id }} .comparison-table__col-header,
     #section-{{ section.id }} .comparison-table__cell {
       scroll-snap-align: start;
-      min-width: 140px;
-      width: 140px;
+      width: 160px;
+      min-width: 160px;
     }
 
     #section-{{ section.id }} .comparison-table__col-header {
