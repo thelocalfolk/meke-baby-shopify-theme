@@ -60,6 +60,7 @@
 
   {%- if blocks.size > 0 -%}
 
+    <div class="fcm__grid-clip">
     <div class="fcm__grid" role="list" aria-label="Feature cards">
       {%- for block in blocks -%}
         {%- if block.type == 'card' -%}
@@ -168,6 +169,7 @@
         {%- endif -%}
       {%- endfor -%}
     </div>
+    </div>
 
   {%- endif -%}
 </div>
@@ -182,6 +184,13 @@
   .fcm__heading {
     margin: 0;
     color: var(--color, inherit);
+  }
+
+  /* ─── Grid clip wrapper ─── */
+  /* On desktop: transparent passthrough, grid handles layout.
+     On mobile: becomes grid-column 2/-1 to bleed right past the section margin. */
+  .fcm__grid-clip {
+    width: 100%;
   }
 
   /* ─── Desktop masonry grid ─── */
@@ -291,6 +300,11 @@
     color: var(--color, rgba(255, 255, 255, 0.80));
   }
 
+  /* For full-width sections, clip spans all columns */
+  .section--full-width .fcm__grid-clip {
+    grid-column: 1 / -1;
+  }
+
   /* Hover lift — subtle, respects reduced-motion */
   @media (hover: hover) {
     .fcm__card {
@@ -307,6 +321,13 @@
      Matches the behaviour and feel of the Feature Cards Carousel section. */
   @media screen and (max-width: 749px) {
 
+    /* Clip wrapper — grid-column 2/-1 starts at content column and bleeds right.
+     This matches the confirmed working pattern from the Feature Cards Carousel. */
+    .fcm__grid-clip {
+      grid-column: 2 / -1;
+      overflow: hidden;
+    }
+
     .fcm__grid {
       /* Override desktop grid — become a horizontal flex scroll container */
       display: flex;
@@ -316,10 +337,6 @@
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-
-      /* Bleed slightly past the section padding so the half-card peek works */
-      margin-inline: calc(var(--container-gutter, 20px) * -1);
-      padding-inline: var(--container-gutter, 20px);
     }
 
     .fcm__grid::-webkit-scrollbar {
