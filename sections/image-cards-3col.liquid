@@ -1,0 +1,429 @@
+{% comment %}
+  Section: Image Cards — 3 Column
+  Three full-bleed image cards displayed in a row, each with an optional title and subtitle
+  overlaid at the bottom-left. A section-level heading sits above the grid.
+  Built for the Horizon theme.
+{% endcomment %}
+
+<div
+  id="section-{{ section.id }}"
+  class="image-cards-3col"
+  style="
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="image-cards-3col__inner">
+
+    {%- if section.settings.heading != blank -%}
+      <p
+        class="image-cards-3col__heading {{ section.settings.heading_preset }}"
+        style="{% render 'typography-style', settings: section.settings %}"
+      >
+        {{ section.settings.heading | escape }}
+      </p>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="image-cards-3col__grid">
+        {%- for block in section.blocks -%}
+          <div class="image-cards-3col__card" {{ block.shopify_attributes }}>
+
+            <div class="image-cards-3col__image-wrap">
+              {%- if block.settings.image != blank -%}
+                {%- assign card_alt = block.settings.title | escape -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 900
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: card_alt,
+                    widths: '400, 600, 800, 900',
+                    sizes: '(max-width: 767px) 100vw, 33vw',
+                    class: 'image-cards-3col__img'
+                }}
+              {%- else -%}
+                <div class="image-cards-3col__placeholder">
+                  {{ 'image' | placeholder_svg_tag: 'image-cards-3col__placeholder-svg' }}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.title != blank or block.settings.subtitle != blank -%}
+                <div
+                  class="image-cards-3col__overlay"
+                  style="background: {{ block.settings.overlay_color }};"
+                >
+                  {%- if block.settings.title != blank -%}
+                    <p
+                      class="image-cards-3col__card-title {{ block.settings.title_preset }}"
+                      style="
+                        color: {{ block.settings.text_color }};
+                        {% render 'typography-style', settings: block.settings, prefix: 'title_' %}
+                      "
+                    >
+                      {{ block.settings.title | escape }}
+                    </p>
+                  {%- endif -%}
+                  {%- if block.settings.subtitle != blank -%}
+                    <p
+                      class="image-cards-3col__card-subtitle {{ block.settings.subtitle_preset }}"
+                      style="
+                        color: {{ block.settings.text_color }};
+                        {% render 'typography-style', settings: block.settings, prefix: 'subtitle_' %}
+                      "
+                    >
+                      {{ block.settings.subtitle | escape }}
+                    </p>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+<style>
+  #section-{{ section.id }} {
+    --card-gap: {{ section.settings.card_gap }}px;
+    --card-radius: {{ section.settings.card_radius }}px;
+    --card-aspect: {{ section.settings.card_aspect_ratio }};
+  }
+
+  #section-{{ section.id }} .image-cards-3col__inner {
+    max-width: var(--container-max-width, 1400px);
+    margin: 0 auto;
+    padding-left: var(--container-gutter, 24px);
+    padding-right: var(--container-gutter, 24px);
+  }
+
+  #section-{{ section.id }} .image-cards-3col__heading {
+    text-align: {{ section.settings.heading_alignment }};
+    margin: 0 0 {{ section.settings.heading_gap }}px;
+    color: {{ section.settings.heading_color }};
+  }
+
+  #section-{{ section.id }} .image-cards-3col__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--card-gap);
+  }
+
+  #section-{{ section.id }} .image-cards-3col__image-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--card-radius);
+    aspect-ratio: var(--card-aspect);
+  }
+
+  #section-{{ section.id }} .image-cards-3col__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  #section-{{ section.id }} .image-cards-3col__card:hover .image-cards-3col__img {
+    transform: scale(1.03);
+  }
+
+  #section-{{ section.id }} .image-cards-3col__placeholder,
+  #section-{{ section.id }} .image-cards-3col__placeholder-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  #section-{{ section.id }} .image-cards-3col__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: {{ section.settings.overlay_padding }}px;
+  }
+
+  #section-{{ section.id }} .image-cards-3col__card-title,
+  #section-{{ section.id }} .image-cards-3col__card-subtitle {
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  #section-{{ section.id }} .image-cards-3col__card-title {
+    margin-bottom: 4px;
+  }
+
+  /* Mobile — stack to single column */
+  @media (max-width: 767px) {
+    #section-{{ section.id }} {
+      padding-top: {{ section.settings.mobile_padding_top }}px;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #section-{{ section.id }} .image-cards-3col__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Image Cards — 3 Column",
+  "tag": "section",
+  "class": "image-cards-3col-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Fits seamlessly into your routine"
+    },
+    {
+      "type": "select",
+      "id": "heading_preset",
+      "label": "Heading style preset",
+      "info": "Inherits from your theme typography settings",
+      "options": [
+        { "value": "paragraph", "label": "Paragraph" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Centre" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading colour",
+      "default": "#6b5d52"
+    },
+    {
+      "type": "range",
+      "id": "heading_gap",
+      "label": "Gap below heading",
+      "min": 8,
+      "max": 80,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Card layout"
+    },
+    {
+      "type": "select",
+      "id": "card_aspect_ratio",
+      "label": "Card aspect ratio",
+      "options": [
+        { "value": "1 / 1", "label": "Square (1:1)" },
+        { "value": "4 / 3", "label": "Landscape (4:3)" },
+        { "value": "3 / 4", "label": "Portrait (3:4)" },
+        { "value": "16 / 9", "label": "Widescreen (16:9)" },
+        { "value": "5 / 6", "label": "Tall portrait (5:6)" }
+      ],
+      "default": "4 / 3"
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Gap between cards",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "overlay_padding",
+      "label": "Overlay padding",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Background & spacing"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background colour",
+      "default": "#f5f3f0"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Top padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Bottom padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "At home"
+        },
+        {
+          "type": "select",
+          "id": "title_preset",
+          "label": "Title style preset",
+          "info": "Inherits from your theme typography settings",
+          "options": [
+            { "value": "paragraph", "label": "Paragraph" },
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "h5", "label": "H5" },
+            { "value": "h6", "label": "H6" }
+          ],
+          "default": "h3"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Prepare feeds with clarity and control."
+        },
+        {
+          "type": "select",
+          "id": "subtitle_preset",
+          "label": "Subtitle style preset",
+          "info": "Inherits from your theme typography settings",
+          "options": [
+            { "value": "paragraph", "label": "Paragraph" },
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "h5", "label": "H5" },
+            { "value": "h6", "label": "H6" }
+          ],
+          "default": "paragraph"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text colour",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color_background",
+          "id": "overlay_color",
+          "label": "Overlay gradient / colour",
+          "default": "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 60%)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Cards — 3 Column",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "title": "At home",
+            "subtitle": "Prepare feeds with clarity and control."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "On the go",
+            "subtitle": "Warm milk wherever you are — without needing external tools."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Overnight",
+            "subtitle": "Keep feeds consistent without disrupting your routine."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
