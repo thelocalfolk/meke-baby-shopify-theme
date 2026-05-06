@@ -481,13 +481,13 @@
                     "text_iCYnze": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "{{ closest.product.metafields.custom.care_use | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
-                        "type_preset": "rte",
+                        "type_preset": "custom",
                         "font": "var(--font-body--family)",
-                        "font_size": "1rem",
+                        "font_size": "0.8125rem",
                         "line_height": "normal",
                         "letter_spacing": "normal",
                         "case": "none",
