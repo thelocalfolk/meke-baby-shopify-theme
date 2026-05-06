@@ -249,8 +249,9 @@
   #section-{{ section.id }} .comparison-table__row-label-header {
     width: 200px;
     min-width: 140px;
-    vertical-align: bottom;
-    padding-bottom: 20px;
+    vertical-align: top;
+    padding-top: 0;
+    padding-bottom: 0;
     padding-right: 24px;
   }
 
@@ -318,7 +319,8 @@
   /* ── Row label cells ── */
   #section-{{ section.id }} .comparison-table__row-label {
     font-size: 13px;
-    padding: 16px 24px 16px 0;
+    padding: 0 24px 0 0;
+    height: 56px;
     text-align: left;
     border-bottom: 1px solid var(--divider-color);
     vertical-align: middle;
@@ -328,7 +330,8 @@
   /* ── Data cells ── */
   #section-{{ section.id }} .comparison-table__cell {
     text-align: center;
-    padding: 14px 8px;
+    padding: 0 8px;
+    height: 56px;
     border-bottom: 1px solid var(--divider-color);
     vertical-align: middle;
   }
