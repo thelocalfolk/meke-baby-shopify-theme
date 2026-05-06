@@ -1,0 +1,640 @@
+{% comment %}
+  Section: Comparison Table
+  A "How we compare" table with a highlighted brand column and competitor columns.
+  Supports editable row labels, check/cross icons, column labels, product icons,
+  and full colour control. Built for Meke Baby on the Horizon theme.
+
+  Block types:
+  - competitor: adds a competitor column (add as many as needed)
+  - row: adds a feature comparison row (brand value is a checkbox; competitor
+    values are a comma-separated list of true/false matching column order)
+{% endcomment %}
+
+{%- liquid
+  assign competitor_blocks = section.blocks | where: 'type', 'competitor'
+  assign row_blocks = section.blocks | where: 'type', 'row'
+  assign competitor_count = competitor_blocks.size
+-%}
+
+<section
+  id="section-{{ section.id }}"
+  class="comparison-table-section"
+  style="
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="comparison-table-section__inner">
+
+    {%- comment -%} ── Layout: heading left, table right ──{%- endcomment -%}
+    <div class="comparison-table-section__layout">
+
+      {%- comment -%} Heading column {%- endcomment -%}
+      <div class="comparison-table-section__heading-col">
+        {%- if section.settings.heading != blank -%}
+          <p
+            class="comparison-table-section__heading {{ section.settings.heading_type_preset }}"
+            style="
+              color: {{ section.settings.heading_color }};
+              {% render 'typography-style', settings: section.settings, prefix: 'heading_' %}
+            "
+          >
+            {{ section.settings.heading | escape }}
+          </p>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Scrollable table wrapper (handles overflow on mobile) {%- endcomment -%}
+      <div class="comparison-table-section__table-wrapper">
+        <table class="comparison-table" role="table" aria-label="{{ section.settings.heading | escape }}">
+
+          {%- comment -%} ── Column headers ── {%- endcomment -%}
+          <thead>
+            <tr>
+              {%- comment -%} Empty cell for row-label column {%- endcomment -%}
+              <th class="comparison-table__row-label-header" scope="col"></th>
+
+              {%- comment -%} Brand (your product) column header {%- endcomment -%}
+              <th
+                class="comparison-table__col-header comparison-table__col-header--brand"
+                scope="col"
+                style="background-color: {{ section.settings.brand_column_bg }};"
+              >
+                <div class="comparison-table__col-header-inner">
+                  {%- if section.settings.brand_icon != blank -%}
+                    <div class="comparison-table__col-icon">
+                      {%- assign brand_icon_alt = section.settings.brand_label | escape -%}
+                      {{
+                        section.settings.brand_icon
+                        | image_url: width: 80
+                        | image_tag:
+                          loading: 'lazy',
+                          alt: brand_icon_alt,
+                          widths: '40,60,80'
+                      }}
+                    </div>
+                  {%- else -%}
+                    <div class="comparison-table__col-icon comparison-table__col-icon--placeholder">
+                      <svg viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect x="10" y="2" width="20" height="56" rx="5" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="14" y="46" width="12" height="4" rx="2" fill="currentColor" opacity="0.3"/>
+                      </svg>
+                    </div>
+                  {%- endif -%}
+                  <span class="comparison-table__col-label">
+                    {{ section.settings.brand_label | escape }}
+                    {%- if section.settings.brand_label_2 != blank -%}
+                      <br>{{ section.settings.brand_label_2 | escape }}
+                    {%- endif -%}
+                  </span>
+                </div>
+              </th>
+
+              {%- comment -%} Competitor column headers {%- endcomment -%}
+              {%- for block in competitor_blocks -%}
+                <th
+                  class="comparison-table__col-header comparison-table__col-header--competitor"
+                  scope="col"
+                  style="background-color: {{ section.settings.competitor_column_bg }};"
+                  {{ block.shopify_attributes }}
+                >
+                  <div class="comparison-table__col-header-inner">
+                    {%- if block.settings.icon != blank -%}
+                      <div class="comparison-table__col-icon">
+                        {%- assign competitor_icon_alt = block.settings.label_line1 | escape -%}
+                        {{
+                          block.settings.icon
+                          | image_url: width: 80
+                          | image_tag:
+                            loading: 'lazy',
+                            alt: competitor_icon_alt,
+                            widths: '40,60,80'
+                        }}
+                      </div>
+                    {%- else -%}
+                      <div class="comparison-table__col-icon comparison-table__col-icon--placeholder" aria-hidden="true">
+                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                        </svg>
+                      </div>
+                    {%- endif -%}
+                    <span class="comparison-table__col-label">
+                      {{ block.settings.label_line1 | escape }}
+                      {%- if block.settings.label_line2 != blank -%}
+                        <br>{{ block.settings.label_line2 | escape }}
+                      {%- endif -%}
+                    </span>
+                  </div>
+                </th>
+              {%- endfor -%}
+            </tr>
+          </thead>
+
+          {%- comment -%} ── Comparison rows ── {%- endcomment -%}
+          <tbody>
+            {%- for block in row_blocks -%}
+              {%- assign competitor_vals = block.settings.competitor_values | split: ',' -%}
+              <tr class="comparison-table__row" {{ block.shopify_attributes }}>
+
+                {%- comment -%} Feature label {%- endcomment -%}
+                <td
+                  class="comparison-table__row-label"
+                  style="color: {{ section.settings.row_label_color }}; border-bottom-color: {{ section.settings.divider_color }};"
+                >
+                  {{ block.settings.label | escape }}
+                </td>
+
+                {%- comment -%} Brand cell {%- endcomment -%}
+                <td
+                  class="comparison-table__cell comparison-table__cell--brand"
+                  style="background-color: {{ section.settings.brand_column_bg }}; border-bottom-color: {{ section.settings.divider_color }};"
+                >
+                  {%- if block.settings.brand_has -%}
+                    {%- comment -%} Check icon {%- endcomment -%}
+                    <span class="comparison-table__icon comparison-table__icon--check" style="color: {{ section.settings.brand_check_color }};" aria-label="Yes">
+                      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M9 14.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  {%- else -%}
+                    {%- comment -%} Cross icon {%- endcomment -%}
+                    <span class="comparison-table__icon comparison-table__icon--cross" style="color: {{ section.settings.brand_check_color }};" aria-label="No">
+                      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M10 10l8 8M18 10l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                      </svg>
+                    </span>
+                  {%- endif -%}
+                </td>
+
+                {%- comment -%} Competitor cells {%- endcomment -%}
+                {%- for comp_block in competitor_blocks -%}
+                  {%- assign comp_index = forloop.index0 -%}
+                  {%- assign comp_val = competitor_vals[comp_index] | strip -%}
+                  <td
+                    class="comparison-table__cell comparison-table__cell--competitor"
+                    style="background-color: {{ section.settings.competitor_column_bg }}; border-bottom-color: {{ section.settings.divider_color }};"
+                  >
+                    {%- if comp_val == 'true' -%}
+                      <span class="comparison-table__icon comparison-table__icon--check" style="color: {{ section.settings.competitor_check_color }};" aria-label="Yes">
+                        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="1.5"/>
+                          <path d="M9 14.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                    {%- else -%}
+                      <span class="comparison-table__icon comparison-table__icon--cross" style="color: {{ section.settings.competitor_cross_color }};" aria-label="No">
+                        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="1.5"/>
+                          <path d="M10 10l8 8M18 10l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                    {%- endif -%}
+                  </td>
+                {%- endfor -%}
+
+              </tr>
+            {%- endfor -%}
+          </tbody>
+
+        </table>
+      </div>{%- comment -%} /.comparison-table-section__table-wrapper {%- endcomment -%}
+
+    </div>{%- comment -%} /.comparison-table-section__layout {%- endcomment -%}
+
+  </div>{%- comment -%} /.comparison-table-section__inner {%- endcomment -%}
+</section>
+
+<style>
+  #section-{{ section.id }} {
+    --brand-col-bg: {{ section.settings.brand_column_bg }};
+    --competitor-col-bg: {{ section.settings.competitor_column_bg }};
+    --divider-color: {{ section.settings.divider_color }};
+    --row-label-color: {{ section.settings.row_label_color }};
+  }
+
+  #section-{{ section.id }} .comparison-table-section__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── Two-column layout: heading left, table right ── */
+  #section-{{ section.id }} .comparison-table-section__layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  #section-{{ section.id }} .comparison-table-section__heading-col {
+    padding-top: 8px;
+  }
+
+  #section-{{ section.id }} .comparison-table-section__heading {
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  /* ── Scrollable table on smaller viewports ── */
+  #section-{{ section.id }} .comparison-table-section__table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ── Table base ── */
+  #section-{{ section.id }} .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+  }
+
+  /* ── Column headers ── */
+  #section-{{ section.id }} .comparison-table__row-label-header {
+    width: 200px;
+    min-width: 140px;
+  }
+
+  #section-{{ section.id }} .comparison-table__col-header {
+    padding: 20px 12px 16px;
+    text-align: center;
+    vertical-align: bottom;
+    min-width: 100px;
+  }
+
+  #section-{{ section.id }} .comparison-table__col-header--brand {
+    border-radius: 16px 16px 0 0;
+  }
+
+  #section-{{ section.id }} .comparison-table__col-header--competitor {
+    border-radius: 8px 8px 0 0;
+  }
+
+  #section-{{ section.id }} .comparison-table__col-header-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* ── Product icons in header ── */
+  #section-{{ section.id }} .comparison-table__col-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #section-{{ section.id }} .comparison-table__col-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  #section-{{ section.id }} .comparison-table__col-icon--placeholder {
+    color: #bbb;
+  }
+
+  #section-{{ section.id }} .comparison-table__col-icon--placeholder svg {
+    width: 36px;
+    height: 48px;
+  }
+
+  /* ── Column label text ── */
+  #section-{{ section.id }} .comparison-table__col-label {
+    display: block;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    color: var(--row-label-color);
+  }
+
+  /* ── Row label cells ── */
+  #section-{{ section.id }} .comparison-table__row-label {
+    font-size: 13px;
+    padding: 16px 20px 16px 0;
+    text-align: left;
+    border-bottom: 1px solid var(--divider-color);
+    vertical-align: middle;
+    line-height: 1.4;
+  }
+
+  /* ── Data cells ── */
+  #section-{{ section.id }} .comparison-table__cell {
+    text-align: center;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--divider-color);
+    vertical-align: middle;
+  }
+
+  /* Brand column — last row rounds the bottom corners */
+  #section-{{ section.id }} .comparison-table__row:last-child .comparison-table__cell--brand {
+    border-bottom: none;
+    border-radius: 0 0 16px 16px;
+  }
+
+  #section-{{ section.id }} .comparison-table__row:last-child .comparison-table__cell--competitor {
+    border-bottom: none;
+    border-radius: 0 0 8px 8px;
+  }
+
+  #section-{{ section.id }} .comparison-table__row:last-child .comparison-table__row-label {
+    border-bottom: none;
+  }
+
+  /* ── Check / cross icons ── */
+  #section-{{ section.id }} .comparison-table__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #section-{{ section.id }} .comparison-table__icon svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
+
+  /* ── Mobile: stack layout, full-width table ── */
+  @media (max-width: 768px) {
+    #section-{{ section.id }} {
+      padding-top: {{ section.settings.mobile_padding_top }}px !important;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px !important;
+    }
+
+    #section-{{ section.id }} .comparison-table-section__inner {
+      padding: 0 16px;
+    }
+
+    #section-{{ section.id }} .comparison-table-section__layout {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    #section-{{ section.id }} .comparison-table__row-label-header,
+    #section-{{ section.id }} .comparison-table__row-label {
+      min-width: 120px;
+    }
+
+    #section-{{ section.id }} .comparison-table__col-header {
+      min-width: 80px;
+      padding: 12px 8px 10px;
+    }
+
+    #section-{{ section.id }} .comparison-table__col-icon {
+      width: 36px;
+      height: 36px;
+    }
+
+    #section-{{ section.id }} .comparison-table__col-label {
+      font-size: 11px;
+    }
+
+    #section-{{ section.id }} .comparison-table__row-label {
+      font-size: 12px;
+      padding: 14px 12px 14px 0;
+    }
+
+    #section-{{ section.id }} .comparison-table__icon svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Comparison Table",
+  "tag": "section",
+  "class": "comparison-table-section-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How we compare"
+    },
+    {
+      "type": "select",
+      "id": "heading_type_preset",
+      "label": "Heading style",
+      "info": "Inherits from your theme typography settings",
+      "options": [
+        { "value": "paragraph", "label": "Paragraph" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "header",
+      "content": "Brand column (your product)"
+    },
+    {
+      "type": "text",
+      "id": "brand_label",
+      "label": "Brand column label (line 1)",
+      "default": "Mekē"
+    },
+    {
+      "type": "text",
+      "id": "brand_label_2",
+      "label": "Brand column label (line 2)",
+      "default": "Milk Warmer"
+
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_icon",
+      "label": "Brand product icon"
+    },
+    {
+      "type": "color",
+      "id": "brand_column_bg",
+      "label": "Brand column background colour",
+      "default": "#e8dff0"
+    },
+    {
+      "type": "color",
+      "id": "brand_check_color",
+      "label": "Brand column check colour",
+      "default": "#a08ab0"
+    },
+    {
+      "type": "header",
+      "content": "Competitor columns"
+    },
+    {
+      "type": "color",
+      "id": "competitor_column_bg",
+      "label": "Competitor column background colour",
+      "default": "#f0eeec"
+    },
+    {
+      "type": "color",
+      "id": "competitor_check_color",
+      "label": "Competitor check colour",
+      "default": "#888888"
+    },
+    {
+      "type": "color",
+      "id": "competitor_cross_color",
+      "label": "Competitor cross colour",
+      "default": "#aaaaaa"
+    },
+    {
+      "type": "header",
+      "content": "Table appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background colour",
+      "default": "#f5f3f1"
+    },
+    {
+      "type": "color",
+      "id": "row_label_color",
+      "label": "Row label text colour",
+      "default": "#6b6560"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Row divider colour",
+      "default": "#d8d4d0"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading colour",
+      "default": "#5a534e"
+    },
+    {
+      "type": "header",
+      "content": "Layout & Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Top padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Bottom padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "competitor",
+      "name": "Competitor column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label_line1",
+          "label": "Column label (line 1)",
+          "default": "Competitor"
+        },
+        {
+          "type": "text",
+          "id": "label_line2",
+          "label": "Column label (line 2)"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Product icon"
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "name": "Comparison row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Feature / row label",
+          "default": "Feature name"
+        },
+        {
+          "type": "checkbox",
+          "id": "brand_has",
+          "label": "Your brand has this",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "competitor_values",
+          "label": "Competitor checks (comma-separated true/false)",
+          "info": "Enter true or false for each competitor column, separated by commas. Must match the number of competitor column blocks. E.g. false,true,false,false",
+          "default": "false,false,false,false"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Table",
+      "blocks": [
+        { "type": "competitor", "settings": { "label_line1": "Kettle" } },
+        { "type": "competitor", "settings": { "label_line1": "Thermos &", "label_line2": "Plastic Water bottle" } },
+        { "type": "competitor", "settings": { "label_line1": "Microwaves" } },
+        { "type": "competitor", "settings": { "label_line1": "Other Milk", "label_line2": "Warmers" } },
+        { "type": "row", "settings": { "label": "Controlled temperature", "brand_has": true, "competitor_values": "false,false,false,false" } },
+        { "type": "row", "settings": { "label": "Safe for breastmilk", "brand_has": true, "competitor_values": "false,false,false,false" } },
+        { "type": "row", "settings": { "label": "Safe for formula", "brand_has": true, "competitor_values": "false,false,false,false" } },
+        { "type": "row", "settings": { "label": "Even heating (no hot spots)", "brand_has": true, "competitor_values": "false,false,false,false" } },
+        { "type": "row", "settings": { "label": "Microplastic-free", "brand_has": true, "competitor_values": "true,false,false,false" } },
+        { "type": "row", "settings": { "label": "No risk of burns / spillage", "brand_has": true, "competitor_values": "false,false,false,false" } },
+        { "type": "row", "settings": { "label": "Convenient on-the-go", "brand_has": true, "competitor_values": "false,true,false,false" } },
+        { "type": "row", "settings": { "label": "No multiple steps / tools", "brand_has": true, "competitor_values": "false,false,false,false" } },
+        { "type": "row", "settings": { "label": "Durable + leak-resistant", "brand_has": true, "competitor_values": "false,false,true,false" } },
+        { "type": "row", "settings": { "label": "Preserves nutrients", "brand_has": true, "competitor_values": "false,true,false,false" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
