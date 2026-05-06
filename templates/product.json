@@ -481,7 +481,7 @@
                     "text_iCYnze": {
                       "type": "text",
                       "settings": {
-                        "text": "{{ closest.product.metafields.custom.care_use | metafield_tag }}",
+                        "text": "<p>{{ closest.product.metafields.custom.care_use | metafield_tag }}</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
