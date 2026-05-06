@@ -355,6 +355,17 @@
     border-bottom: none;
   }
 
+  /* ── Row hover highlight ── */
+  #section-{{ section.id }} .comparison-table__row .comparison-table__row-label,
+  #section-{{ section.id }} .comparison-table__row .comparison-table__cell {
+    transition: background-color 0.2s ease;
+  }
+
+  #section-{{ section.id }} .comparison-table__row:hover .comparison-table__row-label,
+  #section-{{ section.id }} .comparison-table__row:hover .comparison-table__cell {
+    background-color: {{ section.settings.row_hover_color }} !important;
+  }
+
   /* ── Check / cross icons ── */
   #section-{{ section.id }} .comparison-table__icon {
     display: inline-flex;
@@ -518,6 +529,13 @@
       "id": "background_color",
       "label": "Section background colour",
       "default": "#f5f3f1"
+    },
+    {
+      "type": "color",
+      "id": "row_hover_color",
+      "label": "Row hover highlight colour",
+      "info": "The colour all cells turn when a row is hovered. Use a soft or semi-transparent tone.",
+      "default": "#ede8f2"
     },
     {
       "type": "color",
