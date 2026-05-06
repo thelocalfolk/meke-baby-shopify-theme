@@ -514,6 +514,25 @@
                 "accordion_row_Tg4xHP",
                 "accordion_row_YrcR3T"
               ]
+            },
+            "product_highlights_LmNGJD": {
+              "type": "product-highlights",
+              "name": "Product Highlights",
+              "settings": {
+                "highlight_text_1": "Free Delivery",
+                "highlight_icon_1": "shopify://shop_images/IconAsset_9_1.png",
+                "highlight_text_2": "1 Year Warranty",
+                "highlight_icon_2": "shopify://shop_images/Group_64844.png",
+                "highlight_text_3": "Same Day Dispatch",
+                "highlight_icon_3": "shopify://shop_images/IconAsset_8_1.png",
+                "highlight_text_4": "",
+                "icon_size": 18,
+                "row_gap": 10,
+                "text_size": "0.75rem",
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -527,7 +546,8 @@
             "text_irTxHq",
             "divider_pAPbWb",
             "tolstoy_ads_image_video_carousel_block_mpXWh4",
-            "accordion_4Ha7zd"
+            "accordion_4Ha7zd",
+            "product_highlights_LmNGJD"
           ]
         }
       },
