@@ -1330,7 +1330,7 @@
       "name": "Comparison Table",
       "settings": {
         "heading": "How we compare",
-        "heading_type_preset": "h4",
+        "heading_type_preset": "h3",
         "brand_label": "Mekē",
         "brand_label_2": "Milk Warmer",
         "brand_icon": "shopify://shop_images/Group_64845.svg",
