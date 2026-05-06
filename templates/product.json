@@ -1341,6 +1341,7 @@
         "competitor_check_color": "#888888",
         "competitor_cross_color": "#aaaaaa",
         "background_color": "#f5f3f1",
+        "row_hover_color": "#dccbe4",
         "row_label_color": "#6b6560",
         "divider_color": "#d8d4d0",
         "heading_color": "#5a534e",

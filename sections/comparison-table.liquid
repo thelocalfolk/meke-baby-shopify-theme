@@ -386,30 +386,61 @@
       padding-bottom: {{ section.settings.mobile_padding_bottom }}px !important;
     }
 
+    /* Remove side padding so table can use full width */
     #section-{{ section.id }} .comparison-table-section__inner {
+      padding: 0;
+    }
+
+    /* Scroll container: horizontal snap scrolling */
+    #section-{{ section.id }} .comparison-table-section__table-wrapper {
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
       padding: 0 16px;
     }
 
-    #section-{{ section.id }} .comparison-table__row-label-header {
-      min-width: 100px;
+    /* Hide scrollbar in webkit */
+    #section-{{ section.id }} .comparison-table-section__table-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Table fills at least the viewport width */
+    #section-{{ section.id }} .comparison-table {
+      table-layout: auto;
+      min-width: 100%;
+    }
+
+    /* Sticky row-label column — stays visible while swiping */
+    #section-{{ section.id }} .comparison-table__row-label-header,
+    #section-{{ section.id }} .comparison-table__row-label {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background-color: {{ section.settings.background_color }};
+      min-width: 130px;
+      max-width: 140px;
+      font-size: 12px;
       padding-right: 12px;
     }
 
-    #section-{{ section.id }} .comparison-table__row-label {
-      min-width: 100px;
-      font-size: 12px;
-      padding: 14px 12px 14px 0;
+    /* Each data column snaps into view individually */
+    #section-{{ section.id }} .comparison-table__col-header,
+    #section-{{ section.id }} .comparison-table__cell {
+      scroll-snap-align: start;
+      min-width: 140px;
+      width: 140px;
     }
 
     #section-{{ section.id }} .comparison-table__col-header {
-      min-width: 80px;
-      padding: 12px 8px 12px;
-      height: 140px;
+      padding: 16px 12px 16px;
+      height: 160px;
     }
 
     #section-{{ section.id }} .comparison-table__col-icon {
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
     }
 
     #section-{{ section.id }} .comparison-table__col-label {
@@ -417,8 +448,19 @@
     }
 
     #section-{{ section.id }} .comparison-table__icon svg {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
+    }
+
+    /* Disable hover highlight on touch devices */
+    #section-{{ section.id }} .comparison-table__row:hover .comparison-table__row-label,
+    #section-{{ section.id }} .comparison-table__row:hover .comparison-table__cell {
+      background-color: unset !important;
+    }
+
+    /* Restore correct column backgrounds after hover reset */
+    #section-{{ section.id }} .comparison-table__row:hover .comparison-table__cell--brand {
+      background-color: {{ section.settings.brand_column_bg }} !important;
     }
   }
 </style>
