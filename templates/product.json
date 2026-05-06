@@ -886,6 +886,68 @@
         "padding-block-end": 32
       }
     },
+    "award_logo_marquee_n4VhPM": {
+      "type": "award-logo-marquee",
+      "blocks": {
+        "award_logo_tLFxA3": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_fgaWYV": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_aAT66w": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_BHEDt8": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_jgRBMR": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "award_logo_tLFxA3",
+        "award_logo_fgaWYV",
+        "award_logo_aAT66w",
+        "award_logo_BHEDt8",
+        "award_logo_jgRBMR"
+      ],
+      "name": "Award Logo Marquee",
+      "settings": {
+        "heading": "Multi award winning",
+        "type_preset": "h3",
+        "logo_height": 80,
+        "logo_height_mobile": 60,
+        "movement_direction": "reverse",
+        "speed": 25,
+        "gap_between_logos": 48,
+        "heading_gap": 36,
+        "section_width": "full-width",
+        "color_scheme": "scheme-2",
+        "padding-block-start": 32,
+        "padding-block-end": 56
+      }
+    },
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",
       "blocks": {
@@ -1033,6 +1095,7 @@
     "marquee_gWiCVB",
     "section_exyrHT",
     "section_qNdyDd",
+    "award_logo_marquee_n4VhPM",
     "product_recommendations_qggXJq"
   ]
 }
