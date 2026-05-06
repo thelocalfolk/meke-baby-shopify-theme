@@ -1472,6 +1472,67 @@
         "padding-block-start": 64,
         "padding-block-end": 64
       }
+    },
+    "image_cards_3col_Teq6xD": {
+      "type": "image-cards-3col",
+      "blocks": {
+        "card_ePjN8F": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_160.png",
+            "title": "At home",
+            "title_preset": "h4",
+            "subtitle": "Prepare feeds with clarity and control.",
+            "subtitle_preset": "paragraph",
+            "text_color": "#ffffff",
+            "overlay_color": "linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 60%)"
+          }
+        },
+        "card_3zEJqm": {
+          "type": "card",
+          "settings": {
+            "title": "On the go",
+            "title_preset": "h3",
+            "subtitle": "Warm milk wherever you are — without needing external tools.",
+            "subtitle_preset": "paragraph",
+            "text_color": "#ffffff",
+            "overlay_color": "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 60%)"
+          }
+        },
+        "card_mUNYQK": {
+          "type": "card",
+          "settings": {
+            "title": "Overnight",
+            "title_preset": "h3",
+            "subtitle": "Keep feeds consistent without disrupting your routine.",
+            "subtitle_preset": "paragraph",
+            "text_color": "#ffffff",
+            "overlay_color": "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 60%)"
+          }
+        }
+      },
+      "block_order": [
+        "card_ePjN8F",
+        "card_3zEJqm",
+        "card_mUNYQK"
+      ],
+      "name": "Image Cards — 3 Column",
+      "settings": {
+        "heading": "Fits seamlessly into your routine",
+        "heading_preset": "h4",
+        "heading_alignment": "center",
+        "heading_color": "#6b5d52",
+        "heading_gap": 32,
+        "card_aspect_ratio": "4 / 3",
+        "card_gap": 16,
+        "card_radius": 12,
+        "overlay_padding": 20,
+        "background_color": "#f5f3f0",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 48,
+        "mobile_padding_bottom": 48
+      }
     }
   },
   "order": [
@@ -1483,6 +1544,7 @@
     "feature_cards_masonry_q97HBe",
     "comparison_table_BnzQVi",
     "brand_story_split_A9YkFi",
-    "video_feedback_carousel_GDBGr7"
+    "video_feedback_carousel_GDBGr7",
+    "image_cards_3col_Teq6xD"
   ]
 }
