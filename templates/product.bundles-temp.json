@@ -730,7 +730,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Mekė removes that. We’ve created a  considered system for warming milk safely and consistently — wherever feeding happens.</p>",
+            "text": "<p>Mekė removes that.We’ve created a  considered system for warming milk safely and consistently — wherever feeding happens.</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
