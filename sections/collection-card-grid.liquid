@@ -9,11 +9,7 @@
 <section
   id="section-{{ section.id }}"
   class="collection-card-grid"
-  style="
-    background-color: {{ section.settings.background_colour }};
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-  "
+  style="background-color: {{ section.settings.background_colour }};"
 >
   <div class="collection-card-grid__inner page-width">
     {%- if section.blocks.size > 0 -%}
@@ -86,6 +82,8 @@
 <style>
   #section-{{ section.id }} {
     width: 100%;
+    padding-top: {{ section.settings.padding_top }}px !important;
+    padding-bottom: {{ section.settings.padding_bottom }}px !important;
   }
 
   #section-{{ section.id }} .collection-card-grid__grid {
