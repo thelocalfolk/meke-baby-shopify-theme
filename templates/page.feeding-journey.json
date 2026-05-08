@@ -182,7 +182,7 @@
           "type": "card",
           "settings": {
             "heading": "For Mixed Feeding",
-            "type_preset": "h3",
+            "type_preset": "h4",
             "description": "For the in-between moments, the unpredictable routines, the both works best for us kind of days.",
             "button_label": "Shop Now",
             "button_url": ""
@@ -229,7 +229,7 @@
         "button_padding_v": 14,
         "button_padding_h": 28,
         "button_top_gap": 16,
-        "padding_top": 136,
+        "padding_top": 88,
         "padding_bottom": 80
       }
     }
