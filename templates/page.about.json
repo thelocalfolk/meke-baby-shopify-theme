@@ -528,6 +528,33 @@
         "mobile_padding_bottom": 48,
         "text_inline_padding": 80
       }
+    },
+    "brand_story_split_m3Chki": {
+      "type": "brand-story-split",
+      "name": "Brand Story Split",
+      "settings": {
+        "image_position": "right",
+        "vertical_alignment": "center",
+        "text_max_width": 520,
+        "color_scheme": "scheme-4",
+        "heading": "Built from real life, not theory",
+        "heading_type_preset": "h3",
+        "heading_size": 0,
+        "heading_size_mobile": 0,
+        "body": "<p>Meke Baby was born from lived experience, not assumption.Every product begins the same way:  A real problem. A real moment. A real need. From warming milk safely on the go to simplifying daily routines, the goal has always been the same — to make feeding easier, safer, and more considered for modern parents. Because when you’re in it — in the middle of the night, out of the house, or just trying to get through the day — small details matter.</p>",
+        "body_size": 15,
+        "button_label": "Our Products",
+        "button_link": "",
+        "button_style": "primary",
+        "button_padding_x": 32,
+        "button_padding_y": 14,
+        "image_aspect_ratio": "natural",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 48,
+        "mobile_padding_bottom": 48,
+        "text_inline_padding": 80
+      }
     }
   },
   "order": [
@@ -536,6 +563,7 @@
     "section_b4J4bY",
     "section_WkzmLy",
     "marquee_NB3e49",
-    "brand_story_split_BqC38h"
+    "brand_story_split_BqC38h",
+    "brand_story_split_m3Chki"
   ]
 }
