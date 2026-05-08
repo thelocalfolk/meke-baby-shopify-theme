@@ -221,7 +221,7 @@
         "mobile_columns": "1",
         "card_gap": 32,
         "mobile_card_gap": 24,
-        "image_aspect_ratio": "3 / 2",
+        "image_aspect_ratio": "16 / 9",
         "image_border_radius": 12,
         "content_gap": 20,
         "button_background": "#8c7b72",
