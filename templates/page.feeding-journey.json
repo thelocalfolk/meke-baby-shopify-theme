@@ -175,10 +175,10 @@
         "padding-block-end": 0
       }
     },
-    "collection_card_grid_qWfNHt": {
+    "collection_card_grid_wUgQxh": {
       "type": "collection-card-grid",
       "blocks": {
-        "card_BT3hDq": {
+        "card_VC8KLJ": {
           "type": "card",
           "settings": {
             "heading": "For Mixed Feeding",
@@ -188,7 +188,7 @@
             "button_url": ""
           }
         },
-        "card_DwBTyL": {
+        "card_9bNQ8t": {
           "type": "card",
           "settings": {
             "heading": "For Formula Feeding",
@@ -198,7 +198,7 @@
             "button_url": ""
           }
         },
-        "card_p79eNJ": {
+        "card_WE8TzQ": {
           "type": "card",
           "settings": {
             "heading": "For Starting Solids",
@@ -210,9 +210,9 @@
         }
       },
       "block_order": [
-        "card_BT3hDq",
-        "card_DwBTyL",
-        "card_p79eNJ"
+        "card_VC8KLJ",
+        "card_9bNQ8t",
+        "card_WE8TzQ"
       ],
       "name": "Collection Card Grid",
       "settings": {
@@ -241,6 +241,6 @@
     "main",
     "meke_baby_hero_bwYdt9",
     "section_kBUita",
-    "collection_card_grid_qWfNHt"
+    "collection_card_grid_wUgQxh"
   ]
 }
