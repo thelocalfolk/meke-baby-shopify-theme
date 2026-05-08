@@ -22,6 +22,8 @@
     --hero-padding-top: {{ section.settings.padding_top }}px;
     --hero-padding-bottom: {{ section.settings.padding_bottom }}px;
     --hero-padding-horizontal: {{ section.settings.padding_horizontal }}px;
+    --hero-bg-position: {{ section.settings.bg_position }};
+    --hero-bg-position-mobile: {{ section.settings.bg_position_mobile }};
     {% if bg_image != blank %}
       background-image: url('{{ bg_image | image_url: width: 2400 }}');
     {% elsif fallback_url != blank %}
@@ -53,7 +55,7 @@
 {% stylesheet %}
   .meke-hero {
     background-size: cover;
-    background-position: center;
+    background-position: var(--hero-bg-position, center);
     display: flex;
     align-items: var(--hero-align, flex-end);
     position: relative;
@@ -97,6 +99,10 @@
   }
 
   @media screen and (max-width: 749px) {
+    .meke-hero {
+      background-position: var(--hero-bg-position-mobile, center);
+    }
+
     .meke-hero__inner {
       padding-block: var(--hero-padding-top, 32px) var(--hero-padding-bottom, 32px);
       padding-inline: 1.25rem;
@@ -130,6 +136,40 @@
       "label": "Image URL",
       "default": "https://cdn.shopify.com/s/files/1/0785/7458/4107/files/Image_179da885-c70a-4fc6-8ba3-1d4f72954f1f.jpg?v=1777347930",
       "info": "Used when no image is selected above"
+    },
+    {
+      "type": "select",
+      "id": "bg_position",
+      "label": "Image focal point",
+      "options": [
+        { "value": "top left", "label": "Top left" },
+        { "value": "top center", "label": "Top center" },
+        { "value": "top right", "label": "Top right" },
+        { "value": "center left", "label": "Center left" },
+        { "value": "center", "label": "Center" },
+        { "value": "center right", "label": "Center right" },
+        { "value": "bottom left", "label": "Bottom left" },
+        { "value": "bottom center", "label": "Bottom center" },
+        { "value": "bottom right", "label": "Bottom right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "bg_position_mobile",
+      "label": "Image focal point (mobile)",
+      "options": [
+        { "value": "top left", "label": "Top left" },
+        { "value": "top center", "label": "Top center" },
+        { "value": "top right", "label": "Top right" },
+        { "value": "center left", "label": "Center left" },
+        { "value": "center", "label": "Center" },
+        { "value": "center right", "label": "Center right" },
+        { "value": "bottom left", "label": "Bottom left" },
+        { "value": "bottom center", "label": "Bottom center" },
+        { "value": "bottom right", "label": "Bottom right" }
+      ],
+      "default": "center"
     },
     {
       "type": "header",
