@@ -257,11 +257,40 @@
         "padding-block-start": 0,
         "padding-block-end": 32
       }
+    },
+    "brand_story_split_zAdFwF": {
+      "type": "brand-story-split",
+      "name": "Brand Story Split",
+      "settings": {
+        "image_position": "right",
+        "vertical_alignment": "center",
+        "text_max_width": 520,
+        "color_scheme": "scheme-4",
+        "heading": "Built from real experience by a real mum.",
+        "heading_type_preset": "h4",
+        "heading_size": 33,
+        "heading_size_mobile": 0,
+        "body": "<p>Mekè Baby began with a simple question — am I doing this properly? Like many parents, the experience of feeding was shaped by conflicting advice, unclear systems, and moments of uncertainty. Not from a lack of care, but from a lack of clarity. What started as a personal frustration became the foundation for something more considered — a feeding system designed to remove guesswork and bring consistency, confidence, and calm to every step.</p>",
+        "body_size": 14,
+        "button_label": "About Us",
+        "button_link": "",
+        "button_style": "primary",
+        "button_padding_x": 41,
+        "button_padding_y": 14,
+        "image": "shopify://shop_images/Rectangle_9.png",
+        "image_aspect_ratio": "natural",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 48,
+        "text_inline_padding": 80
+      }
     }
   },
   "order": [
     "section",
     "meke_baby_hero_KQfjDM",
-    "main"
+    "main",
+    "brand_story_split_zAdFwF"
   ]
 }
