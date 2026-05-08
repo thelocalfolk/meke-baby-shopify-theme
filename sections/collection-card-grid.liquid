@@ -6,14 +6,15 @@
   Each card is a separate block configured fully in the theme editor.
 {% endcomment %}
 
-<section
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<div
   id="section-{{ section.id }}"
-  class="collection-card-grid"
-  style="background-color: {{ section.settings.background_colour }};"
+  class="section section--page-width collection-card-grid spacing-style color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-style', settings: section.settings %}"
 >
-  <div class="collection-card-grid__inner page-width">
-    {%- if section.blocks.size > 0 -%}
-      <div class="collection-card-grid__grid">
+  {%- if section.blocks.size > 0 -%}
+    <div class="collection-card-grid__grid">
         {%- for block in section.blocks -%}
           {%- assign card_image_alt = block.settings.heading | escape -%}
 
@@ -74,16 +75,13 @@
             </div>
           </div>
         {%- endfor -%}
-      </div>
-    {%- endif -%}
-  </div>
-</section>
+    </div>
+  {%- endif -%}
+</div>
 
 <style>
   #section-{{ section.id }} {
     width: 100%;
-    padding-top: {{ section.settings.padding_top }}px !important;
-    padding-bottom: {{ section.settings.padding_bottom }}px !important;
   }
 
   #section-{{ section.id }} .collection-card-grid__grid {
@@ -153,11 +151,6 @@
   }
 
   @media screen and (max-width: 768px) {
-    #section-{{ section.id }} {
-      padding-top: {{ section.settings.mobile_padding_top }}px !important;
-      padding-bottom: {{ section.settings.mobile_padding_bottom }}px !important;
-    }
-
     #section-{{ section.id }} .collection-card-grid__grid {
       grid-template-columns: repeat({{ section.settings.mobile_columns }}, 1fr);
       gap: {{ section.settings.mobile_card_gap }}px;
@@ -311,13 +304,13 @@
     },
     {
       "type": "header",
-      "content": "Background & Spacing"
+      "content": "Colour & Spacing"
     },
     {
-      "type": "color",
-      "id": "background_colour",
-      "label": "Background colour",
-      "default": "#ffffff"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-1"
     },
     {
       "type": "range",
@@ -341,7 +334,7 @@
     },
     {
       "type": "range",
-      "id": "mobile_padding_top",
+      "id": "padding_top_mobile",
       "label": "Top padding (mobile)",
       "min": 0,
       "max": 120,
@@ -351,7 +344,7 @@
     },
     {
       "type": "range",
-      "id": "mobile_padding_bottom",
+      "id": "padding_bottom_mobile",
       "label": "Bottom padding (mobile)",
       "min": 0,
       "max": 120,

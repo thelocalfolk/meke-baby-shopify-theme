@@ -175,10 +175,10 @@
         "padding-block-end": 0
       }
     },
-    "collection_card_grid_wUgQxh": {
+    "collection_card_grid_xdXmtt": {
       "type": "collection-card-grid",
       "blocks": {
-        "card_VC8KLJ": {
+        "card_GhtfDB": {
           "type": "card",
           "settings": {
             "heading": "For Mixed Feeding",
@@ -188,7 +188,7 @@
             "button_url": ""
           }
         },
-        "card_9bNQ8t": {
+        "card_YbjejD": {
           "type": "card",
           "settings": {
             "heading": "For Formula Feeding",
@@ -198,7 +198,7 @@
             "button_url": ""
           }
         },
-        "card_WE8TzQ": {
+        "card_gPztiH": {
           "type": "card",
           "settings": {
             "heading": "For Starting Solids",
@@ -210,9 +210,9 @@
         }
       },
       "block_order": [
-        "card_VC8KLJ",
-        "card_9bNQ8t",
-        "card_WE8TzQ"
+        "card_GhtfDB",
+        "card_YbjejD",
+        "card_gPztiH"
       ],
       "name": "Collection Card Grid",
       "settings": {
@@ -220,7 +220,7 @@
         "mobile_columns": "1",
         "card_gap": 32,
         "mobile_card_gap": 24,
-        "image_aspect_ratio": "3 / 2",
+        "image_aspect_ratio": "4 / 3",
         "image_border_radius": 12,
         "content_gap": 20,
         "button_background": "#8c7b72",
@@ -229,11 +229,8 @@
         "button_padding_v": 14,
         "button_padding_h": 28,
         "button_top_gap": 16,
-        "background_colour": "#ffffff",
         "padding_top": 80,
-        "padding_bottom": 80,
-        "mobile_padding_top": 48,
-        "mobile_padding_bottom": 48
+        "padding_bottom": 80
       }
     }
   },
@@ -241,6 +238,6 @@
     "main",
     "meke_baby_hero_bwYdt9",
     "section_kBUita",
-    "collection_card_grid_wUgQxh"
+    "collection_card_grid_xdXmtt"
   ]
 }
