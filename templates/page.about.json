@@ -182,6 +182,7 @@
           "name": "t:names.video",
           "settings": {
             "source": "uploaded",
+            "video_url": "",
             "video_autoplay": false,
             "video_loop": true,
             "alt": "",
@@ -500,6 +501,33 @@
         "padding-block-end": 24,
         "gap_between_elements": 24
       }
+    },
+    "brand_story_split_BqC38h": {
+      "type": "brand-story-split",
+      "name": "Brand Story Split",
+      "settings": {
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "text_max_width": 520,
+        "color_scheme": "scheme-5",
+        "heading": "There had to be a better way",
+        "heading_type_preset": "h3",
+        "heading_size": 0,
+        "heading_size_mobile": 0,
+        "body": "<p>Like many parents, Elysia wasn’t looking for innovation — she was looking for something that worked. Something safe. Something reliable. Something that gave her control back in a moment where she had none.But after searching, it became clear: nothing existed. So she decided to create it.</p>",
+        "body_size": 15,
+        "button_label": "Shop the Solution",
+        "button_link": "",
+        "button_style": "primary",
+        "button_padding_x": 32,
+        "button_padding_y": 14,
+        "image_aspect_ratio": "natural",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 48,
+        "mobile_padding_bottom": 48,
+        "text_inline_padding": 80
+      }
     }
   },
   "order": [
@@ -507,6 +535,7 @@
     "meke_baby_hero_fmnBkh",
     "section_b4J4bY",
     "section_WkzmLy",
-    "marquee_NB3e49"
+    "marquee_NB3e49",
+    "brand_story_split_BqC38h"
   ]
 }
