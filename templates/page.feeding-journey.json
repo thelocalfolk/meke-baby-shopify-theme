@@ -216,7 +216,7 @@
       ],
       "name": "Collection Card Grid",
       "settings": {
-        "columns": "2",
+        "columns": "3",
         "mobile_columns": "1",
         "card_gap": 40,
         "mobile_card_gap": 24,
@@ -229,6 +229,8 @@
         "button_padding_v": 14,
         "button_padding_h": 28,
         "button_top_gap": 16,
+        "background_colour": "#ffffff",
+        "heading_colour": "#928076",
         "padding_top": 80,
         "padding_bottom": 80,
         "padding_top_mobile": 48,
