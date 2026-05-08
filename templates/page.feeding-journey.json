@@ -175,36 +175,34 @@
         "padding-block-end": 0
       }
     },
-    "collection_card_grid_xdXmtt": {
+    "collection_card_grid_ytfkjm": {
       "type": "collection-card-grid",
       "blocks": {
-        "card_GhtfDB": {
+        "card_fGbqJA": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_49_1.png",
             "heading": "For Mixed Feeding",
-            "type_preset": "h4",
+            "type_preset": "h3",
             "description": "For the in-between moments, the unpredictable routines, the both works best for us kind of days.",
             "button_label": "Shop Now",
             "button_url": ""
           }
         },
-        "card_YbjejD": {
+        "card_hyFdHi": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/1_3.png",
             "heading": "For Formula Feeding",
-            "type_preset": "h4",
+            "type_preset": "h3",
             "description": "Precision where it matters most. Built for accurate prep, controlled warming, and reliable results.",
             "button_label": "Shop Now",
             "button_url": ""
           }
         },
-        "card_gPztiH": {
+        "card_KnDbKA": {
           "type": "card",
           "settings": {
             "heading": "For Starting Solids",
-            "type_preset": "h4",
+            "type_preset": "h3",
             "description": "A smooth transition, thoughtfully supported. Designed to introduce solids with ease.",
             "button_label": "Shop Now",
             "button_url": ""
@@ -212,9 +210,9 @@
         }
       },
       "block_order": [
-        "card_GhtfDB",
-        "card_YbjejD",
-        "card_gPztiH"
+        "card_fGbqJA",
+        "card_hyFdHi",
+        "card_KnDbKA"
       ],
       "name": "Collection Card Grid",
       "settings": {
@@ -232,7 +230,7 @@
         "button_padding_h": 28,
         "button_top_gap": 16,
         "color_scheme": "scheme-2",
-        "padding_top": 88,
+        "padding_top": 80,
         "padding_bottom": 80,
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48
@@ -243,6 +241,6 @@
     "main",
     "meke_baby_hero_bwYdt9",
     "section_kBUita",
-    "collection_card_grid_xdXmtt"
+    "collection_card_grid_ytfkjm"
   ]
 }
