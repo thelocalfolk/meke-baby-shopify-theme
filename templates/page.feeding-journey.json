@@ -217,7 +217,7 @@
       ],
       "name": "Collection Card Grid",
       "settings": {
-        "columns": "3",
+        "columns": "2",
         "mobile_columns": "1",
         "card_gap": 40,
         "mobile_card_gap": 24,
