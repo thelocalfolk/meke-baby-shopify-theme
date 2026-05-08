@@ -111,7 +111,7 @@
         "color_scheme": "scheme-3",
         "star_rating": "",
         "star_size": 14,
-        "heading": "Choose your feeding journey",
+        "heading": "{{ collection.title }}",
         "heading_size": 42,
         "heading_max_width": 900,
         "subheading": "Explore Mekė Baby’s thoughtfully curated bundles — designed to support every stage of feeding as your routine evolves.\n\nEach bundle brings together the right products to work seamlessly as a system, helping you move through feeding with greater clarity, consistency, and ease.",
