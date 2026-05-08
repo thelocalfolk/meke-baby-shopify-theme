@@ -1,291 +1,341 @@
 {% comment %}
-  Section: Image Cards — 3 Column
-  Three full-bleed image cards displayed in a row, each with an optional title and subtitle
-  overlaid at the bottom-left. A section-level heading sits above the grid.
-  Built for the Horizon theme.
+  Section: Collection Card Grid
+  Theme: Horizon (Meke Baby)
+  A responsive grid of collection cards — each card has an image, heading,
+  description, and a button linking to any collection or custom URL.
+  Each card is a separate block configured fully in the theme editor.
 {% endcomment %}
 
 <div
   id="section-{{ section.id }}"
-  class="image-cards-3col"
+  class="collection-card-grid"
   style="
-    background-color: {{ section.settings.background_color }};
+    background-color: {{ section.settings.background_colour }};
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   "
 >
-  <div class="image-cards-3col__inner">
-
-    {%- if section.settings.heading != blank -%}
-      <p
-        class="image-cards-3col__heading {{ section.settings.heading_preset }}"
-        style="{% render 'typography-style', settings: section.settings %}"
-      >
-        {{ section.settings.heading | escape }}
-      </p>
-    {%- endif -%}
-
-    {%- if section.blocks.size > 0 -%}
-      <div class="image-cards-3col__grid">
+  {%- if section.blocks.size > 0 -%}
+    <div class="collection-card-grid__grid">
         {%- for block in section.blocks -%}
-          <div class="image-cards-3col__card" {{ block.shopify_attributes }}>
+          {%- assign card_image_alt = block.settings.heading | escape -%}
 
-            <div class="image-cards-3col__image-wrap">
+          <div class="collection-card-grid__card" {{ block.shopify_attributes }}>
+
+            {{- '<!-- Image -->' -}}
+            <div class="collection-card-grid__image-wrap">
               {%- if block.settings.image != blank -%}
-                {%- assign card_alt = block.settings.title | escape -%}
                 {{
                   block.settings.image
-                  | image_url: width: 900
+                  | image_url: width: 1400
                   | image_tag:
                     loading: 'lazy',
-                    alt: card_alt,
-                    widths: '400, 600, 800, 900',
-                    sizes: '(max-width: 767px) 100vw, 33vw',
-                    class: 'image-cards-3col__img'
+                    alt: card_image_alt,
+                    widths: '400, 600, 800, 1000, 1200, 1400',
+                    sizes: '(min-width: 990px) 50vw, 100vw',
+                    class: 'collection-card-grid__image'
                 }}
               {%- else -%}
-                <div class="image-cards-3col__placeholder">
-                  {{ 'image' | placeholder_svg_tag: 'image-cards-3col__placeholder-svg' }}
-                </div>
+                {{ 'collection-1' | placeholder_svg_tag: 'collection-card-grid__image collection-card-grid__image--placeholder' }}
+              {%- endif -%}
+            </div>
+
+            {{- '<!-- Text content -->' -}}
+            <div class="collection-card-grid__content">
+
+              {%- if block.settings.heading != blank -%}
+                <p
+                  class="collection-card-grid__heading {{ block.settings.type_preset }}"
+                  style="{% render 'typography-style', settings: block.settings %}"
+                >
+                  {{ block.settings.heading | escape }}
+                </p>
               {%- endif -%}
 
-              {%- if block.settings.title != blank or block.settings.subtitle != blank -%}
-                <div
-                  class="image-cards-3col__overlay"
-                  style="background: {{ block.settings.overlay_color }};"
-                >
-                  {%- if block.settings.title != blank -%}
-                    <p
-                      class="image-cards-3col__card-title {{ block.settings.title_preset }}"
-                      style="
-                        color: {{ block.settings.text_color }};
-                        {% render 'typography-style', settings: block.settings, prefix: 'title_' %}
-                      "
-                    >
-                      {{ block.settings.title | escape }}
-                    </p>
-                  {%- endif -%}
-                  {%- if block.settings.subtitle != blank -%}
-                    <p
-                      class="image-cards-3col__card-subtitle {{ block.settings.subtitle_preset }}"
-                      style="
-                        color: {{ block.settings.text_color }};
-                        {% render 'typography-style', settings: block.settings, prefix: 'subtitle_' %}
-                      "
-                    >
-                      {{ block.settings.subtitle | escape }}
-                    </p>
-                  {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <p class="collection-card-grid__description">
+                  {{ block.settings.description | escape }}
+                </p>
+              {%- endif -%}
+
+              {%- if block.settings.button_label != blank and block.settings.button_url != blank -%}
+                <div class="collection-card-grid__button-wrap">
+                  <a
+                    href="{{ block.settings.button_url }}"
+                    class="collection-card-grid__button"
+                    style="
+                      background-color: {{ section.settings.button_background }};
+                      color: {{ section.settings.button_text_colour }};
+                      border-radius: {{ section.settings.button_border_radius }}px;
+                    "
+                  >
+                    {{ block.settings.button_label | escape }}
+                  </a>
                 </div>
               {%- endif -%}
 
             </div>
           </div>
         {%- endfor -%}
-      </div>
-    {%- endif -%}
-
-  </div>
+    </div>
+  {%- endif -%}
 </div>
 
+{% comment %} Liquid-dependent styles — grid, spacing, aspect ratio {% endcomment %}
 <style>
-  #section-{{ section.id }} {
-    --card-gap: {{ section.settings.card_gap }}px;
-    --card-radius: {{ section.settings.card_radius }}px;
-    --card-aspect: {{ section.settings.card_aspect_ratio }};
-  }
-
-  #section-{{ section.id }} .image-cards-3col__inner {
-    max-width: var(--container-max-width, 1400px);
-    margin: 0 auto;
-    padding-left: var(--container-gutter, 24px);
-    padding-right: var(--container-gutter, 24px);
-  }
-
-  #section-{{ section.id }} .image-cards-3col__heading {
-    text-align: {{ section.settings.heading_alignment }};
-    margin: 0 0 {{ section.settings.heading_gap }}px;
-    color: {{ section.settings.heading_color }};
-  }
-
-  #section-{{ section.id }} .image-cards-3col__grid {
+  #section-{{ section.id }} .collection-card-grid__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--card-gap);
+    grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
+    gap: {{ section.settings.card_gap }}px;
   }
 
-  #section-{{ section.id }} .image-cards-3col__image-wrap {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--card-radius);
-    aspect-ratio: var(--card-aspect);
+  #section-{{ section.id }} .collection-card-grid__image-wrap {
+    aspect-ratio: {{ section.settings.image_aspect_ratio }};
+    border-radius: {{ section.settings.image_border_radius }}px;
   }
 
-  #section-{{ section.id }} .image-cards-3col__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-
-  #section-{{ section.id }} .image-cards-3col__card:hover .image-cards-3col__img {
-    transform: scale(1.03);
-  }
-
-  #section-{{ section.id }} .image-cards-3col__placeholder,
-  #section-{{ section.id }} .image-cards-3col__placeholder-svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-
-  #section-{{ section.id }} .image-cards-3col__overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: {{ section.settings.overlay_padding }}px;
-  }
-
-  #section-{{ section.id }} .image-cards-3col__card-title,
-  #section-{{ section.id }} .image-cards-3col__card-subtitle {
+  #section-{{ section.id }} .collection-card-grid__heading {
     margin: 0;
-    line-height: 1.2;
+    color: {{ section.settings.heading_colour }};
   }
 
-  #section-{{ section.id }} .image-cards-3col__card-title {
-    margin-bottom: 4px;
+  #section-{{ section.id }} .collection-card-grid__description {
+    margin: 0;
+    color: {{ section.settings.heading_colour }};
+    opacity: 0.75;
   }
 
-  /* Mobile — stack to single column */
-  @media (max-width: 767px) {
+  #section-{{ section.id }} .collection-card-grid__content {
+    padding-top: {{ section.settings.content_gap }}px;
+  }
+
+  #section-{{ section.id }} .collection-card-grid__button-wrap {
+    margin-top: {{ section.settings.button_top_gap }}px;
+  }
+
+  #section-{{ section.id }} .collection-card-grid__button {
+    padding: {{ section.settings.button_padding_v }}px {{ section.settings.button_padding_h }}px;
+  }
+
+  @media screen and (max-width: 749px) {
     #section-{{ section.id }} {
-      padding-top: {{ section.settings.mobile_padding_top }}px;
-      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
     }
 
-    #section-{{ section.id }} .image-cards-3col__grid {
-      grid-template-columns: 1fr;
+    #section-{{ section.id }} .collection-card-grid__grid {
+      grid-template-columns: repeat({{ section.settings.mobile_columns }}, 1fr);
+      gap: {{ section.settings.mobile_card_gap }}px;
     }
   }
 </style>
 
+{% comment %} Static styles — colour scheme variables resolved here, matching hero pattern {% endcomment %}
+{% comment %} Static layout styles {% endcomment %}
+{% stylesheet %}
+  .collection-card-grid__card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .collection-card-grid__image-wrap {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f5f5f5;
+  }
+
+  .collection-card-grid__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .collection-card-grid__image--placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .collection-card-grid__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .collection-card-grid__button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: inherit;
+    line-height: 1;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .collection-card-grid__button:hover {
+    opacity: 0.85;
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
-  "name": "Image Cards — 3 Column",
+  "name": "Collection Card Grid",
   "tag": "section",
-  "class": "image-cards-3col-wrapper",
+  "class": "collection-card-grid-wrapper",
   "settings": [
     {
       "type": "header",
-      "content": "Section heading"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Fits seamlessly into your routine"
+      "content": "Grid Layout"
     },
     {
       "type": "select",
-      "id": "heading_preset",
-      "label": "Heading style preset",
-      "info": "Inherits from your theme typography settings",
+      "id": "columns",
+      "label": "Columns (desktop)",
       "options": [
-        { "value": "paragraph", "label": "Paragraph" },
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" }
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" },
+        { "value": "3", "label": "3 columns" }
       ],
-      "default": "h2"
+      "default": "2"
     },
     {
       "type": "select",
-      "id": "heading_alignment",
-      "label": "Heading alignment",
+      "id": "mobile_columns",
+      "label": "Columns (mobile)",
       "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Centre" },
-        { "value": "right", "label": "Right" }
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" }
       ],
-      "default": "center"
-    },
-    {
-      "type": "color",
-      "id": "heading_color",
-      "label": "Heading colour",
-      "default": "#6b5d52"
+      "default": "1"
     },
     {
       "type": "range",
-      "id": "heading_gap",
-      "label": "Gap below heading",
-      "min": 8,
+      "id": "card_gap",
+      "label": "Gap between cards (desktop)",
+      "min": 0,
       "max": 80,
       "step": 4,
       "default": 32,
       "unit": "px"
     },
     {
+      "type": "range",
+      "id": "mobile_card_gap",
+      "label": "Gap between cards (mobile)",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "default": 24,
+      "unit": "px"
+    },
+    {
       "type": "header",
-      "content": "Card layout"
+      "content": "Card Style"
     },
     {
       "type": "select",
-      "id": "card_aspect_ratio",
-      "label": "Card aspect ratio",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
       "options": [
-        { "value": "1 / 1", "label": "Square (1:1)" },
-        { "value": "4 / 3", "label": "Landscape (4:3)" },
-        { "value": "3 / 4", "label": "Portrait (3:4)" },
-        { "value": "16 / 9", "label": "Widescreen (16:9)" },
-        { "value": "5 / 6", "label": "Tall portrait (5:6)" }
+        { "value": "16 / 9", "label": "16:9 — Landscape wide" },
+        { "value": "4 / 3", "label": "4:3 — Landscape" },
+        { "value": "3 / 2", "label": "3:2 — Landscape" },
+        { "value": "1 / 1", "label": "1:1 — Square" },
+        { "value": "2 / 3", "label": "2:3 — Portrait" }
       ],
       "default": "4 / 3"
     },
     {
       "type": "range",
-      "id": "card_gap",
-      "label": "Gap between cards",
+      "id": "image_border_radius",
+      "label": "Image corner radius",
       "min": 0,
-      "max": 48,
-      "step": 2,
-      "default": 16,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "card_radius",
-      "label": "Card corner radius",
-      "min": 0,
-      "max": 32,
+      "max": 40,
       "step": 2,
       "default": 12,
       "unit": "px"
     },
     {
       "type": "range",
-      "id": "overlay_padding",
-      "label": "Overlay padding",
+      "id": "content_gap",
+      "label": "Space between image and text",
       "min": 8,
-      "max": 48,
+      "max": 60,
       "step": 4,
       "default": 20,
       "unit": "px"
     },
     {
       "type": "header",
-      "content": "Background & spacing"
+      "content": "Button Style"
     },
     {
       "type": "color",
-      "id": "background_color",
+      "id": "button_background",
+      "label": "Button background colour",
+      "default": "#8c7b72"
+    },
+    {
+      "type": "color",
+      "id": "button_text_colour",
+      "label": "Button text colour",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "label": "Button corner radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_padding_v",
+      "label": "Button padding — top & bottom",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_padding_h",
+      "label": "Button padding — left & right",
+      "min": 12,
+      "max": 80,
+      "step": 4,
+      "default": 28,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_top_gap",
+      "label": "Space above button",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Colour & Spacing"
+    },
+    {
+      "type": "color",
+      "id": "background_colour",
       "label": "Background colour",
-      "default": "#f5f3f0"
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_colour",
+      "label": "Heading & text colour",
+      "default": "#2c2c2c"
     },
     {
       "type": "range",
@@ -309,7 +359,7 @@
     },
     {
       "type": "range",
-      "id": "mobile_padding_top",
+      "id": "padding_top_mobile",
       "label": "Top padding (mobile)",
       "min": 0,
       "max": 120,
@@ -319,7 +369,7 @@
     },
     {
       "type": "range",
-      "id": "mobile_padding_bottom",
+      "id": "padding_bottom_mobile",
       "label": "Bottom padding (mobile)",
       "min": 0,
       "max": 120,
@@ -331,23 +381,23 @@
   "blocks": [
     {
       "type": "card",
-      "name": "Card",
+      "name": "Collection card",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "Card image"
         },
         {
           "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "At home"
+          "id": "heading",
+          "label": "Heading",
+          "default": "Collection name"
         },
         {
           "type": "select",
-          "id": "title_preset",
-          "label": "Title style preset",
+          "id": "type_preset",
+          "label": "Heading style",
           "info": "Inherits from your theme typography settings",
           "options": [
             { "value": "paragraph", "label": "Paragraph" },
@@ -361,65 +411,51 @@
           "default": "h3"
         },
         {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "A short description of this collection."
+        },
+        {
           "type": "text",
-          "id": "subtitle",
-          "label": "Subtitle",
-          "default": "Prepare feeds with clarity and control."
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop Now"
         },
         {
-          "type": "select",
-          "id": "subtitle_preset",
-          "label": "Subtitle style preset",
-          "info": "Inherits from your theme typography settings",
-          "options": [
-            { "value": "paragraph", "label": "Paragraph" },
-            { "value": "h1", "label": "H1" },
-            { "value": "h2", "label": "H2" },
-            { "value": "h3", "label": "H3" },
-            { "value": "h4", "label": "H4" },
-            { "value": "h5", "label": "H5" },
-            { "value": "h6", "label": "H6" }
-          ],
-          "default": "paragraph"
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "Text colour",
-          "default": "#ffffff"
-        },
-        {
-          "type": "color_background",
-          "id": "overlay_color",
-          "label": "Overlay gradient / colour",
-          "default": "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 60%)"
+          "type": "url",
+          "id": "button_url",
+          "label": "Button link"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Image Cards — 3 Column",
+      "name": "Collection Card Grid",
       "blocks": [
         {
           "type": "card",
           "settings": {
-            "title": "At home",
-            "subtitle": "Prepare feeds with clarity and control."
+            "heading": "For Mixed Feeding",
+            "description": "For the in-between moments, the unpredictable routines, the both works best for us kind of days.",
+            "button_label": "Shop Now"
           }
         },
         {
           "type": "card",
           "settings": {
-            "title": "On the go",
-            "subtitle": "Warm milk wherever you are — without needing external tools."
+            "heading": "For Formula Feeding",
+            "description": "Precision where it matters most. Built for accurate prep, controlled warming, and reliable results.",
+            "button_label": "Shop Now"
           }
         },
         {
           "type": "card",
           "settings": {
-            "title": "Overnight",
-            "subtitle": "Keep feeds consistent without disrupting your routine."
+            "heading": "For Starting Solids",
+            "description": "A smooth transition, thoughtfully supported. Designed to introduce solids with ease.",
+            "button_label": "Shop Now"
           }
         }
       ]
