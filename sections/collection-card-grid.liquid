@@ -17,23 +17,14 @@
 >
   <div class="collection-card-grid__inner page-width">
     {%- if section.blocks.size > 0 -%}
-      <div
-        class="collection-card-grid__grid"
-        style="
-          --cgrid-columns: {{ section.settings.columns }};
-          --cgrid-gap: {{ section.settings.card_gap }}px;
-        "
-      >
+      <div class="collection-card-grid__grid">
         {%- for block in section.blocks -%}
           {%- assign card_image_alt = block.settings.heading | escape -%}
 
           <div class="collection-card-grid__card" {{ block.shopify_attributes }}>
 
             {{- '<!-- Image -->' -}}
-            <div
-              class="collection-card-grid__image-wrap"
-              style="--cgrid-aspect-ratio: {{ section.settings.image_aspect_ratio }};"
-            >
+            <div class="collection-card-grid__image-wrap">
               {%- if block.settings.image != blank -%}
                 {{
                   block.settings.image
@@ -99,8 +90,8 @@
 
   #section-{{ section.id }} .collection-card-grid__grid {
     display: grid;
-    grid-template-columns: repeat(var(--cgrid-columns, 2), 1fr);
-    gap: var(--cgrid-gap, 32px);
+    grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
+    gap: {{ section.settings.card_gap }}px;
   }
 
   #section-{{ section.id }} .collection-card-grid__card {
@@ -110,7 +101,7 @@
 
   #section-{{ section.id }} .collection-card-grid__image-wrap {
     width: 100%;
-    aspect-ratio: var(--cgrid-aspect-ratio, 4 / 3);
+    aspect-ratio: {{ section.settings.image_aspect_ratio }};
     overflow: hidden;
     border-radius: {{ section.settings.image_border_radius }}px;
     background-color: #f5f5f5;

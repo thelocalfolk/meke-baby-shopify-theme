@@ -174,11 +174,73 @@
         "padding-block-start": 48,
         "padding-block-end": 0
       }
+    },
+    "collection_card_grid_qWfNHt": {
+      "type": "collection-card-grid",
+      "blocks": {
+        "card_BT3hDq": {
+          "type": "card",
+          "settings": {
+            "heading": "For Mixed Feeding",
+            "type_preset": "h3",
+            "description": "For the in-between moments, the unpredictable routines, the both works best for us kind of days.",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "card_DwBTyL": {
+          "type": "card",
+          "settings": {
+            "heading": "For Formula Feeding",
+            "type_preset": "h3",
+            "description": "Precision where it matters most. Built for accurate prep, controlled warming, and reliable results.",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "card_p79eNJ": {
+          "type": "card",
+          "settings": {
+            "heading": "For Starting Solids",
+            "type_preset": "h3",
+            "description": "A smooth transition, thoughtfully supported. Designed to introduce solids with ease.",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_BT3hDq",
+        "card_DwBTyL",
+        "card_p79eNJ"
+      ],
+      "name": "Collection Card Grid",
+      "settings": {
+        "columns": "2",
+        "mobile_columns": "1",
+        "card_gap": 32,
+        "mobile_card_gap": 24,
+        "image_aspect_ratio": "4 / 3",
+        "image_border_radius": 12,
+        "content_gap": 20,
+        "button_background": "#8c7b72",
+        "button_text_colour": "#ffffff",
+        "button_border_radius": 40,
+        "button_padding_v": 14,
+        "button_padding_h": 28,
+        "button_top_gap": 16,
+        "background_colour": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 48,
+        "mobile_padding_bottom": 48
+      }
     }
   },
   "order": [
     "main",
     "meke_baby_hero_bwYdt9",
-    "section_kBUita"
+    "section_kBUita",
+    "collection_card_grid_qWfNHt"
   ]
 }
