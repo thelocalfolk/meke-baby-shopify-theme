@@ -61,7 +61,8 @@
       "type": "meke-baby-hero",
       "name": "Mekè Baby Hero",
       "settings": {
-        "image": "shopify://shop_images/Image_5.png",
+        "image": "shopify://shop_images/Image_6.png",
+        "image_mobile": "shopify://shop_images/Image_6.png",
         "image_url": "",
         "bg_position": "center",
         "bg_position_mobile": "center",
