@@ -15,15 +15,15 @@
     padding-bottom: {{ section.settings.padding_bottom }}px;
   "
 >
-  <div class="page-width">
-  {%- if section.blocks.size > 0 -%}
-    <div class="collection-card-grid__grid">
+  <div class="collection-card-grid__inner">
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="collection-card-grid__grid">
         {%- for block in section.blocks -%}
           {%- assign card_image_alt = block.settings.heading | escape -%}
 
           <div class="collection-card-grid__card" {{ block.shopify_attributes }}>
 
-            {{- '<!-- Image -->' -}}
             <div class="collection-card-grid__image-wrap">
               {%- if block.settings.image != blank -%}
                 {{
@@ -41,7 +41,6 @@
               {%- endif -%}
             </div>
 
-            {{- '<!-- Text content -->' -}}
             <div class="collection-card-grid__content">
 
               {%- if block.settings.heading != blank -%}
@@ -78,13 +77,21 @@
             </div>
           </div>
         {%- endfor -%}
-    </div>
-  {%- endif -%}
+      </div>
+    {%- endif -%}
+
   </div>
 </div>
 
 {% comment %} Liquid-dependent styles — grid, spacing, aspect ratio {% endcomment %}
 <style>
+  #section-{{ section.id }} .collection-card-grid__inner {
+    max-width: var(--container-max-width, 1400px);
+    margin: 0 auto;
+    padding-left: var(--container-gutter, 24px);
+    padding-right: var(--container-gutter, 24px);
+  }
+
   #section-{{ section.id }} .collection-card-grid__grid {
     display: grid;
     grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
