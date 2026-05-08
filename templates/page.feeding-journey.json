@@ -48,6 +48,7 @@
         "heading",
         "page-content"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "gap": 32,
@@ -55,9 +56,30 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "meke_baby_hero_bwYdt9": {
+      "type": "meke-baby-hero",
+      "name": "Mekè Baby Hero",
+      "settings": {
+        "image": "shopify://shop_images/Image_5.png",
+        "image_url": "",
+        "color_scheme": "scheme-3",
+        "star_rating": "",
+        "star_size": 14,
+        "heading": "Choose your feeding journey",
+        "heading_size": 44,
+        "subheading": "Explore Mekė Baby’s thoughtfully curated bundles — designed to support every stage of feeding as your routine evolves.\n\nEach bundle brings together the right products to work seamlessly as a system, helping you move through feeding with greater clarity, consistency, and ease.",
+        "subheading_size": 15,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "content_position": "center",
+        "min_height": 70
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "meke_baby_hero_bwYdt9"
   ]
 }
