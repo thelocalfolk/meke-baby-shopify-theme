@@ -49,7 +49,7 @@
               {%- if block.settings.heading != blank -%}
                 <p
                   class="collection-card-grid__heading {{ block.settings.type_preset }}"
-                  style="{% render 'typography-style', settings: block.settings %}"
+                  style="{% render 'typography-style', settings: block.settings %} color: rgb(var(--color-foreground-heading));"
                 >
                   {{ block.settings.heading | escape }}
                 </p>
