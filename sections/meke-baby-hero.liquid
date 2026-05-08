@@ -1,5 +1,6 @@
 {%- liquid
   assign bg_image = section.settings.image
+  assign mobile_image = section.settings.image_mobile
   assign fallback_url = section.settings.image_url
   assign btn_class = 'button'
   if section.settings.button_style == 'secondary'
@@ -25,9 +26,16 @@
     --hero-bg-position: {{ section.settings.bg_position }};
     --hero-bg-position-mobile: {{ section.settings.bg_position_mobile }};
     {% if bg_image != blank %}
-      background-image: url('{{ bg_image | image_url: width: 2400 }}');
+      --hero-bg-desktop: url('{{ bg_image | image_url: width: 2400 }}');
     {% elsif fallback_url != blank %}
-      background-image: url('{{ fallback_url }}');
+      --hero-bg-desktop: url('{{ fallback_url }}');
+    {% endif %}
+    {% if mobile_image != blank %}
+      --hero-bg-mobile: url('{{ mobile_image | image_url: width: 1200 }}');
+    {% elsif bg_image != blank %}
+      --hero-bg-mobile: url('{{ bg_image | image_url: width: 1200 }}');
+    {% elsif fallback_url != blank %}
+      --hero-bg-mobile: url('{{ fallback_url }}');
     {% endif %}
   "
 >
@@ -56,6 +64,7 @@
   .meke-hero {
     background-size: cover;
     background-position: var(--hero-bg-position, center);
+    background-image: var(--hero-bg-desktop);
     display: flex;
     align-items: var(--hero-align, flex-end);
     position: relative;
@@ -100,6 +109,7 @@
 
   @media screen and (max-width: 749px) {
     .meke-hero {
+      background-image: var(--hero-bg-mobile);
       background-position: var(--hero-bg-position-mobile, center);
     }
 
@@ -129,6 +139,12 @@
       "id": "image",
       "label": "Image",
       "info": "Replaces the URL below when set"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image",
+      "info": "Recommended portrait crop e.g. 750 x 1000px. Falls back to main image if not set."
     },
     {
       "type": "text",
