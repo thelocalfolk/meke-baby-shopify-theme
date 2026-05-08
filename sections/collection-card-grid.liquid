@@ -15,6 +15,7 @@
     padding-bottom: {{ section.settings.padding_bottom }}px;
   "
 >
+  <div class="page-width">
   {%- if section.blocks.size > 0 -%}
     <div class="collection-card-grid__grid">
         {%- for block in section.blocks -%}
@@ -79,6 +80,7 @@
         {%- endfor -%}
     </div>
   {%- endif -%}
+  </div>
 </div>
 
 {% comment %} Liquid-dependent styles — grid, spacing, aspect ratio {% endcomment %}
