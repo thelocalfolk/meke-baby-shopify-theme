@@ -84,59 +84,21 @@
   {%- endif -%}
 </div>
 
+{% comment %} Liquid-dependent styles — grid, spacing, aspect ratio {% endcomment %}
 <style>
-  #section-{{ section.id }} {
-    width: 100%;
-  }
-
   #section-{{ section.id }} .collection-card-grid__grid {
     display: grid;
     grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
     gap: {{ section.settings.card_gap }}px;
   }
 
-  #section-{{ section.id }} .collection-card-grid__card {
-    display: flex;
-    flex-direction: column;
-  }
-
   #section-{{ section.id }} .collection-card-grid__image-wrap {
-    width: 100%;
     aspect-ratio: {{ section.settings.image_aspect_ratio }};
-    overflow: hidden;
     border-radius: {{ section.settings.image_border_radius }}px;
-    background-color: #f5f5f5;
-  }
-
-  #section-{{ section.id }} .collection-card-grid__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  #section-{{ section.id }} .collection-card-grid__image--placeholder {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   #section-{{ section.id }} .collection-card-grid__content {
     padding-top: {{ section.settings.content_gap }}px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  #section-{{ section.id }} .collection-card-grid__heading {
-    margin: 0;
-    color: rgb(var(--color-foreground-heading)) !important;
-  }
-
-  #section-{{ section.id }} .collection-card-grid__description {
-    margin: 0;
-    color: rgb(var(--color-foreground)) !important;
-    opacity: 0.75;
   }
 
   #section-{{ section.id }} .collection-card-grid__button-wrap {
@@ -144,20 +106,10 @@
   }
 
   #section-{{ section.id }} .collection-card-grid__button {
-    display: inline-block;
     padding: {{ section.settings.button_padding_v }}px {{ section.settings.button_padding_h }}px;
-    text-decoration: none;
-    font-size: inherit;
-    line-height: 1;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
   }
 
-  #section-{{ section.id }} .collection-card-grid__button:hover {
-    opacity: 0.85;
-  }
-
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 749px) {
     #section-{{ section.id }} {
       padding-top: {{ section.settings.padding_top_mobile }}px;
       padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
@@ -169,6 +121,63 @@
     }
   }
 </style>
+
+{% comment %} Static styles — colour scheme variables resolved here, matching hero pattern {% endcomment %}
+{% stylesheet %}
+  .collection-card-grid__card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .collection-card-grid__image-wrap {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f5f5f5;
+  }
+
+  .collection-card-grid__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .collection-card-grid__image--placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .collection-card-grid__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .collection-card-grid__heading {
+    margin: 0;
+    color: rgb(var(--color-foreground-heading));
+  }
+
+  .collection-card-grid__description {
+    margin: 0;
+    color: rgb(var(--color-foreground));
+    opacity: 0.75;
+  }
+
+  .collection-card-grid__button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: inherit;
+    line-height: 1;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .collection-card-grid__button:hover {
+    opacity: 0.85;
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
