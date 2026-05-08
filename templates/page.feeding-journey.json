@@ -194,7 +194,7 @@
           "settings": {
             "image": "shopify://shop_images/Rectangle_49_1_974fbec2-d2b5-4470-85a4-e3e56fa19adc.png",
             "heading": "For Formula Feeding",
-            "type_preset": "h3",
+            "type_preset": "h4",
             "description": "Precision where it matters most. Built for accurate prep, controlled warming, and reliable results.",
             "button_label": "Shop Now",
             "button_url": ""
@@ -204,7 +204,7 @@
           "type": "card",
           "settings": {
             "heading": "For Starting Solids",
-            "type_preset": "h3",
+            "type_preset": "h4",
             "description": "A smooth transition, thoughtfully supported. Designed to introduce solids with ease.",
             "button_label": "Shop Now",
             "button_url": ""
