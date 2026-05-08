@@ -6,14 +6,11 @@
   Each card is a separate block configured fully in the theme editor.
 {% endcomment %}
 
-<div class="section-background color-{{ section.settings.color_scheme }}"></div>
-
 <div
   id="section-{{ section.id }}"
-  class="section section--page-width collection-card-grid color-{{ section.settings.color_scheme }}"
+  class="collection-card-grid"
   style="
-    background-color: rgb(var(--color-background));
-    color: rgb(var(--color-foreground));
+    background-color: {{ section.settings.background_colour }};
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   "
@@ -49,14 +46,14 @@
               {%- if block.settings.heading != blank -%}
                 <p
                   class="collection-card-grid__heading {{ block.settings.type_preset }}"
-                  style="{% render 'typography-style', settings: block.settings %} color: rgb(var(--color-foreground-heading));"
+                  style="{% render 'typography-style', settings: block.settings %} color: {{ section.settings.heading_colour }};"
                 >
                   {{ block.settings.heading | escape }}
                 </p>
               {%- endif -%}
 
               {%- if block.settings.description != blank -%}
-                <p class="collection-card-grid__description">
+                <p class="collection-card-grid__description" style="color: {{ section.settings.heading_colour }}; opacity: 0.75;">
                   {{ block.settings.description | escape }}
                 </p>
               {%- endif -%}
@@ -97,6 +94,17 @@
     border-radius: {{ section.settings.image_border_radius }}px;
   }
 
+  #section-{{ section.id }} .collection-card-grid__heading {
+    margin: 0;
+    color: {{ section.settings.heading_colour }};
+  }
+
+  #section-{{ section.id }} .collection-card-grid__description {
+    margin: 0;
+    color: {{ section.settings.heading_colour }};
+    opacity: 0.75;
+  }
+
   #section-{{ section.id }} .collection-card-grid__content {
     padding-top: {{ section.settings.content_gap }}px;
   }
@@ -123,6 +131,7 @@
 </style>
 
 {% comment %} Static styles — colour scheme variables resolved here, matching hero pattern {% endcomment %}
+{% comment %} Static layout styles {% endcomment %}
 {% stylesheet %}
   .collection-card-grid__card {
     display: flex;
@@ -152,17 +161,6 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-  }
-
-  .collection-card-grid__heading {
-    margin: 0;
-    color: rgb(var(--color-foreground-heading));
-  }
-
-  .collection-card-grid__description {
-    margin: 0;
-    color: rgb(var(--color-foreground));
-    opacity: 0.75;
   }
 
   .collection-card-grid__button {
@@ -328,10 +326,16 @@
       "content": "Colour & Spacing"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Colour scheme",
-      "default": "scheme-1"
+      "type": "color",
+      "id": "background_colour",
+      "label": "Background colour",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_colour",
+      "label": "Heading & text colour",
+      "default": "#2c2c2c"
     },
     {
       "type": "range",
