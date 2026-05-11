@@ -104,64 +104,11 @@
   </div>
 </div>
 
+{% comment %} Liquid-dependent values — padding, gaps, grid columns {% endcomment %}
 <style>
   #section-{{ section.id }} {
     padding-top: var(--pt);
     padding-bottom: var(--pb);
-  }
-
-  #section-{{ section.id }} .icon-steps-section__inner {
-    max-width: var(--page-width, 1200px);
-    margin: 0 auto;
-    padding-left: var(--page-margin, 24px);
-    padding-right: var(--page-margin, 24px);
-  }
-
-  #section-{{ section.id }} .icon-steps-section__heading,
-  #section-{{ section.id }} .icon-steps-section__subheading {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  #section-{{ section.id }} .icon-steps-section__subheading {
-    margin-bottom: 0;
-  }
-
-  #section-{{ section.id }} .icon-steps-section__grid {
-    display: grid;
-  }
-
-  #section-{{ section.id }} .icon-steps-section__item {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #section-{{ section.id }} .icon-steps-section__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  #section-{{ section.id }} .icon-steps-section__title,
-  #section-{{ section.id }} .icon-steps-section__description {
-    margin: 0;
-  }
-
-  #section-{{ section.id }} .icon-steps-section__heading,
-  #section-{{ section.id }} .icon-steps-section__title {
-    color: rgb(var(--color-foreground-heading)) !important;
-  }
-
-  #section-{{ section.id }} .icon-steps-section__subheading,
-  #section-{{ section.id }} .icon-steps-section__description,
-  #section-{{ section.id }} .icon-steps-section__description p {
-    color: rgb(var(--color-foreground)) !important;
-  }
-
-  #section-{{ section.id }} .icon-steps-section__description p {
-    margin: 0;
   }
 
   @media (max-width: 768px) {
@@ -175,6 +122,63 @@
     }
   }
 </style>
+
+{% comment %} Static layout and colour rules — stylesheet block matches hero pattern {% endcomment %}
+{% stylesheet %}
+  .icon-steps-section__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding-left: var(--page-margin, 24px);
+    padding-right: var(--page-margin, 24px);
+  }
+
+  .icon-steps-section__heading,
+  .icon-steps-section__subheading {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .icon-steps-section__subheading {
+    margin-bottom: 0;
+  }
+
+  .icon-steps-section__grid {
+    display: grid;
+  }
+
+  .icon-steps-section__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .icon-steps-section__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .icon-steps-section__title,
+  .icon-steps-section__description {
+    margin: 0;
+  }
+
+  .icon-steps-section__description p {
+    margin: 0;
+  }
+
+  .icon-steps-section__heading,
+  .icon-steps-section__title {
+    color: rgb(var(--color-foreground-heading));
+  }
+
+  .icon-steps-section__subheading,
+  .icon-steps-section__description,
+  .icon-steps-section__description p {
+    color: rgb(var(--color-foreground));
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
