@@ -6,14 +6,44 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
+    "meke_baby_hero_wknDDe": {
+      "type": "meke-baby-hero",
+      "name": "Mekè Baby Hero",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_9.png",
+        "image_url": "",
+        "bg_position": "top center",
+        "bg_position_mobile": "center",
+        "color_scheme": "scheme-3",
+        "star_rating": "",
+        "star_size": 14,
+        "heading": "Our Story",
+        "heading_size": 48,
+        "heading_max_width": 560,
+        "subheading": "The heart and foundations behind Mekė Baby.",
+        "subheading_size": 16,
+        "subheading_max_width": 400,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "content_position": "center",
+        "content_max_width": 560,
+        "min_height": 85,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_horizontal": 32
+      }
+    },
     "main": {
       "type": "main-blog",
       "blocks": {
         "title": {
           "type": "text",
           "name": "Title",
+          "disabled": true,
           "settings": {
             "text": "<h1>{{ closest.blog.title }}</h1>",
             "width": "fit-content",
@@ -44,6 +74,18 @@
             "alignment": "left"
           },
           "blocks": {
+            "image": {
+              "type": "_blog-post-image",
+              "static": true,
+              "settings": {
+                "height": "large",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 4
+              },
+              "blocks": {}
+            },
             "heading": {
               "type": "_heading",
               "name": "t:names.title",
@@ -83,15 +125,20 @@
               },
               "blocks": {}
             },
-            "image": {
-              "type": "_blog-post-image",
+            "content": {
+              "type": "_blog-post-description",
               "static": true,
               "settings": {
-                "height": "large",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 4
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 16,
+                "padding-block-end": 0
               },
               "blocks": {}
             }
@@ -110,6 +157,7 @@
     }
   },
   "order": [
+    "meke_baby_hero_wknDDe",
     "main"
   ]
 }
