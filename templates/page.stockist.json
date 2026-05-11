@@ -1166,7 +1166,7 @@
               "type": "icon",
               "settings": {
                 "icon": "silhouette",
-                "image_upload": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae_694e74d8-223c-4e4f-bff9-8e9bd08c5324_3.png",
+                "image_upload": "shopify://shop_images/a5e9979d-c108-49c7-bc93-03fd00288fe7.png",
                 "width": 200,
                 "link": "",
                 "open_in_new_tab": false
@@ -1215,7 +1215,7 @@
                 "text_ymkTUy": {
                   "type": "text",
                   "settings": {
-                    "text": "<p><span style=\"text-decoration:underline\">Metro Baby</span></p>",
+                    "text": "<p><span style=\"text-decoration:underline\">Baby Shop</span></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -1240,7 +1240,7 @@
                 "text_nVeCYw": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Address: 275 Swan St, Richmond VIC 3121</p>",
+                    "text": "<p>Address: 276 Brunker Road, Adamstown NSW 2289</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
