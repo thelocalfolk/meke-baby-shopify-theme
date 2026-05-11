@@ -270,11 +270,11 @@
                 "text_RhXcfQ": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Intentional design</p>",
+                    "text": "<p><span style=\"text-decoration:underline\">Intentional design</span></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
-                    "type_preset": "h3",
+                    "type_preset": "paragraph",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -295,7 +295,7 @@
                 "text_gRyahN": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Everything we do starts with why</p>",
+                    "text": "<p>Address: 1155 High St, Armadale, VIC 3143</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -372,7 +372,8 @@
               "type": "icon",
               "settings": {
                 "icon": "heart",
-                "width": 32,
+                "image_upload": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae_694e74d8-223c-4e4f-bff9-8e9bd08c5324_2.png",
+                "width": 200,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -420,11 +421,11 @@
                 "text_3qnMQA": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>Made with care</h2>",
+                    "text": "<p>Urban Baby</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
-                    "type_preset": "h3",
+                    "type_preset": "paragraph",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -445,7 +446,7 @@
                 "text_yqQqdj": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>We believe in building better</p>",
+                    "text": "<p>Address: Warehouse 11, 20 Meta Street  Caringbah NSW 2229, Australia</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -648,7 +649,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
