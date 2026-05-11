@@ -13,6 +13,20 @@
   elsif col_align == 'right'
     assign flex_align = 'flex-end'
   endif
+  assign heading_tag = 'p'
+  if section.settings.heading_type_preset == 'h1'
+    assign heading_tag = 'h1'
+  elsif section.settings.heading_type_preset == 'h2'
+    assign heading_tag = 'h2'
+  elsif section.settings.heading_type_preset == 'h3'
+    assign heading_tag = 'h3'
+  elsif section.settings.heading_type_preset == 'h4'
+    assign heading_tag = 'h4'
+  elsif section.settings.heading_type_preset == 'h5'
+    assign heading_tag = 'h5'
+  elsif section.settings.heading_type_preset == 'h6'
+    assign heading_tag = 'h6'
+  endif
 -%}
 
 <div
@@ -33,9 +47,9 @@
       <div class="icon-steps-section__header" style="text-align: {{ col_align }};">
 
         {%- if section.settings.heading != blank -%}
-          <p class="icon-steps-section__heading {{ section.settings.heading_type_preset }}" style="margin-bottom: {{ section.settings.heading_gap }}px; color: rgb(var(--color-foreground));">
+          <{{ heading_tag }} class="icon-steps-section__heading" style="margin-bottom: {{ section.settings.heading_gap }}px;">
             {{ section.settings.heading | escape }}
-          </p>
+          </{{ heading_tag }}>
         {%- endif -%}
 
         {%- if section.settings.subheading != blank -%}
@@ -85,9 +99,17 @@
             {%- endif -%}
 
             {%- if block.settings.title != blank -%}
-              <p class="icon-steps-section__title {{ block.settings.title_type_preset }}" style="color: rgb(var(--color-foreground));">
+              {%- assign title_tag = 'p' -%}
+              {%- if block.settings.title_type_preset == 'h1' -%}{%- assign title_tag = 'h1' -%}
+              {%- elsif block.settings.title_type_preset == 'h2' -%}{%- assign title_tag = 'h2' -%}
+              {%- elsif block.settings.title_type_preset == 'h3' -%}{%- assign title_tag = 'h3' -%}
+              {%- elsif block.settings.title_type_preset == 'h4' -%}{%- assign title_tag = 'h4' -%}
+              {%- elsif block.settings.title_type_preset == 'h5' -%}{%- assign title_tag = 'h5' -%}
+              {%- elsif block.settings.title_type_preset == 'h6' -%}{%- assign title_tag = 'h6' -%}
+              {%- endif -%}
+              <{{ title_tag }} class="icon-steps-section__title">
                 {{ block.settings.title | escape }}
-              </p>
+              </{{ title_tag }}>
             {%- endif -%}
 
             {%- if block.settings.description != blank -%}
@@ -168,9 +190,9 @@
     margin: 0;
   }
 
-  .icon-steps-section .icon-steps-section__heading,
-  .icon-steps-section .icon-steps-section__title {
-    color: rgb(var(--color-foreground)) !important;
+  .icon-steps-section__heading,
+  .icon-steps-section__title {
+    color: rgb(var(--color-foreground-heading));
   }
 
   .icon-steps-section__subheading,
