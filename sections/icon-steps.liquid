@@ -33,7 +33,7 @@
       <div class="icon-steps-section__header" style="text-align: {{ col_align }};">
 
         {%- if section.settings.heading != blank -%}
-          <p class="icon-steps-section__heading {{ section.settings.heading_type_preset }}" style="margin-bottom: {{ section.settings.heading_gap }}px;">
+          <p class="icon-steps-section__heading {{ section.settings.heading_type_preset }}" style="margin-bottom: {{ section.settings.heading_gap }}px; color: rgb(var(--color-foreground));">
             {{ section.settings.heading | escape }}
           </p>
         {%- endif -%}
@@ -85,7 +85,7 @@
             {%- endif -%}
 
             {%- if block.settings.title != blank -%}
-              <p class="icon-steps-section__title {{ block.settings.title_type_preset }}">
+              <p class="icon-steps-section__title {{ block.settings.title_type_preset }}" style="color: rgb(var(--color-foreground));">
                 {{ block.settings.title | escape }}
               </p>
             {%- endif -%}
