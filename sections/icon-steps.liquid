@@ -22,6 +22,8 @@
     --is-pb: {{ section.settings.padding_bottom }}px;
     --is-mobile-pt: {{ section.settings.mobile_padding_top }}px;
     --is-mobile-pb: {{ section.settings.mobile_padding_bottom }}px;
+    --is-heading-size: {{ section.settings.heading_size }}px;
+    --is-subheading-size: {{ section.settings.subheading_size }}px;
   "
 >
   <div class="icon-steps-section__inner">
@@ -81,7 +83,7 @@
             {%- endif -%}
 
             {%- if block.settings.title != blank -%}
-              <p class="icon-steps-section__title">
+              <p class="icon-steps-section__title" style="font-size: {{ block.settings.title_size }}px;">
                 {{ block.settings.title | escape }}
               </p>
             {%- endif -%}
@@ -131,7 +133,7 @@
 
   .icon-steps-section__heading {
     font-family: var(--font-h2--family);
-    font-size: var(--font-h2--size);
+    font-size: var(--is-heading-size, 36px);
     font-weight: var(--font-h2--weight);
     line-height: var(--font-h2--line-height);
     letter-spacing: var(--font-h2--letter-spacing);
@@ -144,6 +146,7 @@
 
   .icon-steps-section__subheading {
     color: rgb(var(--color-foreground));
+    font-size: var(--is-subheading-size, 16px);
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -204,10 +207,30 @@
       "default": "That\u2019s why we created the 3-Step feeding system"
     },
     {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 20,
+      "max": 72,
+      "step": 2,
+      "default": 36,
+      "unit": "px"
+    },
+    {
       "type": "textarea",
       "id": "subheading",
       "label": "Subheading",
       "default": "Meke Baby simplifies feeding into a clear, repeatable system \u2014 so you know exactly what to do, every time."
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "label": "Subheading size",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
     },
     {
       "type": "range",
@@ -365,6 +388,16 @@
           "id": "title",
           "label": "Title",
           "default": "Step title"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "label": "Title size",
+          "min": 12,
+          "max": 36,
+          "step": 1,
+          "default": 16,
+          "unit": "px"
         },
         {
           "type": "richtext",
