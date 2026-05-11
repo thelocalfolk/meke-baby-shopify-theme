@@ -2,7 +2,7 @@
   Section: Icon Steps
   Multi-column icon + title + description section. Built for Meke Baby on the Horizon theme.
   Each step is a block with an image_picker icon, a title, and a richtext description.
-  Section-level settings control the heading, subheading, layout, spacing, and background colour.
+  No type preset selects — plain elements inherit colour scheme automatically.
 {% endcomment %}
 
 {%- liquid
@@ -12,20 +12,6 @@
     assign flex_align = 'center'
   elsif col_align == 'right'
     assign flex_align = 'flex-end'
-  endif
-  assign heading_tag = 'p'
-  if section.settings.heading_type_preset == 'h1'
-    assign heading_tag = 'h1'
-  elsif section.settings.heading_type_preset == 'h2'
-    assign heading_tag = 'h2'
-  elsif section.settings.heading_type_preset == 'h3'
-    assign heading_tag = 'h3'
-  elsif section.settings.heading_type_preset == 'h4'
-    assign heading_tag = 'h4'
-  elsif section.settings.heading_type_preset == 'h5'
-    assign heading_tag = 'h5'
-  elsif section.settings.heading_type_preset == 'h6'
-    assign heading_tag = 'h6'
   endif
 -%}
 
@@ -44,16 +30,16 @@
   <div class="icon-steps-section__inner page-width">
 
     {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
-      <div class="icon-steps-section__header" style="text-align: {{ col_align }};">
+      <div class="icon-steps-section__header" style="text-align: {{ col_align }}; margin-bottom: {{ section.settings.header_bottom_gap }}px;">
 
         {%- if section.settings.heading != blank -%}
-          <{{ heading_tag }} class="icon-steps-section__heading" style="margin-bottom: {{ section.settings.heading_gap }}px;">
+          <p class="icon-steps-section__heading" style="margin-bottom: {{ section.settings.heading_gap }}px;">
             {{ section.settings.heading | escape }}
-          </{{ heading_tag }}>
+          </p>
         {%- endif -%}
 
         {%- if section.settings.subheading != blank -%}
-          <p class="icon-steps-section__subheading {{ section.settings.subheading_type_preset }}">
+          <p class="icon-steps-section__subheading">
             {{ section.settings.subheading | escape }}
           </p>
         {%- endif -%}
@@ -68,7 +54,6 @@
           text-align: {{ col_align }};
           grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
           gap: {{ section.settings.column_gap }}px;
-          margin-top: {{ section.settings.header_bottom_gap }}px;
         "
       >
         {%- for block in section.blocks -%}
@@ -99,21 +84,13 @@
             {%- endif -%}
 
             {%- if block.settings.title != blank -%}
-              {%- assign title_tag = 'p' -%}
-              {%- if block.settings.title_type_preset == 'h1' -%}{%- assign title_tag = 'h1' -%}
-              {%- elsif block.settings.title_type_preset == 'h2' -%}{%- assign title_tag = 'h2' -%}
-              {%- elsif block.settings.title_type_preset == 'h3' -%}{%- assign title_tag = 'h3' -%}
-              {%- elsif block.settings.title_type_preset == 'h4' -%}{%- assign title_tag = 'h4' -%}
-              {%- elsif block.settings.title_type_preset == 'h5' -%}{%- assign title_tag = 'h5' -%}
-              {%- elsif block.settings.title_type_preset == 'h6' -%}{%- assign title_tag = 'h6' -%}
-              {%- endif -%}
-              <{{ title_tag }} class="icon-steps-section__title">
+              <p class="icon-steps-section__title">
                 {{ block.settings.title | escape }}
-              </{{ title_tag }}>
+              </p>
             {%- endif -%}
 
             {%- if block.settings.description != blank -%}
-              <div class="icon-steps-section__description {{ block.settings.description_type_preset }}">
+              <div class="icon-steps-section__description">
                 {{ block.settings.description }}
               </div>
             {%- endif -%}
@@ -126,7 +103,6 @@
   </div>
 </div>
 
-{% comment %} Liquid-dependent values — padding, gaps, grid columns {% endcomment %}
 <style>
   #section-{{ section.id }} {
     padding-top: var(--pt);
@@ -145,7 +121,6 @@
   }
 </style>
 
-{% comment %} Static layout and colour rules — stylesheet block matches hero pattern {% endcomment %}
 {% stylesheet %}
   .icon-steps-section__inner {
     max-width: var(--page-width, 1200px);
@@ -154,15 +129,33 @@
     padding-right: var(--page-margin, 24px);
   }
 
-  .icon-steps-section__heading,
-  .icon-steps-section__subheading {
+  .icon-steps-section__heading {
+    font-family: var(--font-h2--family);
+    font-size: var(--font-h2--size);
+    font-weight: var(--font-h2--weight);
+    line-height: var(--font-h2--line-height);
+    letter-spacing: var(--font-h2--letter-spacing);
+    text-transform: var(--font-h2--case);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
   }
 
   .icon-steps-section__subheading {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 0;
+  }
+
+  .icon-steps-section__title {
+    font-family: var(--font-h5--family);
+    font-size: var(--font-h5--size);
+    font-weight: var(--font-h5--weight);
+    line-height: var(--font-h5--line-height);
+    letter-spacing: var(--font-h5--letter-spacing);
+    text-transform: var(--font-h5--case);
+    margin: 0;
   }
 
   .icon-steps-section__grid {
@@ -181,24 +174,12 @@
     flex-shrink: 0;
   }
 
-  .icon-steps-section__title,
   .icon-steps-section__description {
     margin: 0;
   }
 
   .icon-steps-section__description p {
     margin: 0;
-  }
-
-  .icon-steps-section__heading,
-  .icon-steps-section__title {
-    color: rgb(var(--color-foreground-heading));
-  }
-
-  .icon-steps-section__subheading,
-  .icon-steps-section__description,
-  .icon-steps-section__description p {
-    color: rgb(var(--color-foreground));
   }
 {% endstylesheet %}
 
@@ -219,42 +200,10 @@
       "default": "That\u2019s why we created the 3-Step feeding system"
     },
     {
-      "type": "select",
-      "id": "heading_type_preset",
-      "label": "Heading style",
-      "info": "Inherits from your theme typography settings",
-      "options": [
-        { "value": "paragraph", "label": "Paragraph" },
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" }
-      ],
-      "default": "h2"
-    },
-    {
       "type": "textarea",
       "id": "subheading",
       "label": "Subheading",
       "default": "Meke Baby simplifies feeding into a clear, repeatable system \u2014 so you know exactly what to do, every time."
-    },
-    {
-      "type": "select",
-      "id": "subheading_type_preset",
-      "label": "Subheading style",
-      "info": "Inherits from your theme typography settings",
-      "options": [
-        { "value": "paragraph", "label": "Paragraph" },
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" }
-      ],
-      "default": "paragraph"
     },
     {
       "type": "range",
@@ -414,42 +363,10 @@
           "default": "Step title"
         },
         {
-          "type": "select",
-          "id": "title_type_preset",
-          "label": "Title style",
-          "info": "Inherits from your theme typography settings",
-          "options": [
-            { "value": "paragraph", "label": "Paragraph" },
-            { "value": "h1", "label": "H1" },
-            { "value": "h2", "label": "H2" },
-            { "value": "h3", "label": "H3" },
-            { "value": "h4", "label": "H4" },
-            { "value": "h5", "label": "H5" },
-            { "value": "h6", "label": "H6" }
-          ],
-          "default": "h5"
-        },
-        {
           "type": "richtext",
           "id": "description",
           "label": "Description",
           "default": "<p>A short description of this step.</p>"
-        },
-        {
-          "type": "select",
-          "id": "description_type_preset",
-          "label": "Description style",
-          "info": "Inherits from your theme typography settings",
-          "options": [
-            { "value": "paragraph", "label": "Paragraph" },
-            { "value": "h1", "label": "H1" },
-            { "value": "h2", "label": "H2" },
-            { "value": "h3", "label": "H3" },
-            { "value": "h4", "label": "H4" },
-            { "value": "h5", "label": "H5" },
-            { "value": "h6", "label": "H6" }
-          ],
-          "default": "paragraph"
         }
       ]
     }
