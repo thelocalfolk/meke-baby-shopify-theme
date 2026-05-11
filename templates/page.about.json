@@ -639,6 +639,95 @@
         "mobile_padding_bottom": 48,
         "text_inline_padding": 80
       }
+    },
+    "section_RfhtEQ": {
+      "type": "section",
+      "blocks": {
+        "text_R3hrrD": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h3>This is just the beginning</h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_inLph3": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>What started as one problem has become something much bigger.A new standard.  A new way of thinking. A new level of care in how products are designed for families. Because we’ve been there.And we’re building for the future of families.</p>",
+            "width": "fit-content",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 100,
+            "padding-inline-end": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_R3hrrD",
+        "text_inLph3"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 25,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
     }
   },
   "order": [
@@ -650,6 +739,7 @@
     "brand_story_split_BqC38h",
     "brand_story_split_m3Chki",
     "icon_steps_U8ttkQ",
-    "brand_story_split_YQcVEq"
+    "brand_story_split_YQcVEq",
+    "section_RfhtEQ"
   ]
 }
