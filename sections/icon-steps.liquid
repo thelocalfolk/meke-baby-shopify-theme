@@ -147,12 +147,17 @@
   #section-{{ section.id }} .icon-steps-section__title,
   #section-{{ section.id }} .icon-steps-section__description {
     margin: 0;
-    color: inherit;
   }
 
   #section-{{ section.id }} .icon-steps-section__heading,
-  #section-{{ section.id }} .icon-steps-section__subheading {
-    color: inherit;
+  #section-{{ section.id }} .icon-steps-section__title {
+    color: rgb(var(--color-foreground-heading)) !important;
+  }
+
+  #section-{{ section.id }} .icon-steps-section__subheading,
+  #section-{{ section.id }} .icon-steps-section__description,
+  #section-{{ section.id }} .icon-steps-section__description p {
+    color: rgb(var(--color-foreground)) !important;
   }
 
   #section-{{ section.id }} .icon-steps-section__description p {
