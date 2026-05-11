@@ -909,7 +909,7 @@
         "label_size": 13,
         "section_width": "page-width",
         "color_scheme": "scheme-2",
-        "padding-block-start": 0,
+        "padding-block-start": 28,
         "padding-block-end": 64
       }
     }
