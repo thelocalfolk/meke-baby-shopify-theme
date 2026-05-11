@@ -673,9 +673,9 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>What started as one problem has become something much bigger.A new standard.  A new way of thinking. A new level of care in how products are designed for families. Because we’ve been there.And we’re building for the future of families.</p>",
+            "text": "<p>What started as one problem has become something much bigger. A new standard.  A new way of thinking. A new level of care in how products are designed for families. <br/></p><p>Because we’ve been there. And we’re building for the future of families.</p>",
             "width": "fit-content",
-            "max_width": "none",
+            "max_width": "normal",
             "alignment": "left",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
@@ -726,7 +726,191 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 0
+      }
+    },
+    "feature_cards_carousel_MCmzFD": {
+      "type": "feature-cards-carousel",
+      "blocks": {
+        "card_tCGRq8": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_49.png",
+            "label": "Remove the uncertainty",
+            "heading": "Go anywhere, without the anxiety",
+            "card_heading_preset": "h3",
+            "card_heading_font": "var(--font-heading--family)",
+            "card_heading_font_size": "2rem",
+            "card_heading_line_height": "tight",
+            "card_heading_letter_spacing": "normal",
+            "card_heading_case": "none",
+            "card_heading_color": "#ffffff",
+            "body": "The café, the car. 3am feed, a date night, a flight. This is the product that removes feeding from your list of things that could go wrong.",
+            "card_body_preset": "paragraph",
+            "card_body_font": "var(--font-body--family)",
+            "card_body_font_size": "0.875rem",
+            "card_body_line_height": "normal",
+            "card_body_letter_spacing": "normal",
+            "card_body_case": "none",
+            "card_body_color": "#cccccc",
+            "card_padding": 20,
+            "content_gap": 10,
+            "link": ""
+          }
+        },
+        "card_p6Baqr": {
+          "type": "card",
+          "settings": {
+            "label": "Feature",
+            "heading": "Your compelling headline here",
+            "card_heading_preset": "h3",
+            "card_heading_font": "var(--font-heading--family)",
+            "card_heading_font_size": "2rem",
+            "card_heading_line_height": "tight",
+            "card_heading_letter_spacing": "normal",
+            "card_heading_case": "none",
+            "card_heading_color": "#ffffff",
+            "body": "Short supporting description that adds context to the heading above.",
+            "card_body_preset": "paragraph",
+            "card_body_font": "var(--font-body--family)",
+            "card_body_font_size": "0.875rem",
+            "card_body_line_height": "normal",
+            "card_body_letter_spacing": "normal",
+            "card_body_case": "none",
+            "card_body_color": "#cccccc",
+            "card_padding": 20,
+            "content_gap": 10,
+            "link": ""
+          }
+        },
+        "card_JKzQ89": {
+          "type": "card",
+          "settings": {
+            "label": "Feature",
+            "heading": "Your compelling headline here",
+            "card_heading_preset": "h3",
+            "card_heading_font": "var(--font-heading--family)",
+            "card_heading_font_size": "2rem",
+            "card_heading_line_height": "tight",
+            "card_heading_letter_spacing": "normal",
+            "card_heading_case": "none",
+            "card_heading_color": "#ffffff",
+            "body": "Short supporting description that adds context to the heading above.",
+            "card_body_preset": "paragraph",
+            "card_body_font": "var(--font-body--family)",
+            "card_body_font_size": "0.875rem",
+            "card_body_line_height": "normal",
+            "card_body_letter_spacing": "normal",
+            "card_body_case": "none",
+            "card_body_color": "#cccccc",
+            "card_padding": 20,
+            "content_gap": 10,
+            "link": ""
+          }
+        },
+        "card_Viq8Qh": {
+          "type": "card",
+          "settings": {
+            "label": "Material integrity",
+            "heading": "Made with medical-grade stainless steel",
+            "card_heading_preset": "h3",
+            "card_heading_font": "var(--font-heading--family)",
+            "card_heading_font_size": "2rem",
+            "card_heading_line_height": "tight",
+            "card_heading_letter_spacing": "normal",
+            "card_heading_case": "none",
+            "card_heading_color": "#ffffff",
+            "body": "Five-layer, microplastic, BPA & PFAS free medical-grade stainless steel for superior thermal performance and purity.",
+            "card_body_preset": "paragraph",
+            "card_body_font": "var(--font-body--family)",
+            "card_body_font_size": "0.875rem",
+            "card_body_line_height": "normal",
+            "card_body_letter_spacing": "normal",
+            "card_body_case": "none",
+            "card_body_color": "#cccccc",
+            "card_padding": 20,
+            "content_gap": 10,
+            "link": ""
+          }
+        },
+        "card_dkikd4": {
+          "type": "card",
+          "settings": {
+            "label": "Feature",
+            "heading": "Your compelling headline here",
+            "card_heading_preset": "h3",
+            "card_heading_font": "var(--font-heading--family)",
+            "card_heading_font_size": "2rem",
+            "card_heading_line_height": "tight",
+            "card_heading_letter_spacing": "normal",
+            "card_heading_case": "none",
+            "card_heading_color": "#ffffff",
+            "body": "Short supporting description that adds context to the heading above.",
+            "card_body_preset": "paragraph",
+            "card_body_font": "var(--font-body--family)",
+            "card_body_font_size": "0.875rem",
+            "card_body_line_height": "normal",
+            "card_body_letter_spacing": "normal",
+            "card_body_case": "none",
+            "card_body_color": "#cccccc",
+            "card_padding": 20,
+            "content_gap": 10,
+            "link": ""
+          }
+        },
+        "card_tnLNnC": {
+          "type": "card",
+          "settings": {
+            "label": "A better alternative",
+            "heading": "No thermos. No microwave workarounds.",
+            "card_heading_preset": "h3",
+            "card_heading_font": "var(--font-heading--family)",
+            "card_heading_font_size": "2rem",
+            "card_heading_line_height": "tight",
+            "card_heading_letter_spacing": "normal",
+            "card_heading_case": "none",
+            "card_heading_color": "#ffffff",
+            "body": "Replaces inconsistent heating methods with a single, consistent process that works the same way, every time.",
+            "card_body_preset": "paragraph",
+            "card_body_font": "var(--font-body--family)",
+            "card_body_font_size": "0.875rem",
+            "card_body_line_height": "normal",
+            "card_body_letter_spacing": "normal",
+            "card_body_case": "none",
+            "card_body_color": "#cccccc",
+            "card_padding": 20,
+            "content_gap": 10,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_tCGRq8",
+        "card_p6Baqr",
+        "card_JKzQ89",
+        "card_Viq8Qh",
+        "card_dkikd4",
+        "card_tnLNnC"
+      ],
+      "name": "Feature Cards Carousel",
+      "settings": {
+        "heading": "Why parents choose Mekè Baby",
+        "heading_type_preset": "h3",
+        "heading_font": "var(--font-heading--family)",
+        "heading_font_size": "2.5rem",
+        "heading_line_height": "tight",
+        "heading_letter_spacing": "normal",
+        "heading_case": "none",
+        "heading_color": "#928076",
+        "card_width": 380,
+        "card_height": 580,
+        "card_gap": 16,
+        "card_border_radius": 12,
+        "label_size": 13,
+        "section_width": "page-width",
+        "color_scheme": "scheme-2",
+        "padding-block-start": 0,
+        "padding-block-end": 64
       }
     }
   },
@@ -740,6 +924,7 @@
     "brand_story_split_m3Chki",
     "icon_steps_U8ttkQ",
     "brand_story_split_YQcVEq",
-    "section_RfhtEQ"
+    "section_RfhtEQ",
+    "feature_cards_carousel_MCmzFD"
   ]
 }
