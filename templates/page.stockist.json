@@ -421,7 +421,7 @@
                 "text_3qnMQA": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Urban Baby</p>",
+                    "text": "<p><span style=\"text-decoration:underline\">Urban Baby</span></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -523,7 +523,8 @@
               "type": "icon",
               "settings": {
                 "icon": "silhouette",
-                "width": 32,
+                "image_upload": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae_694e74d8-223c-4e4f-bff9-8e9bd08c5324_3.png",
+                "width": 200,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -571,11 +572,11 @@
                 "text_XXtGxF": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>A team with a goal</h2>",
+                    "text": "<p><span style=\"text-decoration:underline\">Metro Baby</span></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
-                    "type_preset": "h3",
+                    "type_preset": "paragraph",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -596,7 +597,7 @@
                 "text_xgxbi3": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Real people making great products</p>",
+                    "text": "<p>Address: 275 Swan St, Richmond VIC 3121</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
