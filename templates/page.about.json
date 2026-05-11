@@ -555,6 +555,66 @@
         "mobile_padding_bottom": 48,
         "text_inline_padding": 80
       }
+    },
+    "icon_steps_E84ABp": {
+      "type": "icon-steps",
+      "blocks": {
+        "step_JxVXBp": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Group_64845.png",
+            "title": "Safe Storage",
+            "title_type_preset": "h5",
+            "description": "<p>Keep milk protected, properly stored, and ready when you need it. Microplastic-free, leak-proof pouches designed for fridge, freezer, and on-the-go use.</p>",
+            "description_type_preset": "paragraph"
+          }
+        },
+        "step_EVyGNy": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Group_64844_1.png",
+            "title": "Warm with Precision",
+            "title_type_preset": "h5",
+            "description": "<p>Heat food safely, wherever feeding happens. Designed to warm milk or food in under 3 minutes with consistent, controlled temperature — at home or on the go.</p>",
+            "description_type_preset": "paragraph"
+          }
+        },
+        "step_cr4dDn": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/logoAsset_1_4.png",
+            "title": "Feed without guesswork",
+            "title_type_preset": "h5",
+            "description": "<p>A considered approach to feeding, designed to support safe, consistent results at every stage.</p>",
+            "description_type_preset": "paragraph"
+          }
+        }
+      },
+      "block_order": [
+        "step_JxVXBp",
+        "step_EVyGNy",
+        "step_cr4dDn"
+      ],
+      "name": "Icon Steps",
+      "settings": {
+        "heading": "That’s why we created the 3-Step feeding system",
+        "heading_type_preset": "h3",
+        "subheading": "Meke Baby simplifies feeding into a clear, repeatable system — so you know exactly what to do, every time.",
+        "subheading_type_preset": "paragraph",
+        "heading_gap": 24,
+        "header_bottom_gap": 64,
+        "content_alignment": "center",
+        "columns": "3",
+        "mobile_columns": "1",
+        "column_gap": 40,
+        "icon_size": 64,
+        "item_gap": 20,
+        "background_color": "#f5f5f5",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 48,
+        "mobile_padding_bottom": 48
+      }
     }
   },
   "order": [
@@ -564,6 +624,7 @@
     "section_WkzmLy",
     "marquee_NB3e49",
     "brand_story_split_BqC38h",
-    "brand_story_split_m3Chki"
+    "brand_story_split_m3Chki",
+    "icon_steps_E84ABp"
   ]
 }
