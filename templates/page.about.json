@@ -910,7 +910,7 @@
         "section_width": "page-width",
         "color_scheme": "scheme-2",
         "padding-block-start": 28,
-        "padding-block-end": 64
+        "padding-block-end": 0
       }
     },
     "section_4mCTL3": {
@@ -999,7 +999,119 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 25
+        "padding-block-end": 0
+      }
+    },
+    "category_grid_m7hDMk": {
+      "type": "category-grid",
+      "blocks": {
+        "card_qdMtex": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "custom_link": "",
+            "title": "Feeding Systems",
+            "description": "A complete end-to-end approach to feeding with clarity at every step.",
+            "show_button": true,
+            "button_label": "Shop Now",
+            "text_position": "bottom-left",
+            "text_alignment": "inherit",
+            "use_text_color_override": false,
+            "text_color_override": "#ffffff",
+            "show_overlay": true,
+            "use_overlay_override": false,
+            "overlay_color_override": "#000000",
+            "overlay_opacity_override": 15
+          }
+        },
+        "card_dJKYEF": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "custom_link": "",
+            "title": "Milk Warmers",
+            "description": "Precision-designed for consistent, reliable feeding.",
+            "show_button": true,
+            "button_label": "Shop Now",
+            "text_position": "bottom-left",
+            "text_alignment": "inherit",
+            "use_text_color_override": false,
+            "text_color_override": "#ffffff",
+            "show_overlay": true,
+            "use_overlay_override": false,
+            "overlay_color_override": "#000000",
+            "overlay_opacity_override": 15
+          }
+        },
+        "card_MVT4wG": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "custom_link": "",
+            "title": "On-the-Go Essentials",
+            "description": "Built to maintain standards when starting solids.",
+            "show_button": true,
+            "button_label": "Shop Now",
+            "text_position": "bottom-left",
+            "text_alignment": "inherit",
+            "use_text_color_override": false,
+            "text_color_override": "#ffffff",
+            "show_overlay": true,
+            "use_overlay_override": false,
+            "overlay_color_override": "#000000",
+            "overlay_opacity_override": 15
+          }
+        },
+        "card_etKXPK": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "custom_link": "",
+            "title": "Storage & Prep",
+            "description": "Clear, safe storage and cleaning solutions designed for real-life use.",
+            "show_button": true,
+            "button_label": "Shop Now",
+            "text_position": "bottom-left",
+            "text_alignment": "inherit",
+            "use_text_color_override": false,
+            "text_color_override": "#ffffff",
+            "show_overlay": true,
+            "use_overlay_override": false,
+            "overlay_color_override": "#000000",
+            "overlay_opacity_override": 15
+          }
+        }
+      },
+      "block_order": [
+        "card_qdMtex",
+        "card_dJKYEF",
+        "card_MVT4wG",
+        "card_etKXPK"
+      ],
+      "name": "Category Grid",
+      "settings": {
+        "section_heading": "",
+        "section_subheading": "",
+        "heading_alignment": "left",
+        "section_width": "page-width",
+        "columns_desktop": 2,
+        "columns_mobile": "1",
+        "grid_gap": 16,
+        "grid_gap_mobile": 12,
+        "card_radius": 12,
+        "card_aspect_ratio": "16/9",
+        "card_aspect_ratio_mobile": "4/3",
+        "text_color": "#ffffff",
+        "text_alignment": "left",
+        "text_padding": 32,
+        "overlay_color": "#000000",
+        "overlay_opacity": 15,
+        "button_background": "#928076",
+        "button_text_color": "#ffffff",
+        "button_radius": 50,
+        "color_scheme": "scheme-2",
+        "padding-block-start": 0,
+        "padding-block-end": 40
       }
     }
   },
@@ -1015,6 +1127,7 @@
     "brand_story_split_YQcVEq",
     "section_RfhtEQ",
     "feature_cards_carousel_MCmzFD",
-    "section_4mCTL3"
+    "section_4mCTL3",
+    "category_grid_m7hDMk"
   ]
 }
