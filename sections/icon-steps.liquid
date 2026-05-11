@@ -16,14 +16,13 @@
 -%}
 
 <div
-  class="icon-steps-section"
+  class="icon-steps-section color-scheme-{{ section.settings.color_scheme }}"
   id="section-{{ section.id }}"
   style="
     --pt: {{ section.settings.padding_top }}px;
     --pb: {{ section.settings.padding_bottom }}px;
     --mobile-pt: {{ section.settings.mobile_padding_top }}px;
     --mobile-pb: {{ section.settings.mobile_padding_bottom }}px;
-    background-color: {{ section.settings.background_color }};
   "
 >
   <div class="icon-steps-section__inner page-width">
@@ -313,10 +312,10 @@
       "content": "Colours & Spacing"
     },
     {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background colour",
-      "default": "#F5F3F0"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-1"
     },
     {
       "type": "range",
