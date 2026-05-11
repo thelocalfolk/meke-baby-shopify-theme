@@ -1317,7 +1317,7 @@
               "type": "icon",
               "settings": {
                 "icon": "silhouette",
-                "image_upload": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae_694e74d8-223c-4e4f-bff9-8e9bd08c5324_4.png",
+                "image_upload": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae_694e74d8-223c-4e4f-bff9-8e9bd08c5324_8.png",
                 "width": 200,
                 "link": "",
                 "open_in_new_tab": false
@@ -1366,7 +1366,7 @@
                 "text_Nrc6WP": {
                   "type": "text",
                   "settings": {
-                    "text": "<p><span style=\"text-decoration:underline\">Mint Soda</span></p>",
+                    "text": "<p><span style=\"text-decoration:underline\">ToyWorld Baby</span></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -1391,7 +1391,7 @@
                 "text_Gez8DT": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Address: 170 Campbell Street Swan, Hill VIC</p>",
+                    "text": "<p>Address: 14 Denny Street Berri SA 5343 Ph: 08 85 821 914</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
