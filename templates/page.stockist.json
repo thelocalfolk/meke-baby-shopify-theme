@@ -119,9 +119,9 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Standing in a grocery store during the COVID lockdowns, with a crying baby in her arms, Elysia realised something confronting — she had no way to feed her daughter. No warm water. No feeding room. No solution. What should have been simple suddenly felt impossible. That moment wasn’t just stressful - it exposed a gap.  In a world moving so quickly, why were parents still relying on outdated, impractical ways to feed their babies?</p>",
+            "text": "<p>Our trusted stockists help us bring Mekė Baby closer to you—making it easier to access pieces designed with care, intention, and your baby’s wellbeing in mind.We work with partners who share our values, so wherever you find Mekė Baby, you can trust you’re receiving the same quality, softness, and attention your little one deserves.</p>",
             "width": "fit-content",
-            "max_width": "none",
+            "max_width": "normal",
             "alignment": "left",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
