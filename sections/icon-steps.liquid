@@ -1,0 +1,448 @@
+{% comment %}
+  Section: Icon Steps
+  Multi-column icon + title + description section. Built for Meke Baby on the Horizon theme.
+  Each step is a block with an image_picker icon, a title, and a richtext description.
+  Section-level settings control the heading, subheading, layout, spacing, and background colour.
+{% endcomment %}
+
+{%- liquid
+  assign col_align = section.settings.content_alignment
+  assign flex_align = 'flex-start'
+  if col_align == 'center'
+    assign flex_align = 'center'
+  elsif col_align == 'right'
+    assign flex_align = 'flex-end'
+  endif
+-%}
+
+<div
+  class="icon-steps-section"
+  id="section-{{ section.id }}"
+  style="
+    --pt: {{ section.settings.padding_top }}px;
+    --pb: {{ section.settings.padding_bottom }}px;
+    --mobile-pt: {{ section.settings.mobile_padding_top }}px;
+    --mobile-pb: {{ section.settings.mobile_padding_bottom }}px;
+    background-color: {{ section.settings.background_color }};
+  "
+>
+  <div class="icon-steps-section__inner page-width">
+
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="icon-steps-section__header" style="text-align: {{ col_align }};">
+
+        {%- if section.settings.heading != blank -%}
+          <p class="icon-steps-section__heading {{ section.settings.heading_type_preset }}" style="margin-bottom: {{ section.settings.heading_gap }}px;">
+            {{ section.settings.heading | escape }}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.subheading != blank -%}
+          <p class="icon-steps-section__subheading {{ section.settings.subheading_type_preset }}">
+            {{ section.settings.subheading | escape }}
+          </p>
+        {%- endif -%}
+
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div
+        class="icon-steps-section__grid"
+        style="
+          text-align: {{ col_align }};
+          grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
+          gap: {{ section.settings.column_gap }}px;
+          margin-top: {{ section.settings.header_bottom_gap }}px;
+        "
+      >
+        {%- for block in section.blocks -%}
+          <div
+            class="icon-steps-section__item"
+            style="align-items: {{ flex_align }}; gap: {{ section.settings.item_gap }}px;"
+            {{ block.shopify_attributes }}
+          >
+
+            {%- if block.settings.icon != blank -%}
+              {%- assign icon_alt = block.settings.title | escape -%}
+              {%- assign icon_sizes = section.settings.icon_size | append: 'px' -%}
+              <div
+                class="icon-steps-section__icon"
+                style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px;"
+              >
+                {{
+                  block.settings.icon
+                  | image_url: width: 200
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: icon_alt,
+                    widths: '80,100,120,160,200',
+                    sizes: icon_sizes,
+                    style: 'width: 100%; height: 100%; object-fit: contain;'
+                }}
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.title != blank -%}
+              <p class="icon-steps-section__title {{ block.settings.title_type_preset }}">
+                {{ block.settings.title | escape }}
+              </p>
+            {%- endif -%}
+
+            {%- if block.settings.description != blank -%}
+              <div class="icon-steps-section__description {{ block.settings.description_type_preset }}">
+                {{ block.settings.description }}
+              </div>
+            {%- endif -%}
+
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+<style>
+  #section-{{ section.id }} {
+    padding-top: var(--pt);
+    padding-bottom: var(--pb);
+  }
+
+  #section-{{ section.id }} .icon-steps-section__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding-left: var(--page-margin, 24px);
+    padding-right: var(--page-margin, 24px);
+  }
+
+  #section-{{ section.id }} .icon-steps-section__heading,
+  #section-{{ section.id }} .icon-steps-section__subheading {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #section-{{ section.id }} .icon-steps-section__subheading {
+    margin-bottom: 0;
+  }
+
+  #section-{{ section.id }} .icon-steps-section__grid {
+    display: grid;
+  }
+
+  #section-{{ section.id }} .icon-steps-section__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #section-{{ section.id }} .icon-steps-section__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  #section-{{ section.id }} .icon-steps-section__title,
+  #section-{{ section.id }} .icon-steps-section__description {
+    margin: 0;
+  }
+
+  #section-{{ section.id }} .icon-steps-section__description p {
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    #section-{{ section.id }} {
+      padding-top: var(--mobile-pt);
+      padding-bottom: var(--mobile-pb);
+    }
+
+    #section-{{ section.id }} .icon-steps-section__grid {
+      grid-template-columns: repeat({{ section.settings.mobile_columns }}, 1fr) !important;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Icon Steps",
+  "tag": "section",
+  "class": "icon-steps-section-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "That\u2019s why we created the 3-Step feeding system"
+    },
+    {
+      "type": "select",
+      "id": "heading_type_preset",
+      "label": "Heading style",
+      "info": "Inherits from your theme typography settings",
+      "options": [
+        { "value": "paragraph", "label": "Paragraph" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Meke Baby simplifies feeding into a clear, repeatable system \u2014 so you know exactly what to do, every time."
+    },
+    {
+      "type": "select",
+      "id": "subheading_type_preset",
+      "label": "Subheading style",
+      "info": "Inherits from your theme typography settings",
+      "options": [
+        { "value": "paragraph", "label": "Paragraph" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
+      ],
+      "default": "paragraph"
+    },
+    {
+      "type": "range",
+      "id": "heading_gap",
+      "label": "Gap between heading and subheading",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "header_bottom_gap",
+      "label": "Gap below header (to icons)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 64,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Centre" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns (desktop)",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Columns (mobile)",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Gap between columns",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Icons"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 24,
+      "max": 120,
+      "step": 4,
+      "default": 64,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "label": "Gap between icon and text",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Colours & Spacing"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background colour",
+      "default": "#F5F3F0"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Top padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Bottom padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Step title"
+        },
+        {
+          "type": "select",
+          "id": "title_type_preset",
+          "label": "Title style",
+          "info": "Inherits from your theme typography settings",
+          "options": [
+            { "value": "paragraph", "label": "Paragraph" },
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "h5", "label": "H5" },
+            { "value": "h6", "label": "H6" }
+          ],
+          "default": "h5"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>A short description of this step.</p>"
+        },
+        {
+          "type": "select",
+          "id": "description_type_preset",
+          "label": "Description style",
+          "info": "Inherits from your theme typography settings",
+          "options": [
+            { "value": "paragraph", "label": "Paragraph" },
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "h5", "label": "H5" },
+            { "value": "h6", "label": "H6" }
+          ],
+          "default": "paragraph"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon Steps",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Safe Storage",
+            "description": "<p>Keep milk protected, properly stored, and ready when you need it. Microplastic-free, leak-proof pouches designed for fridge, freezer, and on-the-go use.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Warm with Precision",
+            "description": "<p>Heat food safely, wherever feeding happens. Designed to warm milk or food in under 3 minutes with consistent, controlled temperature \u2014 at home or on the go.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Feed without guesswork",
+            "description": "<p>A considered approach to feeding, designed to support safe, consistent results at every stage.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
