@@ -1,8 +1,7 @@
 {% comment %}
   Section: Icon Steps
   Multi-column icon + title + description section. Built for Meke Baby on the Horizon theme.
-  Each step is a block with an image_picker icon, a title, and a richtext description.
-  No type preset selects — plain elements inherit colour scheme automatically.
+  Colour scheme pattern copied exactly from brand-story-split.liquid.
 {% endcomment %}
 
 {%- liquid
@@ -19,15 +18,13 @@
   class="icon-steps-section color-{{ section.settings.color_scheme }}"
   id="section-{{ section.id }}"
   style="
-    --pt: {{ section.settings.padding_top }}px;
-    --pb: {{ section.settings.padding_bottom }}px;
-    --mobile-pt: {{ section.settings.mobile_padding_top }}px;
-    --mobile-pb: {{ section.settings.mobile_padding_bottom }}px;
-    background-color: rgb(var(--color-background));
-    color: rgb(var(--color-foreground));
+    --is-pt: {{ section.settings.padding_top }}px;
+    --is-pb: {{ section.settings.padding_bottom }}px;
+    --is-mobile-pt: {{ section.settings.mobile_padding_top }}px;
+    --is-mobile-pb: {{ section.settings.mobile_padding_bottom }}px;
   "
 >
-  <div class="icon-steps-section__inner page-width">
+  <div class="icon-steps-section__inner">
 
     {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
       <div class="icon-steps-section__header" style="text-align: {{ col_align }}; margin-bottom: {{ section.settings.header_bottom_gap }}px;">
@@ -105,16 +102,15 @@
 
 <style>
   #section-{{ section.id }} {
-    padding-top: var(--pt);
-    padding-bottom: var(--pb);
+    padding-top: var(--is-pt);
+    padding-bottom: var(--is-pb);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 749px) {
     #section-{{ section.id }} {
-      padding-top: var(--mobile-pt);
-      padding-bottom: var(--mobile-pb);
+      padding-top: var(--is-mobile-pt);
+      padding-bottom: var(--is-mobile-pb);
     }
-
     #section-{{ section.id }} .icon-steps-section__grid {
       grid-template-columns: repeat({{ section.settings.mobile_columns }}, 1fr) !important;
     }
@@ -122,6 +118,10 @@
 </style>
 
 {% stylesheet %}
+  .icon-steps-section {
+    background-color: rgb(var(--color-background));
+  }
+
   .icon-steps-section__inner {
     max-width: var(--page-width, 1200px);
     margin: 0 auto;
@@ -136,12 +136,14 @@
     line-height: var(--font-h2--line-height);
     letter-spacing: var(--font-h2--letter-spacing);
     text-transform: var(--font-h2--case);
+    color: rgb(var(--color-foreground-heading));
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
   }
 
   .icon-steps-section__subheading {
+    color: rgb(var(--color-foreground));
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -155,6 +157,7 @@
     line-height: var(--font-h5--line-height);
     letter-spacing: var(--font-h5--letter-spacing);
     text-transform: var(--font-h5--case);
+    color: rgb(var(--color-foreground-heading));
     margin: 0;
   }
 
@@ -175,6 +178,7 @@
   }
 
   .icon-steps-section__description {
+    color: rgb(var(--color-foreground));
     margin: 0;
   }
 
