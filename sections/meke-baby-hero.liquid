@@ -1,258 +1,294 @@
-{% comment %}
-  Section: Icon Steps
-  Multi-column icon + title + description section. Built for Meke Baby on the Horizon theme.
-  Each step is a block with an image_picker icon, a title, and a richtext description.
-  Section-level settings control the heading, subheading, layout, spacing, and background colour.
-{% endcomment %}
-
 {%- liquid
-  assign col_align = section.settings.content_alignment
-  assign flex_align = 'flex-start'
-  if col_align == 'center'
-    assign flex_align = 'center'
-  elsif col_align == 'right'
-    assign flex_align = 'flex-end'
+  assign bg_image = section.settings.image
+  assign mobile_image = section.settings.image_mobile
+  assign fallback_url = section.settings.image_url
+  assign btn_class = 'button'
+  if section.settings.button_style == 'secondary'
+    assign btn_class = 'button-secondary'
   endif
 -%}
 
 <div
-  class="icon-steps-section color-{{ section.settings.color_scheme }}"
-  id="section-{{ section.id }}"
+  id="MekeBabyHero-{{ section.id }}"
+  class="meke-hero color-{{ section.settings.color_scheme }}"
   style="
-    --pt: {{ section.settings.padding_top }}px;
-    --pb: {{ section.settings.padding_bottom }}px;
-    --mobile-pt: {{ section.settings.mobile_padding_top }}px;
-    --mobile-pb: {{ section.settings.mobile_padding_bottom }}px;
-    background-color: rgb(var(--color-background));
-    color: rgb(var(--color-foreground));
+    min-height: {{ section.settings.min_height }}svh;
+    --hero-align: {{ section.settings.content_position }};
+    --hero-star-size: {{ section.settings.star_size }}px;
+    --hero-heading-size: {{ section.settings.heading_size }}px;
+    --hero-subheading-size: {{ section.settings.subheading_size }}px;
+    --hero-content-max-width: {{ section.settings.content_max_width }}px;
+    --hero-heading-max-width: {{ section.settings.heading_max_width }}px;
+    --hero-subheading-max-width: {{ section.settings.subheading_max_width }}px;
+    --hero-padding-top: {{ section.settings.padding_top }}px;
+    --hero-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --hero-padding-horizontal: {{ section.settings.padding_horizontal }}px;
+    --hero-bg-position: {{ section.settings.bg_position }};
+    --hero-bg-position-mobile: {{ section.settings.bg_position_mobile }};
+    {% if bg_image != blank %}
+      --hero-bg-desktop: url('{{ bg_image | image_url: width: 2400 }}');
+    {% elsif fallback_url != blank %}
+      --hero-bg-desktop: url('{{ fallback_url }}');
+    {% endif %}
+    {% if mobile_image != blank %}
+      --hero-bg-mobile: url('{{ mobile_image | image_url: width: 1200 }}');
+    {% elsif bg_image != blank %}
+      --hero-bg-mobile: url('{{ bg_image | image_url: width: 1200 }}');
+    {% elsif fallback_url != blank %}
+      --hero-bg-mobile: url('{{ fallback_url }}');
+    {% endif %}
   "
 >
-  <div class="icon-steps-section__inner page-width">
+  <div class="meke-hero__inner page-width">
+    <div class="meke-hero__content">
+      {%- if section.settings.star_rating != blank -%}
+        <p class="meke-hero__stars">{{ section.settings.star_rating }}</p>
+      {%- endif -%}
 
-    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
-      <div class="icon-steps-section__header" style="text-align: {{ col_align }};">
+      {%- if section.settings.heading != blank -%}
+        <h1 class="meke-hero__heading">{{ section.settings.heading }}</h1>
+      {%- endif -%}
 
-        {%- if section.settings.heading != blank -%}
-          <p class="icon-steps-section__heading {{ section.settings.heading_type_preset }}" style="margin-bottom: {{ section.settings.heading_gap }}px;">
-            {{ section.settings.heading | escape }}
-          </p>
-        {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="meke-hero__subheading">{{ section.settings.subheading | newline_to_br }}</p>
+      {%- endif -%}
 
-        {%- if section.settings.subheading != blank -%}
-          <p class="icon-steps-section__subheading {{ section.settings.subheading_type_preset }}">
-            {{ section.settings.subheading | escape }}
-          </p>
-        {%- endif -%}
-
-      </div>
-    {%- endif -%}
-
-    {%- if section.blocks.size > 0 -%}
-      <div
-        class="icon-steps-section__grid"
-        style="
-          text-align: {{ col_align }};
-          grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
-          gap: {{ section.settings.column_gap }}px;
-          margin-top: {{ section.settings.header_bottom_gap }}px;
-        "
-      >
-        {%- for block in section.blocks -%}
-          <div
-            class="icon-steps-section__item"
-            style="align-items: {{ flex_align }}; gap: {{ section.settings.item_gap }}px;"
-            {{ block.shopify_attributes }}
-          >
-
-            {%- if block.settings.icon != blank -%}
-              {%- assign icon_alt = block.settings.title | escape -%}
-              {%- assign icon_sizes = section.settings.icon_size | append: 'px' -%}
-              <div
-                class="icon-steps-section__icon"
-                style="width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px;"
-              >
-                {{
-                  block.settings.icon
-                  | image_url: width: 200
-                  | image_tag:
-                    loading: 'lazy',
-                    alt: icon_alt,
-                    widths: '80,100,120,160,200',
-                    sizes: icon_sizes,
-                    style: 'width: 100%; height: 100%; object-fit: contain;'
-                }}
-              </div>
-            {%- endif -%}
-
-            {%- if block.settings.title != blank -%}
-              <p class="icon-steps-section__title {{ block.settings.title_type_preset }}">
-                {{ block.settings.title | escape }}
-              </p>
-            {%- endif -%}
-
-            {%- if block.settings.description != blank -%}
-              <div class="icon-steps-section__description {{ block.settings.description_type_preset }}">
-                {{ block.settings.description }}
-              </div>
-            {%- endif -%}
-
-          </div>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
-
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: '#' }}" class="{{ btn_class }}">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
   </div>
 </div>
 
-{% comment %} Liquid-dependent values — padding, gaps, grid columns {% endcomment %}
-<style>
-  #section-{{ section.id }} {
-    padding-top: var(--pt);
-    padding-bottom: var(--pb);
-  }
-
-  @media (max-width: 768px) {
-    #section-{{ section.id }} {
-      padding-top: var(--mobile-pt);
-      padding-bottom: var(--mobile-pb);
-    }
-
-    #section-{{ section.id }} .icon-steps-section__grid {
-      grid-template-columns: repeat({{ section.settings.mobile_columns }}, 1fr) !important;
-    }
-  }
-</style>
-
-{% comment %} Static layout and colour rules — stylesheet block matches hero pattern {% endcomment %}
 {% stylesheet %}
-  .icon-steps-section__inner {
-    max-width: var(--page-width, 1200px);
-    margin: 0 auto;
-    padding-left: var(--page-margin, 24px);
-    padding-right: var(--page-margin, 24px);
+  .meke-hero {
+    background-size: cover;
+    background-position: var(--hero-bg-position, center);
+    background-image: var(--hero-bg-desktop);
+    display: flex;
+    align-items: var(--hero-align, flex-end);
+    position: relative;
   }
 
-  .icon-steps-section__heading,
-  .icon-steps-section__subheading {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+  .meke-hero__inner {
+    width: 100%;
+    padding-block: var(--hero-padding-top, 40px) var(--hero-padding-bottom, 40px);
+    padding-inline: max(var(--hero-padding-horizontal, 2rem), 5vw);
   }
 
-  .icon-steps-section__subheading {
-    margin-bottom: 0;
-  }
-
-  .icon-steps-section__grid {
-    display: grid;
-  }
-
-  .icon-steps-section__item {
+  .meke-hero__content {
     display: flex;
     flex-direction: column;
-  }
-
-  .icon-steps-section__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .icon-steps-section__title,
-  .icon-steps-section__description {
-    margin: 0;
-  }
-
-  .icon-steps-section__description p {
-    margin: 0;
-  }
-
-  .icon-steps-section__heading,
-  .icon-steps-section__title {
-    --color: rgb(var(--color-foreground));
-  }
-
-  .icon-steps-section__subheading,
-  .icon-steps-section__description,
-  .icon-steps-section__description p {
+    gap: 20px;
+    max-width: var(--hero-content-max-width, 560px);
     color: rgb(var(--color-foreground));
+  }
+
+  .meke-hero__stars {
+    font-size: var(--hero-star-size, 14px);
+    letter-spacing: 0.03em;
+    margin: 0;
+  }
+
+  .meke-hero__heading {
+    font-family: var(--font-public-sans--family);
+    font-size: var(--hero-heading-size, 48px);
+    font-weight: 400;
+    line-height: 1.05;
+    margin: 0;
+    max-width: var(--hero-heading-max-width, 100%);
+    color: rgb(var(--color-foreground-heading));
+  }
+
+  .meke-hero__subheading {
+    font-size: var(--hero-subheading-size, 16px);
+    line-height: 1.55;
+    max-width: var(--hero-subheading-max-width, 400px);
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .meke-hero {
+      background-image: var(--hero-bg-mobile);
+      background-position: var(--hero-bg-position-mobile, center);
+    }
+
+    .meke-hero__inner {
+      padding-block: var(--hero-padding-top, 32px) var(--hero-padding-bottom, 32px);
+      padding-inline: 1.25rem;
+    }
+
+    .meke-hero__content {
+      gap: 16px;
+    }
   }
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "Icon Steps",
+  "name": "Mekè Baby Hero",
   "tag": "section",
-  "class": "icon-steps-section-wrapper",
+  "class": "meke-hero-wrapper",
   "settings": [
     {
       "type": "header",
-      "content": "Heading"
+      "content": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Replaces the URL below when set"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image",
+      "info": "Recommended portrait crop e.g. 750 x 1000px. Falls back to main image if not set."
+    },
+    {
+      "type": "text",
+      "id": "image_url",
+      "label": "Image URL",
+      "default": "https://cdn.shopify.com/s/files/1/0785/7458/4107/files/Image_179da885-c70a-4fc6-8ba3-1d4f72954f1f.jpg?v=1777347930",
+      "info": "Used when no image is selected above"
+    },
+    {
+      "type": "select",
+      "id": "bg_position",
+      "label": "Image focal point",
+      "options": [
+        { "value": "top left", "label": "Top left" },
+        { "value": "top center", "label": "Top center" },
+        { "value": "top right", "label": "Top right" },
+        { "value": "center left", "label": "Center left" },
+        { "value": "center", "label": "Center" },
+        { "value": "center right", "label": "Center right" },
+        { "value": "bottom left", "label": "Bottom left" },
+        { "value": "bottom center", "label": "Bottom center" },
+        { "value": "bottom right", "label": "Bottom right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "bg_position_mobile",
+      "label": "Image focal point (mobile)",
+      "options": [
+        { "value": "top left", "label": "Top left" },
+        { "value": "top center", "label": "Top center" },
+        { "value": "top right", "label": "Top right" },
+        { "value": "center left", "label": "Center left" },
+        { "value": "center", "label": "Center" },
+        { "value": "center right", "label": "Center right" },
+        { "value": "bottom left", "label": "Bottom left" },
+        { "value": "bottom center", "label": "Bottom center" },
+        { "value": "bottom right", "label": "Bottom right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "star_rating",
+      "label": "Star rating text",
+      "default": "★★★★★   4.9 Stars"
+    },
+    {
+      "type": "range",
+      "id": "star_size",
+      "label": "Star rating text size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "That\u2019s why we created the 3-Step feeding system"
+      "default": "A better way to feed."
     },
     {
-      "type": "select",
-      "id": "heading_type_preset",
-      "label": "Heading style",
-      "info": "Inherits from your theme typography settings",
-      "options": [
-        { "value": "paragraph", "label": "Paragraph" },
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" }
-      ],
-      "default": "h2"
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading text size",
+      "min": 24,
+      "max": 96,
+      "step": 2,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "heading_max_width",
+      "label": "Heading max width",
+      "min": 100,
+      "max": 900,
+      "step": 10,
+      "default": 560,
+      "unit": "px"
     },
     {
       "type": "textarea",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Meke Baby simplifies feeding into a clear, repeatable system \u2014 so you know exactly what to do, every time."
+      "default": "Mekè Baby gives you a considered feeding system designed to remove uncertainty and support safe, consistent feeding — every time."
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "label": "Subheading text size",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "subheading_max_width",
+      "label": "Subheading max width",
+      "min": 100,
+      "max": 900,
+      "step": 10,
+      "default": 400,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Label",
+      "default": "Shop by Solution"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
     },
     {
       "type": "select",
-      "id": "subheading_type_preset",
-      "label": "Subheading style",
-      "info": "Inherits from your theme typography settings",
+      "id": "button_style",
+      "label": "Style",
       "options": [
-        { "value": "paragraph", "label": "Paragraph" },
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" }
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" }
       ],
-      "default": "paragraph"
-    },
-    {
-      "type": "range",
-      "id": "heading_gap",
-      "label": "Gap between heading and subheading",
-      "min": 0,
-      "max": 80,
-      "step": 4,
-      "default": 24,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "header_bottom_gap",
-      "label": "Gap below header (to icons)",
-      "min": 0,
-      "max": 120,
-      "step": 4,
-      "default": 64,
-      "unit": "px"
+      "default": "primary"
     },
     {
       "type": "header",
@@ -260,40 +296,44 @@
     },
     {
       "type": "select",
-      "id": "content_alignment",
-      "label": "Content alignment",
+      "id": "content_position",
+      "label": "Content position",
       "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Centre" },
-        { "value": "right", "label": "Right" }
+        { "value": "flex-start", "label": "Top" },
+        { "value": "center", "label": "Middle" },
+        { "value": "flex-end", "label": "Bottom" }
       ],
-      "default": "center"
-    },
-    {
-      "type": "select",
-      "id": "columns",
-      "label": "Columns (desktop)",
-      "options": [
-        { "value": "2", "label": "2" },
-        { "value": "3", "label": "3" },
-        { "value": "4", "label": "4" }
-      ],
-      "default": "3"
-    },
-    {
-      "type": "select",
-      "id": "mobile_columns",
-      "label": "Columns (mobile)",
-      "options": [
-        { "value": "1", "label": "1" },
-        { "value": "2", "label": "2" }
-      ],
-      "default": "1"
+      "default": "flex-end"
     },
     {
       "type": "range",
-      "id": "column_gap",
-      "label": "Gap between columns",
+      "id": "content_max_width",
+      "label": "Content block max width",
+      "min": 200,
+      "max": 1200,
+      "step": 20,
+      "default": 560,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Minimum height",
+      "min": 30,
+      "max": 100,
+      "step": 5,
+      "default": 55,
+      "unit": "vh",
+      "info": "As a percentage of the viewport height"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
       "min": 0,
       "max": 120,
       "step": 4,
@@ -301,163 +341,29 @@
       "unit": "px"
     },
     {
-      "type": "header",
-      "content": "Icons"
-    },
-    {
-      "type": "range",
-      "id": "icon_size",
-      "label": "Icon size",
-      "min": 24,
-      "max": 120,
-      "step": 4,
-      "default": 64,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "item_gap",
-      "label": "Gap between icon and text",
-      "min": 0,
-      "max": 60,
-      "step": 4,
-      "default": 20,
-      "unit": "px"
-    },
-    {
-      "type": "header",
-      "content": "Colours & Spacing"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Colour scheme",
-      "default": "scheme-1"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "label": "Top padding (desktop)",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "default": 80,
-      "unit": "px"
-    },
-    {
       "type": "range",
       "id": "padding_bottom",
-      "label": "Bottom padding (desktop)",
+      "label": "Padding bottom",
       "min": 0,
-      "max": 200,
+      "max": 120,
       "step": 4,
-      "default": 80,
+      "default": 40,
       "unit": "px"
     },
     {
       "type": "range",
-      "id": "mobile_padding_top",
-      "label": "Top padding (mobile)",
+      "id": "padding_horizontal",
+      "label": "Padding horizontal",
       "min": 0,
       "max": 120,
       "step": 4,
-      "default": 48,
+      "default": 32,
       "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "mobile_padding_bottom",
-      "label": "Bottom padding (mobile)",
-      "min": 0,
-      "max": 120,
-      "step": 4,
-      "default": 48,
-      "unit": "px"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "step",
-      "name": "Step",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "icon",
-          "label": "Icon image"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Step title"
-        },
-        {
-          "type": "select",
-          "id": "title_type_preset",
-          "label": "Title style",
-          "info": "Inherits from your theme typography settings",
-          "options": [
-            { "value": "paragraph", "label": "Paragraph" },
-            { "value": "h1", "label": "H1" },
-            { "value": "h2", "label": "H2" },
-            { "value": "h3", "label": "H3" },
-            { "value": "h4", "label": "H4" },
-            { "value": "h5", "label": "H5" },
-            { "value": "h6", "label": "H6" }
-          ],
-          "default": "h5"
-        },
-        {
-          "type": "richtext",
-          "id": "description",
-          "label": "Description",
-          "default": "<p>A short description of this step.</p>"
-        },
-        {
-          "type": "select",
-          "id": "description_type_preset",
-          "label": "Description style",
-          "info": "Inherits from your theme typography settings",
-          "options": [
-            { "value": "paragraph", "label": "Paragraph" },
-            { "value": "h1", "label": "H1" },
-            { "value": "h2", "label": "H2" },
-            { "value": "h3", "label": "H3" },
-            { "value": "h4", "label": "H4" },
-            { "value": "h5", "label": "H5" },
-            { "value": "h6", "label": "H6" }
-          ],
-          "default": "paragraph"
-        }
-      ]
     }
   ],
   "presets": [
     {
-      "name": "Icon Steps",
-      "blocks": [
-        {
-          "type": "step",
-          "settings": {
-            "title": "Safe Storage",
-            "description": "<p>Keep milk protected, properly stored, and ready when you need it. Microplastic-free, leak-proof pouches designed for fridge, freezer, and on-the-go use.</p>"
-          }
-        },
-        {
-          "type": "step",
-          "settings": {
-            "title": "Warm with Precision",
-            "description": "<p>Heat food safely, wherever feeding happens. Designed to warm milk or food in under 3 minutes with consistent, controlled temperature \u2014 at home or on the go.</p>"
-          }
-        },
-        {
-          "type": "step",
-          "settings": {
-            "title": "Feed without guesswork",
-            "description": "<p>A considered approach to feeding, designed to support safe, consistent results at every stage.</p>"
-          }
-        }
-      ]
+      "name": "Mekè Baby Hero"
     }
   ]
 }
