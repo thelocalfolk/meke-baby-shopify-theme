@@ -3,7 +3,15 @@
   A masonry-style image card grid on desktop, horizontal scroll carousel on mobile.
   Cards share the same design as Feature Cards Carousel — frosted glass pill label
   (top-left), gradient overlay, heading and body text at the bottom.
-  Each card has its own height setting so the masonry stagger can be tuned card-by-card.
+
+  Layout behaviour:
+  - Desktop is a 2-row grid (top row + bottom row, based on column count).
+  - The TOPS of all top-row cards align.
+  - The BOTTOMS of all bottom-row cards align.
+  - Masonry stagger comes from varying individual card heights — the seam
+    between rows shifts column by column based on each card's height.
+
+  Each card has its own height setting so the stagger can be tuned card-by-card.
   Typography follows the same preset + custom pattern as Feature Cards Carousel.
   Built for the Mekè Baby Horizon theme.
 {% endcomment %}
@@ -11,6 +19,11 @@
 {%- liquid
   assign ss = section.settings
   assign blocks = section.blocks
+  assign cols = ss.columns
+
+  # Total number of rows in the grid (rounded up)
+  assign last_index = blocks.size | minus: 1
+  assign total_rows = last_index | divided_by: cols | plus: 1
 
   # Build section heading style string
   assign heading_style = ''
@@ -108,20 +121,26 @@
             else
               assign card_body_class = 'fcm__card-body ' | append: bs.card_body_preset
             endif
+
+            # Work out which row this card sits in (1-indexed)
+            assign row_num = forloop.index0 | divided_by: cols | plus: 1
+
+            # Default cards to align to the top of their row.
+            # The LAST row aligns to the bottom of its row, so the bottom
+            # of the grid is a clean horizontal line.
+            assign card_align = 'start'
+            if total_rows > 1 and row_num == total_rows
+              assign card_align = 'end'
+            endif
           -%}
 
-          {%- liquid
-            assign row_span = bs.card_height_desktop | divided_by: 10 | ceil
-            assign gap_rows = ss.card_gap | divided_by: 10 | ceil
-            assign total_span = row_span | plus: gap_rows
-          -%}
           <div
             class="fcm__card"
             role="listitem"
             style="
               --fcm-card-height: {{ bs.card_height_desktop }}px;
               --fcm-content-gap: {{ bs.content_gap }}px;
-              grid-row: span {{ total_span }};
+              align-self: {{ card_align }};
             "
             {{ block.shopify_attributes }}
           >
@@ -196,15 +215,19 @@
   }
 
   /* ─── Desktop masonry grid ─── */
-  /* CSS Grid with a dense 10px row unit. Each card spans a calculated number of
-     rows based on its individual height setting, giving left-to-right ordering
-     that matches the theme editor block order. */
+  /* A 2-row grid (row count grows automatically if you add more cards):
+     - Each row's height equals its tallest card (grid-auto-rows: max-content)
+     - Top row cards have align-self: start  → tops are flush
+     - Bottom row cards have align-self: end → bottoms are flush
+     - Cards shorter than their row's tallest card leave the empty space
+       that creates the masonry stagger in the middle seam.
+     Card order in the theme editor maps left-to-right, top row then bottom row. */
   .fcm__grid {
     display: grid;
     grid-template-columns: repeat(var(--fcm-columns, 4), 1fr);
-    grid-auto-rows: 10px;
+    grid-auto-rows: max-content;
     column-gap: var(--fcm-gap, 12px);
-    row-gap: 0;
+    row-gap: var(--fcm-gap, 12px);
     width: 100%;
   }
 
@@ -215,7 +238,7 @@
     height: var(--fcm-card-height, 420px);
     border-radius: var(--fcm-radius, 16px);
     overflow: hidden;
-    /* grid-row span is set inline in Liquid based on card_height_desktop */
+    /* align-self is set inline in Liquid based on which row the card is in */
   }
 
   /* Linked card — reset anchor styles */
@@ -320,7 +343,9 @@
 
   /* ─── Mobile — horizontal carousel ─── */
   /* Below 750px, collapse the column layout into a swipeable horizontal track.
-     Matches the behaviour and feel of the Feature Cards Carousel section. */
+     Matches the behaviour and feel of the Feature Cards Carousel section.
+     The desktop align-self values are ignored here because the container
+     switches from grid to flex. */
   @media screen and (max-width: 749px) {
 
     /* Clip wrapper — grid-column 2/-1 starts at content column and bleeds right.
@@ -479,6 +504,10 @@
     {
       "type": "header",
       "content": "Grid layout"
+    },
+    {
+      "type": "paragraph",
+      "content": "Top-row tops and bottom-row bottoms align automatically. Vary the card heights to create the masonry stagger in the middle."
     },
     {
       "type": "range",
@@ -844,7 +873,7 @@
           "step": 20,
           "default": 420,
           "unit": "px",
-          "info": "Vary heights across cards to create the masonry stagger effect"
+          "info": "Vary heights across cards in the same row to create the masonry stagger between rows"
         },
         {
           "type": "range",
@@ -884,7 +913,7 @@
             "label": "Flexible feeding",
             "heading": "Designed for mixed feeding",
             "body": "Designed to work with expressed milk, formula, or a combination of both.",
-            "card_height_desktop": 520
+            "card_height_desktop": 460
           }
         },
         {
@@ -893,7 +922,7 @@
             "label": "Material integrity",
             "heading": "Made with medical-grade stainless steel",
             "body": "Five-layer, microplastic, BPA & PFAS free medical-grade stainless steel for superior thermal performance and purity.",
-            "card_height_desktop": 460
+            "card_height_desktop": 360
           }
         },
         {
@@ -902,7 +931,7 @@
             "label": "Consistent results",
             "heading": "Fast, controlled warming every time",
             "body": "Heats in under 3 minutes with a stable, even temperature — reducing variation between feeds.",
-            "card_height_desktop": 480
+            "card_height_desktop": 460
           }
         },
         {
@@ -911,7 +940,7 @@
             "label": "Temperature Control",
             "heading": "24 hour battery life",
             "body": "A long-lasting battery supports multiple feeds throughout the day, without needing constant recharge.",
-            "card_height_desktop": 400
+            "card_height_desktop": 300
           }
         },
         {
@@ -920,7 +949,7 @@
             "label": "Effortless care",
             "heading": "Self-cleaning system",
             "body": "Built-in cleaning function supports simple, consistent hygiene with minimal effort.",
-            "card_height_desktop": 400
+            "card_height_desktop": 360
           }
         },
         {
@@ -929,7 +958,7 @@
             "label": "Practical design",
             "heading": "Generous 500ml capacity",
             "body": "Designed to hold enough volume for a range of feeding needs, from smaller bottles to larger feeds.",
-            "card_height_desktop": 480
+            "card_height_desktop": 460
           }
         },
         {
@@ -938,7 +967,7 @@
             "label": "Clear alternative",
             "heading": "No external tools required",
             "body": "Replaces kettles, microwaves, and multi-step methods with a single, contained process.",
-            "card_height_desktop": 460
+            "card_height_desktop": 360
           }
         },
         {
@@ -947,7 +976,7 @@
             "label": "Freedom to move",
             "heading": "Portable by design",
             "body": "Compact and easy to carry, designed to support feeding wherever you are.",
-            "card_height_desktop": 520
+            "card_height_desktop": 460
           }
         }
       ]
