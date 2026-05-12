@@ -1575,7 +1575,7 @@
       ],
       "name": "Image Cards — 3 Column",
       "settings": {
-        "columns": "2",
+        "columns": "3",
         "mobile_columns": "1",
         "card_gap": 16,
         "mobile_card_gap": 24,
