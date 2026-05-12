@@ -1542,7 +1542,7 @@
           "settings": {
             "image": "shopify://shop_images/Rectangle_160.png",
             "heading": "Collection name",
-            "type_preset": "h3",
+            "type_preset": "h4",
             "description": "A short description of this collection.",
             "button_label": "Shop Now",
             "button_url": ""
