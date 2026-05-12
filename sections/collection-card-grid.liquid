@@ -2,14 +2,8 @@
   Section: Collection Card Grid
   Theme: Horizon (Meke Baby)
   A responsive grid of collection cards — each card has an image, heading,
-  description, and optional button. Heading + description sit OVER the
-  image at the bottom-left with a soft gradient overlay for legibility
-  (same pattern as feature-cards-masonry).
+  description, and a button linking to any collection or custom URL.
   Each card is a separate block configured fully in the theme editor.
-
-  Includes an optional centred section heading above the grid, and
-  schema-driven horizontal (edge) padding so the section pulls in from
-  the page edges.
 {% endcomment %}
 
 <div
@@ -19,30 +13,17 @@
     background-color: {{ section.settings.background_colour }};
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
-    padding-left: {{ section.settings.padding_horizontal }}px;
-    padding-right: {{ section.settings.padding_horizontal }}px;
   "
 >
-  {{- '<!-- Section heading -->' -}}
-  {%- if section.settings.heading != blank -%}
-    <div class="collection-card-grid__header collection-card-grid__header--{{ section.settings.heading_alignment }}">
-      <p
-        class="collection-card-grid__section-heading {{ section.settings.type_preset }}"
-        style="{% render 'typography-style', settings: section.settings %} color: {{ section.settings.section_heading_colour }};"
-      >
-        {{ section.settings.heading | escape }}
-      </p>
-    </div>
-  {%- endif -%}
+  <div class="collection-card-grid__inner">
 
-  {%- if section.blocks.size > 0 -%}
-    <div class="collection-card-grid__grid">
+    {%- if section.blocks.size > 0 -%}
+      <div class="collection-card-grid__grid">
         {%- for block in section.blocks -%}
           {%- assign card_image_alt = block.settings.heading | escape -%}
 
           <div class="collection-card-grid__card" {{ block.shopify_attributes }}>
 
-            {{- '<!-- Image fills the card -->' -}}
             <div class="collection-card-grid__image-wrap">
               {%- if block.settings.image != blank -%}
                 {{
@@ -60,23 +41,19 @@
               {%- endif -%}
             </div>
 
-            {{- '<!-- Gradient overlay for text legibility -->' -}}
-            <div class="collection-card-grid__overlay" aria-hidden="true"></div>
-
-            {{- '<!-- Text content overlaid on image -->' -}}
             <div class="collection-card-grid__content">
 
               {%- if block.settings.heading != blank -%}
                 <p
                   class="collection-card-grid__heading {{ block.settings.type_preset }}"
-                  style="{% render 'typography-style', settings: block.settings %}"
+                  style="{% render 'typography-style', settings: block.settings %} color: {{ section.settings.heading_colour }};"
                 >
                   {{ block.settings.heading | escape }}
                 </p>
               {%- endif -%}
 
               {%- if block.settings.description != blank -%}
-                <p class="collection-card-grid__description">
+                <p class="collection-card-grid__description" style="color: {{ section.settings.heading_colour }}; opacity: 0.75;">
                   {{ block.settings.description | escape }}
                 </p>
               {%- endif -%}
@@ -100,30 +77,30 @@
             </div>
           </div>
         {%- endfor -%}
-    </div>
-  {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
 </div>
 
 {% comment %} Liquid-dependent styles — grid, spacing, aspect ratio {% endcomment %}
 <style>
+  #section-{{ section.id }} .collection-card-grid__inner {
+    max-width: var(--container-max-width, 1400px);
+    margin: 0 auto;
+    padding-left: var(--container-gutter, 24px);
+    padding-right: var(--container-gutter, 24px);
+  }
+
   #section-{{ section.id }} .collection-card-grid__grid {
     display: grid;
     grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
     gap: {{ section.settings.card_gap }}px;
   }
 
-  #section-{{ section.id }} .collection-card-grid__card {
+  #section-{{ section.id }} .collection-card-grid__image-wrap {
     aspect-ratio: {{ section.settings.image_aspect_ratio }};
     border-radius: {{ section.settings.image_border_radius }}px;
-  }
-
-  #section-{{ section.id }} .collection-card-grid__overlay {
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      transparent 35%,
-      rgba(0, 0, 0, {{ section.settings.overlay_opacity | times: 0.01 }}) 100%
-    );
   }
 
   #section-{{ section.id }} .collection-card-grid__heading {
@@ -134,11 +111,11 @@
   #section-{{ section.id }} .collection-card-grid__description {
     margin: 0;
     color: {{ section.settings.heading_colour }};
-    opacity: 0.9;
+    opacity: 0.75;
   }
 
   #section-{{ section.id }} .collection-card-grid__content {
-    padding: {{ section.settings.content_gap }}px;
+    padding-top: {{ section.settings.content_gap }}px;
   }
 
   #section-{{ section.id }} .collection-card-grid__button-wrap {
@@ -149,62 +126,31 @@
     padding: {{ section.settings.button_padding_v }}px {{ section.settings.button_padding_h }}px;
   }
 
-  #section-{{ section.id }} .collection-card-grid__header {
-    margin-bottom: {{ section.settings.heading_bottom_gap }}px;
-  }
-
   @media screen and (max-width: 749px) {
     #section-{{ section.id }} {
       padding-top: {{ section.settings.padding_top_mobile }}px;
       padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
-      padding-left: {{ section.settings.mobile_padding_horizontal }}px;
-      padding-right: {{ section.settings.mobile_padding_horizontal }}px;
     }
 
     #section-{{ section.id }} .collection-card-grid__grid {
       grid-template-columns: repeat({{ section.settings.mobile_columns }}, 1fr);
       gap: {{ section.settings.mobile_card_gap }}px;
     }
-
-    #section-{{ section.id }} .collection-card-grid__header {
-      margin-bottom: {{ section.settings.mobile_heading_bottom_gap }}px;
-    }
   }
 </style>
 
+{% comment %} Static styles — colour scheme variables resolved here, matching hero pattern {% endcomment %}
 {% comment %} Static layout styles {% endcomment %}
 {% stylesheet %}
-  .collection-card-grid__header {
-    width: 100%;
-  }
-
-  .collection-card-grid__header--left {
-    text-align: left;
-  }
-
-  .collection-card-grid__header--center {
-    text-align: center;
-  }
-
-  .collection-card-grid__header--right {
-    text-align: right;
-  }
-
-  .collection-card-grid__section-heading {
-    margin: 0;
-  }
-
   .collection-card-grid__card {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
   }
 
   .collection-card-grid__image-wrap {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #f5f5f5;
   }
 
   .collection-card-grid__image {
@@ -218,25 +164,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.6;
-  }
-
-  .collection-card-grid__overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
   }
 
   .collection-card-grid__content {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: 8px;
+    gap: 12px;
   }
 
   .collection-card-grid__button {
@@ -259,69 +192,6 @@
   "tag": "section",
   "class": "collection-card-grid-wrapper",
   "settings": [
-    {
-      "type": "header",
-      "content": "Section heading"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Fits seamlessly into your routine"
-    },
-    {
-      "type": "select",
-      "id": "type_preset",
-      "label": "Heading style",
-      "info": "Inherits from your theme typography settings",
-      "options": [
-        { "value": "paragraph", "label": "Paragraph" },
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" }
-      ],
-      "default": "h2"
-    },
-    {
-      "type": "color",
-      "id": "section_heading_colour",
-      "label": "Heading colour",
-      "default": "#8c7b72"
-    },
-    {
-      "type": "select",
-      "id": "heading_alignment",
-      "label": "Heading alignment",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Centre" },
-        { "value": "right", "label": "Right" }
-      ],
-      "default": "center"
-    },
-    {
-      "type": "range",
-      "id": "heading_bottom_gap",
-      "label": "Space below heading (desktop)",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "default": 40,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "mobile_heading_bottom_gap",
-      "label": "Space below heading (mobile)",
-      "min": 0,
-      "max": 80,
-      "step": 4,
-      "default": 24,
-      "unit": "px"
-    },
     {
       "type": "header",
       "content": "Grid Layout"
@@ -387,7 +257,7 @@
     {
       "type": "range",
       "id": "image_border_radius",
-      "label": "Card corner radius",
+      "label": "Image corner radius",
       "min": 0,
       "max": 40,
       "step": 2,
@@ -397,24 +267,12 @@
     {
       "type": "range",
       "id": "content_gap",
-      "label": "Padding inside card",
+      "label": "Space between image and text",
       "min": 8,
       "max": 60,
       "step": 4,
-      "default": 28,
-      "unit": "px",
-      "info": "Distance the text sits from the card edges."
-    },
-    {
-      "type": "range",
-      "id": "overlay_opacity",
-      "label": "Image overlay strength",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "default": 55,
-      "unit": "%",
-      "info": "Darkens the bottom of the image so the overlaid text stays readable."
+      "default": 20,
+      "unit": "px"
     },
     {
       "type": "header",
@@ -485,8 +343,8 @@
     {
       "type": "color",
       "id": "heading_colour",
-      "label": "Card text colour (on image)",
-      "default": "#ffffff"
+      "label": "Heading & text colour",
+      "default": "#928076"
     },
     {
       "type": "range",
@@ -510,16 +368,6 @@
     },
     {
       "type": "range",
-      "id": "padding_horizontal",
-      "label": "Left & right padding (desktop)",
-      "min": 0,
-      "max": 160,
-      "step": 4,
-      "default": 32,
-      "unit": "px"
-    },
-    {
-      "type": "range",
       "id": "padding_top_mobile",
       "label": "Top padding (mobile)",
       "min": 0,
@@ -536,16 +384,6 @@
       "max": 120,
       "step": 4,
       "default": 48,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "mobile_padding_horizontal",
-      "label": "Left & right padding (mobile)",
-      "min": 0,
-      "max": 80,
-      "step": 4,
-      "default": 16,
       "unit": "px"
     }
   ],
@@ -604,10 +442,6 @@
   "presets": [
     {
       "name": "Collection Card Grid",
-      "settings": {
-        "heading": "Fits seamlessly into your routine",
-        "heading_alignment": "center"
-      },
       "blocks": [
         {
           "type": "card",
