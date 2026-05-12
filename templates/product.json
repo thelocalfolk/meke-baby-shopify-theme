@@ -815,34 +815,6 @@
         "padding-block-end": 64
       }
     },
-    "brand_story_split_QteTVj": {
-      "type": "brand-story-split",
-      "name": "Brand Story Split",
-      "settings": {
-        "image_position": "right",
-        "vertical_alignment": "center",
-        "text_max_width": 520,
-        "color_scheme": "scheme-4",
-        "heading": "Why materials matter under heat",
-        "heading_type_preset": "h4",
-        "heading_size": 33,
-        "heading_size_mobile": 0,
-        "body": "<p>Feeding involves repeated exposure to heat, often multiple times a day over many months, and not all materials respond to this in the same way. Some plastics can begin to degrade with frequent heating, potentially releasing microscopic particles, known as microplastics, into the liquid inside. While this is not always visible or immediate, it highlights an important consideration. How materials perform under real, repeated use. Choosing materials that remain stable under heat helps reduce this interaction, limit breakdown over time, and create a more controlled, consistent feeding process. It is not about adding complexity, but removing variables and supporting a routine that performs reliably, every day.</p>",
-        "body_size": 14,
-        "button_label": "Learn More",
-        "button_link": "",
-        "button_style": "primary",
-        "button_padding_x": 41,
-        "button_padding_y": 14,
-        "image": "shopify://shop_images/Image_4_e10f0e6f-4b98-417e-ac1d-01f1ff216084.png",
-        "image_aspect_ratio": "natural",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 48,
-        "text_inline_padding": 80
-      }
-    },
     "comparison_table_Uz63hU": {
       "type": "comparison-table",
       "blocks": {
@@ -980,11 +952,11 @@
         "brand_icon": "shopify://shop_images/Group_64845.svg",
         "brand_column_bg": "#e8dff0",
         "brand_check_color": "#a08ab0",
-        "competitor_col_bg_light": "#f5f3f1",
+        "competitor_col_bg_light": "#f5f5f5",
         "competitor_col_bg_dark": "#e4e1de",
         "competitor_check_color": "#888888",
         "competitor_cross_color": "#aaaaaa",
-        "background_color": "#f5f3f1",
+        "background_color": "#f5f5f5",
         "row_hover_color": "#dccbe4",
         "row_label_color": "#928076",
         "divider_color": "#d8d4d0",
@@ -993,6 +965,34 @@
         "padding_bottom": 80,
         "mobile_padding_top": 48,
         "mobile_padding_bottom": 48
+      }
+    },
+    "brand_story_split_QteTVj": {
+      "type": "brand-story-split",
+      "name": "Brand Story Split",
+      "settings": {
+        "image_position": "right",
+        "vertical_alignment": "center",
+        "text_max_width": 520,
+        "color_scheme": "scheme-4",
+        "heading": "Why materials matter under heat",
+        "heading_type_preset": "h4",
+        "heading_size": 33,
+        "heading_size_mobile": 0,
+        "body": "<p>Feeding involves repeated exposure to heat, often multiple times a day over many months, and not all materials respond to this in the same way. Some plastics can begin to degrade with frequent heating, potentially releasing microscopic particles, known as microplastics, into the liquid inside. While this is not always visible or immediate, it highlights an important consideration. How materials perform under real, repeated use. Choosing materials that remain stable under heat helps reduce this interaction, limit breakdown over time, and create a more controlled, consistent feeding process. It is not about adding complexity, but removing variables and supporting a routine that performs reliably, every day.</p>",
+        "body_size": 14,
+        "button_label": "Learn More",
+        "button_link": "",
+        "button_style": "primary",
+        "button_padding_x": 41,
+        "button_padding_y": 14,
+        "image": "shopify://shop_images/Image_4_e10f0e6f-4b98-417e-ac1d-01f1ff216084.png",
+        "image_aspect_ratio": "natural",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 48,
+        "text_inline_padding": 80
       }
     },
     "image_cards_3col_Teq6xD": {
