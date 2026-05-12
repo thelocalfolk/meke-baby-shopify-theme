@@ -1083,7 +1083,7 @@
             "card_body_letter_spacing": "normal",
             "card_body_case": "none",
             "card_body_color": "#cccccc",
-            "card_height_desktop": 480,
+            "card_height_desktop": 460,
             "card_padding": 20,
             "content_gap": 10,
             "link": ""
@@ -1191,7 +1191,7 @@
             "card_body_letter_spacing": "normal",
             "card_body_case": "none",
             "card_body_color": "#cccccc",
-            "card_height_desktop": 520,
+            "card_height_desktop": 400,
             "card_padding": 20,
             "content_gap": 10,
             "link": ""
