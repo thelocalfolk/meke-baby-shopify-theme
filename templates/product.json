@@ -1056,7 +1056,7 @@
             "card_body_letter_spacing": "normal",
             "card_body_case": "none",
             "card_body_color": "#cccccc",
-            "card_height_desktop": 380,
+            "card_height_desktop": 340,
             "card_padding": 20,
             "content_gap": 10,
             "link": ""
@@ -1116,6 +1116,33 @@
             "link": ""
           }
         },
+        "card_yjXyVx": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_159.png",
+            "label": "Effortless care",
+            "heading": "Self-cleaning system",
+            "card_heading_preset": "h4",
+            "card_heading_font": "var(--font-heading--family)",
+            "card_heading_font_size": "2rem",
+            "card_heading_line_height": "tight",
+            "card_heading_letter_spacing": "normal",
+            "card_heading_case": "none",
+            "card_heading_color": "#ffffff",
+            "body": "Built-in cleaning function supports simple, consistent hygiene with minimal effort.",
+            "card_body_preset": "paragraph",
+            "card_body_font": "var(--font-body--family)",
+            "card_body_font_size": "0.875rem",
+            "card_body_line_height": "normal",
+            "card_body_letter_spacing": "normal",
+            "card_body_case": "none",
+            "card_body_color": "#cccccc",
+            "card_height_desktop": 420,
+            "card_padding": 20,
+            "content_gap": 10,
+            "link": ""
+          }
+        },
         "card_JKGDNb": {
           "type": "card",
           "settings": {
@@ -1137,7 +1164,7 @@
             "card_body_letter_spacing": "normal",
             "card_body_case": "none",
             "card_body_color": "#cccccc",
-            "card_height_desktop": 480,
+            "card_height_desktop": 520,
             "card_padding": 20,
             "content_gap": 10,
             "link": ""
@@ -1196,33 +1223,6 @@
             "content_gap": 10,
             "link": ""
           }
-        },
-        "card_yjXyVx": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_159.png",
-            "label": "Effortless care",
-            "heading": "Self-cleaning system",
-            "card_heading_preset": "h4",
-            "card_heading_font": "var(--font-heading--family)",
-            "card_heading_font_size": "2rem",
-            "card_heading_line_height": "tight",
-            "card_heading_letter_spacing": "normal",
-            "card_heading_case": "none",
-            "card_heading_color": "#ffffff",
-            "body": "Built-in cleaning function supports simple, consistent hygiene with minimal effort.",
-            "card_body_preset": "paragraph",
-            "card_body_font": "var(--font-body--family)",
-            "card_body_font_size": "0.875rem",
-            "card_body_line_height": "normal",
-            "card_body_letter_spacing": "normal",
-            "card_body_case": "none",
-            "card_body_color": "#cccccc",
-            "card_height_desktop": 420,
-            "card_padding": 20,
-            "content_gap": 10,
-            "link": ""
-          }
         }
       },
       "block_order": [
@@ -1230,10 +1230,10 @@
         "card_cjtVrr",
         "card_XHw3Tb",
         "card_hhQxxN",
+        "card_yjXyVx",
         "card_JKGDNb",
         "card_nfDBrU",
-        "card_YwnynN",
-        "card_yjXyVx"
+        "card_YwnynN"
       ],
       "name": "Feature Cards Masonry",
       "settings": {
