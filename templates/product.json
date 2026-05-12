@@ -1541,9 +1541,9 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_160.png",
-            "heading": "Collection name",
+            "heading": "At home",
             "type_preset": "h4",
-            "description": "A short description of this collection.",
+            "description": "Prepare feeds with clarity and control.",
             "button_label": "Shop Now",
             "button_url": ""
           }
@@ -1551,9 +1551,10 @@
         "card_3zEJqm": {
           "type": "card",
           "settings": {
-            "heading": "Collection name",
+            "image": "shopify://shop_images/Image_11.png",
+            "heading": "On the go",
             "type_preset": "h4",
-            "description": "A short description of this collection.",
+            "description": "Warm milk wherever you are — without needing external tools.",
             "button_label": "Shop Now",
             "button_url": ""
           }
@@ -1561,9 +1562,10 @@
         "card_mUNYQK": {
           "type": "card",
           "settings": {
-            "heading": "Collection name",
+            "image": "shopify://shop_images/Image_12.png",
+            "heading": "Overnight",
             "type_preset": "h4",
-            "description": "A short description of this collection.",
+            "description": "Keep feeds consistent without disrupting your routine.",
             "button_label": "Shop Now",
             "button_url": ""
           }
