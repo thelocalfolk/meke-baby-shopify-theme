@@ -1576,6 +1576,12 @@
       ],
       "name": "Image Cards — 3 Column",
       "settings": {
+        "heading": "Fits seamlessly into your routine",
+        "type_preset": "h3",
+        "section_heading_colour": "#8c7b72",
+        "heading_alignment": "center",
+        "heading_bottom_gap": 40,
+        "mobile_heading_bottom_gap": 24,
         "columns": "3",
         "mobile_columns": "1",
         "card_gap": 16,
@@ -1593,8 +1599,10 @@
         "heading_colour": "#2c2c2c",
         "padding_top": 80,
         "padding_bottom": 80,
+        "padding_horizontal": 32,
         "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48
+        "padding_bottom_mobile": 48,
+        "mobile_padding_horizontal": 16
       }
     },
     "product_list_tB68NC": {
