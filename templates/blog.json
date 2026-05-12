@@ -23,7 +23,7 @@
         "heading": "The Blog",
         "heading_size": 48,
         "heading_max_width": 560,
-        "subheading": "Where Mekė Baby meets your everyday.",
+        "subheading": "<p>Where Mekė Baby meets your everyday.</p>",
         "subheading_size": 16,
         "subheading_max_width": 400,
         "button_label": "",
@@ -122,7 +122,7 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 48,
+        "padding-block-start": 0,
         "padding-block-end": 0
       }
     },
