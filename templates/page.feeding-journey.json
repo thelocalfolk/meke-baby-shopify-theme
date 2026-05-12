@@ -97,7 +97,7 @@
             "type_preset": "h3",
             "description": "For the in-between moments, the unpredictable routines, the both works best for us kind of days.",
             "button_label": "Shop Now",
-            "button_url": ""
+            "button_url": "shopify://collections/mixed-feeding"
           }
         },
         "card_maJrdV": {
@@ -108,7 +108,7 @@
             "type_preset": "h3",
             "description": "Precision where it matters most. Built for accurate prep, controlled warming, and reliable results.",
             "button_label": "Shop Now",
-            "button_url": ""
+            "button_url": "shopify://collections/formula-feeding"
           }
         },
         "card_UxmWEW": {
@@ -119,7 +119,7 @@
             "type_preset": "h3",
             "description": "A smooth transition, thoughtfully supported. Designed to introduce solids with ease.",
             "button_label": "Shop Now",
-            "button_url": ""
+            "button_url": "shopify://collections/featured-collection"
           }
         }
       },
