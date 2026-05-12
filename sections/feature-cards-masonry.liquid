@@ -4,15 +4,20 @@
   Cards share the same design as Feature Cards Carousel — frosted glass pill label
   (top-left), gradient overlay, heading and body text at the bottom.
 
-  Layout behaviour:
-  - Desktop is a 2-row grid (top row + bottom row, based on column count).
-  - The TOPS of all top-row cards align.
-  - The BOTTOMS of all bottom-row cards align.
-  - Masonry stagger comes from varying individual card heights — the seam
-    between rows shifts column by column based on each card's height.
+  Layout behaviour (desktop):
+  - Each column is a fixed-height flex container (set by "Column height (desktop)").
+  - Cards inside a column stack vertically with justify-content: space-between.
+  - First card sticks to the TOP of its column; last card sticks to the BOTTOM.
+  - The empty space between the two cards = column height − sum of card heights.
+  - To make the seam line up across columns, give each column the same total card
+    height (e.g. 460 + 360 = 820 in one column, 360 + 460 = 820 in another).
+  - To deliberately stagger the seam (the masonry look), vary the SPLIT between
+    top card and bottom card per column while keeping column totals similar.
 
-  Each card has its own height setting so the stagger can be tuned card-by-card.
-  Typography follows the same preset + custom pattern as Feature Cards Carousel.
+  Mobile: column wrappers dissolve via `display: contents` and cards behave as
+  a flat horizontal scroll carousel. Original block order is preserved using
+  the `order` property on each card.
+
   Built for the Mekè Baby Horizon theme.
 {% endcomment %}
 
@@ -20,10 +25,6 @@
   assign ss = section.settings
   assign blocks = section.blocks
   assign cols = ss.columns
-
-  # Total number of rows in the grid (rounded up)
-  assign last_index = blocks.size | minus: 1
-  assign total_rows = last_index | divided_by: cols | plus: 1
 
   # Build section heading style string
   assign heading_style = ''
@@ -65,6 +66,7 @@
     --fcm-gap: {{ ss.card_gap }}px;
     --fcm-radius: {{ ss.card_border_radius }}px;
     --fcm-label-size: {{ ss.label_size }}px;
+    --fcm-column-height: {{ ss.column_height_desktop }}px;
     --fcm-mobile-card-width: {{ ss.mobile_card_width }}px;
     --fcm-mobile-card-height: {{ ss.mobile_card_height }}px;
   "
@@ -77,117 +79,120 @@
 
     <div class="fcm__grid-clip">
     <div class="fcm__grid" role="list" aria-label="Feature cards">
-      {%- for block in blocks -%}
-        {%- if block.type == 'card' -%}
-          {%- liquid
-            assign bs = block.settings
+      {%- comment %}
+        Outer loop = columns. Inner loop walks all blocks and renders the ones
+        that belong to the current column (index mod cols == column index).
+        This is so we can wrap the cards of each column in a flex container
+        without disrupting the natural editor block order.
+      {%- endcomment -%}
+      {%- for col_index in (1..cols) -%}
+        <div class="fcm__column">
+          {%- for block in blocks -%}
+            {%- if block.type == 'card' -%}
+              {%- assign card_col_index = forloop.index0 | modulo: cols | plus: 1 -%}
+              {%- if card_col_index == col_index -%}
+                {%- liquid
+                  assign bs = block.settings
+                  assign card_order = forloop.index
 
-            # Card heading style
-            assign card_heading_style = ''
-            if bs.card_heading_color != blank and bs.card_heading_color != ''
-              assign card_heading_style = card_heading_style | append: '--color: ' | append: bs.card_heading_color | append: ';'
-            endif
-            if bs.card_heading_preset == 'custom'
-              assign ch_font_weight = bs.card_heading_font | replace: 'family', 'weight'
-              assign card_heading_style = card_heading_style | append: '--font-family: ' | append: bs.card_heading_font | append: ';'
-              assign card_heading_style = card_heading_style | append: '--font-weight: ' | append: ch_font_weight | append: ';'
-              assign card_heading_style = card_heading_style | append: '--font-size: ' | append: bs.card_heading_font_size | append: ';'
-              assign card_heading_style = card_heading_style | append: '--text-transform: ' | append: bs.card_heading_case | append: ';'
-              assign card_heading_style = card_heading_style | append: '--line-height: var(--line-height--heading-' | append: bs.card_heading_line_height | append: ');'
-              assign card_heading_style = card_heading_style | append: '--letter-spacing: var(--letter-spacing--heading-' | append: bs.card_heading_letter_spacing | append: ');'
-            endif
-            if bs.card_heading_preset == 'custom'
-              assign card_heading_class = 'fcm__card-heading custom-typography custom-font-size'
-            else
-              assign card_heading_class = 'fcm__card-heading ' | append: bs.card_heading_preset
-            endif
+                  # Card heading style
+                  assign card_heading_style = ''
+                  if bs.card_heading_color != blank and bs.card_heading_color != ''
+                    assign card_heading_style = card_heading_style | append: '--color: ' | append: bs.card_heading_color | append: ';'
+                  endif
+                  if bs.card_heading_preset == 'custom'
+                    assign ch_font_weight = bs.card_heading_font | replace: 'family', 'weight'
+                    assign card_heading_style = card_heading_style | append: '--font-family: ' | append: bs.card_heading_font | append: ';'
+                    assign card_heading_style = card_heading_style | append: '--font-weight: ' | append: ch_font_weight | append: ';'
+                    assign card_heading_style = card_heading_style | append: '--font-size: ' | append: bs.card_heading_font_size | append: ';'
+                    assign card_heading_style = card_heading_style | append: '--text-transform: ' | append: bs.card_heading_case | append: ';'
+                    assign card_heading_style = card_heading_style | append: '--line-height: var(--line-height--heading-' | append: bs.card_heading_line_height | append: ');'
+                    assign card_heading_style = card_heading_style | append: '--letter-spacing: var(--letter-spacing--heading-' | append: bs.card_heading_letter_spacing | append: ');'
+                  endif
+                  if bs.card_heading_preset == 'custom'
+                    assign card_heading_class = 'fcm__card-heading custom-typography custom-font-size'
+                  else
+                    assign card_heading_class = 'fcm__card-heading ' | append: bs.card_heading_preset
+                  endif
 
-            # Card body style
-            assign card_body_style = ''
-            if bs.card_body_color != blank and bs.card_body_color != ''
-              assign card_body_style = card_body_style | append: '--color: ' | append: bs.card_body_color | append: ';'
-            endif
-            if bs.card_body_preset == 'custom'
-              assign cb_font_weight = bs.card_body_font | replace: 'family', 'weight'
-              assign card_body_style = card_body_style | append: '--font-family: ' | append: bs.card_body_font | append: ';'
-              assign card_body_style = card_body_style | append: '--font-weight: ' | append: cb_font_weight | append: ';'
-              assign card_body_style = card_body_style | append: '--font-size: ' | append: bs.card_body_font_size | append: ';'
-              assign card_body_style = card_body_style | append: '--text-transform: ' | append: bs.card_body_case | append: ';'
-              assign card_body_style = card_body_style | append: '--line-height: var(--line-height--body-' | append: bs.card_body_line_height | append: ');'
-              assign card_body_style = card_body_style | append: '--letter-spacing: var(--letter-spacing--body-' | append: bs.card_body_letter_spacing | append: ');'
-            endif
-            if bs.card_body_preset == 'custom'
-              assign card_body_class = 'fcm__card-body custom-typography custom-font-size'
-            else
-              assign card_body_class = 'fcm__card-body ' | append: bs.card_body_preset
-            endif
+                  # Card body style
+                  assign card_body_style = ''
+                  if bs.card_body_color != blank and bs.card_body_color != ''
+                    assign card_body_style = card_body_style | append: '--color: ' | append: bs.card_body_color | append: ';'
+                  endif
+                  if bs.card_body_preset == 'custom'
+                    assign cb_font_weight = bs.card_body_font | replace: 'family', 'weight'
+                    assign card_body_style = card_body_style | append: '--font-family: ' | append: bs.card_body_font | append: ';'
+                    assign card_body_style = card_body_style | append: '--font-weight: ' | append: cb_font_weight | append: ';'
+                    assign card_body_style = card_body_style | append: '--font-size: ' | append: bs.card_body_font_size | append: ';'
+                    assign card_body_style = card_body_style | append: '--text-transform: ' | append: bs.card_body_case | append: ';'
+                    assign card_body_style = card_body_style | append: '--line-height: var(--line-height--body-' | append: bs.card_body_line_height | append: ');'
+                    assign card_body_style = card_body_style | append: '--letter-spacing: var(--letter-spacing--body-' | append: bs.card_body_letter_spacing | append: ');'
+                  endif
+                  if bs.card_body_preset == 'custom'
+                    assign card_body_class = 'fcm__card-body custom-typography custom-font-size'
+                  else
+                    assign card_body_class = 'fcm__card-body ' | append: bs.card_body_preset
+                  endif
+                -%}
 
-            # Work out which row this card sits in (1-indexed)
-            assign row_num = forloop.index0 | divided_by: cols | plus: 1
+                <div
+                  class="fcm__card"
+                  role="listitem"
+                  style="
+                    --fcm-card-height: {{ bs.card_height_desktop }}px;
+                    --fcm-content-gap: {{ bs.content_gap }}px;
+                    order: {{ card_order }};
+                  "
+                  {{ block.shopify_attributes }}
+                >
+                  {%- if bs.link != blank -%}
+                    <a class="fcm__card-link" href="{{ bs.link }}" aria-label="{{ bs.heading | escape }}">
+                  {%- endif -%}
 
-            # Default cards to align to the top of their row.
-            # The LAST row aligns to the bottom of its row, so the bottom
-            # of the grid is a clean horizontal line.
-            assign card_align = 'start'
-            if total_rows > 1 and row_num == total_rows
-              assign card_align = 'end'
-            endif
-          -%}
+                  <div class="fcm__card-image">
+                    {%- if bs.image != blank -%}
+                      {%- assign card_alt = bs.heading | escape -%}
+                      {{
+                        bs.image
+                        | image_url: width: 900
+                        | image_tag:
+                          loading: 'lazy',
+                          widths: '400,600,900',
+                          sizes: '(max-width: 749px) 85vw, 25vw',
+                          alt: card_alt,
+                          class: 'fcm__img'
+                      }}
+                    {%- else -%}
+                      {{ 'lifestyle-1' | placeholder_svg_tag: 'fcm__img fcm__img--placeholder' }}
+                    {%- endif -%}
+                  </div>
 
-          <div
-            class="fcm__card"
-            role="listitem"
-            style="
-              --fcm-card-height: {{ bs.card_height_desktop }}px;
-              --fcm-content-gap: {{ bs.content_gap }}px;
-              align-self: {{ card_align }};
-            "
-            {{ block.shopify_attributes }}
-          >
-            {%- if bs.link != blank -%}
-              <a class="fcm__card-link" href="{{ bs.link }}" aria-label="{{ bs.heading | escape }}">
-            {%- endif -%}
+                  <div class="fcm__overlay" aria-hidden="true"></div>
 
-            <div class="fcm__card-image">
-              {%- if bs.image != blank -%}
-                {%- assign card_alt = bs.heading | escape -%}
-                {{
-                  bs.image
-                  | image_url: width: 900
-                  | image_tag:
-                    loading: 'lazy',
-                    widths: '400,600,900',
-                    sizes: '(max-width: 749px) 85vw, 25vw',
-                    alt: card_alt,
-                    class: 'fcm__img'
-                }}
-              {%- else -%}
-                {{ 'lifestyle-1' | placeholder_svg_tag: 'fcm__img fcm__img--placeholder' }}
+                  <div class="fcm__card-content" style="padding: {{ bs.card_padding }}px;">
+                    {%- if bs.label != blank -%}
+                      <span class="fcm__label">{{ bs.label | escape }}</span>
+                    {%- endif -%}
+
+                    <div class="fcm__card-text">
+                      {%- if bs.heading != blank -%}
+                        <p class="{{ card_heading_class }}" style="{{ card_heading_style }}">{{ bs.heading | escape }}</p>
+                      {%- endif -%}
+                      {%- if bs.body != blank -%}
+                        <p class="{{ card_body_class }}" style="{{ card_body_style }}">{{ bs.body | escape }}</p>
+                      {%- endif -%}
+                    </div>
+                  </div>
+
+                  {%- if bs.link != blank -%}
+                    </a>
+                  {%- endif -%}
+                </div>
               {%- endif -%}
-            </div>
-
-            <div class="fcm__overlay" aria-hidden="true"></div>
-
-            <div class="fcm__card-content" style="padding: {{ bs.card_padding }}px;">
-              {%- if bs.label != blank -%}
-                <span class="fcm__label">{{ bs.label | escape }}</span>
-              {%- endif -%}
-
-              <div class="fcm__card-text">
-                {%- if bs.heading != blank -%}
-                  <p class="{{ card_heading_class }}" style="{{ card_heading_style }}">{{ bs.heading | escape }}</p>
-                {%- endif -%}
-                {%- if bs.body != blank -%}
-                  <p class="{{ card_body_class }}" style="{{ card_body_style }}">{{ bs.body | escape }}</p>
-                {%- endif -%}
-              </div>
-            </div>
-
-            {%- if bs.link != blank -%}
-              </a>
             {%- endif -%}
-          </div>
-        {%- endif -%}
+          {%- endfor -%}
+        </div>
       {%- endfor -%}
     </div>
     </div>
@@ -208,37 +213,38 @@
   }
 
   /* ─── Grid clip wrapper ─── */
-  /* On desktop: transparent passthrough, grid handles layout.
-     On mobile: becomes grid-column 2/-1 to bleed right past the section margin. */
   .fcm__grid-clip {
     width: 100%;
   }
 
-  /* ─── Desktop masonry grid ─── */
-  /* A 2-row grid (row count grows automatically if you add more cards):
-     - Each row's height equals its tallest card (grid-auto-rows: max-content)
-     - Top row cards have align-self: start  → tops are flush
-     - Bottom row cards have align-self: end → bottoms are flush
-     - Cards shorter than their row's tallest card leave the empty space
-       that creates the masonry stagger in the middle seam.
-     Card order in the theme editor maps left-to-right, top row then bottom row. */
+  /* ─── Desktop column grid ─── */
+  /* Flex row of equal-width columns. Each column is a fixed-height flex
+     container that stacks cards top-to-bottom with the remaining space
+     distributed between them. */
   .fcm__grid {
-    display: grid;
-    grid-template-columns: repeat(var(--fcm-columns, 4), 1fr);
-    grid-auto-rows: max-content;
-    column-gap: var(--fcm-gap, 12px);
-    row-gap: var(--fcm-gap, 12px);
+    display: flex;
+    flex-direction: row;
+    gap: var(--fcm-gap, 12px);
     width: 100%;
+  }
+
+  .fcm__column {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: var(--fcm-column-height, 920px);
   }
 
   /* ─── Card ─── */
   .fcm__card {
     position: relative;
     width: 100%;
-    height: var(--fcm-card-height, 420px);
+    height: var(--fcm-card-height, 460px);
+    flex: 0 0 auto;
     border-radius: var(--fcm-radius, 16px);
     overflow: hidden;
-    /* align-self is set inline in Liquid based on which row the card is in */
   }
 
   /* Linked card — reset anchor styles */
@@ -342,22 +348,18 @@
   }
 
   /* ─── Mobile — horizontal carousel ─── */
-  /* Below 750px, collapse the column layout into a swipeable horizontal track.
-     Matches the behaviour and feel of the Feature Cards Carousel section.
-     The desktop align-self values are ignored here because the container
-     switches from grid to flex. */
+  /* Below 750px, dissolve the column wrappers (display: contents) so the cards
+     become direct flex children of the grid. The `order` property on each card
+     restores the original editor block order — cards stream 1, 2, 3, … instead
+     of being grouped by column. */
   @media screen and (max-width: 749px) {
 
-    /* Clip wrapper — grid-column 2/-1 starts at content column and bleeds right.
-     This matches the confirmed working pattern from the Feature Cards Carousel. */
     .fcm__grid-clip {
       grid-column: 2 / -1;
       overflow: hidden;
     }
 
     .fcm__grid {
-      /* Override desktop grid — become a horizontal flex scroll container */
-      display: flex;
       flex-direction: row;
       gap: var(--fcm-gap, 12px);
       overflow-x: auto;
@@ -370,8 +372,12 @@
       display: none;
     }
 
+    /* Column wrappers disappear — cards lay out flat */
+    .fcm__column {
+      display: contents;
+    }
+
     .fcm__card {
-      /* Fixed card size — never shrinks */
       flex: 0 0 auto;
       width: min(var(--fcm-mobile-card-width, 300px), 80vw);
       height: var(--fcm-mobile-card-height, 460px);
@@ -507,7 +513,7 @@
     },
     {
       "type": "paragraph",
-      "content": "Top-row tops and bottom-row bottoms align automatically. Vary the card heights to create the masonry stagger in the middle."
+      "content": "Each column is the same total height (set below). Per-card heights control where the seam between top and bottom card falls in each column — that's the masonry stagger."
     },
     {
       "type": "range",
@@ -520,8 +526,19 @@
     },
     {
       "type": "range",
+      "id": "column_height_desktop",
+      "label": "Column height (desktop)",
+      "min": 400,
+      "max": 1400,
+      "step": 20,
+      "default": 840,
+      "unit": "px",
+      "info": "Total height of each column. The seam between cards = this minus the sum of card heights in the column."
+    },
+    {
+      "type": "range",
       "id": "card_gap",
-      "label": "Gap between cards",
+      "label": "Gap between columns",
       "min": 4,
       "max": 40,
       "step": 2,
@@ -873,7 +890,7 @@
           "step": 20,
           "default": 420,
           "unit": "px",
-          "info": "Vary heights across cards in the same row to create the masonry stagger between rows"
+          "info": "Card height. Combined with the other card in the same column, this determines where the seam falls. Aim for the two cards in each column to sum close to the section's column height for clean seams."
         },
         {
           "type": "range",
@@ -906,6 +923,9 @@
   "presets": [
     {
       "name": "Feature Cards Masonry",
+      "settings": {
+        "column_height_desktop": 840
+      },
       "blocks": [
         {
           "type": "card",
@@ -940,7 +960,7 @@
             "label": "Temperature Control",
             "heading": "24 hour battery life",
             "body": "A long-lasting battery supports multiple feeds throughout the day, without needing constant recharge.",
-            "card_height_desktop": 300
+            "card_height_desktop": 360
           }
         },
         {
