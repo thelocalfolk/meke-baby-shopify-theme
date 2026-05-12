@@ -1119,6 +1119,7 @@
         "card_yjXyVx": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_159.png",
             "label": "Effortless care",
             "heading": "Self-cleaning system",
             "card_heading_preset": "h3",
@@ -1145,6 +1146,7 @@
         "card_JKGDNb": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_152.png",
             "label": "Practical design",
             "heading": "Generous 500ml capacity",
             "card_heading_preset": "h3",
@@ -1171,6 +1173,7 @@
         "card_YwnynN": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_158.png",
             "label": "Clear alternative",
             "heading": "No external tools required",
             "card_heading_preset": "h3",
@@ -1197,6 +1200,7 @@
         "card_nfDBrU": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_153.png",
             "label": "Freedom to move",
             "heading": "Portable by design",
             "card_heading_preset": "h3",
