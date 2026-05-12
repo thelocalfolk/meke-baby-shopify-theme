@@ -874,6 +874,7 @@
           "settings": {
             "collection": "",
             "custom_link": "",
+            "image": "shopify://shop_images/Lifestyle_Image.png",
             "title": "Feeding Systems",
             "description": "A complete end-to-end approach to feeding with clarity at every step.",
             "show_button": true,
@@ -893,6 +894,7 @@
           "settings": {
             "collection": "",
             "custom_link": "",
+            "image": "shopify://shop_images/Rectangle_52.png",
             "title": "Milk Warmers",
             "description": "Precision-designed for consistent, reliable feeding.",
             "show_button": true,
@@ -912,6 +914,7 @@
           "settings": {
             "collection": "",
             "custom_link": "",
+            "image": "shopify://shop_images/Rectangle_27.png",
             "title": "On-the-Go Essentials",
             "description": "Built to maintain standards when starting solids.",
             "show_button": true,
@@ -931,6 +934,7 @@
           "settings": {
             "collection": "",
             "custom_link": "",
+            "image": "shopify://shop_images/Rectangle_26.png",
             "title": "Storage & Prep",
             "description": "Clear, safe storage and cleaning solutions designed for real-life use.",
             "show_button": true,
