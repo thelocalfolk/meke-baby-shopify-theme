@@ -1082,6 +1082,7 @@
         "award_logo_QfpRdc": {
           "type": "award_logo",
           "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_9_1.png",
             "alt_text": "",
             "link": ""
           }
@@ -1089,6 +1090,7 @@
         "award_logo_QUTyrc": {
           "type": "award_logo",
           "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_0b36cefe-36d6-41be-ac5f-b17ba8473e0d_1.png",
             "alt_text": "",
             "link": ""
           }
@@ -1096,6 +1098,7 @@
         "award_logo_fMNmMj": {
           "type": "award_logo",
           "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_4_1.png",
             "alt_text": "",
             "link": ""
           }
@@ -1103,6 +1106,7 @@
         "award_logo_34TE4g": {
           "type": "award_logo",
           "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_5_1.png",
             "alt_text": "",
             "link": ""
           }
@@ -1110,6 +1114,31 @@
         "award_logo_thgHpY": {
           "type": "award_logo",
           "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_6_1.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_aYkPCK": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_8_1.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_V77DMF": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_2_1.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_NYEpQ3": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_3_1.png",
             "alt_text": "",
             "link": ""
           }
@@ -1120,7 +1149,10 @@
         "award_logo_QUTyrc",
         "award_logo_fMNmMj",
         "award_logo_34TE4g",
-        "award_logo_thgHpY"
+        "award_logo_thgHpY",
+        "award_logo_aYkPCK",
+        "award_logo_V77DMF",
+        "award_logo_NYEpQ3"
       ],
       "name": "Award Logo Marquee",
       "settings": {
