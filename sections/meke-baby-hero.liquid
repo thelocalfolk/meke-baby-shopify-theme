@@ -1,3 +1,11 @@
+{% comment %}
+  Section: Mekè Baby Hero
+  Full-bleed hero with optional star rating, heading, richtext subheading, and CTA.
+  The subheading uses a richtext setting so it can be connected to a metafield
+  (e.g. a product/page/shop richtext metafield) via the theme editor's
+  "Connect dynamic source" icon.
+{% endcomment %}
+
 {%- liquid
   assign bg_image = section.settings.image
   assign mobile_image = section.settings.image_mobile
@@ -50,7 +58,7 @@
       {%- endif -%}
 
       {%- if section.settings.subheading != blank -%}
-        <p class="meke-hero__subheading">{{ section.settings.subheading | newline_to_br }}</p>
+        <div class="meke-hero__subheading rte">{{ section.settings.subheading }}</div>
       {%- endif -%}
 
       {%- if section.settings.button_label != blank -%}
@@ -105,6 +113,14 @@
     line-height: 1.55;
     max-width: var(--hero-subheading-max-width, 400px);
     margin: 0;
+  }
+
+  .meke-hero__subheading > * {
+    margin: 0;
+  }
+
+  .meke-hero__subheading > * + * {
+    margin-top: 0.6em;
   }
 
   @media screen and (max-width: 749px) {
@@ -240,10 +256,11 @@
       "unit": "px"
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Mekè Baby gives you a considered feeding system designed to remove uncertainty and support safe, consistent feeding — every time."
+      "info": "Click the dynamic source icon to connect to a metafield",
+      "default": "<p>Mekè Baby gives you a considered feeding system designed to remove uncertainty and support safe, consistent feeding — every time.</p>"
     },
     {
       "type": "range",
