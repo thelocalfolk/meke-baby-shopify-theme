@@ -1505,6 +1505,7 @@
         "card_8hMzfN",
         "card_AUJmrm"
       ],
+      "disabled": true,
       "name": "Feature Cards Masonry",
       "settings": {
         "heading": "A better way to formula feed",
@@ -1530,61 +1531,63 @@
         "section_width": "page-width"
       }
     },
-    "image_cards_3col_Teq6xD": {
+    "image_cards_3col_JyDwff": {
       "type": "image-cards-3col",
       "blocks": {
-        "card_ePjN8F": {
+        "card_DVmEpm": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_160.png",
-            "heading": "Collection name",
-            "type_preset": "h3",
-            "description": "A short description of this collection.",
+            "heading": "At home",
+            "type_preset": "h4",
+            "description": "Prepare feeds with clarity and control.",
             "button_label": "Shop Now",
             "button_url": ""
           }
         },
-        "card_3zEJqm": {
+        "card_ypWwbJ": {
           "type": "card",
           "settings": {
-            "heading": "Collection name",
-            "type_preset": "h3",
-            "description": "A short description of this collection.",
+            "image": "shopify://shop_images/Image_11.png",
+            "heading": "On the go",
+            "type_preset": "h4",
+            "description": "Warm milk wherever you are — without needing external tools.",
             "button_label": "Shop Now",
             "button_url": ""
           }
         },
-        "card_mUNYQK": {
+        "card_FQJngN": {
           "type": "card",
           "settings": {
-            "heading": "Collection name",
-            "type_preset": "h3",
-            "description": "A short description of this collection.",
+            "image": "shopify://shop_images/Image_12.png",
+            "heading": "Overnight",
+            "type_preset": "h4",
+            "description": "Keep feeds consistent without disrupting your routine.",
             "button_label": "Shop Now",
             "button_url": ""
           }
         }
       },
       "block_order": [
-        "card_ePjN8F",
-        "card_3zEJqm",
-        "card_mUNYQK"
+        "card_DVmEpm",
+        "card_ypWwbJ",
+        "card_FQJngN"
       ],
       "name": "Image Cards — 3 Column",
       "settings": {
         "heading": "Fits seamlessly into your routine",
-        "type_preset": "h2",
+        "type_preset": "h3",
         "section_heading_colour": "#8c7b72",
         "heading_alignment": "center",
         "heading_bottom_gap": 40,
         "mobile_heading_bottom_gap": 24,
-        "columns": "2",
+        "columns": "3",
         "mobile_columns": "1",
         "card_gap": 16,
         "mobile_card_gap": 24,
         "image_aspect_ratio": "4 / 3",
         "image_border_radius": 12,
-        "content_gap": 28,
+        "content_gap": 20,
         "overlay_opacity": 55,
         "button_background": "#8c7b72",
         "button_text_colour": "#ffffff",
@@ -1592,7 +1595,7 @@
         "button_padding_v": 14,
         "button_padding_h": 28,
         "button_top_gap": 16,
-        "background_colour": "#ffffff",
+        "background_colour": "#f5f5f5",
         "heading_colour": "#ffffff",
         "padding_top": 80,
         "padding_bottom": 80,
@@ -2328,7 +2331,7 @@
     "brand_story_split_A9YkFi",
     "video_feedback_carousel_GDBGr7",
     "feature_cards_masonry_q97HBe",
-    "image_cards_3col_Teq6xD",
+    "image_cards_3col_JyDwff",
     "product_list_tB68NC",
     "177804603493db2258",
     "section_Qjxzyc",
