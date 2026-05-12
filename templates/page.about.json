@@ -983,14 +983,15 @@
         "padding-block-end": 0
       }
     },
-    "category_grid_m7hDMk": {
+    "category_grid_YR9T4y": {
       "type": "category-grid",
       "blocks": {
-        "card_qdMtex": {
+        "card_qXiwd8": {
           "type": "card",
           "settings": {
             "collection": "",
             "custom_link": "",
+            "image": "shopify://shop_images/Lifestyle_Image.png",
             "title": "Feeding Systems",
             "description": "A complete end-to-end approach to feeding with clarity at every step.",
             "show_button": true,
@@ -1005,11 +1006,12 @@
             "overlay_opacity_override": 15
           }
         },
-        "card_dJKYEF": {
+        "card_K3jAKw": {
           "type": "card",
           "settings": {
             "collection": "",
             "custom_link": "",
+            "image": "shopify://shop_images/Rectangle_52.png",
             "title": "Milk Warmers",
             "description": "Precision-designed for consistent, reliable feeding.",
             "show_button": true,
@@ -1024,11 +1026,12 @@
             "overlay_opacity_override": 15
           }
         },
-        "card_MVT4wG": {
+        "card_bqeHp4": {
           "type": "card",
           "settings": {
             "collection": "",
             "custom_link": "",
+            "image": "shopify://shop_images/Rectangle_27.png",
             "title": "On-the-Go Essentials",
             "description": "Built to maintain standards when starting solids.",
             "show_button": true,
@@ -1043,11 +1046,12 @@
             "overlay_opacity_override": 15
           }
         },
-        "card_etKXPK": {
+        "card_W7iL6D": {
           "type": "card",
           "settings": {
             "collection": "",
             "custom_link": "",
+            "image": "shopify://shop_images/Rectangle_26.png",
             "title": "Storage & Prep",
             "description": "Clear, safe storage and cleaning solutions designed for real-life use.",
             "show_button": true,
@@ -1064,10 +1068,10 @@
         }
       },
       "block_order": [
-        "card_qdMtex",
-        "card_dJKYEF",
-        "card_MVT4wG",
-        "card_etKXPK"
+        "card_qXiwd8",
+        "card_K3jAKw",
+        "card_bqeHp4",
+        "card_W7iL6D"
       ],
       "name": "Category Grid",
       "settings": {
@@ -1091,7 +1095,7 @@
         "button_text_color": "#ffffff",
         "button_radius": 50,
         "color_scheme": "scheme-2",
-        "padding-block-start": 0,
+        "padding-block-start": 40,
         "padding-block-end": 40
       }
     },
@@ -1251,7 +1255,7 @@
     "section_RfhtEQ",
     "feature_cards_carousel_UncweF",
     "section_4mCTL3",
-    "category_grid_m7hDMk",
+    "category_grid_YR9T4y",
     "featured_blog_posts_xTCwTY"
   ]
 }
