@@ -584,7 +584,7 @@
         "enable_sticky_add_to_cart": false,
         "color_scheme": "scheme-2",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 31
       }
     },
     "marquee_gWiCVB": {
@@ -822,34 +822,31 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_160.png",
-            "title": "At home",
-            "title_preset": "h4",
-            "subtitle": "Prepare feeds with clarity and control.",
-            "subtitle_preset": "paragraph",
-            "text_color": "#ffffff",
-            "overlay_color": "linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 60%)"
+            "heading": "Collection name",
+            "type_preset": "h3",
+            "description": "A short description of this collection.",
+            "button_label": "Shop Now",
+            "button_url": ""
           }
         },
         "card_3zEJqm": {
           "type": "card",
           "settings": {
-            "title": "On the go",
-            "title_preset": "h3",
-            "subtitle": "Warm milk wherever you are — without needing external tools.",
-            "subtitle_preset": "paragraph",
-            "text_color": "#ffffff",
-            "overlay_color": "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 60%)"
+            "heading": "Collection name",
+            "type_preset": "h3",
+            "description": "A short description of this collection.",
+            "button_label": "Shop Now",
+            "button_url": ""
           }
         },
         "card_mUNYQK": {
           "type": "card",
           "settings": {
-            "title": "Overnight",
-            "title_preset": "h3",
-            "subtitle": "Keep feeds consistent without disrupting your routine.",
-            "subtitle_preset": "paragraph",
-            "text_color": "#ffffff",
-            "overlay_color": "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 60%)"
+            "heading": "Collection name",
+            "type_preset": "h3",
+            "description": "A short description of this collection.",
+            "button_label": "Shop Now",
+            "button_url": ""
           }
         }
       },
@@ -860,20 +857,25 @@
       ],
       "name": "Image Cards — 3 Column",
       "settings": {
-        "heading": "Fits seamlessly into your routine",
-        "heading_preset": "h3",
-        "heading_alignment": "center",
-        "heading_color": "#928076",
-        "heading_gap": 32,
-        "card_aspect_ratio": "4 / 3",
+        "columns": "2",
+        "mobile_columns": "1",
         "card_gap": 16,
-        "card_radius": 12,
-        "overlay_padding": 20,
-        "background_color": "#f5f5f5",
+        "mobile_card_gap": 24,
+        "image_aspect_ratio": "4 / 3",
+        "image_border_radius": 12,
+        "content_gap": 20,
+        "button_background": "#8c7b72",
+        "button_text_colour": "#ffffff",
+        "button_border_radius": 40,
+        "button_padding_v": 14,
+        "button_padding_h": 28,
+        "button_top_gap": 16,
+        "background_colour": "#ffffff",
+        "heading_colour": "#2c2c2c",
         "padding_top": 80,
         "padding_bottom": 80,
-        "mobile_padding_top": 48,
-        "mobile_padding_bottom": 48
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
       }
     },
     "product_list_tB68NC": {
