@@ -911,6 +911,100 @@
         "padding-block-end": 32
       }
     },
+    "award_logo_marquee_JCeLiV": {
+      "type": "award-logo-marquee",
+      "blocks": {
+        "award_logo_zJPk4Y": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_9_1.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_xgMmmC": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_0b36cefe-36d6-41be-ac5f-b17ba8473e0d_1.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_GjRE3w": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_4_1.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_AWaDjy": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_5_1.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_whE4yk": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_6_1.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_JC9BkN": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_8_1.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_6yW3qa": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_2_1.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_FMhLeM": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_3_1.png",
+            "alt_text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "award_logo_zJPk4Y",
+        "award_logo_xgMmmC",
+        "award_logo_GjRE3w",
+        "award_logo_AWaDjy",
+        "award_logo_whE4yk",
+        "award_logo_JC9BkN",
+        "award_logo_6yW3qa",
+        "award_logo_FMhLeM"
+      ],
+      "name": "Award Logo Marquee",
+      "settings": {
+        "heading": "Multi award winning",
+        "type_preset": "h3",
+        "logo_height": 80,
+        "logo_height_mobile": 60,
+        "movement_direction": "reverse",
+        "speed": 25,
+        "gap_between_logos": 48,
+        "heading_gap": 36,
+        "section_width": "full-width",
+        "color_scheme": "scheme-2",
+        "padding-block-start": 32,
+        "padding-block-end": 56
+      }
+    },
     "video_feedback_carousel_GDBGr7": {
       "type": "video-feedback-carousel",
       "blocks": {
@@ -1969,6 +2063,7 @@
     "marquee_gWiCVB",
     "section_4meNbz",
     "section_7KjzeF",
+    "award_logo_marquee_JCeLiV",
     "video_feedback_carousel_GDBGr7",
     "comparison_table_Uz63hU",
     "brand_story_split_QteTVj",
