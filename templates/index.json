@@ -1176,7 +1176,7 @@
         "card_CkbnKM": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_49.png",
+            "image": "shopify://shop_images/Image_1.jpg",
             "label": "Remove the uncertainty",
             "heading": "Go anywhere, without the anxiety",
             "card_heading_preset": "h3",
@@ -1202,6 +1202,7 @@
         "card_BT9b6H": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_29.png",
             "label": "Feature",
             "heading": "Your compelling headline here",
             "card_heading_preset": "h3",
@@ -1227,6 +1228,7 @@
         "card_XQMqcG": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_51.png",
             "label": "Feature",
             "heading": "Your compelling headline here",
             "card_heading_preset": "h3",
@@ -1252,6 +1254,7 @@
         "card_YmDb8W": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_155_2.png",
             "label": "Material integrity",
             "heading": "Made with medical-grade stainless steel",
             "card_heading_preset": "h3",
@@ -1277,6 +1280,7 @@
         "card_HpEqnh": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_154_1.png",
             "label": "Feature",
             "heading": "Your compelling headline here",
             "card_heading_preset": "h3",
@@ -1298,31 +1302,6 @@
             "content_gap": 10,
             "link": ""
           }
-        },
-        "card_gXqUVJ": {
-          "type": "card",
-          "settings": {
-            "label": "A better alternative",
-            "heading": "No thermos. No microwave workarounds.",
-            "card_heading_preset": "h3",
-            "card_heading_font": "var(--font-heading--family)",
-            "card_heading_font_size": "2rem",
-            "card_heading_line_height": "tight",
-            "card_heading_letter_spacing": "normal",
-            "card_heading_case": "none",
-            "card_heading_color": "#ffffff",
-            "body": "Replaces inconsistent heating methods with a single, consistent process that works the same way, every time.",
-            "card_body_preset": "paragraph",
-            "card_body_font": "var(--font-body--family)",
-            "card_body_font_size": "0.875rem",
-            "card_body_line_height": "normal",
-            "card_body_letter_spacing": "normal",
-            "card_body_case": "none",
-            "card_body_color": "#cccccc",
-            "card_padding": 20,
-            "content_gap": 10,
-            "link": ""
-          }
         }
       },
       "block_order": [
@@ -1330,8 +1309,7 @@
         "card_BT9b6H",
         "card_XQMqcG",
         "card_YmDb8W",
-        "card_HpEqnh",
-        "card_gXqUVJ"
+        "card_HpEqnh"
       ],
       "name": "Feature Cards Carousel",
       "settings": {
