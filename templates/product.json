@@ -815,6 +815,158 @@
         "padding-block-end": 64
       }
     },
+    "comparison_table_Uz63hU": {
+      "type": "comparison-table",
+      "blocks": {
+        "competitor_zpgjic": {
+          "type": "competitor",
+          "settings": {
+            "label_line1": "Kettle",
+            "label_line2": ""
+          }
+        },
+        "competitor_ykMDYH": {
+          "type": "competitor",
+          "settings": {
+            "label_line1": "Thermos &",
+            "label_line2": "Plastic Water bottle"
+          }
+        },
+        "competitor_XmEGKL": {
+          "type": "competitor",
+          "settings": {
+            "label_line1": "Microwaves",
+            "label_line2": ""
+          }
+        },
+        "competitor_4Rd9XU": {
+          "type": "competitor",
+          "settings": {
+            "label_line1": "Other Milk",
+            "label_line2": "Warmers"
+          }
+        },
+        "row_QjUDNq": {
+          "type": "row",
+          "settings": {
+            "label": "Controlled temperature",
+            "brand_has": true,
+            "competitor_values": "false,false,false,false"
+          }
+        },
+        "row_gFt8wj": {
+          "type": "row",
+          "settings": {
+            "label": "Safe for breastmilk",
+            "brand_has": true,
+            "competitor_values": "false,false,false,false"
+          }
+        },
+        "row_DTbb9z": {
+          "type": "row",
+          "settings": {
+            "label": "Safe for formula",
+            "brand_has": true,
+            "competitor_values": "false,false,false,false"
+          }
+        },
+        "row_dkBiTT": {
+          "type": "row",
+          "settings": {
+            "label": "Even heating (no hot spots)",
+            "brand_has": true,
+            "competitor_values": "false,false,false,false"
+          }
+        },
+        "row_389LHn": {
+          "type": "row",
+          "settings": {
+            "label": "Microplastic-free",
+            "brand_has": true,
+            "competitor_values": "true,false,false,false"
+          }
+        },
+        "row_VHpqWV": {
+          "type": "row",
+          "settings": {
+            "label": "No risk of burns / spillage",
+            "brand_has": true,
+            "competitor_values": "false,false,false,false"
+          }
+        },
+        "row_bKGTpj": {
+          "type": "row",
+          "settings": {
+            "label": "Convenient on-the-go",
+            "brand_has": true,
+            "competitor_values": "false,true,false,false"
+          }
+        },
+        "row_WqBf8H": {
+          "type": "row",
+          "settings": {
+            "label": "No multiple steps / tools",
+            "brand_has": true,
+            "competitor_values": "false,false,false,false"
+          }
+        },
+        "row_eWnV9N": {
+          "type": "row",
+          "settings": {
+            "label": "Durable + leak-resistant",
+            "brand_has": true,
+            "competitor_values": "false,false,true,false"
+          }
+        },
+        "row_6NGzWk": {
+          "type": "row",
+          "settings": {
+            "label": "Preserves nutrients",
+            "brand_has": true,
+            "competitor_values": "false,true,false,false"
+          }
+        }
+      },
+      "block_order": [
+        "competitor_zpgjic",
+        "competitor_ykMDYH",
+        "competitor_XmEGKL",
+        "competitor_4Rd9XU",
+        "row_QjUDNq",
+        "row_gFt8wj",
+        "row_DTbb9z",
+        "row_dkBiTT",
+        "row_389LHn",
+        "row_VHpqWV",
+        "row_bKGTpj",
+        "row_WqBf8H",
+        "row_eWnV9N",
+        "row_6NGzWk"
+      ],
+      "name": "Comparison Table",
+      "settings": {
+        "heading": "How we compare",
+        "heading_type_preset": "h3",
+        "brand_label": "Mekē",
+        "brand_label_2": "Milk Warmer",
+        "brand_icon": "shopify://shop_images/Group_64845.svg",
+        "brand_column_bg": "#e8dff0",
+        "brand_check_color": "#a08ab0",
+        "competitor_col_bg_light": "#f5f3f1",
+        "competitor_col_bg_dark": "#e4e1de",
+        "competitor_check_color": "#888888",
+        "competitor_cross_color": "#aaaaaa",
+        "background_color": "#f5f3f1",
+        "row_hover_color": "#dccbe4",
+        "row_label_color": "#928076",
+        "divider_color": "#d8d4d0",
+        "heading_color": "#928076",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 48,
+        "mobile_padding_bottom": 48
+      }
+    },
     "image_cards_3col_Teq6xD": {
       "type": "image-cards-3col",
       "blocks": {
@@ -1598,6 +1750,7 @@
     "main",
     "marquee_gWiCVB",
     "video_feedback_carousel_GDBGr7",
+    "comparison_table_Uz63hU",
     "image_cards_3col_Teq6xD",
     "product_list_tB68NC",
     "177804603493db2258",
