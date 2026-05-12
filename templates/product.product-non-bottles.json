@@ -780,6 +780,7 @@
         "text_ViiVet",
         "text_wMqHY4"
       ],
+      "disabled": true,
       "name": "t:names.rich_text_section",
       "settings": {
         "content_direction": "column",
@@ -881,6 +882,7 @@
         "video_h6dAqb",
         "group_M39cib"
       ],
+      "disabled": true,
       "name": "t:names.video_section",
       "settings": {
         "content_direction": "column",
@@ -956,6 +958,7 @@
         "award_logo_BHEDt8",
         "award_logo_jgRBMR"
       ],
+      "disabled": true,
       "name": "Award Logo Marquee",
       "settings": {
         "heading": "Multi award winning",
@@ -1198,6 +1201,7 @@
         "card_8hMzfN",
         "card_AUJmrm"
       ],
+      "disabled": true,
       "name": "Feature Cards Masonry",
       "settings": {
         "heading": "A better way to formula feed",
@@ -1351,6 +1355,7 @@
         "row_MzGcFR",
         "row_8PcBre"
       ],
+      "disabled": true,
       "name": "Comparison Table",
       "settings": {
         "heading": "How we compare",
@@ -1377,6 +1382,7 @@
     },
     "brand_story_split_A9YkFi": {
       "type": "brand-story-split",
+      "disabled": true,
       "name": "Brand Story Split",
       "settings": {
         "image_position": "right",
