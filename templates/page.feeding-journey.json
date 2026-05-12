@@ -86,6 +86,79 @@
         "padding_horizontal": 32
       }
     },
+    "collection_card_stack_PG4XgY": {
+      "type": "collection-card-stack",
+      "blocks": {
+        "card_MQRkqe": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_49_3.png",
+            "heading": "For Mixed Feeding",
+            "type_preset": "h3",
+            "description": "For the in-between moments, the unpredictable routines, the both works best for us kind of days.",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "card_maJrdV": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/1_4.png",
+            "heading": "For Formula Feeding",
+            "type_preset": "h3",
+            "description": "Precision where it matters most. Built for accurate prep, controlled warming, and reliable results.",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "card_UxmWEW": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_52_1.png",
+            "heading": "For Starting Solids",
+            "type_preset": "h3",
+            "description": "A smooth transition, thoughtfully supported. Designed to introduce solids with ease.",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_MQRkqe",
+        "card_maJrdV",
+        "card_UxmWEW"
+      ],
+      "name": "Collection Card Stack",
+      "settings": {
+        "heading": "",
+        "type_preset": "h2",
+        "section_heading_colour": "#8c7b72",
+        "heading_alignment": "center",
+        "heading_bottom_gap": 40,
+        "mobile_heading_bottom_gap": 24,
+        "columns": "2",
+        "mobile_columns": "1",
+        "card_gap": 32,
+        "mobile_card_gap": 24,
+        "image_aspect_ratio": "4 / 3",
+        "image_border_radius": 12,
+        "content_gap": 20,
+        "button_background": "#8c7b72",
+        "button_text_colour": "#ffffff",
+        "button_border_radius": 40,
+        "button_padding_v": 14,
+        "button_padding_h": 28,
+        "button_top_gap": 16,
+        "background_colour": "#ffffff",
+        "heading_colour": "#928076",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 32,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "mobile_padding_horizontal": 16
+      }
+    },
     "section_kBUita": {
       "type": "section",
       "blocks": {
@@ -173,69 +246,6 @@
         "gradient_direction": "to top",
         "padding-block-start": 48,
         "padding-block-end": 0
-      }
-    },
-    "collection_card_grid_ytfkjm": {
-      "type": "collection-card-grid",
-      "blocks": {
-        "card_fGbqJA": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_49_1.png",
-            "heading": "For Mixed Feeding",
-            "type_preset": "h4",
-            "description": "For the in-between moments, the unpredictable routines, the both works best for us kind of days.",
-            "button_label": "Shop Now",
-            "button_url": "shopify://collections/mixed-feeding"
-          }
-        },
-        "card_hyFdHi": {
-          "type": "card",
-          "settings": {
-            "heading": "For Formula Feeding",
-            "type_preset": "h4",
-            "description": "Precision where it matters most. Built for accurate prep, controlled warming, and reliable results.",
-            "button_label": "Shop Now",
-            "button_url": ""
-          }
-        },
-        "card_KnDbKA": {
-          "type": "card",
-          "settings": {
-            "heading": "For Starting Solids",
-            "type_preset": "h4",
-            "description": "A smooth transition, thoughtfully supported. Designed to introduce solids with ease.",
-            "button_label": "Shop Now",
-            "button_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "card_fGbqJA",
-        "card_hyFdHi",
-        "card_KnDbKA"
-      ],
-      "name": "Collection Card Grid",
-      "settings": {
-        "columns": "2",
-        "mobile_columns": "1",
-        "card_gap": 40,
-        "mobile_card_gap": 24,
-        "image_aspect_ratio": "16 / 9",
-        "image_border_radius": 12,
-        "content_gap": 20,
-        "button_background": "#8c7b72",
-        "button_text_colour": "#ffffff",
-        "button_border_radius": 40,
-        "button_padding_v": 14,
-        "button_padding_h": 28,
-        "button_top_gap": 16,
-        "background_colour": "#f5f5f5",
-        "heading_colour": "#928076",
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48
       }
     },
     "product_list_GeLyRy": {
@@ -778,8 +788,8 @@
   "order": [
     "main",
     "meke_baby_hero_bwYdt9",
+    "collection_card_stack_PG4XgY",
     "section_kBUita",
-    "collection_card_grid_ytfkjm",
     "product_list_GeLyRy",
     "collection_card_grid_DNCddP",
     "video_feedback_carousel_QUe8Uj",
