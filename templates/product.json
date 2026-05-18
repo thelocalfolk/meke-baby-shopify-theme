@@ -992,7 +992,7 @@
       "name": "Award Logo Marquee",
       "settings": {
         "heading": "Multi award winning",
-        "type_preset": "h3",
+        "type_preset": "h4",
         "logo_height": 80,
         "logo_height_mobile": 60,
         "movement_direction": "reverse",
