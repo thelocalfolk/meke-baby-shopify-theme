@@ -92,7 +92,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h3>It started with a moment no parent ever forgets.</h3>",
+            "text": "<h4>It started with a moment no parent ever forgets.</h4>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
