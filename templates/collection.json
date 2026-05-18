@@ -570,7 +570,7 @@
           "settings": {
             "image": "shopify://shop_images/Rectangle_53.png",
             "heading": "Cleaning & Sanitation",
-            "type_preset": "h3",
+            "type_preset": "h4",
             "description": "A flexible system designed to support both expressed milk and formula, adapting as your routine evolves.",
             "button_label": "Shop Now",
             "button_url": "shopify://collections/mixed-feeding"
@@ -581,7 +581,7 @@
           "settings": {
             "image": "shopify://shop_images/Rectangle_54_1.png",
             "heading": "Accessories",
-            "type_preset": "h3",
+            "type_preset": "h4",
             "description": "Thoughtful storage and gentle warming designed to support your child’s first foods with clarity and care.",
             "button_label": "Shop Now",
             "button_url": "shopify://collections/formula-feeding"
@@ -595,7 +595,7 @@
       "name": "Collection Card Stack",
       "settings": {
         "heading": "",
-        "type_preset": "h2",
+        "type_preset": "h3",
         "section_heading_colour": "#8c7b72",
         "heading_alignment": "center",
         "heading_bottom_gap": 40,
