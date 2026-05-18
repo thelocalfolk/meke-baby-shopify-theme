@@ -72,7 +72,7 @@
         "heading": "Choose your feeding journey",
         "heading_size": 42,
         "heading_max_width": 900,
-        "subheading": "Explore Mekė Baby’s thoughtfully curated bundles — designed to support every stage of feeding as your routine evolves.\n\nEach bundle brings together the right products to work seamlessly as a system, helping you move through feeding with greater clarity, consistency, and ease.",
+        "subheading": "<p>Explore Mekė Baby’s thoughtfully curated bundles — designed to support every stage of feeding as your routine evolves.\n\nEach bundle brings together the right products to work seamlessly as a system, helping you move through feeding with greater clarity, consistency, and ease.</p>",
         "subheading_size": 15,
         "subheading_max_width": 900,
         "button_label": "",
@@ -183,7 +183,7 @@
           "settings": {
             "image": "shopify://shop_images/Rectangle_49_3.png",
             "heading": "For Mixed Feeding",
-            "type_preset": "h3",
+            "type_preset": "h4",
             "description": "For the in-between moments, the unpredictable routines, the both works best for us kind of days.",
             "button_label": "Shop Now",
             "button_url": "shopify://collections/mixed-feeding"
@@ -194,7 +194,7 @@
           "settings": {
             "image": "shopify://shop_images/1_4.png",
             "heading": "For Formula Feeding",
-            "type_preset": "h3",
+            "type_preset": "h4",
             "description": "Precision where it matters most. Built for accurate prep, controlled warming, and reliable results.",
             "button_label": "Shop Now",
             "button_url": "shopify://collections/formula-feeding"
@@ -205,7 +205,7 @@
           "settings": {
             "image": "shopify://shop_images/Rectangle_52_1.png",
             "heading": "For Starting Solids",
-            "type_preset": "h3",
+            "type_preset": "h4",
             "description": "A smooth transition, thoughtfully supported. Designed to introduce solids with ease.",
             "button_label": "Shop Now",
             "button_url": "shopify://collections/featured-collection"
@@ -220,7 +220,7 @@
       "name": "Collection Card Stack",
       "settings": {
         "heading": "",
-        "type_preset": "h2",
+        "type_preset": "h4",
         "section_heading_colour": "#8c7b72",
         "heading_alignment": "center",
         "heading_bottom_gap": 40,
@@ -504,7 +504,7 @@
           "settings": {
             "image": "shopify://shop_images/Rectangle_53.png",
             "heading": "Cleaning & Sanitation",
-            "type_preset": "h3",
+            "type_preset": "h4",
             "description": "A flexible system designed to support both expressed milk and formula, adapting as your routine evolves.",
             "button_label": "Shop Now",
             "button_url": "shopify://collections/mixed-feeding"
@@ -515,7 +515,7 @@
           "settings": {
             "image": "shopify://shop_images/Rectangle_54_1.png",
             "heading": "Accessories",
-            "type_preset": "h3",
+            "type_preset": "h4",
             "description": "Thoughtful storage and gentle warming designed to support your child’s first foods with clarity and care.",
             "button_label": "Shop Now",
             "button_url": "shopify://collections/formula-feeding"
@@ -529,7 +529,7 @@
       "name": "Collection Card Stack",
       "settings": {
         "heading": "",
-        "type_preset": "h2",
+        "type_preset": "h3",
         "section_heading_colour": "#8c7b72",
         "heading_alignment": "center",
         "heading_bottom_gap": 40,
@@ -619,7 +619,7 @@
       "name": "Video feedback carousel",
       "settings": {
         "heading": "Real feedback from real families",
-        "heading_type_preset": "h3",
+        "heading_type_preset": "h4",
         "heading_font": "var(--font-heading--family)",
         "heading_font_size": "2.5rem",
         "heading_line_height": "tight",
