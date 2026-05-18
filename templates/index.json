@@ -970,7 +970,7 @@
         "grid_gap_mobile": 12,
         "card_radius": 12,
         "card_aspect_ratio": "16/9",
-        "card_aspect_ratio_mobile": "4/3",
+        "card_aspect_ratio_mobile": "16/9",
         "text_color": "#ffffff",
         "text_alignment": "left",
         "text_padding": 32,
