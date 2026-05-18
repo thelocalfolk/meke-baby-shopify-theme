@@ -876,7 +876,7 @@
       "name": "Feature Cards Carousel",
       "settings": {
         "heading": "Why parents choose Mekè Baby",
-        "heading_type_preset": "h3",
+        "heading_type_preset": "h4",
         "heading_font": "var(--font-heading--family)",
         "heading_font_size": "2.5rem",
         "heading_line_height": "tight",
