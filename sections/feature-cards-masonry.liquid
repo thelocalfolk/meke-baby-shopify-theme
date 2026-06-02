@@ -174,7 +174,7 @@
                         <p class="{{ card_heading_class }}" style="{{ card_heading_style }}">{{ bs.heading | escape }}</p>
                       {%- endif -%}
                       {%- if bs.body != blank -%}
-                        <p class="{{ card_body_class }}" style="{{ card_body_style }}">{{ bs.body | escape }}</p>
+                        <div class="{{ card_body_class }}" style="{{ card_body_style }}">{{ bs.body }}</div>
                       {%- endif -%}
                     </div>
                   </div>
@@ -320,6 +320,11 @@
   .fcm__card-body {
     margin: 0;
     color: var(--color, rgba(255, 255, 255, 0.80));
+  }
+
+  /* Richtext body outputs inner <p> tags — zero their margins */
+  .fcm__card-body p {
+    margin: 0;
   }
 
   /* For full-width sections, clip spans all columns */
@@ -776,10 +781,10 @@
           "content": "Card body text"
         },
         {
-          "type": "text",
+          "type": "richtext",
           "id": "body",
           "label": "Body text",
-          "default": "Supporting description for this feature."
+          "default": "<p>Supporting description for this feature.</p>"
         },
         {
           "type": "select",
@@ -919,7 +924,7 @@
           "settings": {
             "label": "Flexible feeding",
             "heading": "Designed for mixed feeding",
-            "body": "Designed to work with expressed milk, formula, or a combination of both.",
+            "body": "<p>Designed to work with expressed milk, formula, or a combination of both.</p>",
             "card_height_desktop": 460
           }
         },
@@ -928,7 +933,7 @@
           "settings": {
             "label": "Material integrity",
             "heading": "Made with medical-grade stainless steel",
-            "body": "Five-layer, microplastic, BPA & PFAS free medical-grade stainless steel for superior thermal performance and purity.",
+            "body": "<p>Five-layer, microplastic, BPA & PFAS free medical-grade stainless steel for superior thermal performance and purity.</p>",
             "card_height_desktop": 360
           }
         },
@@ -937,7 +942,7 @@
           "settings": {
             "label": "Consistent results",
             "heading": "Fast, controlled warming every time",
-            "body": "Heats in under 3 minutes with a stable, even temperature — reducing variation between feeds.",
+            "body": "<p>Heats in under 3 minutes with a stable, even temperature — reducing variation between feeds.</p>",
             "card_height_desktop": 460
           }
         },
@@ -946,7 +951,7 @@
           "settings": {
             "label": "Temperature Control",
             "heading": "24 hour battery life",
-            "body": "A long-lasting battery supports multiple feeds throughout the day, without needing constant recharge.",
+            "body": "<p>A long-lasting battery supports multiple feeds throughout the day, without needing constant recharge.</p>",
             "card_height_desktop": 360
           }
         },
@@ -955,7 +960,7 @@
           "settings": {
             "label": "Effortless care",
             "heading": "Self-cleaning system",
-            "body": "Built-in cleaning function supports simple, consistent hygiene with minimal effort.",
+            "body": "<p>Built-in cleaning function supports simple, consistent hygiene with minimal effort.</p>",
             "card_height_desktop": 360
           }
         },
@@ -964,7 +969,7 @@
           "settings": {
             "label": "Practical design",
             "heading": "Generous 500ml capacity",
-            "body": "Designed to hold enough volume for a range of feeding needs, from smaller bottles to larger feeds.",
+            "body": "<p>Designed to hold enough volume for a range of feeding needs, from smaller bottles to larger feeds.</p>",
             "card_height_desktop": 460
           }
         },
@@ -973,7 +978,7 @@
           "settings": {
             "label": "Clear alternative",
             "heading": "No external tools required",
-            "body": "Replaces kettles, microwaves, and multi-step methods with a single, contained process.",
+            "body": "<p>Replaces kettles, microwaves, and multi-step methods with a single, contained process.</p>",
             "card_height_desktop": 360
           }
         },
@@ -982,7 +987,7 @@
           "settings": {
             "label": "Freedom to move",
             "heading": "Portable by design",
-            "body": "Compact and easy to carry, designed to support feeding wherever you are.",
+            "body": "<p>Compact and easy to carry, designed to support feeding wherever you are.</p>",
             "card_height_desktop": 460
           }
         }
