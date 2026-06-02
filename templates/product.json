@@ -1012,7 +1012,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_154.png",
-            "label": "Flexible feeding",
+            "label": "{{ product.metafields.custom.featured_card_masonry_pill_1.value }}",
             "heading": "Designed for mixed feeding",
             "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
