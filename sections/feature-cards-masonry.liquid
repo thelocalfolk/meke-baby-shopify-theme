@@ -79,6 +79,12 @@
 
     <div class="fcm__grid-clip">
     <div class="fcm__grid" role="list" aria-label="Feature cards">
+      {%- comment %}
+        Outer loop = columns. Inner loop walks all blocks and renders the ones
+        that belong to the current column (index mod cols == column index).
+        This is so we can wrap the cards of each column in a flex container
+        without disrupting the natural editor block order.
+      {%- endcomment -%}
       {%- for col_index in (1..cols) -%}
         <div class="fcm__column">
           {%- for block in blocks -%}
