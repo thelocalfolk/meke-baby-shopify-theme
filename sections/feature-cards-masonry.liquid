@@ -218,9 +218,6 @@
   }
 
   /* ─── Desktop column grid ─── */
-  /* Flex row of equal-width columns. Each column is a fixed-height flex
-     container that stacks cards top-to-bottom with the remaining space
-     distributed between them. */
   .fcm__grid {
     display: flex;
     flex-direction: row;
@@ -348,10 +345,6 @@
   }
 
   /* ─── Mobile — horizontal carousel ─── */
-  /* Below 750px, dissolve the column wrappers (display: contents) so the cards
-     become direct flex children of the grid. The `order` property on each card
-     restores the original editor block order — cards stream 1, 2, 3, … instead
-     of being grouped by column. */
   @media screen and (max-width: 749px) {
 
     .fcm__grid-clip {
