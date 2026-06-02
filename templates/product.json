@@ -1013,7 +1013,7 @@
           "settings": {
             "image": "shopify://shop_images/Rectangle_154.png",
             "label": "{{ product.metafields.custom.featured_card_masonry_pill_1.value }}",
-            "heading": "Designed for mixed feeding",
+            "heading": "{{ product.metafields.custom.featured_card_masonry_header_1.value }}",
             "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
@@ -1021,7 +1021,7 @@
             "card_heading_letter_spacing": "normal",
             "card_heading_case": "none",
             "card_heading_color": "#ffffff",
-            "body": "Designed to work with expressed milk, formula, or a combination of both.",
+            "body": "",
             "card_body_preset": "paragraph",
             "card_body_font": "var(--font-body--family)",
             "card_body_font_size": "0.875rem",
