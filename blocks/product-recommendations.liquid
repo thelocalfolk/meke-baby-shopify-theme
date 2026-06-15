@@ -1,14 +1,14 @@
 {%- doc -%}
-  Renders product recommendations.
-  {section.id} - identifies the parent section for the Section Rendering API
+  Product recommendations — Meke Baby custom layout.
 
-  https://shopify.dev/docs/api/section-rendering-api
+  Renders each recommended product as a horizontal "cross-sell" card
+  (image left, title / price / purple Add to cart on the right) to match
+  the bundle card example, instead of the theme's default vertical product card.
 
-  Meke Baby customisation:
-  Adds an optional purple "Add to cart" button under each recommended product card.
-  It adds the product via the theme's native product-form-component, so submitting
-  fires CartAddEvent and the cart drawer auto-opens — same as a normal Add to cart.
-  Controlled by the "Add to cart button" settings below.
+  The Add to cart button uses the theme's native product-form-component, so it
+  adds straight to cart and the cart drawer opens — same as a normal Add to cart.
+
+  Recommendations still load via the Section Rendering API (product-recommendations.js).
 {%- enddoc -%}
 
 <script
@@ -18,21 +18,8 @@
 
 {% liquid
   assign block_settings = block.settings
-  case block_settings.layout_type
-    when 'grid'
-      assign classes = 'resource-list--grid'
-    when 'carousel'
-      assign classes = 'resource-list--carousel'
-  endcase
 %}
 
-{% comment %}
-  [data-section-id] {section.id} - used to fetch the product recommendations from the Section Rendering API
-{% endcomment %}
-
-{% render 'quick-add-styles' %}
-{% render 'quick-add-modal-styles' %}
-{% render 'product-badges-styles' %}
 <product-recommendations
   id="product-recommendations-{{ block.id }}"
   class="product-recommendations"
@@ -51,22 +38,21 @@
   <div
     class="
       {% if block_settings.inherit_color_scheme == false %}color-{{ block_settings.color_scheme }}{% endif %}
-      block-resource-list
+      rec-block
       spacing-style
-      gap-style
     "
     style="
-      {%  render 'spacing-style', settings: block_settings %}
-      {%  render 'gap-style', value: block_settings.gap %}
-      --resource-list-column-gap-desktop: {{ block_settings.columns_gap }}px;
-      --resource-list-row-gap-desktop: {{ block_settings.rows_gap }}px;
-      --resource-list-columns-mobile: repeat(auto-fill, minmax(9.25rem, 1fr));
-      --border-radius: {{ block_settings.border_radius }}px;
+      {% render 'spacing-style', settings: block_settings %}
+      --rec-card-bg: {{ block_settings.card_background }};
+      --rec-card-radius: {{ block_settings.card_radius }}px;
+      --rec-card-gap: {{ block_settings.card_gap }}px;
+      --rec-img-size: {{ block_settings.image_size }}px;
+      --rec-img-radius: {{ block_settings.image_radius }}px;
       --rec-button-bg: {{ block_settings.button_color }};
       --rec-button-text: {{ block_settings.button_text_color }};
     "
   >
-    <div class="section-resource-list__content">
+    <div class="rec-block__heading">
       {% content_for 'blocks' %}
     </div>
 
@@ -75,147 +61,138 @@
         assign products = recommendations.products
 
         if closest.product == blank
-          # Onboarding mode: Show placeholder products
+          # Onboarding mode: show placeholder cards in the editor
           for i in (1..block_settings.max_products)
             assign products = products | append: ', '
             assign products = products | split: ','
           endfor
         elsif recommendations.performed and recommendations.products_count == 0
-          # No recommendations found, pull from catalog
           if block_settings.recommendation_type == 'related'
             assign products = collections.all.products | reject: 'id', closest.product.id
-          elsif block_settings.recommendation_type == 'complementary'
-            # Do not recommend the All collection as complementary products
+          else
             assign products = null
           endif
         else
           assign products = recommendations.products
         endif
       %}
-      {% capture list_items %}
+
+      <div class="rec-list" data-has-recommendations="{% if products != blank and products.size > 0 %}true{% else %}false{% endif %}">
         {% for product in products limit: block_settings.max_products %}
-          <div class="resource-list__item">
-            {% content_for 'block',
-              type: '_product-card',
-              id: 'static-product-card',
-              closest.product: product
-            %}
+          {%- if product != blank and product.id != blank -%}
+            {%- assign rec_variant = product.selected_or_first_available_variant -%}
+            <div class="rec-card">
+              <a
+                href="{{ product.url }}"
+                class="rec-card__image-wrap"
+                aria-label="{{ product.title | escape }}"
+                tabindex="-1"
+              >
+                {%- if product.featured_image != blank -%}
+                  {{
+                    product.featured_image
+                    | image_url: width: 400
+                    | image_tag:
+                      loading: 'lazy',
+                      class: 'rec-card__image',
+                      widths: '120,180,240,360',
+                      sizes: '120px',
+                      alt: product.title | escape
+                  }}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'rec-card__image rec-card__image--placeholder' }}
+                {%- endif -%}
+              </a>
 
-            {%- comment -%}
-              Meke Baby: purple add-to-cart under each card. Guarded so it never renders in
-              onboarding/placeholder mode (blank products) or for unavailable variants.
-              Uses the theme's product-form-component so the cart drawer opens on add.
-            {%- endcomment -%}
-            {%- if block_settings.show_add_to_cart and product != blank and product.id != blank -%}
-              {%- assign rec_variant = product.selected_or_first_available_variant -%}
-              {%- if rec_variant != blank and rec_variant.available -%}
-                {%- capture rec_form_id -%}ProductRecsForm-{{ block.id }}-{{ forloop.index }}{%- endcapture -%}
-                <product-form-component
-                  class="resource-list__add-to-cart"
-                  data-section-id="{{ section.id }}"
-                  data-product-id="{{ product.id }}"
-                  data-product-url="{{ product.url }}"
-                  on:submit="/handleSubmit"
-                >
-                  <div
-                    class="visually-hidden"
-                    aria-live="assertive"
-                    role="status"
-                    aria-atomic="true"
-                    ref="liveRegion"
-                  ></div>
-                  {%- form 'product', product, id: rec_form_id, data-type: 'add-to-cart-form' -%}
-                    <input
-                      type="hidden"
-                      name="id"
-                      ref="variantId"
-                      value="{{ rec_variant.id }}"
+              <div class="rec-card__details">
+                <a href="{{ product.url }}" class="rec-card__title">{{ product.title | escape }}</a>
+
+                {%- if block_settings.show_description and product.description != blank -%}
+                  <p class="rec-card__description">
+                    {{ product.description | strip_html | truncate: 110 }}
+                  </p>
+                {%- endif -%}
+
+                <p class="rec-card__price">
+                  {%- if product.compare_at_price > product.price -%}
+                    <span class="rec-card__price-sale">{{ product.price | money }}</span>
+                    <s class="rec-card__price-compare">{{ product.compare_at_price | money }}</s>
+                  {%- else -%}
+                    {{ product.price | money }}
+                  {%- endif -%}
+                </p>
+
+                {%- if block_settings.show_add_to_cart -%}
+                  {%- if rec_variant != blank and rec_variant.available -%}
+                    {%- capture rec_form_id -%}ProductRecsForm-{{ block.id }}-{{ forloop.index }}{%- endcapture -%}
+                    <product-form-component
+                      class="rec-card__form"
+                      data-section-id="{{ section.id }}"
+                      data-product-id="{{ product.id }}"
+                      data-product-url="{{ product.url }}"
+                      on:submit="/handleSubmit"
                     >
-                    <button
-                      type="submit"
-                      name="add"
-                      class="button resource-list__add-button"
-                    >
-                      {{ block_settings.add_to_cart_label | default: 'Add to cart' | escape }}
-                    </button>
-                  {%- endform -%}
-                </product-form-component>
-              {%- endif -%}
-            {%- endif -%}
-          </div>
-          {% if block_settings.layout_type == 'carousel' or block_settings.carousel_on_mobile %}
-            {% unless forloop.last %}
-              <!--@list/split-->
-            {% endunless %}
-          {% endif %}
+                      <div
+                        class="visually-hidden"
+                        aria-live="assertive"
+                        role="status"
+                        aria-atomic="true"
+                        ref="liveRegion"
+                      ></div>
+                      {%- form 'product', product, id: rec_form_id, data-type: 'add-to-cart-form' -%}
+                        <input
+                          type="hidden"
+                          name="id"
+                          ref="variantId"
+                          value="{{ rec_variant.id }}"
+                        >
+                        <button type="submit" name="add" class="rec-card__button">
+                          {{ block_settings.add_to_cart_label | default: 'Add to cart' | escape }}
+                        </button>
+                      {%- endform -%}
+                    </product-form-component>
+                  {%- else -%}
+                    <a href="{{ product.url }}" class="rec-card__button rec-card__button--link">
+                      {{ 'products.product.sold_out' | t | default: 'View product' }}
+                    </a>
+                  {%- endif -%}
+                {%- endif -%}
+              </div>
+            </div>
+
+          {%- elsif closest.product == blank -%}
+            {%- comment -%} Editor onboarding placeholder card {%- endcomment -%}
+            <div class="rec-card rec-card--placeholder">
+              <div class="rec-card__image-wrap">
+                {{ 'product-1' | placeholder_svg_tag: 'rec-card__image rec-card__image--placeholder' }}
+              </div>
+              <div class="rec-card__details">
+                <span class="rec-card__title">{{ 'onboarding.product_title' | t | default: 'Example product' }}</span>
+                <p class="rec-card__price">{{ 1999 | money }}</p>
+                {%- if block_settings.show_add_to_cart -%}
+                  <span class="rec-card__button">
+                    {{ block_settings.add_to_cart_label | default: 'Add to cart' | escape }}
+                  </span>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
         {% endfor %}
-      {% endcapture %}
-
-      {% liquid
-        # Create an array from the list items to be used in the carousel
-        assign slide_content = list_items | strip
-        assign slides = slide_content | split: '<!--@list/split-->'
-
-        if products != blank and products.size > 0
-          assign has_recommendations = 'true'
-        else
-          assign has_recommendations = 'false'
-        endif
-      %}
-
-      <div
-        class="
-          resource-list
-          {% if block_settings.carousel_on_mobile and block_settings.layout_type != 'carousel' %}
-            hidden--mobile
-          {% endif %}
-          {{ classes }}
-        "
-        {% if block_settings.layout_type == 'grid' %}
-          data-testid="resource-list-grid"
-        {% endif %}
-        data-has-recommendations="{{ has_recommendations }}"
-      >
-        {% case block_settings.layout_type %}
-          {% when 'grid' %}
-            {{ list_items }}
-          {% when 'carousel' %}
-            {% render 'resource-list-carousel',
-              ref: 'resourceListCarousel',
-              slides: slides,
-              slide_count: recommendations.products.size,
-              settings: block_settings
-            %}
-        {% endcase %}
       </div>
-
-      {% if block_settings.carousel_on_mobile and block_settings.layout_type != 'carousel' %}
-        {% liquid
-          assign mobile_carousel_gap = block_settings.columns_gap
-        %}
-        <div
-          class="
-            resource-list
-            hidden--desktop
-            force-full-width
-          "
-          style="--resource-list-gap: {{ mobile_carousel_gap }}px;"
-        >
-          {% render 'resource-list-carousel',
-            ref: 'resourceListCarouselMobile',
-            slides: slides,
-            slide_count: recommendations.products.size,
-            settings: block_settings
-          %}
-        </div>
-      {% endif %}
     {%- else -%}
-      <div class="resource-list resource-list--grid">
+      <div class="rec-list">
         {% for i in (1..block_settings.max_products) %}
           <div
-            class="resource-list__item product-recommendations__skeleton-item"
+            class="rec-card rec-card--skeleton"
             aria-label="{{ 'accessibility.loading_product_recommendations' | t }}"
-          ></div>
+          >
+            <div class="rec-card__image-wrap"></div>
+            <div class="rec-card__details">
+              <span class="rec-card__skeleton-line rec-card__skeleton-line--title"></span>
+              <span class="rec-card__skeleton-line rec-card__skeleton-line--price"></span>
+              <span class="rec-card__skeleton-line rec-card__skeleton-line--button"></span>
+            </div>
+          </div>
         {% endfor %}
       </div>
     {%- endif -%}
@@ -223,44 +200,155 @@
 </product-recommendations>
 
 {% stylesheet %}
-  .block-resource-list {
+  .rec-block {
+    width: 100%;
+    container-type: inline-size;
+  }
+
+  .rec-block__heading {
+    margin-bottom: 12px;
+  }
+
+  .rec-list {
     display: flex;
     flex-direction: column;
-    row-gap: var(--gap);
+    gap: var(--rec-card-gap, 12px);
+  }
+
+  /* Horizontal cross-sell card */
+  .rec-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px;
+    background-color: var(--rec-card-bg, #ffffff);
+    border-radius: var(--rec-card-radius, 16px);
+  }
+
+  .rec-card__image-wrap {
+    flex: 0 0 var(--rec-img-size, 110px);
+    width: var(--rec-img-size, 110px);
+    aspect-ratio: 1 / 1;
+    border-radius: var(--rec-img-radius, 12px);
+    overflow: hidden;
+    background-color: #f5f0eb;
+    display: block;
+  }
+
+  .rec-card__image,
+  .rec-card__image--placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .rec-card__details {
+    flex: 1;
     min-width: 0;
-    min-height: 0;
-    container-type: inline-size;
-    container-name: resource-list;
-    border-radius: var(--border-radius, 0);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
-  .product-recommendations-wrapper {
-    width: 100%;
+  .rec-card__title {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: inherit;
+    text-decoration: none;
   }
 
-  .product-recommendations-wrapper:has(product-recommendations[data-shopify-editor-preview]) {
-    width: 100vw;
+  .rec-card__title:hover {
+    text-decoration: underline;
   }
 
-  /* Meke Baby: purple add-to-cart button on recommendation cards */
-  .resource-list__add-to-cart {
-    display: block;
-    margin-top: 8px;
+  .rec-card__description {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    opacity: 0.7;
   }
 
-  .resource-list__add-to-cart .resource-list__add-button {
-    display: block;
-    width: 100%;
+  .rec-card__price {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .rec-card__price-compare {
+    margin-left: 6px;
+    font-weight: 400;
+    opacity: 0.5;
+  }
+
+  /* Purple Add to cart button (self-contained, not the theme's full-width button) */
+  .rec-card__button {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: 4px;
+    padding: 11px 26px;
+    border: none;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1;
     text-align: center;
+    text-decoration: none;
+    cursor: pointer;
     background-color: var(--rec-button-bg, #C6B7E2);
-    border-color: var(--rec-button-bg, #C6B7E2);
     color: var(--rec-button-text, #2E2A39);
     transition: background-color 0.2s ease;
   }
 
-  .resource-list__add-to-cart .resource-list__add-button:hover {
+  .rec-card__button:hover {
     background-color: color-mix(in srgb, var(--rec-button-bg, #C6B7E2) 88%, #000);
-    border-color: color-mix(in srgb, var(--rec-button-bg, #C6B7E2) 88%, #000);
+  }
+
+  .rec-card__form {
+    margin: 0;
+    display: block;
+  }
+
+  /* Skeleton */
+  .rec-card--skeleton .rec-card__image-wrap {
+    animation: rec-pulse 1.2s ease-in-out infinite;
+  }
+
+  .rec-card__skeleton-line {
+    display: block;
+    height: 12px;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.08);
+    animation: rec-pulse 1.2s ease-in-out infinite;
+  }
+
+  .rec-card__skeleton-line--title { width: 70%; }
+  .rec-card__skeleton-line--price { width: 30%; }
+  .rec-card__skeleton-line--button { width: 120px; height: 36px; border-radius: 999px; margin-top: 6px; }
+
+  @keyframes rec-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* Mobile */
+  @media (max-width: 749px) {
+    .rec-card {
+      gap: 14px;
+      padding: 12px;
+    }
+
+    .rec-card__image-wrap {
+      flex-basis: 88px;
+      width: 88px;
+    }
+
+    .rec-card__button {
+      width: 100%;
+      align-self: stretch;
+    }
   }
 {% endstylesheet %}
 
@@ -302,6 +390,15 @@
       "content": "t:content.complementary_products"
     },
     {
+      "type": "range",
+      "id": "max_products",
+      "label": "t:settings.product_count",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 4
+    },
+    {
       "type": "header",
       "content": "Add to cart button"
     },
@@ -331,140 +428,63 @@
     },
     {
       "type": "header",
-      "content": "t:content.cards_layout"
-    },
-    {
-      "type": "select",
-      "id": "layout_type",
-      "label": "t:settings.layout_style",
-      "options": [
-        {
-          "value": "grid",
-          "label": "t:options.grid"
-        },
-        {
-          "value": "carousel",
-          "label": "t:options.carousel"
-        }
-      ],
-      "default": "grid"
+      "content": "Card style"
     },
     {
       "type": "checkbox",
-      "id": "carousel_on_mobile",
-      "label": "t:settings.carousel_on_mobile",
-      "default": true,
-      "visible_if": "{{ block.settings.layout_type == 'grid' }}"
+      "id": "show_description",
+      "label": "Show short description",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background colour",
+      "default": "#ffffff"
     },
     {
       "type": "range",
-      "id": "max_products",
-      "label": "t:settings.product_count",
-      "min": 2,
-      "max": 10,
-      "step": 1,
-      "default": 4
-    },
-    {
-      "type": "range",
-      "id": "columns_gap",
-      "label": "t:settings.horizontal_gap",
+      "id": "card_radius",
+      "label": "Card corner radius",
       "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
+      "max": 40,
+      "step": 2,
       "default": 16,
-      "visible_if": "{{ block.settings.layout_type == 'grid' or block.settings.layout_type == 'carousel' }}"
+      "unit": "px"
     },
     {
       "type": "range",
-      "id": "rows_gap",
-      "label": "t:settings.vertical_gap",
+      "id": "image_size",
+      "label": "Image size",
+      "min": 64,
+      "max": 200,
+      "step": 2,
+      "default": 110,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image corner radius",
       "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 16,
-      "visible_if": "{{ block.settings.layout_type == 'grid' }}"
+      "max": 40,
+      "step": 2,
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Gap between cards",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 12,
+      "unit": "px"
     },
     {
       "type": "header",
-      "content": "t:content.carousel_navigation",
-      "visible_if": "{{ block.settings.layout_type == 'carousel' or block.settings.carousel_on_mobile == true }}"
-    },
-    {
-      "type": "select",
-      "id": "icons_style",
-      "label": "t:settings.icon",
-      "options": [
-        {
-          "value": "arrow",
-          "label": "t:options.arrows"
-        },
-        {
-          "value": "chevron",
-          "label": "t:options.chevrons"
-        },
-        {
-          "value": "arrows_large",
-          "label": "t:options.arrows_large"
-        },
-        {
-          "value": "chevron_large",
-          "label": "t:options.chevron_large"
-        },
-        {
-          "value": "none",
-          "label": "t:options.none"
-        }
-      ],
-      "default": "arrow",
-      "visible_if": "{{ block.settings.layout_type == 'carousel' or block.settings.carousel_on_mobile == true }}"
-    },
-    {
-      "type": "select",
-      "id": "icons_shape",
-      "label": "t:settings.icon_background",
-      "options": [
-        {
-          "value": "none",
-          "label": "t:options.none"
-        },
-        {
-          "value": "circle",
-          "label": "t:options.circle"
-        },
-        {
-          "value": "square",
-          "label": "t:options.square"
-        }
-      ],
-      "default": "none",
-      "visible_if": "{{ block.settings.icons_style != 'none' and block.settings.layout_type == 'carousel' or block.settings.carousel_on_mobile == true }}"
-    },
-    {
-      "type": "header",
-      "content": "t:content.layout"
-    },
-    {
-      "type": "range",
-      "id": "gap",
-      "label": "t:settings.gap",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 12
-    },
-    {
-      "type": "range",
-      "id": "border_radius",
-      "label": "t:settings.border_radius",
-      "min": 0,
-      "max": 32,
-      "step": 1,
-      "unit": "px",
-      "default": 0
+      "content": "t:settings.color_scheme"
     },
     {
       "type": "checkbox",
@@ -529,10 +549,7 @@
       "name": "t:names.product_recommendations",
       "category": "t:categories.product",
       "settings": {
-        "recommendation_type": "related",
-        "border_radius": 0,
-        "padding-inline-start": 0,
-        "padding-inline-end": 0
+        "recommendation_type": "related"
       },
       "blocks": {
         "heading": {
@@ -540,76 +557,6 @@
           "settings": {
             "text": "t:html_defaults.may_also_like"
           }
-        },
-        "static-product-card": {
-          "type": "_product-card",
-          "static": true,
-          "settings": {
-            "product_card_gap": 4
-          },
-          "blocks": {
-            "product-card-gallery": {
-              "type": "_product-card-gallery",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              }
-            },
-            "product_title": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "paragraph",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              }
-            },
-            "price": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              }
-            }
-          },
-          "block_order": ["product-card-gallery", "product_title", "price"]
         }
       },
       "block_order": ["heading"]
