@@ -1230,7 +1230,7 @@
       "name": "Feature Cards Masonry",
       "settings": {
         "heading": "A better way to formula feed",
-        "heading_type_preset": "h2",
+        "heading_type_preset": "h3",
         "heading_font": "var(--font-heading--family)",
         "heading_font_size": "2rem",
         "heading_line_height": "tight",
