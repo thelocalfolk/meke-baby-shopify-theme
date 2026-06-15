@@ -1793,7 +1793,7 @@
       },
       "name": "t:names.blog_posts_carousel",
       "settings": {
-        "blog": "",
+        "blog": "parenting-travel",
         "layout_type": "carousel",
         "carousel_on_mobile": true,
         "post_limit": 6,
