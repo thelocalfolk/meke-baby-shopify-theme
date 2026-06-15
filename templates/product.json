@@ -1011,6 +1011,7 @@
         "card_Bjy49E": {
           "type": "card",
           "settings": {
+            "image": "{{ product.metafields.custom.featured_cards_masonry_image_1.value }}",
             "label": "{{ product.metafields.custom.featured_card_masonry_pill_1.value }}",
             "heading": "{{ product.metafields.custom.featured_card_masonry_header_1.value }}",
             "card_heading_preset": "h4",
@@ -1020,7 +1021,7 @@
             "card_heading_letter_spacing": "normal",
             "card_heading_case": "none",
             "card_heading_color": "#ffffff",
-            "body": "{{ product.metafields.custom.featured_card_masonry_body_1 | metafield_tag }}",
+            "body": "<p>{{ product.metafields.custom.featured_card_masonry_body_1 | metafield_tag }}</p>",
             "card_body_preset": "paragraph",
             "card_body_font": "var(--font-body--family)",
             "card_body_font_size": "0.875rem",
@@ -1037,6 +1038,7 @@
         "card_6AY7gC": {
           "type": "card",
           "settings": {
+            "image": "{{ product.metafields.custom.featured_cards_masonry_image_2.value }}",
             "label": "{{ product.metafields.custom.featured_card_masonry_pill_2.value }}",
             "heading": "{{ product.metafields.custom.featured_card_masonry_header_2.value }}",
             "card_heading_preset": "h4",
@@ -1063,6 +1065,7 @@
         "card_gFH6jW": {
           "type": "card",
           "settings": {
+            "image": "{{ product.metafields.custom.featured_cards_masonry_image_3.value }}",
             "label": "{{ product.metafields.custom.featured_card_masonry_pill_3.value }}",
             "heading": "{{ product.metafields.custom.featured_card_masonry_header_3.value }}",
             "card_heading_preset": "h4",
@@ -1089,6 +1092,7 @@
         "card_WX7nA9": {
           "type": "card",
           "settings": {
+            "image": "{{ product.metafields.custom.featured_cards_masonry_image_4.value }}",
             "label": "{{ product.metafields.custom.featured_card_masonry_pill_4.value }}",
             "heading": "{{ product.metafields.custom.featured_card_masonry_header_4.value }}",
             "card_heading_preset": "h4",
@@ -1115,6 +1119,7 @@
         "card_qMrbMk": {
           "type": "card",
           "settings": {
+            "image": "{{ product.metafields.custom.featured_cards_masonry_image_5.value }}",
             "label": "{{ product.metafields.custom.featured_card_masonry_pill_5.value }}",
             "heading": "{{ product.metafields.custom.featured_card_masonry_header_5.value }}",
             "card_heading_preset": "h4",
@@ -1141,6 +1146,7 @@
         "card_BJFVyc": {
           "type": "card",
           "settings": {
+            "image": "{{ product.metafields.custom.featured_cards_masonry_image_6.value }}",
             "label": "{{ product.metafields.custom.featured_card_masonry_pill_6.value }}",
             "heading": "{{ product.metafields.custom.featured_card_masonry_header_6.value }}",
             "card_heading_preset": "h4",
@@ -1167,6 +1173,7 @@
         "card_rzhQYA": {
           "type": "card",
           "settings": {
+            "image": "{{ product.metafields.custom.featured_cards_masonry_image_7.value }}",
             "label": "{{ product.metafields.custom.featured_card_masonry_pill_7.value }}",
             "heading": "{{ product.metafields.custom.featured_card_masonry_header_7.value }}",
             "card_heading_preset": "h4",
@@ -1193,6 +1200,7 @@
         "card_3HdyLQ": {
           "type": "card",
           "settings": {
+            "image": "{{ product.metafields.custom.featured_cards_masonry_image_8.value }}",
             "label": "{{ product.metafields.custom.featured_card_masonry_pill_8.value }}",
             "heading": "{{ product.metafields.custom.featured_card_masonry_header_8.value }}",
             "card_heading_preset": "h4",
