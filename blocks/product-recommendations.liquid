@@ -1,10 +1,14 @@
-
-
 {%- doc -%}
   Renders product recommendations.
   {section.id} - identifies the parent section for the Section Rendering API
 
   https://shopify.dev/docs/api/section-rendering-api
+
+  Meke Baby customisation:
+  Adds an optional purple "Add to cart" button under each recommended product card.
+  It adds the product via the theme's native product-form-component, so submitting
+  fires CartAddEvent and the cart drawer auto-opens — same as a normal Add to cart.
+  Controlled by the "Add to cart button" settings below.
 {%- enddoc -%}
 
 <script
@@ -58,6 +62,8 @@
       --resource-list-row-gap-desktop: {{ block_settings.rows_gap }}px;
       --resource-list-columns-mobile: repeat(auto-fill, minmax(9.25rem, 1fr));
       --border-radius: {{ block_settings.border_radius }}px;
+      --rec-button-bg: {{ block_settings.button_color }};
+      --rec-button-text: {{ block_settings.button_text_color }};
     "
   >
     <div class="section-resource-list__content">
@@ -94,6 +100,48 @@
               id: 'static-product-card',
               closest.product: product
             %}
+
+            {%- comment -%}
+              Meke Baby: purple add-to-cart under each card. Guarded so it never renders in
+              onboarding/placeholder mode (blank products) or for unavailable variants.
+              Uses the theme's product-form-component so the cart drawer opens on add.
+            {%- endcomment -%}
+            {%- if block_settings.show_add_to_cart and product != blank and product.id != blank -%}
+              {%- assign rec_variant = product.selected_or_first_available_variant -%}
+              {%- if rec_variant != blank and rec_variant.available -%}
+                {%- capture rec_form_id -%}ProductRecsForm-{{ block.id }}-{{ forloop.index }}{%- endcapture -%}
+                <product-form-component
+                  class="resource-list__add-to-cart"
+                  data-section-id="{{ section.id }}"
+                  data-product-id="{{ product.id }}"
+                  data-product-url="{{ product.url }}"
+                  on:submit="/handleSubmit"
+                >
+                  <div
+                    class="visually-hidden"
+                    aria-live="assertive"
+                    role="status"
+                    aria-atomic="true"
+                    ref="liveRegion"
+                  ></div>
+                  {%- form 'product', product, id: rec_form_id, data-type: 'add-to-cart-form' -%}
+                    <input
+                      type="hidden"
+                      name="id"
+                      ref="variantId"
+                      value="{{ rec_variant.id }}"
+                    >
+                    <button
+                      type="submit"
+                      name="add"
+                      class="button resource-list__add-button"
+                    >
+                      {{ block_settings.add_to_cart_label | default: 'Add to cart' | escape }}
+                    </button>
+                  {%- endform -%}
+                </product-form-component>
+              {%- endif -%}
+            {%- endif -%}
           </div>
           {% if block_settings.layout_type == 'carousel' or block_settings.carousel_on_mobile %}
             {% unless forloop.last %}
@@ -193,6 +241,27 @@
   .product-recommendations-wrapper:has(product-recommendations[data-shopify-editor-preview]) {
     width: 100vw;
   }
+
+  /* Meke Baby: purple add-to-cart button on recommendation cards */
+  .resource-list__add-to-cart {
+    display: block;
+    margin-top: 8px;
+  }
+
+  .resource-list__add-to-cart .resource-list__add-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: var(--rec-button-bg, #C6B7E2);
+    border-color: var(--rec-button-bg, #C6B7E2);
+    color: var(--rec-button-text, #2E2A39);
+    transition: background-color 0.2s ease;
+  }
+
+  .resource-list__add-to-cart .resource-list__add-button:hover {
+    background-color: color-mix(in srgb, var(--rec-button-bg, #C6B7E2) 88%, #000);
+    border-color: color-mix(in srgb, var(--rec-button-bg, #C6B7E2) 88%, #000);
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -231,6 +300,34 @@
     {
       "type": "paragraph",
       "content": "t:content.complementary_products"
+    },
+    {
+      "type": "header",
+      "content": "Add to cart button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_add_to_cart",
+      "label": "Show add to cart button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "add_to_cart_label",
+      "label": "Button text",
+      "default": "Add to cart"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button colour",
+      "default": "#C6B7E2"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text colour",
+      "default": "#2E2A39"
     },
     {
       "type": "header",
