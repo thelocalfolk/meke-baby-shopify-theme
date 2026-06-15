@@ -107,10 +107,14 @@
               <div class="rec-card__details">
                 <a href="{{ product.url }}" class="rec-card__title">{{ product.title | escape }}</a>
 
-                {%- if block_settings.show_description and product.description != blank -%}
-                  <p class="rec-card__description">
-                    {{ product.description | strip_html | truncate: 110 }}
-                  </p>
+                {%- if block_settings.show_description -%}
+                  {%- comment -%} Prefer the custom.sub_heading_description metafield, fall back to the product description {%- endcomment -%}
+                  {%- assign rec_subheading = product.metafields.custom.sub_heading_description.value -%}
+                  {%- if rec_subheading != blank -%}
+                    <p class="rec-card__description">{{ rec_subheading | strip_html }}</p>
+                  {%- elsif product.description != blank -%}
+                    <p class="rec-card__description">{{ product.description | strip_html | truncate: 110 }}</p>
+                  {%- endif -%}
                 {%- endif -%}
 
                 <p class="rec-card__price">
@@ -223,6 +227,10 @@
     padding: 16px;
     background-color: var(--rec-card-bg, #ffffff);
     border-radius: var(--rec-card-radius, 16px);
+    /* Match the rest of the site's body typography */
+    font-family: var(--font-body--family, inherit);
+    font-style: var(--font-body--style, normal);
+    font-weight: var(--font-body--weight, 400);
   }
 
   .rec-card__image-wrap {
@@ -253,7 +261,7 @@
 
   .rec-card__title {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: var(--font-body--weight, 400);
     line-height: 1.3;
     color: inherit;
     text-decoration: none;
@@ -273,7 +281,7 @@
   .rec-card__price {
     margin: 0;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: var(--font-body--weight, 400);
   }
 
   .rec-card__price-compare {
@@ -292,11 +300,12 @@
     border-radius: 999px;
     font: inherit;
     font-size: 0.9rem;
-    font-weight: 500;
     line-height: 1;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+    font-family: var(--font-body--family, inherit);
+    font-weight: var(--font-body--weight, 400);
     background-color: var(--rec-button-bg, #C6B7E2);
     color: var(--rec-button-text, #2E2A39);
     transition: background-color 0.2s ease;
