@@ -558,8 +558,8 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 25,
         "section_width": "page-width",
-        "section_height": "small",
-        "section_height_custom": 50,
+        "section_height": "custom",
+        "section_height_custom": 30,
         "color_scheme": "scheme-2",
         "background_media": "none",
         "video_position": "cover",
@@ -977,7 +977,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 100
+        "padding-block-end": 63
       }
     },
     "category_grid_U8Br8F": {
