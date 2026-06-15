@@ -476,7 +476,7 @@
         "heading": "As Seen In",
         "type_preset": "h3",
         "logo_height": 40,
-        "logo_height_mobile": 30,
+        "logo_height_mobile": 40,
         "movement_direction": "reverse",
         "speed": 25,
         "gap_between_logos": 48,
