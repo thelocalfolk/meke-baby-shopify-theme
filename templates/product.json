@@ -1011,6 +1011,7 @@
         "card_Bjy49E": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/Image_15.png",
             "label": "{{ product.metafields.custom.featured_card_masonry_pill_1.value }}",
             "heading": "{{ product.metafields.custom.featured_card_masonry_header_1.value }}",
             "card_heading_preset": "h4",
