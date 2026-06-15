@@ -16,6 +16,46 @@
   type="module"
 ></script>
 
+{%- comment -%}
+  Force the cart drawer to open when an Add to cart button in THIS recommendations
+  section is clicked — even if the theme's cart auto-open setting is off.
+  Scoped to .rec-card buttons so it doesn't affect add-to-cart anywhere else.
+  Uses the theme's own CartAddEvent so it fires after the item is actually added.
+{%- endcomment -%}
+<script type="module">
+  import { CartAddEvent } from '@theme/events';
+
+  if (!window.__mekeRecCartDrawerOpener) {
+    window.__mekeRecCartDrawerOpener = true;
+
+    let openFromRecs = false;
+
+    // Flag when one of our recommendation Add to cart buttons is clicked
+    document.addEventListener(
+      'click',
+      (event) => {
+        if (event.target.closest('.rec-card__form button[name="add"]')) {
+          openFromRecs = true;
+          setTimeout(() => {
+            openFromRecs = false;
+          }, 3000);
+        }
+      },
+      true
+    );
+
+    // When the add actually completes, open the drawer (only for our buttons)
+    document.addEventListener(CartAddEvent.eventName, () => {
+      if (!openFromRecs) return;
+      openFromRecs = false;
+      const drawer = document.querySelector('cart-drawer-component');
+      if (drawer && typeof drawer.open === 'function') {
+        drawer.open();
+      }
+    });
+  }
+</script>
+
 {% liquid
   assign block_settings = block.settings
 %}
