@@ -1039,7 +1039,7 @@
           "settings": {
             "label": "Material integrity",
             "heading": "Made with medical-grade stainless steel",
-            "card_heading_preset": "h3",
+            "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
             "card_heading_line_height": "tight",
@@ -1065,7 +1065,7 @@
           "settings": {
             "label": "Consistent results",
             "heading": "Fast, controlled warming every time",
-            "card_heading_preset": "h3",
+            "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
             "card_heading_line_height": "tight",
@@ -1091,7 +1091,7 @@
           "settings": {
             "label": "Temperature Control",
             "heading": "24 hour battery life",
-            "card_heading_preset": "h3",
+            "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
             "card_heading_line_height": "tight",
@@ -1117,7 +1117,7 @@
           "settings": {
             "label": "Effortless care",
             "heading": "Self-cleaning system",
-            "card_heading_preset": "h3",
+            "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
             "card_heading_line_height": "tight",
@@ -1143,7 +1143,7 @@
           "settings": {
             "label": "Practical design",
             "heading": "Generous 500ml capacity",
-            "card_heading_preset": "h3",
+            "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
             "card_heading_line_height": "tight",
@@ -1169,7 +1169,7 @@
           "settings": {
             "label": "Clear alternative",
             "heading": "No external tools required",
-            "card_heading_preset": "h3",
+            "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
             "card_heading_line_height": "tight",
@@ -1195,7 +1195,7 @@
           "settings": {
             "label": "Freedom to move",
             "heading": "Portable by design",
-            "card_heading_preset": "h3",
+            "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
             "card_heading_line_height": "tight",
