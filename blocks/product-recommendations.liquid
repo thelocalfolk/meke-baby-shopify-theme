@@ -222,7 +222,7 @@
   /* Horizontal cross-sell card */
   .rec-card {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 20px;
     padding: 16px;
     background-color: var(--rec-card-bg, #ffffff);
@@ -236,7 +236,8 @@
   .rec-card__image-wrap {
     flex: 0 0 var(--rec-img-size, 110px);
     width: var(--rec-img-size, 110px);
-    aspect-ratio: 1 / 1;
+    height: var(--rec-img-size, 110px);
+    align-self: center;
     border-radius: var(--rec-img-radius, 12px);
     overflow: hidden;
     background-color: #f5f0eb;
@@ -276,6 +277,12 @@
     font-size: 0.75rem;
     line-height: 1.5;
     opacity: 0.7;
+    /* Cut off at 2 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .rec-card__price {
@@ -315,8 +322,15 @@
     background-color: color-mix(in srgb, var(--rec-button-bg, #C6B7E2) 88%, #000);
   }
 
+  /* Push the button (or its form) to the bottom so it lines up with the image */
+  .rec-card__form,
+  .rec-card__details > .rec-card__button {
+    margin-top: auto;
+  }
+
   .rec-card__form {
-    margin: 0;
+    margin-bottom: 0;
+    margin-inline: 0;
     display: block;
   }
 
