@@ -232,6 +232,10 @@
               "name": "t:names.product_recommendations",
               "settings": {
                 "recommendation_type": "complementary",
+                "show_add_to_cart": true,
+                "add_to_cart_label": "Add to cart",
+                "button_color": "#c6b7e2",
+                "button_text_color": "#2e2a39",
                 "layout_type": "grid",
                 "carousel_on_mobile": true,
                 "max_products": 4,
