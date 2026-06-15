@@ -1037,8 +1037,8 @@
         "card_6AY7gC": {
           "type": "card",
           "settings": {
-            "label": "Material integrity",
-            "heading": "Made with medical-grade stainless steel",
+            "label": "{{ product.metafields.custom.featured_card_masonry_pill_2.value }}",
+            "heading": "{{ product.metafields.custom.featured_card_masonry_header_2.value }}",
             "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
@@ -1046,7 +1046,7 @@
             "card_heading_letter_spacing": "normal",
             "card_heading_case": "none",
             "card_heading_color": "#ffffff",
-            "body": "<p>Five-layer, microplastic, BPA & PFAS free medical-grade stainless steel for superior thermal performance and purity.</p>",
+            "body": "{{ product.metafields.custom.featured_card_masonry_body_2 | metafield_tag }}",
             "card_body_preset": "paragraph",
             "card_body_font": "var(--font-body--family)",
             "card_body_font_size": "0.875rem",
@@ -1063,8 +1063,8 @@
         "card_gFH6jW": {
           "type": "card",
           "settings": {
-            "label": "Consistent results",
-            "heading": "Fast, controlled warming every time",
+            "label": "{{ product.metafields.custom.featured_card_masonry_pill_3.value }}",
+            "heading": "{{ product.metafields.custom.featured_card_masonry_header_3.value }}",
             "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
@@ -1072,7 +1072,7 @@
             "card_heading_letter_spacing": "normal",
             "card_heading_case": "none",
             "card_heading_color": "#ffffff",
-            "body": "<p>Heats in under 3 minutes with a stable, even temperature — reducing variation between feeds.</p>",
+            "body": "{{ product.metafields.custom.featured_card_masonry_body_3 | metafield_tag }}",
             "card_body_preset": "paragraph",
             "card_body_font": "var(--font-body--family)",
             "card_body_font_size": "0.875rem",
@@ -1089,8 +1089,8 @@
         "card_WX7nA9": {
           "type": "card",
           "settings": {
-            "label": "Temperature Control",
-            "heading": "24 hour battery life",
+            "label": "{{ product.metafields.custom.featured_card_masonry_pill_4.value }}",
+            "heading": "{{ product.metafields.custom.featured_card_masonry_header_4.value }}",
             "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
@@ -1098,7 +1098,7 @@
             "card_heading_letter_spacing": "normal",
             "card_heading_case": "none",
             "card_heading_color": "#ffffff",
-            "body": "<p>A long-lasting battery supports multiple feeds throughout the day, without needing constant recharge.</p>",
+            "body": "{{ product.metafields.custom.featured_card_masonry_body_3 | metafield_tag }}",
             "card_body_preset": "paragraph",
             "card_body_font": "var(--font-body--family)",
             "card_body_font_size": "0.875rem",
@@ -1115,8 +1115,8 @@
         "card_qMrbMk": {
           "type": "card",
           "settings": {
-            "label": "Effortless care",
-            "heading": "Self-cleaning system",
+            "label": "{{ product.metafields.custom.featured_card_masonry_pill_5.value }}",
+            "heading": "{{ product.metafields.custom.featured_card_masonry_header_5.value }}",
             "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
@@ -1124,7 +1124,7 @@
             "card_heading_letter_spacing": "normal",
             "card_heading_case": "none",
             "card_heading_color": "#ffffff",
-            "body": "<p>Built-in cleaning function supports simple, consistent hygiene with minimal effort.</p>",
+            "body": "{{ product.metafields.custom.featured_card_masonry_body_5 | metafield_tag }}",
             "card_body_preset": "paragraph",
             "card_body_font": "var(--font-body--family)",
             "card_body_font_size": "0.875rem",
@@ -1141,8 +1141,8 @@
         "card_BJFVyc": {
           "type": "card",
           "settings": {
-            "label": "Practical design",
-            "heading": "Generous 500ml capacity",
+            "label": "{{ product.metafields.custom.featured_card_masonry_pill_6.value }}",
+            "heading": "{{ product.metafields.custom.featured_card_masonry_header_6.value }}",
             "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
@@ -1150,7 +1150,7 @@
             "card_heading_letter_spacing": "normal",
             "card_heading_case": "none",
             "card_heading_color": "#ffffff",
-            "body": "<p>Designed to hold enough volume for a range of feeding needs, from smaller bottles to larger feeds.</p>",
+            "body": "{{ product.metafields.custom.featured_card_masonry_body_6 | metafield_tag }}",
             "card_body_preset": "paragraph",
             "card_body_font": "var(--font-body--family)",
             "card_body_font_size": "0.875rem",
@@ -1167,8 +1167,8 @@
         "card_rzhQYA": {
           "type": "card",
           "settings": {
-            "label": "Clear alternative",
-            "heading": "No external tools required",
+            "label": "{{ product.metafields.custom.featured_card_masonry_pill_7.value }}",
+            "heading": "{{ product.metafields.custom.featured_card_masonry_header_7.value }}",
             "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
@@ -1176,7 +1176,7 @@
             "card_heading_letter_spacing": "normal",
             "card_heading_case": "none",
             "card_heading_color": "#ffffff",
-            "body": "<p>Replaces kettles, microwaves, and multi-step methods with a single, contained process.</p>",
+            "body": "{{ product.metafields.custom.featured_card_masonry_body_7 | metafield_tag }}",
             "card_body_preset": "paragraph",
             "card_body_font": "var(--font-body--family)",
             "card_body_font_size": "0.875rem",
@@ -1193,8 +1193,8 @@
         "card_3HdyLQ": {
           "type": "card",
           "settings": {
-            "label": "Freedom to move",
-            "heading": "Portable by design",
+            "label": "{{ product.metafields.custom.featured_card_masonry_pill_8.value }}",
+            "heading": "{{ product.metafields.custom.featured_card_masonry_header_8.value }}",
             "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
@@ -1202,7 +1202,7 @@
             "card_heading_letter_spacing": "normal",
             "card_heading_case": "none",
             "card_heading_color": "#ffffff",
-            "body": "<p>Compact and easy to carry, designed to support feeding wherever you are.</p>",
+            "body": "{{ product.metafields.custom.featured_card_masonry_body_8 | metafield_tag }}",
             "card_body_preset": "paragraph",
             "card_body_font": "var(--font-body--family)",
             "card_body_font_size": "0.875rem",
