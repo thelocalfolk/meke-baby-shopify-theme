@@ -1037,7 +1037,7 @@
             "text_alignment": "inherit",
             "use_text_color_override": false,
             "text_color_override": "#ffffff",
-            "show_overlay": true,
+            "show_overlay": false,
             "use_overlay_override": false,
             "overlay_color_override": "#000000",
             "overlay_opacity_override": 15
