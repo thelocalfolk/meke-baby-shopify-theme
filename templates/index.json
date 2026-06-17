@@ -2454,7 +2454,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/ChatGPT_Image_May_18_2026_at_08_33_16_PM_1.png",
-            "label": "A better alternative",
+            "label": "Consistent every time",
             "heading": "No thermos. No microwaves. No workarounds.",
             "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
