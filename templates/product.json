@@ -937,6 +937,7 @@
         "video_VQYpRB",
         "group_BghjDD"
       ],
+      "disabled": true,
       "name": "t:names.video_section",
       "settings": {
         "content_direction": "column",
@@ -1299,7 +1300,7 @@
         "heading_line_height": "tight",
         "heading_letter_spacing": "normal",
         "heading_case": "none",
-        "heading_color": "#927F76",
+        "heading_color": "#927f76",
         "columns": 4,
         "column_height_desktop": 840,
         "card_gap": 12,
