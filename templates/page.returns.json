@@ -61,7 +61,7 @@
       "type": "meke-baby-hero",
       "name": "Mekè Baby Hero",
       "settings": {
-        "image": "shopify://shop_images/Image_10.png",
+        "image": "shopify://shop_images/Rectangle_160.png",
         "image_url": "",
         "bg_position": "top center",
         "bg_position_mobile": "center",
@@ -79,7 +79,7 @@
         "button_style": "primary",
         "content_position": "center",
         "content_max_width": 560,
-        "min_height": 85,
+        "min_height": 60,
         "padding_top": 40,
         "padding_bottom": 40,
         "padding_horizontal": 32
