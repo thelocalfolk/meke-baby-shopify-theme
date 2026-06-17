@@ -2437,7 +2437,7 @@
             "card_heading_letter_spacing": "normal",
             "card_heading_case": "none",
             "card_heading_color": "#ffffff",
-            "body": "Five-layer, microplastic, BPA & PFAS, free medical-grade stainless steel for superior thermal performance and purity.",
+            "body": "Five-layer, BPA & PFAS free medical-grade stainless steel — engineered to reduce microplastic exposure, with superior thermal performance and purity.",
             "card_body_preset": "paragraph",
             "card_body_font": "var(--font-body--family)",
             "card_body_font_size": "0.875rem",
@@ -2507,7 +2507,7 @@
           "settings": {
             "image": "shopify://shop_images/10.jpg",
             "label": "Flexible feeding",
-            "heading": "Designed for formula feeding",
+            "heading": "Made for the way you feed",
             "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
