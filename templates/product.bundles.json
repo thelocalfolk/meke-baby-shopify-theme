@@ -1261,38 +1261,38 @@
         "section_width": "page-width"
       }
     },
-    "comparison_table_BnzQVi": {
+    "comparison_table_RzCFiM": {
       "type": "comparison-table",
       "blocks": {
-        "competitor_mbBVnx": {
+        "competitor_Dbq9tC": {
           "type": "competitor",
           "settings": {
             "label_line1": "Kettle",
             "label_line2": ""
           }
         },
-        "competitor_LXij6a": {
+        "competitor_wQrVmj": {
           "type": "competitor",
           "settings": {
             "label_line1": "Thermos &",
             "label_line2": "Plastic Water bottle"
           }
         },
-        "competitor_HWxN9F": {
+        "competitor_fEkTFH": {
           "type": "competitor",
           "settings": {
             "label_line1": "Microwaves",
             "label_line2": ""
           }
         },
-        "competitor_WdhRUL": {
+        "competitor_wpQrfL": {
           "type": "competitor",
           "settings": {
             "label_line1": "Other Milk",
             "label_line2": "Warmers"
           }
         },
-        "row_YmGrYG": {
+        "row_8hHtix": {
           "type": "row",
           "settings": {
             "label": "Controlled temperature",
@@ -1300,7 +1300,7 @@
             "competitor_values": "false,false,false,false"
           }
         },
-        "row_dALrPM": {
+        "row_pqbQhD": {
           "type": "row",
           "settings": {
             "label": "Safe for breastmilk",
@@ -1308,7 +1308,7 @@
             "competitor_values": "false,false,false,false"
           }
         },
-        "row_d7C93L": {
+        "row_PPBjXt": {
           "type": "row",
           "settings": {
             "label": "Safe for formula",
@@ -1316,7 +1316,7 @@
             "competitor_values": "false,false,false,false"
           }
         },
-        "row_TyfqNk": {
+        "row_GRDdyX": {
           "type": "row",
           "settings": {
             "label": "Even heating (no hot spots)",
@@ -1324,7 +1324,7 @@
             "competitor_values": "false,false,false,false"
           }
         },
-        "row_dBLWQ8": {
+        "row_cYGwnt": {
           "type": "row",
           "settings": {
             "label": "Microplastic-free",
@@ -1332,7 +1332,7 @@
             "competitor_values": "true,false,false,false"
           }
         },
-        "row_Kap94t": {
+        "row_dmyRRe": {
           "type": "row",
           "settings": {
             "label": "No risk of burns / spillage",
@@ -1340,7 +1340,7 @@
             "competitor_values": "false,false,false,false"
           }
         },
-        "row_WPFnQ9": {
+        "row_J9aeXA": {
           "type": "row",
           "settings": {
             "label": "Convenient on-the-go",
@@ -1348,7 +1348,7 @@
             "competitor_values": "false,true,false,false"
           }
         },
-        "row_XJNVJG": {
+        "row_8UHEzx": {
           "type": "row",
           "settings": {
             "label": "No multiple steps / tools",
@@ -1356,7 +1356,7 @@
             "competitor_values": "false,false,false,false"
           }
         },
-        "row_MzGcFR": {
+        "row_Aiyynt": {
           "type": "row",
           "settings": {
             "label": "Durable + leak-resistant",
@@ -1364,7 +1364,7 @@
             "competitor_values": "false,false,true,false"
           }
         },
-        "row_8PcBre": {
+        "row_rDEPGx": {
           "type": "row",
           "settings": {
             "label": "Preserves nutrients",
@@ -1374,25 +1374,25 @@
         }
       },
       "block_order": [
-        "competitor_mbBVnx",
-        "competitor_LXij6a",
-        "competitor_HWxN9F",
-        "competitor_WdhRUL",
-        "row_YmGrYG",
-        "row_dALrPM",
-        "row_d7C93L",
-        "row_TyfqNk",
-        "row_dBLWQ8",
-        "row_Kap94t",
-        "row_WPFnQ9",
-        "row_XJNVJG",
-        "row_MzGcFR",
-        "row_8PcBre"
+        "competitor_Dbq9tC",
+        "competitor_wQrVmj",
+        "competitor_fEkTFH",
+        "competitor_wpQrfL",
+        "row_8hHtix",
+        "row_pqbQhD",
+        "row_PPBjXt",
+        "row_GRDdyX",
+        "row_cYGwnt",
+        "row_dmyRRe",
+        "row_J9aeXA",
+        "row_8UHEzx",
+        "row_Aiyynt",
+        "row_rDEPGx"
       ],
       "name": "Comparison Table",
       "settings": {
         "heading": "How we compare",
-        "heading_type_preset": "h3",
+        "heading_type_preset": "h4",
         "brand_label": "Mekē",
         "brand_label_2": "Milk Warmer",
         "brand_icon": "shopify://shop_images/Group_64845.svg",
@@ -2584,7 +2584,7 @@
     "section_qNdyDd",
     "award_logo_marquee_bXitjN",
     "feature_cards_masonry_meVNhB",
-    "comparison_table_BnzQVi",
+    "comparison_table_RzCFiM",
     "brand_story_split_A9YkFi",
     "video_feedback_carousel_GDBGr7",
     "feature_cards_masonry_q97HBe",
