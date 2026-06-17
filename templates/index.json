@@ -2197,10 +2197,10 @@
       },
       "name": "t:names.carousel",
       "settings": {
-        "columns": 3,
+        "columns": 4,
         "mobile_columns": "1",
         "section_width": "page-width",
-        "columns_gap": 34,
+        "columns_gap": 24,
         "color_scheme": "scheme-2",
         "icons_style": "none",
         "icons_shape": "none",
