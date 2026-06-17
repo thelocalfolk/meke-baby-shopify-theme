@@ -119,9 +119,9 @@
           "name": "t:names.text",
           "settings": {
             "text": "<p>Standing in a grocery store during the COVID lockdowns, with a crying baby in her arms, Elysia realised something confronting — she had no way to feed her daughter. No warm water. No feeding room. No solution. What should have been simple suddenly felt impossible. That moment wasn’t just stressful - it exposed a gap.  In a world moving so quickly, why were parents still relying on outdated, impractical ways to feed their babies?</p>",
-            "width": "fit-content",
-            "max_width": "none",
-            "alignment": "left",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
@@ -155,7 +155,7 @@
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 25,
-        "section_width": "page-width",
+        "section_width": "full-width",
         "section_height": "small",
         "section_height_custom": 50,
         "color_scheme": "scheme-2",
