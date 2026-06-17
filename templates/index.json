@@ -2836,6 +2836,7 @@
       "block_order": [
         "video_ecJBAi"
       ],
+      "disabled": true,
       "name": "t:names.video_section",
       "settings": {
         "content_direction": "column",
@@ -3015,6 +3016,7 @@
           "block_order": []
         }
       },
+      "disabled": true,
       "name": "t:names.blog_posts_carousel",
       "settings": {
         "blog": "formula-feeding",
