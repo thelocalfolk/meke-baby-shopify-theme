@@ -225,7 +225,7 @@
         "heading_alignment": "center",
         "heading_bottom_gap": 40,
         "mobile_heading_bottom_gap": 24,
-        "columns": "2",
+        "columns": "3",
         "mobile_columns": "1",
         "card_gap": 32,
         "mobile_card_gap": 40,
@@ -242,10 +242,10 @@
         "heading_colour": "#928076",
         "padding_top": 0,
         "padding_bottom": 80,
-        "padding_horizontal": 32,
+        "padding_horizontal": 64,
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48,
-        "mobile_padding_horizontal": 16
+        "mobile_padding_horizontal": 0
       }
     },
     "product_list_GeLyRy": {
