@@ -182,14 +182,7 @@
     border-radius: var(--category-card-radius, 12px);
     text-decoration: none;
     color: var(--card-text-color-override, var(--category-card-text-color, #ffffff));
-    aspect-ratio: var(--category-card-aspect-ratio-mobile, 4/3);
     transition: transform 0.3s ease;
-  }
-
-  @media screen and (min-width: 750px) {
-    .category-grid__card {
-      aspect-ratio: var(--category-card-aspect-ratio, 16/9);
-    }
   }
 
   @media (hover: hover) {
@@ -203,11 +196,16 @@
   }
 
   .category-grid__card-media {
-    position: absolute;
-    inset: 0;
+    position: relative;
     width: 100%;
-    height: 100%;
     overflow: hidden;
+    aspect-ratio: var(--category-card-aspect-ratio-mobile, 4/3);
+  }
+
+  @media screen and (min-width: 750px) {
+    .category-grid__card-media {
+      aspect-ratio: var(--category-card-aspect-ratio, 16/9);
+    }
   }
 
   .category-grid__image,
