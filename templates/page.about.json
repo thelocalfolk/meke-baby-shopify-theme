@@ -534,7 +534,7 @@
       "type": "brand-story-split",
       "name": "Brand Story Split",
       "settings": {
-        "image_position": "left",
+        "image_position": "right",
         "vertical_alignment": "center",
         "text_max_width": 520,
         "color_scheme": "scheme-4",
@@ -1221,6 +1221,7 @@
           "block_order": []
         }
       },
+      "disabled": true,
       "name": "t:names.blog_posts_carousel",
       "settings": {
         "blog": "",
