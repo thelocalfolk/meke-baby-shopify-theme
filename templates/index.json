@@ -2401,7 +2401,7 @@
         "card_CkbnKM": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Image_1.jpg",
+            "image": "shopify://shop_images/HIM00631.jpg",
             "label": "Remove the uncertainty",
             "heading": "Go anywhere, without the anxiety",
             "card_heading_preset": "h4",
@@ -2453,7 +2453,7 @@
         "card_XQMqcG": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_51.png",
+            "image": "shopify://shop_images/ChatGPT_Image_May_18_2026_at_08_33_16_PM_1.png",
             "label": "A better alternative",
             "heading": "No thermos. No microwaves. No workarounds.",
             "card_heading_preset": "h4",
@@ -2505,9 +2505,9 @@
         "card_HpEqnh": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_154_1.png",
+            "image": "shopify://shop_images/10.jpg",
             "label": "Flexible feeding",
-            "heading": "Designed for mixed feeding",
+            "heading": "Designed for formula feeding",
             "card_heading_preset": "h4",
             "card_heading_font": "var(--font-heading--family)",
             "card_heading_font_size": "2rem",
