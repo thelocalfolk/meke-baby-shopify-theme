@@ -773,6 +773,7 @@
           "block_order": []
         }
       },
+      "disabled": true,
       "name": "t:names.blog_posts_carousel",
       "settings": {
         "blog": "",
