@@ -693,8 +693,8 @@
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 100,
-            "padding-inline-end": 100
+            "padding-inline-start": 21,
+            "padding-inline-end": 21
           },
           "blocks": {}
         }
