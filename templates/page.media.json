@@ -62,7 +62,7 @@
       "name": "Mekè Baby Hero",
       "settings": {
         "image": "shopify://shop_images/Image_10.png",
-        "image_mobile": "shopify://shop_images/Image_10.png",
+        "image_mobile": "shopify://shop_images/Image_10_fc0ce0d4-24d8-4cea-b750-79739ec8c587.png",
         "image_url": "",
         "bg_position": "center",
         "bg_position_mobile": "center",
@@ -188,7 +188,7 @@
               "settings": {
                 "icon": "heart",
                 "image_upload": "shopify://shop_images/1650930640onefinebaby-logo_209f03ce-010a-476f-84b5-a168c425122f.png",
-                "width": 200,
+                "width": 150,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -243,7 +243,7 @@
               "settings": {
                 "icon": "silhouette",
                 "image_upload": "shopify://shop_images/News-com-au_logo.svg",
-                "width": 200,
+                "width": 150,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -327,7 +327,7 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
         "section_width": "page-width",
-        "section_height": "custom",
+        "section_height": "small",
         "section_height_custom": 30,
         "color_scheme": "scheme-2",
         "background_media": "none",
@@ -392,7 +392,7 @@
               "settings": {
                 "icon": "eye",
                 "image_upload": "shopify://shop_images/output-onlinepngtools-1024x390.webp",
-                "width": 200,
+                "width": 150,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -447,7 +447,7 @@
               "settings": {
                 "icon": "heart",
                 "image_upload": "shopify://shop_images/kidspot_5c8d424f-651f-4f04-be82-62039a07e02f.svg",
-                "width": 200,
+                "width": 150,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -502,7 +502,7 @@
               "settings": {
                 "icon": "silhouette",
                 "image_upload": "shopify://shop_images/HoneyLogo_RGB_Colour.png",
-                "width": 200,
+                "width": 150,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -557,7 +557,7 @@
               "settings": {
                 "icon": "silhouette",
                 "image_upload": "shopify://shop_images/VOGUE_LOGO_svg.png",
-                "width": 200,
+                "width": 150,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -586,7 +586,7 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
         "section_width": "page-width",
-        "section_height": "custom",
+        "section_height": "small",
         "section_height_custom": 30,
         "color_scheme": "scheme-2",
         "background_media": "none",
@@ -841,13 +841,13 @@
         "content_direction": "row",
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
+        "vertical_alignment": "flex-start",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
         "section_width": "page-width",
-        "section_height": "custom",
+        "section_height": "small",
         "section_height_custom": 30,
         "color_scheme": "scheme-2",
         "background_media": "none",
@@ -861,7 +861,7 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 48,
+        "padding-block-start": 0,
         "padding-block-end": 0
       }
     }
