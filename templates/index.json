@@ -1248,7 +1248,7 @@
                   "settings": {
                     "text": "<p>Ok. YOUR BOTTLE WARMER is incredibly good!!!! we’re genuinely obsessed and recommend it to everyone !! So easy and convenient xx</p>",
                     "width": "fit-content",
-                    "max_width": "normal",
+                    "max_width": "narrow",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -1358,7 +1358,7 @@
                   "settings": {
                     "text": "<p>We welcomed baby #3 this year and the Meke Baby milk warmer has made our busy life so much easier. Convenient in the middle of the night or on the go during the day. Cannot recommend this product enough!</p>",
                     "width": "fit-content",
-                    "max_width": "normal",
+                    "max_width": "narrow",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -1468,7 +1468,7 @@
                   "settings": {
                     "text": "<p>I am such a fan of Meke baby bottles and products, we use them everyday and they are so revolutionary and innovative. Amazing product 10/10 recommend for mums and Bubs on the go.</p>",
                     "width": "fit-content",
-                    "max_width": "normal",
+                    "max_width": "narrow",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -1578,7 +1578,7 @@
                   "settings": {
                     "text": "<p>The Quality of this product is second to none, I am a genuine paying customer. Because I'm always on the go this is an necessity and the quality of the product is second to none. It’s incredible, the packaging is just all on point.</p>",
                     "width": "fit-content",
-                    "max_width": "normal",
+                    "max_width": "narrow",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -1688,7 +1688,7 @@
                   "settings": {
                     "text": "<p>Can not recommend Meke Baby Milk Warmer enough! I was getting sick of warming breast milk pouches in a bowl filled with boiling water & obviously its not convenient when you are out and about. Meke Baby Milk Warmer is quick and easy to use, simple to clean.</p>",
                     "width": "fit-content",
-                    "max_width": "normal",
+                    "max_width": "narrow",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -1798,7 +1798,7 @@
                   "settings": {
                     "text": "<p>We brought our Meke on our first trip away with bub and we’ve entirely stopped using our big, expensive bench-top warmer. Faster, simple, more effective.</p>",
                     "width": "fit-content",
-                    "max_width": "normal",
+                    "max_width": "narrow",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -1908,7 +1908,7 @@
                   "settings": {
                     "text": "<p>My friends have told me the horror stories of going downstairs in the middle of the night to heat up milk ect. The convenience of having this portable milk warmer by my bed is an absolute game changer.</p>",
                     "width": "fit-content",
-                    "max_width": "normal",
+                    "max_width": "narrow",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -2018,7 +2018,7 @@
                   "settings": {
                     "text": "<p>The milk warmer is amazing! Such a great help for my partner and I with our new born. It has made it a lot easier going out and feeding Sadie.</p>",
                     "width": "fit-content",
-                    "max_width": "normal",
+                    "max_width": "narrow",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -2128,7 +2128,7 @@
                   "settings": {
                     "text": "<p>I’m off to Bali in a few weeks and I will 1000% be taking the warmer on the plane!!! It literally is the most perfect thing to travel with and i’m SO GLAD it exists.</p>",
                     "width": "fit-content",
-                    "max_width": "normal",
+                    "max_width": "narrow",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -2200,7 +2200,7 @@
         "columns": 3,
         "mobile_columns": "1",
         "section_width": "page-width",
-        "columns_gap": 12,
+        "columns_gap": 34,
         "color_scheme": "scheme-2",
         "icons_style": "arrow",
         "icons_shape": "none",
