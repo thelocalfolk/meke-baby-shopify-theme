@@ -62,7 +62,7 @@
       "name": "Mekè Baby Hero",
       "settings": {
         "image": "shopify://shop_images/Image_7.png",
-        "image_mobile": "shopify://shop_images/Image_7.png",
+        "image_mobile": "shopify://shop_images/Meke-Bundles-ExpressTwistDuo-SecondImage.jpg",
         "image_url": "",
         "bg_position": "center",
         "bg_position_mobile": "center",
@@ -72,7 +72,7 @@
         "heading": "Stockist",
         "heading_size": 42,
         "heading_max_width": 900,
-        "subheading": "Discover the spaces that bring Mekė Baby closer to you.",
+        "subheading": "<p>Discover the spaces that bring Mekė Baby closer to you.</p>",
         "subheading_size": 15,
         "subheading_max_width": 900,
         "button_label": "",
@@ -80,7 +80,7 @@
         "button_style": "primary",
         "content_position": "center",
         "content_max_width": 560,
-        "min_height": 70,
+        "min_height": 55,
         "padding_top": 40,
         "padding_bottom": 40,
         "padding_horizontal": 32
