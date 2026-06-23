@@ -1832,7 +1832,7 @@
       "name": "Image Cards — 3 Column",
       "settings": {
         "heading": "Fits seamlessly into your routine",
-        "type_preset": "h3",
+        "type_preset": "h4",
         "section_heading_colour": "#8c7b72",
         "heading_alignment": "center",
         "heading_bottom_gap": 40,
