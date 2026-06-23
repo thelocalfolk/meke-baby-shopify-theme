@@ -1005,6 +1005,7 @@
         },
         "award_logo_whE4yk": {
           "type": "award_logo",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_6_1.png",
             "alt_text": "",
