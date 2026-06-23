@@ -835,6 +835,215 @@
             "accordion_row_m6D6qe",
             "accordion_row_EH3bai"
           ]
+        },
+        "text_ym99ij": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h4>Meke Twist</h4>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion_4hE3eM": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 36
+          },
+          "blocks": {
+            "accordion_row_MQN8xk": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "How do I clean my Meke Twist?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_xaGY4M": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Do not boil the formula cartridge box at high temperature when it is in the storage/OFF position. After high temp sterilisation, do not immediately rotate the formula cartridge. Once it has cooled down, it can be rotated. Please do not use a UV steriliser or exceed 110ºC for silicone.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xaGY4M"
+              ]
+            },
+            "accordion_row_PnETdy": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "How does the Meke Twist work?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_yfM9kM": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>The TWIST comes with an integrated formula dispenser capable of holding up to four scoops of formula until it's time to serve. Once the cartridge is turned 'on', the silicone will twist into an open position, dropping the formula into the water with ease. Simply twist, shake and feed!</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_yfM9kM"
+              ]
+            },
+            "accordion_row_zqqRP8": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Can I use the Meke Twist with other baby bottles?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_AJcRaj": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>The cartridge is specifically designed for Meke Baby bottles. However, you may be able to use other teats with our bottles.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_AJcRaj"
+              ]
+            },
+            "accordion_row_6aBhn7": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Can I put Meke Baby products in a UV steriliser?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_7aKDbi": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>We do not suggest putting any of our products in a UV steriliser.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_7aKDbi"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_MQN8xk",
+            "accordion_row_PnETdy",
+            "accordion_row_zqqRP8",
+            "accordion_row_6aBhn7"
+          ]
         }
       },
       "block_order": [
@@ -843,7 +1052,9 @@
         "text_N94eir",
         "accordion_iDMQJU",
         "text_4crxTk",
-        "accordion_99WAr7"
+        "accordion_99WAr7",
+        "text_ym99ij",
+        "accordion_4hE3eM"
       ],
       "name": "t:names.faq_section",
       "settings": {
