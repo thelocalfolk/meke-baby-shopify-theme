@@ -93,7 +93,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h3>Find what works for you</h3>",
+            "text": "<h4>Find what works for you</h4>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
