@@ -92,7 +92,7 @@
         "heading": "Contact",
         "heading_size": 48,
         "heading_max_width": 560,
-        "subheading": "Connecting you with Mekė Baby, whenever you need us.",
+        "subheading": "<p>Connecting you with Mekė Baby, whenever you need us.</p>",
         "subheading_size": 15,
         "subheading_max_width": 400,
         "button_label": "",
@@ -228,10 +228,37 @@
             }
           },
           "block_order": []
+        },
+        "text_NNwPjm": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>Disclaimer: To maintain product hygiene and performance, we recommend cleaning and thoroughly drying all components after each use. Products affected by improper cleaning, storage, or mould buildup may not qualify for return assessment.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "contact_form_UwiCkQ"
+        "contact_form_UwiCkQ",
+        "text_NNwPjm"
       ],
       "name": "t:names.contact_form",
       "settings": {
