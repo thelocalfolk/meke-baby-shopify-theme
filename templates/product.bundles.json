@@ -1413,7 +1413,7 @@
         "mobile_padding_bottom": 48
       }
     },
-    "brand_story_split_A9YkFi": {
+    "brand_story_split_Xc86FY": {
       "type": "brand-story-split",
       "name": "Brand Story Split",
       "settings": {
@@ -1423,7 +1423,7 @@
         "color_scheme": "scheme-4",
         "heading": "Why materials matter under heat",
         "heading_type_preset": "h4",
-        "heading_size": 33,
+        "heading_size": 0,
         "heading_size_mobile": 0,
         "body": "<p>Feeding involves repeated exposure to heat, often multiple times a day over many months, and not all materials respond to this in the same way. Some plastics can begin to degrade with frequent heating, potentially releasing microscopic particles, known as microplastics, into the liquid inside. While this is not always visible or immediate, it highlights an important consideration. How materials perform under real, repeated use. Choosing materials that remain stable under heat helps reduce this interaction, limit breakdown over time, and create a more controlled, consistent feeding process. It is not about adding complexity, but removing variables and supporting a routine that performs reliably, every day.</p>",
         "body_size": 14,
@@ -1503,7 +1503,7 @@
       "name": "Video feedback carousel",
       "settings": {
         "heading": "Real feedback from real families",
-        "heading_type_preset": "h3",
+        "heading_type_preset": "h4",
         "heading_font": "var(--font-heading--family)",
         "heading_font_size": "2.5rem",
         "heading_line_height": "tight",
@@ -2585,7 +2585,7 @@
     "award_logo_marquee_YEUYTW",
     "feature_cards_masonry_meVNhB",
     "comparison_table_VFEVhp",
-    "brand_story_split_A9YkFi",
+    "brand_story_split_Xc86FY",
     "video_feedback_carousel_GDBGr7",
     "feature_cards_masonry_q97HBe",
     "image_cards_3col_JyDwff",
