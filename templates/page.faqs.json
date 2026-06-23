@@ -1044,6 +1044,615 @@
             "accordion_row_zqqRP8",
             "accordion_row_6aBhn7"
           ]
+        },
+        "text_cbtcWV": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h4>Meke Milk Warmer Express 2.0</h4>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion_NxNDAH": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 36
+          },
+          "blocks": {
+            "accordion_row_xDcDF6": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Can I store cold breastmilk in the Express and warm it up later?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_9qgEhL": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Yes, the Express has thermal insulation to keep milk cold for 8-10 hours. However, it is not designed for thawing frozen milk. For defrosting, use the Original Warmer.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_9qgEhL"
+              ]
+            },
+            "accordion_row_dNagRw": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "How long can I safely leave cold breastmilk in the Express?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_Nh9BHJ": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Up to 8-10 hours.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_Nh9BHJ"
+              ]
+            },
+            "accordion_row_gtVQCJ": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "How long can I safely leave heated breastmilk in the Express?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_XNkQHY": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>According to safety guidelines, once breastmilk has been heated, it should be used within 2 hours and then discarded if not consumed.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_XNkQHY"
+              ]
+            },
+            "accordion_row_YAUDJF": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "How do I clean the warmer between uses while on the go?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_xEEMwK": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>If using sterile water for formula preparation, cleaning between uses is not necessary. If using for breastmilk or cows milk, it must be rinsed out straight away after use and clean it with 3 % hydrogen peroxide or the warm soapy water method. At the end of the day use the self-sanitise function while charging.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xEEMwK"
+              ]
+            },
+            "accordion_row_zjMgbW": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Should I use the self-sanitise function between uses?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_jMBrL3": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>No. Use the self-sanitise function once a day while charging.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_jMBrL3"
+              ]
+            },
+            "accordion_row_HJgM6z": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Can I use the warmer for cow's milk?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_dD8HJH": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Yes</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_dD8HJH"
+              ]
+            },
+            "accordion_row_fzmt6a": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "What is the Express made of?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_BHNXa8": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>The MEKE Baby Express is made from 316 stainless steel, known for durability and corrosion resistance. It has passed:Skin Irritation Test: Ensuring safety for a baby's delicate skin.Heavy Metal Migration Test: Ensuring no harmful metals leach into the milk.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_BHNXa8"
+              ]
+            },
+            "accordion_row_4WV6Ct": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Why is MEKE Baby more expensive than other brands?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_VTNd3U": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>MEKE Baby uses premium materials for superior durability and safety. Rigorous testing, innovative design, and sustainable production practices ensure the highest quality and long-term value.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_VTNd3U"
+              ]
+            },
+            "accordion_row_pT7Y3D": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Can I heat water without formula or breastmilk?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_gG3tht": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Yes, the Express is designed to keep liquids warm for several hours due to high-quality insulation.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_gG3tht"
+              ]
+            },
+            "accordion_row_aVkXzA": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Is the warmer approved for air travel?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_6KY8b8": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Yes, it is safe for both domestic and international travel.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_6KY8b8"
+              ]
+            },
+            "accordion_row_wXTFpV": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Why should I use a milk warmer instead of a thermos for formula preparation?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_M7iFtn": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Bottled water has several concerns:Mineral Content: Some have high sodium and sulfate levels, which are not ideal for babies.Sterility: Bottled water is not always sterile, which is critical for newborns.Fluoride Levels: Some contain added fluoride.Temperature Accuracy: The warmer ensures precise temperature control.Microplastics: Bottled water contains more microplastics than tap water.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_M7iFtn"
+              ]
+            },
+            "accordion_row_BjyyNT": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "My lid is stuck and won't open. Is it faulty?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_dQzGQa": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>No, the lid is likely locked. Ensure you have unlocked it by pressing the button in the middle.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_dQzGQa"
+              ]
+            },
+            "accordion_row_CrzYWq": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Why is my battery draining quickly?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_Yeaany": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>The Express is designed to stay on for convenience. If you leave home, fill it with 500ml of water and keep it on so it's ready when needed. Heating multiple full cycles will drain the battery faster.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_Yeaany"
+              ]
+            },
+            "accordion_row_a3qEUV": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "What is the weight of the 2 warmers?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_UyPVJ4": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>The Meke Original is 550 grams and the Meke Express is 720grams.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_UyPVJ4"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_xDcDF6",
+            "accordion_row_dNagRw",
+            "accordion_row_gtVQCJ",
+            "accordion_row_YAUDJF",
+            "accordion_row_zjMgbW",
+            "accordion_row_HJgM6z",
+            "accordion_row_fzmt6a",
+            "accordion_row_4WV6Ct",
+            "accordion_row_pT7Y3D",
+            "accordion_row_aVkXzA",
+            "accordion_row_wXTFpV",
+            "accordion_row_BjyyNT",
+            "accordion_row_CrzYWq",
+            "accordion_row_a3qEUV"
+          ]
         }
       },
       "block_order": [
@@ -1054,7 +1663,9 @@
         "text_4crxTk",
         "accordion_99WAr7",
         "text_ym99ij",
-        "accordion_4hE3eM"
+        "accordion_4hE3eM",
+        "text_cbtcWV",
+        "accordion_NxNDAH"
       ],
       "name": "t:names.faq_section",
       "settings": {
