@@ -911,10 +911,10 @@
         "padding-block-end": 32
       }
     },
-    "award_logo_marquee_bXitjN": {
+    "award_logo_marquee_YEUYTW": {
       "type": "award-logo-marquee",
       "blocks": {
-        "award_logo_m3XBmV": {
+        "award_logo_zqR4mJ": {
           "type": "award_logo",
           "settings": {
             "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_9_1.png",
@@ -922,7 +922,7 @@
             "link": ""
           }
         },
-        "award_logo_mtkxmi": {
+        "award_logo_KnUHpM": {
           "type": "award_logo",
           "settings": {
             "image": "shopify://shop_images/Memo-logo_2x_0b36cefe-36d6-41be-ac5f-b17ba8473e0d_1.png",
@@ -930,7 +930,7 @@
             "link": ""
           }
         },
-        "award_logo_yzqyab": {
+        "award_logo_ppeqdJ": {
           "type": "award_logo",
           "settings": {
             "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_4_1.png",
@@ -938,7 +938,7 @@
             "link": ""
           }
         },
-        "award_logo_kAM6kd": {
+        "award_logo_xexBfR": {
           "type": "award_logo",
           "settings": {
             "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_5_1.png",
@@ -946,7 +946,7 @@
             "link": ""
           }
         },
-        "award_logo_GT3TyM": {
+        "award_logo_6tqBJy": {
           "type": "award_logo",
           "settings": {
             "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_6_1.png",
@@ -954,7 +954,7 @@
             "link": ""
           }
         },
-        "award_logo_LrHmUL": {
+        "award_logo_Lbd3cB": {
           "type": "award_logo",
           "settings": {
             "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_8_1.png",
@@ -962,7 +962,7 @@
             "link": ""
           }
         },
-        "award_logo_yYYeJk": {
+        "award_logo_RAbeKd": {
           "type": "award_logo",
           "settings": {
             "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_2_1.png",
@@ -970,7 +970,7 @@
             "link": ""
           }
         },
-        "award_logo_Lbgd3Q": {
+        "award_logo_myc6Dq": {
           "type": "award_logo",
           "settings": {
             "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_3_1.png",
@@ -980,19 +980,19 @@
         }
       },
       "block_order": [
-        "award_logo_m3XBmV",
-        "award_logo_mtkxmi",
-        "award_logo_yzqyab",
-        "award_logo_kAM6kd",
-        "award_logo_GT3TyM",
-        "award_logo_LrHmUL",
-        "award_logo_yYYeJk",
-        "award_logo_Lbgd3Q"
+        "award_logo_zqR4mJ",
+        "award_logo_KnUHpM",
+        "award_logo_ppeqdJ",
+        "award_logo_xexBfR",
+        "award_logo_6tqBJy",
+        "award_logo_Lbd3cB",
+        "award_logo_RAbeKd",
+        "award_logo_myc6Dq"
       ],
       "name": "Award Logo Marquee",
       "settings": {
         "heading": "Multi award winning",
-        "type_preset": "h3",
+        "type_preset": "h4",
         "logo_height": 80,
         "logo_height_mobile": 60,
         "movement_direction": "reverse",
@@ -2582,7 +2582,7 @@
     "marquee_gWiCVB",
     "section_exyrHT",
     "section_qNdyDd",
-    "award_logo_marquee_bXitjN",
+    "award_logo_marquee_YEUYTW",
     "feature_cards_masonry_meVNhB",
     "comparison_table_RzCFiM",
     "brand_story_split_A9YkFi",
