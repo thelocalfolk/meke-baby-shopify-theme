@@ -103,8 +103,8 @@
       "type": "meke-baby-hero",
       "name": "Mekè Baby Hero",
       "settings": {
-        "image": "{{ collection.metafields.custom.banner_image.value }}",
-        "image_mobile": "{{ collection.metafields.custom.banner_image.value }}",
+        "image": "{{ collection.image }}",
+        "image_mobile": "{{ collection.image }}",
         "image_url": "",
         "bg_position": "center",
         "bg_position_mobile": "center",
