@@ -875,7 +875,7 @@
             "source": "uploaded",
             "video": "{{ closest.product.metafields.custom.product_overview_video.value }}",
             "video_url": "",
-            "video_autoplay": false,
+            "video_autoplay": true,
             "video_loop": true,
             "alt": "",
             "custom_width": 100,
@@ -938,6 +938,7 @@
         "video_VQYpRB",
         "group_BghjDD"
       ],
+      "disabled": true,
       "name": "t:names.video_section",
       "settings": {
         "content_direction": "column",
@@ -949,8 +950,8 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
         "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
+        "section_height": "custom",
+        "section_height_custom": 12,
         "color_scheme": "scheme-2",
         "background_media": "none",
         "video_position": "cover",
