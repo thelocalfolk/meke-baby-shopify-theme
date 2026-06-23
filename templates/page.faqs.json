@@ -72,7 +72,7 @@
         "heading": "FAQs",
         "heading_size": 48,
         "heading_max_width": 560,
-        "subheading": "Guidance for the moments that matter.",
+        "subheading": "<p>Guidance for the moments that matter.</p>",
         "subheading_size": 16,
         "subheading_max_width": 400,
         "button_label": "",
@@ -85,10 +85,348 @@
         "padding_bottom": 40,
         "padding_horizontal": 32
       }
+    },
+    "section_xNF4Jd": {
+      "type": "section",
+      "blocks": {
+        "text_DRFQCg": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h4>Battery</h4>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion_x7iCk9": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 36
+          },
+          "blocks": {
+            "accordion_row_JdE99K": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "How long will my Meke Milk Warmer last?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_pB378B": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>When using your warmer to retain heat, the battery life may last for 5-9 hours after one heat cycle, which gives you the advantage of keeping your water warm for an extended period. However, the battery life may vary depending on several factors such as the starting and target temperature, liquid volume, and room temperature. For instance, using 150ml at 37ºC would give you optimal battery life, whereas 300ml at 50ºC would provide the least. If you're using the warmer to heat freshly poured milk or water, your battery life will allow you to have 4-6 cycles based on usage.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_pB378B"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_JdE99K"
+          ]
+        },
+        "text_N94eir": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h4>Charging</h4>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion_iDMQJU": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 36
+          },
+          "blocks": {
+            "accordion_row_RBqqTt": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "How do I charge my Meke Milk Warmer?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_GhPD69": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>The Meke Milk device comes with a USB type C cable, which you can use to charge it. However, you must use a 5V 2A adapter for charging and avoid using an iPhone charger as it has the potential to damage the power board.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_GhPD69"
+              ]
+            },
+            "accordion_row_WDQr8j": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Why is my Meke Milk Warmer taking too long to charge?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_YmdWMj": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>This device has a built-in 4400mAH battery that requires approximately 4 hours to get fully charged. For optimal usage, we suggest charging it to 100% before you head out for the day. If you're using the incorrect charger, it will take an extremely long time and cause the unit to overheat.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_YmdWMj"
+              ]
+            },
+            "accordion_row_KzJUya": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Why is my Meke Milk Warmer not charging?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_hqA84X": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Please verify that you are using the correct 5V/2A charger and the provided USB cord. Using the incorrect charger may not allow the device to charge properly, and in the worst case, it could potentially damage the motherboard. Ensure that you are using the recommended charger and cable to avoid any potential issues</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_hqA84X"
+              ]
+            },
+            "accordion_row_QqFeQy": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Why is the red light showing already?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_FkpXWi": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Please don't be concerned if the red light is on at 60%. You still have a few hours left of usage!</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_FkpXWi"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_RBqqTt",
+            "accordion_row_WDQr8j",
+            "accordion_row_KzJUya",
+            "accordion_row_QqFeQy"
+          ]
+        }
+      },
+      "block_order": [
+        "text_DRFQCg",
+        "accordion_x7iCk9",
+        "text_N94eir",
+        "accordion_iDMQJU"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
     }
   },
   "order": [
     "main",
-    "meke_baby_hero_iH3CJx"
+    "meke_baby_hero_iH3CJx",
+    "section_xNF4Jd"
   ]
 }
