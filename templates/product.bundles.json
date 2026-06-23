@@ -1261,38 +1261,38 @@
         "section_width": "page-width"
       }
     },
-    "comparison_table_RzCFiM": {
+    "comparison_table_VFEVhp": {
       "type": "comparison-table",
       "blocks": {
-        "competitor_Dbq9tC": {
+        "competitor_BAnhBh": {
           "type": "competitor",
           "settings": {
             "label_line1": "Kettle",
             "label_line2": ""
           }
         },
-        "competitor_wQrVmj": {
+        "competitor_cxQYat": {
           "type": "competitor",
           "settings": {
             "label_line1": "Thermos &",
             "label_line2": "Plastic Water bottle"
           }
         },
-        "competitor_fEkTFH": {
+        "competitor_XhMjtb": {
           "type": "competitor",
           "settings": {
             "label_line1": "Microwaves",
             "label_line2": ""
           }
         },
-        "competitor_wpQrfL": {
+        "competitor_hJ9kqF": {
           "type": "competitor",
           "settings": {
             "label_line1": "Other Milk",
             "label_line2": "Warmers"
           }
         },
-        "row_8hHtix": {
+        "row_ahqdGG": {
           "type": "row",
           "settings": {
             "label": "Controlled temperature",
@@ -1300,7 +1300,7 @@
             "competitor_values": "false,false,false,false"
           }
         },
-        "row_pqbQhD": {
+        "row_gbWNgT": {
           "type": "row",
           "settings": {
             "label": "Safe for breastmilk",
@@ -1308,7 +1308,7 @@
             "competitor_values": "false,false,false,false"
           }
         },
-        "row_PPBjXt": {
+        "row_KxaFGJ": {
           "type": "row",
           "settings": {
             "label": "Safe for formula",
@@ -1316,7 +1316,7 @@
             "competitor_values": "false,false,false,false"
           }
         },
-        "row_GRDdyX": {
+        "row_Mih94N": {
           "type": "row",
           "settings": {
             "label": "Even heating (no hot spots)",
@@ -1324,7 +1324,7 @@
             "competitor_values": "false,false,false,false"
           }
         },
-        "row_cYGwnt": {
+        "row_kheRg6": {
           "type": "row",
           "settings": {
             "label": "Microplastic-free",
@@ -1332,7 +1332,7 @@
             "competitor_values": "true,false,false,false"
           }
         },
-        "row_dmyRRe": {
+        "row_AgmVyE": {
           "type": "row",
           "settings": {
             "label": "No risk of burns / spillage",
@@ -1340,7 +1340,7 @@
             "competitor_values": "false,false,false,false"
           }
         },
-        "row_J9aeXA": {
+        "row_y9mTJ7": {
           "type": "row",
           "settings": {
             "label": "Convenient on-the-go",
@@ -1348,7 +1348,7 @@
             "competitor_values": "false,true,false,false"
           }
         },
-        "row_8UHEzx": {
+        "row_yj3Uay": {
           "type": "row",
           "settings": {
             "label": "No multiple steps / tools",
@@ -1356,7 +1356,7 @@
             "competitor_values": "false,false,false,false"
           }
         },
-        "row_Aiyynt": {
+        "row_x94NnG": {
           "type": "row",
           "settings": {
             "label": "Durable + leak-resistant",
@@ -1364,7 +1364,7 @@
             "competitor_values": "false,false,true,false"
           }
         },
-        "row_rDEPGx": {
+        "row_Qp9bcD": {
           "type": "row",
           "settings": {
             "label": "Preserves nutrients",
@@ -1374,20 +1374,20 @@
         }
       },
       "block_order": [
-        "competitor_Dbq9tC",
-        "competitor_wQrVmj",
-        "competitor_fEkTFH",
-        "competitor_wpQrfL",
-        "row_8hHtix",
-        "row_pqbQhD",
-        "row_PPBjXt",
-        "row_GRDdyX",
-        "row_cYGwnt",
-        "row_dmyRRe",
-        "row_J9aeXA",
-        "row_8UHEzx",
-        "row_Aiyynt",
-        "row_rDEPGx"
+        "competitor_BAnhBh",
+        "competitor_cxQYat",
+        "competitor_XhMjtb",
+        "competitor_hJ9kqF",
+        "row_ahqdGG",
+        "row_gbWNgT",
+        "row_KxaFGJ",
+        "row_Mih94N",
+        "row_kheRg6",
+        "row_AgmVyE",
+        "row_y9mTJ7",
+        "row_yj3Uay",
+        "row_x94NnG",
+        "row_Qp9bcD"
       ],
       "name": "Comparison Table",
       "settings": {
@@ -2584,7 +2584,7 @@
     "section_qNdyDd",
     "award_logo_marquee_YEUYTW",
     "feature_cards_masonry_meVNhB",
-    "comparison_table_RzCFiM",
+    "comparison_table_VFEVhp",
     "brand_story_split_A9YkFi",
     "video_feedback_carousel_GDBGr7",
     "feature_cards_masonry_q97HBe",
