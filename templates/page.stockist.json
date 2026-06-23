@@ -61,8 +61,8 @@
       "type": "meke-baby-hero",
       "name": "Mekè Baby Hero",
       "settings": {
-        "image": "shopify://shop_images/Image_7.png",
-        "image_mobile": "shopify://shop_images/Meke-Bundles-ExpressTwistDuo-SecondImage.jpg",
+        "image": "shopify://shop_images/Image_1.jpg",
+        "image_mobile": "shopify://shop_images/Image_1.jpg",
         "image_url": "",
         "bg_position": "center",
         "bg_position_mobile": "center",
