@@ -386,13 +386,464 @@
             "accordion_row_KzJUya",
             "accordion_row_QqFeQy"
           ]
+        },
+        "text_4crxTk": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h4>Meke Milk Warmer (Original)</h4>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion_99WAr7": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 36
+          },
+          "blocks": {
+            "accordion_row_aDzEDp": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Is the Meke Milk Warmer safe for breastmilk?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_z7c66C": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Our warmer is designed to protect the nutrients and antibodies in milk by gently heating the milk at a controlled temperature. When milk is heated too rapidly or at a high temperature, the heat can damage the proteins and enzymes that make the milk nutritious. Meke uses a technology that gently warms the milk without exposing it to direct heat, which helps protect its nutritional content.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_z7c66C"
+              ]
+            },
+            "accordion_row_t6MHNf": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "What temperature should I warm my breastmilk/formula?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_fyJ63X": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>The recommended temperature to serve breastmilk is 37ºC (98ºF) which is lukewarm and the natural temperature produced by mothers milk.​ It may feel cool, so just raise the temperature if your baby prefers slightly warmer.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_fyJ63X"
+              ]
+            },
+            "accordion_row_mLgHJy": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "How long can I keep my breastmilk warm?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_Vwb4Az": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>To prevent any possible decrease in nutritional quality and potential contamination, it is not advisable to keep breastmilk (or formula) warmed for prolonged periods. It is essential to consume it within 2 hours of warming for optimal safety and nutrition for your infant. According to current guidelines, breastmilk should not be heated more than once.​If you require the warmer for an extended period of 4-8 hours, it is recommended to store your milk in a cooler bag until you are ready to heat it. It is crucial to adhere to food safety guidelines and industry best practices when storing and handling breastmilk.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_Vwb4Az"
+              ]
+            },
+            "accordion_row_8GkiWU": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Is the Meke Milk Warmer safe for formula?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_yQ63h6": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Yes, we recommend filling the warmer with cool sterile water and heating the water when you're ready to serve. It is safe to heat premade formula bottles in the milk warmer however we would only suggest warming single serves as prepared formula as milk should not be kept warm for more than two hours according to the current guidelines.Please be aware that guidelines for milk preparation can vary depending on the country and infant milk manufacturer. It is essential to always follow the local guidelines and advice provided by your healthcare professional or manufacturer to ensure the safe and proper preparation of milk for your baby.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_yQ63h6"
+              ]
+            },
+            "accordion_row_VNN4zB": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "How does the device work?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_wRTbPi": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Before use, ensure that you clean the warmer thoroughly. Then, turn on the device and make sure that it is fully charged to 100%. It is recommended to charge the device fully before heading out for the day for optimal use.​​Pour in the liquid and set the temperature to your liking, with a maximum temperature of 50oC/122oF. The display will show the current temperature in the bottle once you set your preferred temperature. A tone will sound, and the device will maintain that heat for up to 9 hours until you turn off the power. Please do not keep milk warm for 9 hours, this should only be used for water.​Alternatively, you can use the warmer to heat liquid for approximately 4-5 cycles.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_wRTbPi"
+              ]
+            },
+            "accordion_row_Yb4H6P": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Can I use the Meke Milk Warmer for frozen breast milk?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_k88JJ3": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Absolutely! Please note it will take a little longer to warm and will drain the battery quicker.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_k88JJ3"
+              ]
+            },
+            "accordion_row_6byd9p": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Why does my milk feel cool?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_Lg6JPk": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>The temperature display on the warmer may be 2-3 degrees lower than the actual temperature, as a safety measure. If you notice that the milk feels a bit cooler than expected, simply adjust the temperature by 1-2 degrees.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_Lg6JPk"
+              ]
+            },
+            "accordion_row_jLYmND": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Why does the temperature fluctuate?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_T7phU8": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>The temperature fluctuation is completely normal and is part of the warmer's process of heating the milk safely to ensure even heating and no hot spots. When the warmer reaches the set temperature, it will sound a beep to indicate it's ready.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_T7phU8"
+              ]
+            },
+            "accordion_row_m6D6qe": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "How is the Meke Milk Warmer safer than other electronic warmers?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_cFLM3h": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>We have taken every measure to ensure that our product is safe for contact with milk. We understand the importance of providing a safe and reliable product for families and have therefore chosen materials that undergo rigorous testing to ensure their safety.Our milk warmers have undergone rigorous testing and meets all the regulatory requirements for AU/NZ, EU10/2011, and CE standards, ensuring maximum quality and safety for all our customers.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_cFLM3h"
+              ]
+            },
+            "accordion_row_EH3bai": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "What material is the Meke Milk Warmer made from?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_jdVXgx": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Tritan material used in our equipment is shatter-resistant, which means that it can withstand sudden temperature changes without breaking or cracking. As an added measure, Tritan is also BPA-free, ensuring that it is a safe and non-toxic material for warming milk. Our heating plate features a platinum silicone barrier that surrounds the SUS 316 food-grade stainless steel. Platinum silicone is a type of silicone that is considered to be of higher quality than other types of silicone, such as food-safe silicone. Platinum silicone is more durable, heat-resistant, and chemically resistant.​This combination of materials has been carefully selected for their durability and resistance to corrosion, ensuring that our product is not only safe, but also dependable for heating milk.​</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 20,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_jdVXgx"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_aDzEDp",
+            "accordion_row_t6MHNf",
+            "accordion_row_mLgHJy",
+            "accordion_row_8GkiWU",
+            "accordion_row_VNN4zB",
+            "accordion_row_Yb4H6P",
+            "accordion_row_6byd9p",
+            "accordion_row_jLYmND",
+            "accordion_row_m6D6qe",
+            "accordion_row_EH3bai"
+          ]
         }
       },
       "block_order": [
         "text_DRFQCg",
         "accordion_x7iCk9",
         "text_N94eir",
-        "accordion_iDMQJU"
+        "accordion_iDMQJU",
+        "text_4crxTk",
+        "accordion_99WAr7"
       ],
       "name": "t:names.faq_section",
       "settings": {
