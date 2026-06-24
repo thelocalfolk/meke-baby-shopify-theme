@@ -545,8 +545,7 @@
               "type": "product-highlights",
               "name": "Product Highlights",
               "settings": {
-                "highlight_text_1": "Free Delivery",
-                "highlight_icon_1": "shopify://shop_images/IconAsset_9_1.png",
+                "highlight_text_1": "",
                 "highlight_text_2": "1 Year Warranty",
                 "highlight_icon_2": "shopify://shop_images/Group_64844.png",
                 "highlight_text_3": "Same Day Dispatch",
