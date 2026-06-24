@@ -82,7 +82,7 @@
         "menu_position": "center",
         "menu_row": "top",
         "customer_account_menu": "main-menu-v2",
-        "show_search": false,
+        "show_search": true,
         "search_position": "right",
         "search_row": "top",
         "show_country": true,
