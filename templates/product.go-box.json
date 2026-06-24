@@ -1491,20 +1491,20 @@
         "text_inline_padding": 80
       }
     },
-    "video_feedback_carousel_GDBGr7": {
+    "video_feedback_carousel_qAHfhq": {
       "type": "video-feedback-carousel",
       "blocks": {
-        "video_testimonial_VWeBj3": {
+        "video_testimonial_633DF7": {
           "type": "video_testimonial",
           "settings": {
-            "video": "shopify://files/videos/copy_F8128890-3E5E-466D-B7D2-3CBF47A40C7F.MOV",
+            "video": "shopify://files/videos/Copy of video-output-1DD8951E-2B19-456B-9EB6-700683BEA574.mov",
             "video_url": "",
             "caption": "",
             "name": "",
             "location": ""
           }
         },
-        "video_testimonial_HRCwR4": {
+        "video_testimonial_CKnYPU": {
           "type": "video_testimonial",
           "settings": {
             "video": "shopify://files/videos/tolstoy_87c2a764-53d5-4338-98b1-7b7993a0dc20.webm",
@@ -1514,28 +1514,80 @@
             "location": ""
           }
         },
-        "video_testimonial_8HbXqy": {
+        "video_testimonial_9JLGVT": {
           "type": "video_testimonial",
           "settings": {
-            "video": "shopify://files/videos/copy_04827AF9-C6CE-40DD-937E-DB54119C4A61.MOV",
+            "video": "shopify://files/videos/copy_5C5078C3-167E-4003-8404-BEBE8A158C2E.mov",
             "video_url": "",
             "caption": "",
             "name": "",
             "location": ""
           }
         },
-        "video_testimonial_gWEbzG": {
+        "video_testimonial_BbeU6J": {
           "type": "video_testimonial",
           "settings": {
+            "video": "shopify://files/videos/copy_1E28ADDE-206E-4045-A07A-944CC85299A9.mov",
             "video_url": "",
             "caption": "",
             "name": "",
             "location": ""
           }
         },
-        "video_testimonial_9Ywz6V": {
+        "video_testimonial_9CBwRk": {
           "type": "video_testimonial",
           "settings": {
+            "video": "shopify://files/videos/ashleighcontent.MP4",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_kdiARW": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/9ad3386e33194330849650e96cca4f70.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_Ng9e7D": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/Copy of copy_3D33055B-5B3A-45C9-B333-D1B40993B59E.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_GjAVrN": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/copy_8346EE71-5B17-4628-BCFB-DD4A19A5FD4C.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_QFQMNg": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/copy_37B58DC5-98E6-431B-BC1A-995DC65FB7E5.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_bHN6mp": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/UGC vid (Version 1 raw video).mov",
             "video_url": "",
             "caption": "",
             "name": "",
@@ -1544,11 +1596,16 @@
         }
       },
       "block_order": [
-        "video_testimonial_VWeBj3",
-        "video_testimonial_HRCwR4",
-        "video_testimonial_8HbXqy",
-        "video_testimonial_gWEbzG",
-        "video_testimonial_9Ywz6V"
+        "video_testimonial_633DF7",
+        "video_testimonial_CKnYPU",
+        "video_testimonial_9JLGVT",
+        "video_testimonial_BbeU6J",
+        "video_testimonial_9CBwRk",
+        "video_testimonial_kdiARW",
+        "video_testimonial_Ng9e7D",
+        "video_testimonial_GjAVrN",
+        "video_testimonial_QFQMNg",
+        "video_testimonial_bHN6mp"
       ],
       "name": "Video feedback carousel",
       "settings": {
@@ -1684,7 +1741,7 @@
       "name": "As Seen In Marquee",
       "settings": {
         "heading": "As Seen In",
-        "type_preset": "h3",
+        "type_preset": "h4",
         "logo_height": 40,
         "logo_height_mobile": 40,
         "movement_direction": "reverse",
@@ -2497,7 +2554,7 @@
     "feature_cards_masonry_8AfQRr",
     "comparison_table_Uz63hU",
     "brand_story_split_QteTVj",
-    "video_feedback_carousel_GDBGr7",
+    "video_feedback_carousel_qAHfhq",
     "award_logo_marquee_YkBPRL",
     "image_cards_3col_Teq6xD",
     "product_list_tB68NC",
