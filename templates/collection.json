@@ -122,7 +122,7 @@
         "button_style": "primary",
         "content_position": "center",
         "content_max_width": 560,
-        "min_height": 50,
+        "min_height": 40,
         "padding_top": 40,
         "padding_bottom": 40,
         "padding_horizontal": 32
