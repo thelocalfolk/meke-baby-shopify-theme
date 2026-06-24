@@ -2519,6 +2519,7 @@
         "text_6gkzgb",
         "group_agF3jx"
       ],
+      "disabled": true,
       "name": "t:names.faq_section",
       "settings": {
         "content_direction": "column",
