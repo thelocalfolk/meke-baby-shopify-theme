@@ -392,10 +392,10 @@
                 "accordion_row_CgeRLC"
               ]
             },
-            "tolstoy_ads_image_video_carousel_block_mpXWh4": {
-              "type": "shopify://apps/tolstoy-ads-image-video/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
+            "tolstoy_ads_image_video_stories_block_xVwXjG": {
+              "type": "shopify://apps/tolstoy-ads-image-video/blocks/stories-block/06fa8282-42ff-403e-b67c-1936776aed11",
               "settings": {
-                "publishId": "publishId"
+                "publishId": "wpzhs2zqqnv6l"
               }
             },
             "accordion_4Ha7zd": {
@@ -568,7 +568,7 @@
             "buy_buttons_eYQEYi",
             "afterpay_on_site_messaging_payments_messaging_amjaBL",
             "accordion_gd7cJK",
-            "tolstoy_ads_image_video_carousel_block_mpXWh4",
+            "tolstoy_ads_image_video_stories_block_xVwXjG",
             "accordion_4Ha7zd",
             "product_highlights_LmNGJD"
           ]
@@ -2235,6 +2235,7 @@
         "text_6gkzgb",
         "group_agF3jx"
       ],
+      "disabled": true,
       "name": "t:names.faq_section",
       "settings": {
         "content_direction": "column",
