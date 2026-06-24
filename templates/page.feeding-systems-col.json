@@ -978,14 +978,14 @@
         "padding-block-end": 48
       }
     },
-    "category_grid_eGxrGn": {
+    "category_grid_ek9GeF": {
       "type": "category-grid",
       "blocks": {
-        "card_FTiECi": {
+        "card_hyGTgC": {
           "type": "card",
           "settings": {
             "collection": "",
-            "custom_link": "",
+            "custom_link": "shopify://collections/bundles",
             "image": "shopify://shop_images/Lifestyle_Image.png",
             "title": "Feeding Systems",
             "description": "A complete end-to-end approach to feeding with clarity at every step.",
@@ -995,17 +995,17 @@
             "text_alignment": "inherit",
             "use_text_color_override": false,
             "text_color_override": "#ffffff",
-            "show_overlay": true,
+            "show_overlay": false,
             "use_overlay_override": false,
             "overlay_color_override": "#000000",
             "overlay_opacity_override": 15
           }
         },
-        "card_UC6qfG": {
+        "card_t6rxwq": {
           "type": "card",
           "settings": {
             "collection": "",
-            "custom_link": "",
+            "custom_link": "shopify://collections/bottle-warmers-1",
             "image": "shopify://shop_images/Rectangle_52_2.png",
             "title": "Milk Warmers",
             "description": "Precision-designed for consistent, reliable feeding.",
@@ -1015,16 +1015,16 @@
             "text_alignment": "inherit",
             "use_text_color_override": false,
             "text_color_override": "#ffffff",
-            "show_overlay": true,
+            "show_overlay": false,
             "use_overlay_override": false,
             "overlay_color_override": "#000000",
             "overlay_opacity_override": 15
           }
         },
-        "card_BRffhU": {
+        "card_WeVAnN": {
           "type": "card",
           "settings": {
-            "collection": "",
+            "collection": "on-the-go-essentials",
             "custom_link": "",
             "image": "shopify://shop_images/Rectangle_27.png",
             "title": "On-the-Go Essentials",
@@ -1035,16 +1035,16 @@
             "text_alignment": "inherit",
             "use_text_color_override": false,
             "text_color_override": "#ffffff",
-            "show_overlay": true,
+            "show_overlay": false,
             "use_overlay_override": false,
             "overlay_color_override": "#000000",
             "overlay_opacity_override": 15
           }
         },
-        "card_TAgtPY": {
+        "card_3fffG7": {
           "type": "card",
           "settings": {
-            "collection": "",
+            "collection": "storage-prep",
             "custom_link": "",
             "image": "shopify://shop_images/Rectangle_26.png",
             "title": "Storage & Prep",
@@ -1055,7 +1055,7 @@
             "text_alignment": "inherit",
             "use_text_color_override": false,
             "text_color_override": "#ffffff",
-            "show_overlay": true,
+            "show_overlay": false,
             "use_overlay_override": false,
             "overlay_color_override": "#000000",
             "overlay_opacity_override": 15
@@ -1063,10 +1063,10 @@
         }
       },
       "block_order": [
-        "card_FTiECi",
-        "card_UC6qfG",
-        "card_BRffhU",
-        "card_TAgtPY"
+        "card_hyGTgC",
+        "card_t6rxwq",
+        "card_WeVAnN",
+        "card_3fffG7"
       ],
       "name": "Category Grid",
       "settings": {
@@ -1102,6 +1102,6 @@
     "product_list_M8Cp88",
     "product_list_UNHTq8",
     "product_list_jKKjr3",
-    "category_grid_eGxrGn"
+    "category_grid_ek9GeF"
   ]
 }
