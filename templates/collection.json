@@ -109,7 +109,7 @@
         "bg_position": "center",
         "bg_position_mobile": "center",
         "overlay_color": "#927F76",
-        "overlay_opacity": 60,
+        "overlay_opacity": 40,
         "color_scheme": "scheme-3",
         "star_rating": "",
         "star_size": 14,
