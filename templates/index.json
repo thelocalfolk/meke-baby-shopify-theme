@@ -3114,7 +3114,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 34,
-        "padding-block-end": 0
+        "padding-block-end": 34
       }
     }
   },
