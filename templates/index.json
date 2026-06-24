@@ -986,7 +986,7 @@
         "card_CWGF9k": {
           "type": "card",
           "settings": {
-            "collection": "",
+            "collection": "bundles",
             "custom_link": "",
             "image": "shopify://shop_images/Lifestyle_Image.png",
             "title": "Feeding Systems",
@@ -1006,7 +1006,7 @@
         "card_qy9a9A": {
           "type": "card",
           "settings": {
-            "collection": "",
+            "collection": "bottle-warmers",
             "custom_link": "",
             "image": "shopify://shop_images/Rectangle_52_2.png",
             "title": "Milk Warmers",
@@ -1026,7 +1026,7 @@
         "card_MgCrw3": {
           "type": "card",
           "settings": {
-            "collection": "",
+            "collection": "on-the-go-essentials",
             "custom_link": "",
             "image": "shopify://shop_images/ChatGPT_Image_May_18_2026_at_08_30_59_PM_216c8bd6-fea0-416a-beb1-33f33fea20b0.png",
             "title": "On-the-Go Essentials",
@@ -1046,7 +1046,7 @@
         "card_YikQ3B": {
           "type": "card",
           "settings": {
-            "collection": "",
+            "collection": "storage-prep",
             "custom_link": "",
             "image": "shopify://shop_images/Rectangle_26.png",
             "title": "Storage & Prep",
