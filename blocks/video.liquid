@@ -1,6 +1,18 @@
-
-
 {% assign block_settings = block.settings %}
+
+{% comment %}
+  Meke Baby: separate desktop/mobile video support.
+  When a "Mobile video" (video_mobile) is uploaded, the main "Video" is shown on
+  desktop and video_mobile is shown on mobile. Each follows its own file's native
+  aspect ratio, so you can use a wide clip for desktop and a portrait clip for mobile.
+  Falls back to the original single-video behaviour when no mobile video is set.
+{% endcomment %}
+{%- liquid
+  assign has_mobile_video = false
+  if block_settings.source == 'uploaded' and block_settings.video_mobile != blank
+    assign has_mobile_video = true
+  endif
+-%}
 
 {% capture video_style %}
   {%  render 'spacing-style', settings: block_settings %}
@@ -9,7 +21,36 @@
    --size-style-aspect-ratio: {% if block_settings.source == 'uploaded' %}{{ block_settings.video.aspect_ratio | default: 'auto' }}{% elsif block_settings.cover_image == blank %}{{ block_settings.aspect_ratio }}{% else %}auto{% endif %};
 {% endcapture %}
 
-{% if block_settings.source == 'uploaded' %}
+{% if has_mobile_video %}
+  {% comment %} Mobile video inherits its own uploaded file's aspect ratio {% endcomment %}
+  {% capture video_style_mobile %}
+    {%  render 'spacing-style', settings: block_settings %}
+    {% render 'border-override', settings: block_settings %}
+     --size-style-width: {{ block_settings.custom_width }}%; --size-style-width-mobile: {{ block_settings.custom_width_mobile }}%;
+     --size-style-aspect-ratio: {{ block_settings.video_mobile.aspect_ratio | default: 'auto' }};
+  {% endcapture %}
+
+  <div class="video-block__device video-block__device--desktop">
+    {% render 'video',
+      video: block_settings.video,
+      video_class: 'spacing-style size-style border-style',
+      video_loop: block_settings.video_loop,
+      video_style: video_style,
+      video_preview_image: block_settings.video.preview_image,
+      additional_attributes: block.shopify_attributes
+    %}
+  </div>
+  <div class="video-block__device video-block__device--mobile">
+    {% render 'video',
+      video: block_settings.video_mobile,
+      video_class: 'spacing-style size-style border-style',
+      video_loop: block_settings.video_loop,
+      video_style: video_style_mobile,
+      video_preview_image: block_settings.video_mobile.preview_image,
+      additional_attributes: block.shopify_attributes
+    %}
+  </div>
+{% elsif block_settings.source == 'uploaded' %}
   {% render 'video',
     video: block_settings.video,
     video_class: 'spacing-style size-style border-style',
@@ -34,6 +75,24 @@
 {% stylesheet %}
   .placeholder-video {
     aspect-ratio: 5 / 3;
+  }
+
+  /* Meke Baby: desktop/mobile video swap.
+     display: contents keeps the inner <video> as the layout/flex item so block
+     alignment & sizing behave exactly as the original single-video render. */
+  .video-block__device--desktop {
+    display: contents;
+  }
+  .video-block__device--mobile {
+    display: none;
+  }
+  @media screen and (max-width: 749px) {
+    .video-block__device--desktop {
+      display: none;
+    }
+    .video-block__device--mobile {
+      display: contents;
+    }
   }
 {% endstylesheet %}
 
@@ -62,6 +121,13 @@
       "type": "video",
       "id": "video",
       "label": "t:settings.video",
+      "visible_if": "{{ block.settings.source == 'uploaded' }}"
+    },
+    {
+      "type": "video",
+      "id": "video_mobile",
+      "label": "Mobile video",
+      "info": "Optional. Shown on mobile instead of the main video. Upload a vertical/portrait clip here; the main \"Video\" above is used on desktop. Each video keeps its own shape.",
       "visible_if": "{{ block.settings.source == 'uploaded' }}"
     },
     {
