@@ -3039,12 +3039,38 @@
     "1781672860214b886e": {
       "type": "_blocks",
       "blocks": {
+        "text_zHNXV8": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<h4>Follow us @mekebaby.au</h4>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 31,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "instafeed_app_block_mA9A4H": {
           "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
           "settings": {
-            "title": "Follow us @mekebaby.au",
-            "title_color": "#927F76",
-            "title_size_v2": 29,
+            "title": "",
+            "title_color": "#927f76",
+            "title_size_v2": 53,
             "alignment": "left",
             "instafeed_margin_top": 0,
             "instafeed_margin_bottom": 0,
@@ -3059,6 +3085,7 @@
         }
       },
       "block_order": [
+        "text_zHNXV8",
         "instafeed_app_block_mA9A4H"
       ],
       "settings": {
