@@ -33,6 +33,9 @@
     --hero-padding-horizontal: {{ section.settings.padding_horizontal }}px;
     --hero-bg-position: {{ section.settings.bg_position }};
     --hero-bg-position-mobile: {{ section.settings.bg_position_mobile }};
+    {% comment %} Overlay: tint sits between the background image and the content {% endcomment %}
+    --hero-overlay-color: {{ section.settings.overlay_color }};
+    --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
     {% if bg_image != blank %}
       --hero-bg-desktop: url('{{ bg_image | image_url: width: 2400 }}');
     {% elsif fallback_url != blank %}
@@ -78,10 +81,23 @@
     position: relative;
   }
 
+  /* Overlay tint — sits above the background image, below the content */
+  .meke-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--hero-overlay-color, #000000);
+    opacity: var(--hero-overlay-opacity, 0);
+    pointer-events: none;
+    z-index: 0;
+  }
+
   .meke-hero__inner {
     width: 100%;
     padding-block: var(--hero-padding-top, 40px) var(--hero-padding-bottom, 40px);
     padding-inline: max(var(--hero-padding-horizontal, 2rem), 5vw);
+    position: relative; /* lift content above the overlay */
+    z-index: 1;
   }
 
   .meke-hero__content {
@@ -202,6 +218,24 @@
         { "value": "bottom right", "label": "Bottom right" }
       ],
       "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay colour",
+      "default": "#000000",
+      "info": "Tint placed over the image to improve text contrast"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 0,
+      "unit": "%",
+      "info": "0% = no overlay"
     },
     {
       "type": "header",
