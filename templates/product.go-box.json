@@ -1284,6 +1284,7 @@
         "card_rzhQYA",
         "card_3HdyLQ"
       ],
+      "disabled": true,
       "name": "Feature Cards Masonry",
       "settings": {
         "heading": "A better way to take meals on the go",
