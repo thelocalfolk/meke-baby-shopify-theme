@@ -85,6 +85,11 @@
         "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
+      },
+      "4705145147225299685": {
+        "type": "shopify://apps/tolstoy-ads-image-video/blocks/widget-block/06fa8282-42ff-403e-b67c-1936776aed11",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
@@ -178,7 +183,7 @@
           "primary_button_background": "#dccbe4",
           "primary_button_text": "#928076",
           "primary_button_border": "#000000",
-          "primary_button_hover_background": "#927F76",
+          "primary_button_hover_background": "#927f76",
           "primary_button_hover_text": "#ffffff",
           "primary_button_hover_border": "#333333",
           "secondary_button_background": "rgba(0,0,0,0)",
