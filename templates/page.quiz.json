@@ -48,16 +48,59 @@
         "heading",
         "page-content"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "gap": 32,
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "padding-block-start": 40,
         "padding-block-end": 80
+      }
+    },
+    "1782283825a291340c": {
+      "type": "_blocks",
+      "blocks": {
+        "quiz_kit_product_quiz_maker_quiz_3AcimE": {
+          "type": "shopify://apps/quiz-kit-product-quiz-maker/blocks/quiz/0b04f315-849a-4507-8339-7be41cc01813",
+          "settings": {
+            "key": "Al0AqE9_yoD"
+          }
+        }
+      },
+      "block_order": [
+        "quiz_kit_product_quiz_maker_quiz_3AcimE"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 34,
+        "padding-block-end": 34
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "1782283825a291340c"
   ]
 }
