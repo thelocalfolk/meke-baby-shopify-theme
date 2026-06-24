@@ -874,6 +874,7 @@
           "settings": {
             "source": "uploaded",
             "video": "{{ closest.product.metafields.custom.product_overview_video.value }}",
+            "video_mobile": "{{ closest.product.metafields.custom.product_overview_video_mob.value }}",
             "video_url": "",
             "video_autoplay": true,
             "video_loop": true,
