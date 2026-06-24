@@ -3088,6 +3088,7 @@
         "text_zHNXV8",
         "instafeed_app_block_mA9A4H"
       ],
+      "name": "Instagram Feed",
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
