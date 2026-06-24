@@ -895,6 +895,7 @@
         "group_BghjDD": {
           "type": "group",
           "name": "t:names.caption",
+          "disabled": true,
           "settings": {
             "content_direction": "row",
             "vertical_on_mobile": true,
@@ -938,7 +939,6 @@
         "video_VQYpRB",
         "group_BghjDD"
       ],
-      "disabled": true,
       "name": "t:names.video_section",
       "settings": {
         "content_direction": "column",
