@@ -28,7 +28,7 @@
         "subheading_size": 16,
         "subheading_max_width": 400,
         "button_label": "Shop by Solution",
-        "button_link": "",
+        "button_link": "shopify://collections/all",
         "button_style": "primary",
         "content_position": "center",
         "content_max_width": 560,
