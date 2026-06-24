@@ -3042,10 +3042,10 @@
         "instafeed_app_block_mA9A4H": {
           "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
           "settings": {
-            "title": "",
-            "title_color": "",
-            "title_size_v2": 0,
-            "alignment": "center",
+            "title": "Follow us @mekebaby.au",
+            "title_color": "#927F76",
+            "title_size_v2": 29,
+            "alignment": "left",
             "instafeed_margin_top": 0,
             "instafeed_margin_bottom": 0,
             "instafeed_margin_sides": 0,
@@ -3080,12 +3080,12 @@
         "border": "none",
         "border_width": 1,
         "border_opacity": 100,
-        "border_radius": 0,
+        "border_radius": 11,
         "toggle_overlay": false,
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
+        "padding-block-start": 34,
         "padding-block-end": 0
       }
     }
