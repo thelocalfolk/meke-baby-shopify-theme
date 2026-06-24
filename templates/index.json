@@ -2210,10 +2210,10 @@
     "video_feedback_carousel_VwrJbW": {
       "type": "video-feedback-carousel",
       "blocks": {
-        "video_testimonial_RXNd6V": {
+        "video_testimonial_jHdiCw": {
           "type": "video_testimonial",
           "settings": {
-            "video": "shopify://files/videos/copy_F8128890-3E5E-466D-B7D2-3CBF47A40C7F.MOV",
+            "video": "shopify://files/videos/Copy of video-output-1DD8951E-2B19-456B-9EB6-700683BEA574.mov",
             "video_url": "",
             "caption": "",
             "name": "",
@@ -2230,19 +2230,10 @@
             "location": ""
           }
         },
-        "video_testimonial_jHdiCw": {
-          "type": "video_testimonial",
-          "settings": {
-            "video": "shopify://files/videos/copy_04827AF9-C6CE-40DD-937E-DB54119C4A61.MOV",
-            "video_url": "",
-            "caption": "",
-            "name": "",
-            "location": ""
-          }
-        },
         "video_testimonial_W4mJkd": {
           "type": "video_testimonial",
           "settings": {
+            "video": "shopify://files/videos/copy_5C5078C3-167E-4003-8404-BEBE8A158C2E.mov",
             "video_url": "",
             "caption": "",
             "name": "",
@@ -2252,6 +2243,67 @@
         "video_testimonial_4c4dja": {
           "type": "video_testimonial",
           "settings": {
+            "video": "shopify://files/videos/copy_1E28ADDE-206E-4045-A07A-944CC85299A9.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_eAWFb7": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/ashleighcontent.MP4",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_agkNbj": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/9ad3386e33194330849650e96cca4f70.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_PfNmaN": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/Copy of copy_3D33055B-5B3A-45C9-B333-D1B40993B59E.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_RXNd6V": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/tolstoy_cf0fcbd5eb16925293396087c21feba2.mp4",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_wfyprJ": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/copy_37B58DC5-98E6-431B-BC1A-995DC65FB7E5.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_LCRpAE": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/UGC vid (Version 1 raw video).mov",
             "video_url": "",
             "caption": "",
             "name": "",
@@ -2260,11 +2312,16 @@
         }
       },
       "block_order": [
-        "video_testimonial_RXNd6V",
-        "video_testimonial_cYnGGJ",
         "video_testimonial_jHdiCw",
+        "video_testimonial_cYnGGJ",
         "video_testimonial_W4mJkd",
-        "video_testimonial_4c4dja"
+        "video_testimonial_4c4dja",
+        "video_testimonial_eAWFb7",
+        "video_testimonial_agkNbj",
+        "video_testimonial_PfNmaN",
+        "video_testimonial_RXNd6V",
+        "video_testimonial_wfyprJ",
+        "video_testimonial_LCRpAE"
       ],
       "name": "Video feedback carousel",
       "settings": {
