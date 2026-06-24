@@ -518,7 +518,7 @@
         "body": "<p>Like many parents, Elysia wasn’t looking for innovation — she was looking for something that worked. Something safe. Something reliable. Something that gave her control back in a moment where she had none.But after searching, it became clear: nothing existed. So she decided to create it.</p>",
         "body_size": 14,
         "button_label": "Shop the Solution",
-        "button_link": "",
+        "button_link": "shopify://collections/bundles",
         "button_style": "primary",
         "button_padding_x": 32,
         "button_padding_y": 14,
@@ -546,7 +546,7 @@
         "body": "<p>Meke Baby was born from lived experience, not assumption.Every product begins the same way:  A real problem. A real moment. A real need. From warming milk safely on the go to simplifying daily routines, the goal has always been the same — to make feeding easier, safer, and more considered for modern parents. Because when you’re in it — in the middle of the night, out of the house, or just trying to get through the day — small details matter.</p>",
         "body_size": 14,
         "button_label": "Our Products",
-        "button_link": "",
+        "button_link": "shopify://collections/all",
         "button_style": "primary",
         "button_padding_x": 32,
         "button_padding_y": 14,
@@ -631,7 +631,7 @@
         "body": "<p>We don’t believe parents should have to plan their lives around feeding.We believe feeding should move with you. Whether you’re at home, on the road, or somewhere in between, Meke Baby exists to give you confidence — knowing you’re prepared, supported, and in control.</p>",
         "body_size": 15,
         "button_label": "Shop the Solution",
-        "button_link": "",
+        "button_link": "shopify://collections/all",
         "button_style": "primary",
         "button_padding_x": 32,
         "button_padding_y": 14,
@@ -991,7 +991,7 @@
           "type": "card",
           "settings": {
             "collection": "",
-            "custom_link": "",
+            "custom_link": "shopify://collections/bundles",
             "image": "shopify://shop_images/Lifestyle_Image.png",
             "title": "Feeding Systems",
             "description": "A complete end-to-end approach to feeding with clarity at every step.",
@@ -1011,7 +1011,7 @@
           "type": "card",
           "settings": {
             "collection": "",
-            "custom_link": "",
+            "custom_link": "shopify://collections/bottle-warmers-1",
             "image": "shopify://shop_images/Rectangle_52_2.png",
             "title": "Milk Warmers",
             "description": "Precision-designed for consistent, reliable feeding.",
@@ -1030,7 +1030,7 @@
         "card_bqeHp4": {
           "type": "card",
           "settings": {
-            "collection": "",
+            "collection": "on-the-go-essentials",
             "custom_link": "",
             "image": "shopify://shop_images/Rectangle_27.png",
             "title": "On-the-Go Essentials",
@@ -1050,7 +1050,7 @@
         "card_W7iL6D": {
           "type": "card",
           "settings": {
-            "collection": "",
+            "collection": "storage-prep",
             "custom_link": "",
             "image": "shopify://shop_images/Rectangle_26.png",
             "title": "Storage & Prep",
