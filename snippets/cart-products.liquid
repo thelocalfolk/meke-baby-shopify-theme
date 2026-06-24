@@ -123,6 +123,22 @@
 
           <tbody role="rowgroup">
             {% for item in cart.items %}
+              {%- liquid
+                # --- Pre-order detection for this cart line (Meke Baby) ---------------
+                # Same logic as the product page: variant is sold out but set to
+                # "Continue selling when out of stock". Variant-level message wins,
+                # otherwise fall back to the product-level metafield.
+                assign po_variant = item.variant
+                assign is_preorder = false
+                if po_variant.inventory_management != blank and po_variant.inventory_policy == 'continue' and po_variant.inventory_quantity <= 0
+                  assign is_preorder = true
+                endif
+                assign preorder_message = po_variant.metafields.custom.preorder_message.value
+                if preorder_message == blank
+                  assign preorder_message = item.product.metafields.custom.preorder_message.value
+                endif
+                # ---------------------------------------------------------------------
+              -%}
               <tr
                 role="row"
                 class="cart-items__table-row{% if item.parent_relationship.parent != null %} cart-items__nested-line{% endif %}{% unless item.unit_price_measurement %} cart-items__table-row--full-width-variants{% endunless %}"
@@ -178,6 +194,18 @@
                         {{- item.product.title -}}
                       </a>
                     </p>
+
+                    {%- comment -%} Pre-order delivery line (Meke Baby) {%- endcomment -%}
+                    {%- if is_preorder and preorder_message != blank -%}
+                      <p class="cart-items__preorder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                          <circle cx="12" cy="12" r="9"></circle>
+                          <path d="M12 7v5l3 2"></path>
+                        </svg>
+                        <span>{{ preorder_message }}</span>
+                      </p>
+                    {%- endif -%}
+
                     {% if item.product.vendor and block_settings.vendor %}
                       <p>
                         {{ item.product.vendor }}
@@ -553,6 +581,22 @@
     text-transform: var(--product-title-case);
     display: block;
     margin-block-start: calc((var(--font-size--md) - 1lh) / 2);
+  }
+
+  /* Pre-order delivery line (Meke Baby) */
+  .cart-items__preorder {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gap-2xs);
+    margin-block-start: var(--margin-2xs);
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-70));
+  }
+
+  .cart-items__preorder svg {
+    flex-shrink: 0;
+    width: 0.875rem;
+    height: 0.875rem;
+    margin-block-start: 0.05rem;
   }
 
   .cart-items__variants {
