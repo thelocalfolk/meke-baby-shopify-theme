@@ -557,20 +557,20 @@
         "mobile_padding_horizontal": 16
       }
     },
-    "video_feedback_carousel_QUe8Uj": {
+    "video_feedback_carousel_akrbxW": {
       "type": "video-feedback-carousel",
       "blocks": {
-        "video_testimonial_E6qWqY": {
+        "video_testimonial_UXmKzV": {
           "type": "video_testimonial",
           "settings": {
-            "video": "shopify://files/videos/copy_F8128890-3E5E-466D-B7D2-3CBF47A40C7F.MOV",
+            "video": "shopify://files/videos/Copy of video-output-1DD8951E-2B19-456B-9EB6-700683BEA574.mov",
             "video_url": "",
             "caption": "",
             "name": "",
             "location": ""
           }
         },
-        "video_testimonial_BwaVPP": {
+        "video_testimonial_itrKeH": {
           "type": "video_testimonial",
           "settings": {
             "video": "shopify://files/videos/tolstoy_87c2a764-53d5-4338-98b1-7b7993a0dc20.webm",
@@ -580,28 +580,80 @@
             "location": ""
           }
         },
-        "video_testimonial_iFYG7a": {
+        "video_testimonial_dDKH6Q": {
           "type": "video_testimonial",
           "settings": {
-            "video": "shopify://files/videos/copy_04827AF9-C6CE-40DD-937E-DB54119C4A61.MOV",
+            "video": "shopify://files/videos/copy_5C5078C3-167E-4003-8404-BEBE8A158C2E.mov",
             "video_url": "",
             "caption": "",
             "name": "",
             "location": ""
           }
         },
-        "video_testimonial_T4cjYm": {
+        "video_testimonial_DHiRea": {
           "type": "video_testimonial",
           "settings": {
+            "video": "shopify://files/videos/copy_1E28ADDE-206E-4045-A07A-944CC85299A9.mov",
             "video_url": "",
             "caption": "",
             "name": "",
             "location": ""
           }
         },
-        "video_testimonial_mkWki4": {
+        "video_testimonial_hgLadU": {
           "type": "video_testimonial",
           "settings": {
+            "video": "shopify://files/videos/ashleighcontent.MP4",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_jGQEKT": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/9ad3386e33194330849650e96cca4f70.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_MQghpy": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/Copy of copy_3D33055B-5B3A-45C9-B333-D1B40993B59E.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_JY7Bk7": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/copy_8346EE71-5B17-4628-BCFB-DD4A19A5FD4C.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_iBXeGh": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/copy_37B58DC5-98E6-431B-BC1A-995DC65FB7E5.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_qfibEf": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/UGC vid (Version 1 raw video).mov",
             "video_url": "",
             "caption": "",
             "name": "",
@@ -610,11 +662,16 @@
         }
       },
       "block_order": [
-        "video_testimonial_E6qWqY",
-        "video_testimonial_BwaVPP",
-        "video_testimonial_iFYG7a",
-        "video_testimonial_T4cjYm",
-        "video_testimonial_mkWki4"
+        "video_testimonial_UXmKzV",
+        "video_testimonial_itrKeH",
+        "video_testimonial_dDKH6Q",
+        "video_testimonial_DHiRea",
+        "video_testimonial_hgLadU",
+        "video_testimonial_jGQEKT",
+        "video_testimonial_MQghpy",
+        "video_testimonial_JY7Bk7",
+        "video_testimonial_iBXeGh",
+        "video_testimonial_qfibEf"
       ],
       "name": "Video feedback carousel",
       "settings": {
@@ -802,7 +859,7 @@
     "collection_card_stack_XNzxMG",
     "product_list_GeLyRy",
     "collection_card_stack_TrXpTR",
-    "video_feedback_carousel_QUe8Uj",
+    "video_feedback_carousel_akrbxW",
     "featured_blog_posts_APizUg"
   ]
 }
