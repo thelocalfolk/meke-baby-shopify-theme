@@ -1004,14 +1004,6 @@
             "link": ""
           }
         },
-        "award_logo_whE4yk": {
-          "type": "award_logo",
-          "settings": {
-            "image": "shopify://shop_images/Memo-logo_2x_a2c4c5a6-6baa-49ae-8265-ac88e0a67d54_6_1.png",
-            "alt_text": "",
-            "link": ""
-          }
-        },
         "award_logo_JC9BkN": {
           "type": "award_logo",
           "settings": {
@@ -1042,7 +1034,6 @@
         "award_logo_xgMmmC",
         "award_logo_GjRE3w",
         "award_logo_AWaDjy",
-        "award_logo_whE4yk",
         "award_logo_JC9BkN",
         "award_logo_6yW3qa",
         "award_logo_FMhLeM"
