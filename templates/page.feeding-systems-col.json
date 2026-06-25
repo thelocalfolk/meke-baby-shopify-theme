@@ -1575,6 +1575,7 @@
         "card_WeVAnN",
         "card_3fffG7"
       ],
+      "disabled": true,
       "name": "Category Grid",
       "settings": {
         "section_heading": "",
@@ -1782,6 +1783,7 @@
         "card_JBJXpx",
         "card_yqB7GQ"
       ],
+      "disabled": true,
       "name": "Collection Card Stack",
       "settings": {
         "heading": "",
