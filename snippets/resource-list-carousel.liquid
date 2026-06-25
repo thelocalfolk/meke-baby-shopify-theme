@@ -56,7 +56,16 @@
 
 {% stylesheet %}
   .resource-list__carousel {
-    --slide-width: 60vw;
+    /*
+     * Default slide width used when container queries are unavailable or have
+     * not yet resolved (e.g. older Safari, or dynamic Section Rendering API
+     * injection before the container context is registered). Without this,
+     * --slide-width is only ever set inside the @container blocks below, so a
+     * missed container query collapses every slide to width:100% (one card),
+     * producing a large empty gap on one side. The @supports fallback further
+     * down refines this for desktop.
+     */
+    --slide-width: clamp(150px, 80vw, var(--slide-width-max));
     width: 100%;
     position: relative;
     container-type: inline-size;
@@ -85,6 +94,31 @@
       );
       --fallback-slide-width: clamp(150px, var(--mobile-card-size, 60cqw), var(--slide-width-max));
       --slide-width: var(--section-slide-width, var(--fallback-slide-width));
+    }
+  }
+
+  /*
+   * Fallback for browsers that do not support container queries (e.g. Safari
+   * < 16) and as a safety net if the container context is not yet registered.
+   * Container units (cqw) cannot be used here because they also depend on the
+   * container, so this uses viewport width and the page margins instead.
+   * On desktop it sizes slides to roughly fill the configured column count;
+   * on mobile it shows a little over one card so the carousel reads as scrollable.
+   */
+  @supports not (container-type: inline-size) {
+    .resource-list__carousel .resource-list__slide {
+      --slide-width: clamp(150px, 80vw, var(--slide-width-max));
+    }
+
+    @media screen and (min-width: 750px) {
+      .resource-list__carousel .resource-list__slide {
+        --slide-width: calc(
+          (
+              100vw - (var(--util-page-margin-offset) * 2) -
+                (var(--resource-list-column-gap) * (var(--column-count) - 1))
+            ) / var(--column-count)
+        );
+      }
     }
   }
 
