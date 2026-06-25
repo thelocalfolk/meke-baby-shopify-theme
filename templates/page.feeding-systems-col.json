@@ -308,7 +308,7 @@
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 24,
+        "columns_gap": 11,
         "rows_gap": 24,
         "icons_style": "arrow",
         "icons_shape": "circle",
@@ -541,7 +541,7 @@
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 25,
+        "columns_gap": 11,
         "rows_gap": 24,
         "icons_style": "arrow",
         "icons_shape": "circle",
@@ -549,7 +549,7 @@
         "horizontal_alignment": "flex-start",
         "gap": 28,
         "color_scheme": "scheme-2",
-        "padding-block-start": 48,
+        "padding-block-start": 26,
         "padding-block-end": 48
       }
     },
@@ -688,7 +688,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 4,
+                "padding-block-start": 13,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -725,7 +725,7 @@
                 "stacking": false,
                 "show_pickup_availability": false,
                 "gift_card_form": false,
-                "padding-block-start": 0,
+                "padding-block-start": 13,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -774,7 +774,7 @@
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 8,
+        "columns_gap": 11,
         "rows_gap": 24,
         "icons_style": "arrow",
         "icons_shape": "circle",
@@ -782,7 +782,7 @@
         "horizontal_alignment": "flex-start",
         "gap": 28,
         "color_scheme": "scheme-2",
-        "padding-block-start": 48,
+        "padding-block-start": 26,
         "padding-block-end": 48
       }
     },
@@ -891,7 +891,7 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -921,7 +921,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 4,
+                "padding-block-start": 13,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -958,7 +958,7 @@
                 "stacking": false,
                 "show_pickup_availability": false,
                 "gift_card_form": false,
-                "padding-block-start": 0,
+                "padding-block-start": 13,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -1007,7 +1007,7 @@
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 8,
+        "columns_gap": 11,
         "rows_gap": 24,
         "icons_style": "arrow",
         "icons_shape": "circle",
@@ -1154,7 +1154,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 4,
+                "padding-block-start": 13,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -1191,7 +1191,7 @@
                 "stacking": false,
                 "show_pickup_availability": false,
                 "gift_card_form": false,
-                "padding-block-start": 0,
+                "padding-block-start": 13,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -1240,7 +1240,7 @@
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 8,
+        "columns_gap": 11,
         "rows_gap": 24,
         "icons_style": "arrow",
         "icons_shape": "circle",
@@ -1357,7 +1357,7 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -1473,7 +1473,7 @@
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 8,
+        "columns_gap": 11,
         "rows_gap": 24,
         "icons_style": "arrow",
         "icons_shape": "circle",
