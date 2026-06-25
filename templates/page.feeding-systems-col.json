@@ -1135,6 +1135,157 @@
         "padding-block-end": 40
       }
     },
+    "video_feedback_carousel_y8gaAq": {
+      "type": "video-feedback-carousel",
+      "blocks": {
+        "video_testimonial_epLrXy": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/Copy of video-output-1DD8951E-2B19-456B-9EB6-700683BEA574.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_CENYif": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/tolstoy_87c2a764-53d5-4338-98b1-7b7993a0dc20.webm",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_nREwac": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/copy_5C5078C3-167E-4003-8404-BEBE8A158C2E.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_PhfYha": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/copy_1E28ADDE-206E-4045-A07A-944CC85299A9.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_H3zLcB": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/ashleighcontent.MP4",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_GxaLAR": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/9ad3386e33194330849650e96cca4f70.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_7MPWaV": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/Copy of copy_3D33055B-5B3A-45C9-B333-D1B40993B59E.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_ngx3Rf": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/copy_8346EE71-5B17-4628-BCFB-DD4A19A5FD4C.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_CJqi8p": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/copy_37B58DC5-98E6-431B-BC1A-995DC65FB7E5.mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "video_testimonial_jKKVfj": {
+          "type": "video_testimonial",
+          "settings": {
+            "video": "shopify://files/videos/UGC vid (Version 1 raw video).mov",
+            "video_url": "",
+            "caption": "",
+            "name": "",
+            "location": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_testimonial_epLrXy",
+        "video_testimonial_CENYif",
+        "video_testimonial_nREwac",
+        "video_testimonial_PhfYha",
+        "video_testimonial_H3zLcB",
+        "video_testimonial_GxaLAR",
+        "video_testimonial_7MPWaV",
+        "video_testimonial_ngx3Rf",
+        "video_testimonial_CJqi8p",
+        "video_testimonial_jKKVfj"
+      ],
+      "name": "Video feedback carousel",
+      "settings": {
+        "heading": "Real feedback from real families",
+        "heading_type_preset": "h4",
+        "heading_font": "var(--font-heading--family)",
+        "heading_font_size": "2.5rem",
+        "heading_line_height": "tight",
+        "heading_letter_spacing": "normal",
+        "heading_case": "none",
+        "heading_color": "#928076",
+        "subheading": "Used in real routines, by parents who want clarity and consistency in how they feed.",
+        "subheading_type_preset": "paragraph",
+        "subheading_font": "var(--font-body--family)",
+        "subheading_font_size": "1rem",
+        "subheading_line_height": "normal",
+        "subheading_letter_spacing": "normal",
+        "subheading_case": "none",
+        "subheading_color": "#9c8474",
+        "text_alignment": "center",
+        "section_width": "page-width",
+        "columns": "5",
+        "mobile_columns": "1",
+        "columns_gap": 16,
+        "aspect_ratio": "9 / 16",
+        "card_radius": 12,
+        "center_play": true,
+        "loop_videos": true,
+        "icons_style": "chevron",
+        "icons_shape": "none",
+        "infinite": false,
+        "color_scheme": "scheme-2",
+        "padding-block-start": 64,
+        "padding-block-end": 64
+      }
+    },
     "collection_card_stack_THL6Nn": {
       "type": "collection-card-stack",
       "blocks": {
@@ -1205,6 +1356,7 @@
     "product_list_UNHTq8",
     "product_list_jKKjr3",
     "category_grid_ek9GeF",
+    "video_feedback_carousel_y8gaAq",
     "collection_card_stack_THL6Nn"
   ]
 }
