@@ -61,7 +61,7 @@
       "type": "meke-baby-hero",
       "name": "Mekè Baby Hero",
       "settings": {
-        "image": "shopify://shop_images/Image_12_0040a57a-b448-4650-807d-2d14474e2bd8.png",
+        "image": "shopify://shop_images/Image_8.png",
         "image_url": "",
         "bg_position": "top center",
         "bg_position_mobile": "center",
@@ -73,7 +73,7 @@
         "heading": "Feeding Systems",
         "heading_size": 42,
         "heading_max_width": 560,
-        "subheading": "<p>For the in-between moments, the unpredictable routines, the “both works best for us” kind of days.<br/><br/>The Mixed Feeding Collection is designed to support how you actually feed — not how it’s supposed to look. Whether you’re combining breast and bottle, formula and solids, or shifting between stages, these pieces work together to create a seamless, consistent experience from prep to feed.</p>",
+        "subheading": "<p>For the in-between moments, the unpredictable routines, the “both works best for us” kind of days.</p>",
         "subheading_size": 14,
         "subheading_max_width": 900,
         "button_label": "",
@@ -81,7 +81,7 @@
         "button_style": "primary",
         "content_position": "center",
         "content_max_width": 560,
-        "min_height": 70,
+        "min_height": 50,
         "padding_top": 40,
         "padding_bottom": 40,
         "padding_horizontal": 32
