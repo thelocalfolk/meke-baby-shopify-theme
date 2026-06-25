@@ -139,6 +139,14 @@
         "type": "shopify://apps/notify-back-in-stock-preorder/blocks/app-embed/b399b727-6c85-44fc-9e21-63114bd72054",
         "disabled": false,
         "settings": {}
+      },
+      "17309853810776502128": {
+        "type": "shopify://apps/pify-ai-contact-form-builder/blocks/app-embed/0b1d894b-0f30-4027-8d73-7171ce29b1be",
+        "disabled": false,
+        "settings": {
+          "custom_liquid_css": "",
+          "custom_liquid_js": ""
+        }
       }
     },
     "color_schemes": {
