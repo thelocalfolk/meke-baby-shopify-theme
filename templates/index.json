@@ -129,6 +129,118 @@
         "padding-block-end": 44
       }
     },
+    "award_logo_marquee_8U4EEe": {
+      "type": "award-logo-marquee",
+      "blocks": {
+        "award_logo_bCiHJP": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/Memo-logo_2x_500x_93174af3-314d-4619-bad0-08aa5d365e95.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_8wf8iA": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/1650930640onefinebaby-logo_209f03ce-010a-476f-84b5-a168c425122f.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_kg738A": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/News-com-au_logo.svg",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_gRDamm": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/TNP-Masthead-Logo2.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_XaaJd8": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/output-onlinepngtools-1024x390.webp",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_bfCifa": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/kidspot_5c8d424f-651f-4f04-be82-62039a07e02f.svg",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_EHJeHG": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/HoneyLogo_RGB_Colour.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_rtTHz6": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/VOGUE_LOGO_svg.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_fXeBWA": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/clipart666016.png",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "award_logo_8LfkdJ": {
+          "type": "award_logo",
+          "settings": {
+            "image": "shopify://shop_images/7news-red_bd95c5da.png",
+            "alt_text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "award_logo_bCiHJP",
+        "award_logo_8wf8iA",
+        "award_logo_kg738A",
+        "award_logo_gRDamm",
+        "award_logo_XaaJd8",
+        "award_logo_bfCifa",
+        "award_logo_EHJeHG",
+        "award_logo_rtTHz6",
+        "award_logo_fXeBWA",
+        "award_logo_8LfkdJ"
+      ],
+      "name": "As Seen In Marquee",
+      "settings": {
+        "heading": "As Seen In",
+        "type_preset": "h4",
+        "logo_height": 40,
+        "logo_height_mobile": 40,
+        "movement_direction": "reverse",
+        "speed": 25,
+        "gap_between_logos": 48,
+        "heading_gap": 36,
+        "section_width": "full-width",
+        "color_scheme": "scheme-2",
+        "padding-block-start": 44,
+        "padding-block-end": 44
+      }
+    },
     "product_list_PaTrKA": {
       "type": "product-list",
       "blocks": {
@@ -375,118 +487,6 @@
         "color_scheme": "scheme-2",
         "padding-block-start": 48,
         "padding-block-end": 48
-      }
-    },
-    "award_logo_marquee_8U4EEe": {
-      "type": "award-logo-marquee",
-      "blocks": {
-        "award_logo_bCiHJP": {
-          "type": "award_logo",
-          "settings": {
-            "image": "shopify://shop_images/Memo-logo_2x_500x_93174af3-314d-4619-bad0-08aa5d365e95.png",
-            "alt_text": "",
-            "link": ""
-          }
-        },
-        "award_logo_8wf8iA": {
-          "type": "award_logo",
-          "settings": {
-            "image": "shopify://shop_images/1650930640onefinebaby-logo_209f03ce-010a-476f-84b5-a168c425122f.png",
-            "alt_text": "",
-            "link": ""
-          }
-        },
-        "award_logo_kg738A": {
-          "type": "award_logo",
-          "settings": {
-            "image": "shopify://shop_images/News-com-au_logo.svg",
-            "alt_text": "",
-            "link": ""
-          }
-        },
-        "award_logo_gRDamm": {
-          "type": "award_logo",
-          "settings": {
-            "image": "shopify://shop_images/TNP-Masthead-Logo2.png",
-            "alt_text": "",
-            "link": ""
-          }
-        },
-        "award_logo_XaaJd8": {
-          "type": "award_logo",
-          "settings": {
-            "image": "shopify://shop_images/output-onlinepngtools-1024x390.webp",
-            "alt_text": "",
-            "link": ""
-          }
-        },
-        "award_logo_bfCifa": {
-          "type": "award_logo",
-          "settings": {
-            "image": "shopify://shop_images/kidspot_5c8d424f-651f-4f04-be82-62039a07e02f.svg",
-            "alt_text": "",
-            "link": ""
-          }
-        },
-        "award_logo_EHJeHG": {
-          "type": "award_logo",
-          "settings": {
-            "image": "shopify://shop_images/HoneyLogo_RGB_Colour.png",
-            "alt_text": "",
-            "link": ""
-          }
-        },
-        "award_logo_rtTHz6": {
-          "type": "award_logo",
-          "settings": {
-            "image": "shopify://shop_images/VOGUE_LOGO_svg.png",
-            "alt_text": "",
-            "link": ""
-          }
-        },
-        "award_logo_fXeBWA": {
-          "type": "award_logo",
-          "settings": {
-            "image": "shopify://shop_images/clipart666016.png",
-            "alt_text": "",
-            "link": ""
-          }
-        },
-        "award_logo_8LfkdJ": {
-          "type": "award_logo",
-          "settings": {
-            "image": "shopify://shop_images/7news-red_bd95c5da.png",
-            "alt_text": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "award_logo_bCiHJP",
-        "award_logo_8wf8iA",
-        "award_logo_kg738A",
-        "award_logo_gRDamm",
-        "award_logo_XaaJd8",
-        "award_logo_bfCifa",
-        "award_logo_EHJeHG",
-        "award_logo_rtTHz6",
-        "award_logo_fXeBWA",
-        "award_logo_8LfkdJ"
-      ],
-      "name": "As Seen In Marquee",
-      "settings": {
-        "heading": "As Seen In",
-        "type_preset": "h4",
-        "logo_height": 40,
-        "logo_height_mobile": 40,
-        "movement_direction": "reverse",
-        "speed": 25,
-        "gap_between_logos": 48,
-        "heading_gap": 36,
-        "section_width": "full-width",
-        "color_scheme": "scheme-2",
-        "padding-block-start": 44,
-        "padding-block-end": 44
       }
     },
     "section_wmnq9j": {
@@ -3100,9 +3100,9 @@
     "meke_baby_hero_cJizPc",
     "section_GnUWHg",
     "product_list_PaTrKA",
-    "award_logo_marquee_8U4EEe",
     "section_wmnq9j",
     "section_gijhtr",
+    "award_logo_marquee_8U4EEe",
     "category_grid_U8Br8F",
     "carousel_KL8Gfp",
     "video_feedback_carousel_VwrJbW",
