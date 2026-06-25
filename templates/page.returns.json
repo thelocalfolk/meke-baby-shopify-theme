@@ -147,6 +147,7 @@
         "text_LcLYTG",
         "text_fzAqMT"
       ],
+      "disabled": true,
       "name": "t:names.rich_text_section",
       "settings": {
         "content_direction": "column",
