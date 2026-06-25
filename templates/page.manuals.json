@@ -389,8 +389,9 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "link": "",
-                "image_ratio": "adapt",
+                "image": "shopify://shop_images/100ml_HYDRO_PEROXIDE_3_v2.jpg",
+                "link": "https://cdn.shopify.com/s/files/1/0785/7458/4107/files/Hydrogen_Peroxide_-_Manual.pdf?v=1728456571",
+                "image_ratio": "portrait",
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
