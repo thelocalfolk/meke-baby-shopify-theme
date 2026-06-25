@@ -484,8 +484,9 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "link": "",
-                "image_ratio": "adapt",
+                "image": "shopify://shop_images/Screenshot_2026-06-25_at_11.44.29_am.png",
+                "link": "https://cdn.shopify.com/s/files/1/0785/7458/4107/files/Updated_original_warmer_15-01-25.pdf?v=1747724516",
+                "image_ratio": "portrait",
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -578,7 +579,8 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "link": "",
+                "image": "shopify://shop_images/Screenshot_2026-06-25_at_11.45.07_am.png",
+                "link": "https://cdn.shopify.com/s/files/1/0785/7458/4107/files/APznzaaVbetQrizJHrgdkWxwTJyxb4L6zdLnzbYkC-4ue1BR5L_bo1BIumnEp2V6F6ROT0w14ukeycYKmNNKWU9jqhcIXcmDmsJEBp4kax9aT6h8mM0mxVJeW6FWGfKPNAboTh38IW1zDk1HDfaaahrPpJAIi_Au8KL0uRM6auxMNEtnc49S80.pdf?v=1747391799",
                 "image_ratio": "adapt",
                 "width": "fill",
                 "custom_width": 100,
