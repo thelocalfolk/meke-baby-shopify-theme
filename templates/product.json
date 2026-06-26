@@ -208,7 +208,7 @@
                 "highlight_icon_4": "{{ closest.product.metafields.custom.product_highlights_icon_4.value }}",
                 "icon_size": 18,
                 "row_gap": 10,
-                "text_size": "0.75rem",
+                "text_size": "0.8125rem",
                 "padding-block-start": 0,
                 "padding-block-end": 0
               },
@@ -862,7 +862,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 48,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "section_7KjzeF": {
@@ -966,7 +968,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 32,
-        "padding-block-end": 32
+        "padding-block-end": 32,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "award_logo_marquee_JCeLiV": {
@@ -2520,7 +2524,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 70,
-        "padding-block-end": 69
+        "padding-block-end": 69,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "brand_story_split_9WFc9r": {
