@@ -24,7 +24,7 @@
             "slideshow_controls_style": "thumbnails",
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "left",
-            "thumbnail_width": 44,
+            "thumbnail_width": 48,
             "thumbnail_radius": 10,
             "aspect_ratio": "1/1.25",
             "constrain_to_viewport": true,
@@ -581,8 +581,8 @@
         "gap": 48,
         "enable_sticky_add_to_cart": false,
         "color_scheme": "scheme-2",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 25,
+        "padding-block-end": 31
       }
     },
     "marquee_gWiCVB": {
@@ -805,7 +805,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 48,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "section_qNdyDd": {
@@ -907,7 +909,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 32,
-        "padding-block-end": 32
+        "padding-block-end": 32,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "award_logo_marquee_YEUYTW": {
@@ -2044,7 +2048,9 @@
                 "rating_color": "primary",
                 "type_preset": "paragraph",
                 "width": "100%",
-                "alignment": "center"
+                "alignment": "center",
+                "padding_block_start": 0,
+                "padding_block_end": 0
               },
               "blocks": {}
             },
@@ -2602,7 +2608,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "brand_story_split_AatpTq": {
