@@ -147,6 +147,34 @@
           "custom_liquid_css": "",
           "custom_liquid_js": ""
         }
+      },
+      "6541763305163392086": {
+        "type": "shopify://apps/quiz-kit-product-quiz-maker/blocks/chat-embed/0b04f315-849a-4507-8339-7be41cc01813",
+        "disabled": false,
+        "settings": {
+          "style": "pill",
+          "float_search_enabled": false,
+          "float_button_enabled": false,
+          "float_button_vertical_position": 50,
+          "icon_color": "#ffffff",
+          "float_button_background_color": "#292929",
+          "float_button_border_color": "#ffffff",
+          "float_button_text": "Can I help you decide?",
+          "float_button_text_color": "#ffffff",
+          "question_icon_color": "#292929",
+          "question_text_color": "#292929",
+          "question_background_color": "#ececec",
+          "question_animation_enabled": true,
+          "view_mode": "compact",
+          "chat_background_color": "#ffffff",
+          "header_background_color": "#292929",
+          "welcome_message_heading": "Welcome",
+          "welcome_message_text": "What can I help you find?",
+          "chat_text_background_color": "#292929",
+          "chat_text_color": "#ffffff",
+          "chat_response_color": "#292929",
+          "custom_css": ""
+        }
       }
     },
     "color_schemes": {
