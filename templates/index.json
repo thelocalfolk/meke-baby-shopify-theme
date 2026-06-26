@@ -125,8 +125,10 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 55,
-        "padding-block-end": 44
+        "padding-block-start": 24,
+        "padding-block-end": 0,
+        "padding-block-start-mobile": 24,
+        "padding-block-end-mobile": 24
       }
     },
     "product_list_PaTrKA": {
@@ -463,7 +465,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "section_gijhtr": {
@@ -867,7 +871,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 63
+        "padding-block-end": 63,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "award_logo_marquee_8U4EEe": {
@@ -2921,7 +2927,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 32,
-        "padding-block-end": 32
+        "padding-block-end": 32,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "brand_story_split_CBAJ7y": {
