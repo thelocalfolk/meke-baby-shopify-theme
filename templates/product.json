@@ -1319,7 +1319,7 @@
       ],
       "name": "Feature Cards Masonry",
       "settings": {
-        "heading": "A better way to formula feed",
+        "heading": "{{ product.metafields.custom.featured_cards_masonry_section_header.value }}",
         "heading_type_preset": "h4",
         "heading_font": "var(--font-heading--family)",
         "heading_font_size": "2rem",
