@@ -1,14 +1,18 @@
 {%- comment -%}
-  Mobile padding override — applies the *-mobile padding settings below 749px.
-  Desktop padding is still handled by the theme's `section` snippet via the
-  padding-block-start / padding-block-end settings. Scoped to this section only.
+  Mobile padding override — drives Horizon's spacing-style variables below 749px.
+  Targets .section-content-wrapper (where spacing-style sets the inline padding vars)
+  and uses !important to beat the inline desktop values. Scoped to this section only.
 {%- endcomment -%}
+{%- liquid
+  assign scale_min = 20
+  assign mt = section.settings['padding-block-start-mobile']
+  assign mb = section.settings['padding-block-end-mobile']
+-%}
 {% style %}
   @media screen and (max-width: 749px) {
-    #shopify-section-{{ section.id }},
-    #shopify-section-{{ section.id }} > * {
-      --padding-block-start: {{ section.settings['padding-block-start-mobile'] }}px !important;
-      --padding-block-end: {{ section.settings['padding-block-end-mobile'] }}px !important;
+    #shopify-section-{{ section.id }} .section-content-wrapper {
+      {% if mt != blank %}--padding-block-start: {% if mt > scale_min %}max({{ scale_min }}px, calc(var(--spacing-scale) * {{ mt }}px)){% else %}{{ mt }}px{% endif %} !important;{% endif %}
+      {% if mb != blank %}--padding-block-end: {% if mb > scale_min %}max({{ scale_min }}px, calc(var(--spacing-scale) * {{ mb }}px)){% else %}{{ mb }}px{% endif %} !important;{% endif %}
     }
   }
 {% endstyle %}
