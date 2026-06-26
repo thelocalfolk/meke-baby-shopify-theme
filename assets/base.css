@@ -4223,3 +4223,11 @@ product-recommendations:has([data-has-recommendations='false']) {
   border-radius: 16px;
   overflow: hidden;
 }
+
+/* Align all product-card Add to cart buttons — 26 Jun 2026 */
+.product-card__content > .buy-buttons-block {
+  margin-top: auto;
+}
+.product-card__content a.user-select-text .text-block {
+  min-height: 2.6em;
+}
