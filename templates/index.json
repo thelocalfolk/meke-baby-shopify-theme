@@ -258,7 +258,9 @@
                 "rating_color": "primary",
                 "type_preset": "paragraph",
                 "width": "100%",
-                "alignment": "center"
+                "alignment": "center",
+                "padding_block_start": 10,
+                "padding_block_end": 0
               },
               "blocks": {}
             },
@@ -280,7 +282,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 10,
+                "padding-block-start": 5,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -303,7 +305,7 @@
                 "letter_spacing": "normal",
                 "case": "none",
                 "color": "var(--color-foreground)",
-                "padding-block-start": 6,
+                "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -2749,7 +2751,9 @@
                 "rating_color": "primary",
                 "type_preset": "paragraph",
                 "width": "100%",
-                "alignment": "center"
+                "alignment": "center",
+                "padding_block_start": 0,
+                "padding_block_end": 0
               },
               "blocks": {}
             },
