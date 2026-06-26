@@ -707,7 +707,7 @@
                 "rating_color": "primary",
                 "type_preset": "paragraph",
                 "width": "100%",
-                "alignment": "left"
+                "alignment": "center"
               },
               "blocks": {}
             },
