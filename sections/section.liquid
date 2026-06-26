@@ -1,4 +1,17 @@
-
+{%- comment -%}
+  Mobile padding override — applies the *-mobile padding settings below 749px.
+  Desktop padding is still handled by the theme's `section` snippet via the
+  padding-block-start / padding-block-end settings. Scoped to this section only.
+{%- endcomment -%}
+{% style %}
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }},
+    #shopify-section-{{ section.id }} > * {
+      --padding-block-start: {{ section.settings['padding-block-start-mobile'] }}px !important;
+      --padding-block-end: {{ section.settings['padding-block-end-mobile'] }}px !important;
+    }
+  }
+{% endstyle %}
 
 {% capture children %}
   {% content_for 'blocks' %}
@@ -400,9 +413,13 @@
       "content": "t:content.padding"
     },
     {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top (desktop)",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -412,7 +429,31 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom (desktop)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start-mobile",
+      "label": "Top (mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end-mobile",
+      "label": "Bottom (mobile)",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -511,7 +552,9 @@
         "border_opacity": 100,
         "border_radius": 0,
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 48,
+        "padding-block-start-mobile": 48,
+        "padding-block-end-mobile": 48
       }
     },
     {
@@ -733,7 +776,9 @@
         "border_opacity": 100,
         "border_radius": 0,
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 48,
+        "padding-block-start-mobile": 48,
+        "padding-block-end-mobile": 48
       }
     },
     {
@@ -758,7 +803,9 @@
         "border_opacity": 100,
         "border_radius": 0,
         "padding-block-start": 32,
-        "padding-block-end": 32
+        "padding-block-end": 32,
+        "padding-block-start-mobile": 32,
+        "padding-block-end-mobile": 32
       },
       "blocks": {
         "video": {
@@ -877,7 +924,9 @@
         "horizontal_alignment_flex_direction_column": "center",
         "gap": 16,
         "padding-block-start": 64,
-        "padding-block-end": 64
+        "padding-block-end": 64,
+        "padding-block-start-mobile": 64,
+        "padding-block-end-mobile": 64
       }
     },
     {
@@ -953,7 +1002,9 @@
         "border_opacity": 100,
         "border_radius": 0,
         "padding-block-start": 32,
-        "padding-block-end": 32
+        "padding-block-end": 32,
+        "padding-block-start-mobile": 32,
+        "padding-block-end-mobile": 32
       }
     },
     {
@@ -964,7 +1015,9 @@
         "gap": 16,
         "color_scheme": "scheme-2",
         "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-end": 40,
+        "padding-block-start-mobile": 40,
+        "padding-block-end-mobile": 40
       },
       "blocks": {
         "text_1": {
@@ -1221,7 +1274,9 @@
         "gap": 16,
         "section_width": "page-width",
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 48,
+        "padding-block-start-mobile": 48,
+        "padding-block-end-mobile": 48
       }
     },
     {
@@ -1333,7 +1388,9 @@
         "content_direction": "row",
         "gap": 32,
         "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-end": 40,
+        "padding-block-start-mobile": 40,
+        "padding-block-end-mobile": 40
       },
       "blocks": {
         "image": {
@@ -1634,7 +1691,9 @@
         "border_opacity": 100,
         "border_radius": 0,
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 48,
+        "padding-block-start-mobile": 48,
+        "padding-block-end-mobile": 48
       }
     },
     {
@@ -1728,7 +1787,9 @@
         "gap": 46,
         "section_height": "small",
         "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-end": 40,
+        "padding-block-start-mobile": 40,
+        "padding-block-end-mobile": 40
       }
     },
     {
@@ -1757,7 +1818,9 @@
         "section_height": "medium",
         "color_scheme": "scheme-3",
         "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-end": 40,
+        "padding-block-start-mobile": 40,
+        "padding-block-end-mobile": 40
       }
     }
   ]
