@@ -198,9 +198,22 @@
                 "border_opacity": 100,
                 "border_radius": 10,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 10,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "review_3dbxKP": {
+              "type": "review",
+              "name": "t:names.product_review_stars",
+              "settings": {
+                "stars_style": "shaded",
+                "show_number": false,
+                "rating_color": "primary",
+                "type_preset": "paragraph",
+                "width": "100%",
+                "alignment": "center"
               },
               "blocks": {}
             },
@@ -222,7 +235,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 13,
+                "padding-block-start": 10,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -293,6 +306,7 @@
           },
           "block_order": [
             "product_card_gallery_Np7z8W",
+            "review_3dbxKP",
             "product_title_8gkxYL",
             "price_tk3nAh",
             "buy_buttons_T83hJF"
