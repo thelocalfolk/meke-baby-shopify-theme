@@ -316,7 +316,7 @@
                 "text_hGaH7H": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Purchase as part of a bundle & save</p>",
+                    "text": "<p><strong>Purchase as part of a bundle & save</strong></p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
