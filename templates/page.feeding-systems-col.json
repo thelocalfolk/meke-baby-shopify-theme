@@ -445,9 +445,22 @@
                 "border_opacity": 100,
                 "border_radius": 10,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 10,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "review_Jf73JB": {
+              "type": "review",
+              "name": "t:names.product_review_stars",
+              "settings": {
+                "stars_style": "shaded",
+                "show_number": false,
+                "rating_color": "primary",
+                "type_preset": "paragraph",
+                "width": "100%",
+                "alignment": "center"
               },
               "blocks": {}
             },
@@ -469,7 +482,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 13,
+                "padding-block-start": 10,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -540,6 +553,7 @@
           },
           "block_order": [
             "product_card_gallery_3YUMj8",
+            "review_Jf73JB",
             "product_title_jYXBn6",
             "price_zyaHRP",
             "buy_buttons_3Tqn8d"
@@ -678,9 +692,22 @@
                 "border_opacity": 100,
                 "border_radius": 10,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 10,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "review_nqVBRe": {
+              "type": "review",
+              "name": "t:names.product_review_stars",
+              "settings": {
+                "stars_style": "shaded",
+                "show_number": false,
+                "rating_color": "primary",
+                "type_preset": "paragraph",
+                "width": "100%",
+                "alignment": "left"
               },
               "blocks": {}
             },
@@ -702,7 +729,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 13,
+                "padding-block-start": 10,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -773,6 +800,7 @@
           },
           "block_order": [
             "product_card_gallery_qMLTVz",
+            "review_nqVBRe",
             "product_title_hDpX6j",
             "price_Eqmw9m",
             "buy_buttons_NB4naU"
@@ -911,9 +939,22 @@
                 "border_opacity": 100,
                 "border_radius": 10,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 10,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "review_f7NRpg": {
+              "type": "review",
+              "name": "t:names.product_review_stars",
+              "settings": {
+                "stars_style": "shaded",
+                "show_number": false,
+                "rating_color": "primary",
+                "type_preset": "paragraph",
+                "width": "100%",
+                "alignment": "center"
               },
               "blocks": {}
             },
@@ -935,7 +976,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 13,
+                "padding-block-start": 10,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -1006,6 +1047,7 @@
           },
           "block_order": [
             "product_card_gallery_a3nttB",
+            "review_f7NRpg",
             "product_title_Dnpyg7",
             "price_rnpad3",
             "buy_buttons_7xQQUg"
