@@ -984,8 +984,8 @@
         "heading_gap": 36,
         "section_width": "full-width",
         "color_scheme": "scheme-2",
-        "padding-block-start": 44,
-        "padding-block-end": 44
+        "padding-block-start": 76,
+        "padding-block-end": 76
       }
     },
     "category_grid_U8Br8F": {
