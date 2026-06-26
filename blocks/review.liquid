@@ -1,5 +1,3 @@
-
-
 {% liquid
   assign block_settings = block.settings
   assign product = closest.product
@@ -35,7 +33,8 @@
 
   <div
     class="rating-wrapper rating-color--{{ block_settings.rating_color }} justify-{{ block_settings.alignment }} size-style"
-    style="{% render 'size-style', settings: block_settings %}"
+    {%- comment %} Spacing: padding controls added so the stars can be pushed away from the media above/below on Featured Collections. Defaults to 0 = no change. {% endcomment -%}
+    style="{% render 'size-style', settings: block_settings %} padding-block-start: {{ block_settings.padding_block_start }}px; padding-block-end: {{ block_settings.padding_block_end }}px;"
     {{ block.shopify_attributes }}
   >
     <svg
@@ -276,6 +275,30 @@
       "label": "t:settings.alignment",
       "default": "left",
       "visible_if": "{{ block.settings.width != 'fit-content' }}"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_block_start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_block_end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
     }
   ],
   "presets": [
