@@ -174,7 +174,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "collection_card_stack_XNzxMG": {
@@ -362,7 +364,7 @@
                 "border_opacity": 100,
                 "border_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 10,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -399,7 +401,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 18,
+                "padding-block-start": 10,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
