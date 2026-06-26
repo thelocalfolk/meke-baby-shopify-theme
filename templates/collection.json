@@ -111,7 +111,7 @@
         "bg_position": "center",
         "bg_position_mobile": "center",
         "overlay_color": "#927f76",
-        "overlay_opacity": 40,
+        "overlay_opacity": 0,
         "color_scheme": "scheme-3",
         "star_rating": "",
         "star_size": 14,
@@ -199,7 +199,9 @@
                 "rating_color": "primary",
                 "type_preset": "paragraph",
                 "width": "100%",
-                "alignment": "center"
+                "alignment": "center",
+                "padding_block_start": 0,
+                "padding_block_end": 0
               },
               "blocks": {}
             },
