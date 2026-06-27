@@ -47,7 +47,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h4>It’s not you. It’s the system.</h4>",
+            "text": "<h2>The standard we've accepted for generations is no longer good enough.</h2>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -73,7 +73,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Parents are expected to navigate feeding through fragmented advice, outdated methods, and conflicting opinions. So you improvise. You second guess. You create your own rules just to feel in control.<br/><br/>That’s not how something this important should work.</p>",
+            "text": "<h2></h2><p>Microwaves.<br/>Wrist tests.<br/>Plastic bottles and storage bags submerged in hot water.</p><p>For something as important as feeding your baby, guesswork should never be the standard.</p><p><strong>That's why MEKE was created: to deliver a safer, more considered standard of feeding.</strong></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "center",
