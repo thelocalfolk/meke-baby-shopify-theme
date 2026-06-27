@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Free Shipping Over $99 | Designed for Safe, Consistent Feeding",
+            "text": "Free Shipping Over $99 |<strong>Selling Out Nationwide | Free Shipping Over $99</strong>",
             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
