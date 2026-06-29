@@ -167,20 +167,21 @@
                 "price_tVjtKg"
               ]
             },
-            "product_highlights_ykQDjJ": {
+            "product_highlights_ThMQX4": {
               "type": "product-highlights",
               "name": "Product Highlights",
               "settings": {
-                "highlight_text_1": "Australian Post top 50 People in E-Commerce 2026",
-                "highlight_icon_1": "shopify://shop_images/Vector_3.png",
-                "highlight_text_2": "Commbank Young Hero Awards Most Innovative Product Winner",
-                "highlight_icon_2": "shopify://shop_images/Commonwealth_Bank_of_Australia_idow7DUGyL_0_1_1.png",
-                "highlight_text_3": "Telstra Victorian Embracing Innovation Winner",
-                "highlight_icon_3": "shopify://shop_images/Telstra_idBotCkpPc_0_1_1.png",
-                "highlight_text_4": "",
+                "highlight_text_1": "{{ closest.product.metafields.custom.product_highlights_text.value }}",
+                "highlight_icon_1": "{{ closest.product.metafields.custom.product_hightlights_icon.value }}",
+                "highlight_text_2": "{{ closest.product.metafields.custom.product_highlights_text_2.value }}",
+                "highlight_icon_2": "{{ closest.product.metafields.custom.product_highlights_icon_2.value }}",
+                "highlight_text_3": "{{ closest.product.metafields.custom.product_highlights_text_3.value }}",
+                "highlight_icon_3": "{{ closest.product.metafields.custom.product_highlights_icon_3.value }}",
+                "highlight_text_4": "{{ closest.product.metafields.custom.product_highlights_text_4.value }}",
+                "highlight_icon_4": "{{ closest.product.metafields.custom.product_highlights_icon_4.value }}",
                 "icon_size": 18,
                 "row_gap": 10,
-                "text_size": "0.75rem",
+                "text_size": "0.8125rem",
                 "padding-block-start": 0,
                 "padding-block-end": 0
               },
@@ -285,26 +286,6 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_highlights_ThMQX4": {
-              "type": "product-highlights",
-              "name": "Product Highlights",
-              "settings": {
-                "highlight_text_1": "{{ closest.product.metafields.custom.product_highlights_text.value }}",
-                "highlight_icon_1": "{{ closest.product.metafields.custom.product_hightlights_icon.value }}",
-                "highlight_text_2": "{{ closest.product.metafields.custom.product_highlights_text_2.value }}",
-                "highlight_icon_2": "{{ closest.product.metafields.custom.product_highlights_icon_2.value }}",
-                "highlight_text_3": "{{ closest.product.metafields.custom.product_highlights_text_3.value }}",
-                "highlight_icon_3": "{{ closest.product.metafields.custom.product_highlights_icon_3.value }}",
-                "highlight_text_4": "{{ closest.product.metafields.custom.product_highlights_text_4.value }}",
-                "highlight_icon_4": "{{ closest.product.metafields.custom.product_highlights_icon_4.value }}",
-                "icon_size": 18,
-                "row_gap": 10,
-                "text_size": "0.8125rem",
-                "padding-block-start": 0,
-                "padding-block-end": 0
               },
               "blocks": {}
             },
@@ -631,21 +612,40 @@
                 "padding-block-end": 0
               },
               "blocks": {}
+            },
+            "product_highlights_ykQDjJ": {
+              "type": "product-highlights",
+              "name": "Product Highlights",
+              "settings": {
+                "highlight_text_1": "Australian Post top 50 People in E-Commerce 2026",
+                "highlight_icon_1": "shopify://shop_images/Vector_3.png",
+                "highlight_text_2": "Commbank Young Hero Awards Most Innovative Product Winner",
+                "highlight_icon_2": "shopify://shop_images/Commonwealth_Bank_of_Australia_idow7DUGyL_0_1_1.png",
+                "highlight_text_3": "Telstra Victorian Embracing Innovation Winner",
+                "highlight_icon_3": "shopify://shop_images/Telstra_idBotCkpPc_0_1_1.png",
+                "highlight_text_4": "",
+                "icon_size": 18,
+                "row_gap": 10,
+                "text_size": "0.75rem",
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "group_icgrde",
-            "product_highlights_ykQDjJ",
+            "product_highlights_ThMQX4",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "afterpay_on_site_messaging_payments_messaging_amjaBL",
             "product_description_QJfg7h",
-            "product_highlights_ThMQX4",
             "product_recommendations_6MBAPm",
             "accordion_gd7cJK",
             "tolstoy_ads_image_video_stories_block_GhkEwE",
             "accordion_4Ha7zd",
-            "product_highlights_LmNGJD"
+            "product_highlights_LmNGJD",
+            "product_highlights_ykQDjJ"
           ]
         }
       },
