@@ -288,6 +288,26 @@
               },
               "blocks": {}
             },
+            "product_highlights_ThMQX4": {
+              "type": "product-highlights",
+              "name": "Product Highlights",
+              "settings": {
+                "highlight_text_1": "{{ closest.product.metafields.custom.product_highlights_text.value }}",
+                "highlight_icon_1": "{{ closest.product.metafields.custom.product_hightlights_icon.value }}",
+                "highlight_text_2": "{{ closest.product.metafields.custom.product_highlights_text_2.value }}",
+                "highlight_icon_2": "{{ closest.product.metafields.custom.product_highlights_icon_2.value }}",
+                "highlight_text_3": "{{ closest.product.metafields.custom.product_highlights_text_3.value }}",
+                "highlight_icon_3": "{{ closest.product.metafields.custom.product_highlights_icon_3.value }}",
+                "highlight_text_4": "{{ closest.product.metafields.custom.product_highlights_text_4.value }}",
+                "highlight_icon_4": "{{ closest.product.metafields.custom.product_highlights_icon_4.value }}",
+                "icon_size": 18,
+                "row_gap": 10,
+                "text_size": "0.8125rem",
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
             "product_recommendations_6MBAPm": {
               "type": "product-recommendations",
               "name": "t:names.product_recommendations",
@@ -341,26 +361,6 @@
               "block_order": [
                 "text_hGaH7H"
               ]
-            },
-            "product_highlights_ThMQX4": {
-              "type": "product-highlights",
-              "name": "Product Highlights",
-              "settings": {
-                "highlight_text_1": "{{ closest.product.metafields.custom.product_highlights_text.value }}",
-                "highlight_icon_1": "{{ closest.product.metafields.custom.product_hightlights_icon.value }}",
-                "highlight_text_2": "{{ closest.product.metafields.custom.product_highlights_text_2.value }}",
-                "highlight_icon_2": "{{ closest.product.metafields.custom.product_highlights_icon_2.value }}",
-                "highlight_text_3": "{{ closest.product.metafields.custom.product_highlights_text_3.value }}",
-                "highlight_icon_3": "{{ closest.product.metafields.custom.product_highlights_icon_3.value }}",
-                "highlight_text_4": "{{ closest.product.metafields.custom.product_highlights_text_4.value }}",
-                "highlight_icon_4": "{{ closest.product.metafields.custom.product_highlights_icon_4.value }}",
-                "icon_size": 18,
-                "row_gap": 10,
-                "text_size": "0.8125rem",
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
             },
             "accordion_gd7cJK": {
               "type": "accordion",
@@ -640,8 +640,8 @@
             "buy_buttons_eYQEYi",
             "afterpay_on_site_messaging_payments_messaging_amjaBL",
             "product_description_QJfg7h",
-            "product_recommendations_6MBAPm",
             "product_highlights_ThMQX4",
+            "product_recommendations_6MBAPm",
             "accordion_gd7cJK",
             "tolstoy_ads_image_video_stories_block_GhkEwE",
             "accordion_4Ha7zd",
