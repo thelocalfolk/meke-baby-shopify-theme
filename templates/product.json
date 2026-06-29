@@ -595,6 +595,10 @@
                 "accordion_row_YrcR3T"
               ]
             },
+            "judge_me_reviews_review_snippet_widget_GQkYgn": {
+              "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+              "settings": {}
+            },
             "product_highlights_LmNGJD": {
               "type": "product-highlights",
               "name": "Product Highlights",
@@ -644,6 +648,7 @@
             "accordion_gd7cJK",
             "tolstoy_ads_image_video_stories_block_GhkEwE",
             "accordion_4Ha7zd",
+            "judge_me_reviews_review_snippet_widget_GQkYgn",
             "product_highlights_LmNGJD",
             "product_highlights_ykQDjJ"
           ]
