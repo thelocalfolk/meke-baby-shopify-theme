@@ -541,32 +541,6 @@
                 "accordion_row_YrcR3T"
               ]
             },
-            "text_epeEHA": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<h6><em>Packaging and branding may vary slightly as we transition to our new look</em></h6>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
             "judge_me_reviews_review_snippet_widget_7nC99C": {
               "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
               "settings": {}
@@ -588,6 +562,32 @@
                 "padding-block-end": 0
               },
               "blocks": {}
+            },
+            "text_epeEHA": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h6><em>*Packaging and branding may vary slightly as we transition to our new look</em></h6>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -599,9 +599,9 @@
             "accordion_gd7cJK",
             "tolstoy_ads_image_video_stories_block_xVwXjG",
             "accordion_4Ha7zd",
-            "text_epeEHA",
             "judge_me_reviews_review_snippet_widget_7nC99C",
-            "product_highlights_LmNGJD"
+            "product_highlights_LmNGJD",
+            "text_epeEHA"
           ]
         }
       },
