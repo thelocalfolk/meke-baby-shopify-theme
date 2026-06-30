@@ -303,7 +303,7 @@
       "custom_css": [
         "/* Align all product-card Add to cart buttons — 26 Jun 2026 */.product-card__content > .buy-buttons-block {margin-top: auto;}",
         ".product-card__content a.user-select-text .text-block {min-height: 2.6em;}",
-        "/* Collection-card \"Best for…\" badges — give two-line text room to breathe */.product-badges__badge--rectangle {padding-block: 7px; /* was 1px — main cause of the squash */ padding-inline: 14px; /* was 6px — eases the side cramping */ line-height: 1.25; /* relaxes the tight two-line spacing */}"
+        " /* Collection-card \"Best for…\" badges — give two-line text room to breathe */.product-badges__badge--rectangle {padding-block: 7px; /* was 1px — main cause of the squash */ padding-inline: 14px; /* was 6px — eases the side cramping */ line-height: 1.25; /* relaxes the tight two-line spacing */}"
       ],
       "settings": {
         "layout_type": "grid",
