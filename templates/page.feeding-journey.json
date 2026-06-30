@@ -160,7 +160,7 @@
         "gap": 25,
         "section_width": "page-width",
         "section_height": "custom",
-        "section_height_custom": 37,
+        "section_height_custom": 0,
         "color_scheme": "scheme-2",
         "background_media": "none",
         "video_position": "cover",
@@ -173,10 +173,10 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
-        "padding-block-end": 0,
-        "padding-block-start-mobile": 0,
-        "padding-block-end-mobile": 0
+        "padding-block-start": 65,
+        "padding-block-end": 28,
+        "padding-block-start-mobile": 69,
+        "padding-block-end-mobile": 13
       }
     },
     "collection_card_stack_XNzxMG": {
@@ -379,7 +379,9 @@
                 "rating_color": "primary",
                 "type_preset": "paragraph",
                 "width": "100%",
-                "alignment": "center"
+                "alignment": "center",
+                "padding_block_start": 0,
+                "padding_block_end": 0
               },
               "blocks": {}
             },
