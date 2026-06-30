@@ -66,6 +66,8 @@
         "image_url": "",
         "bg_position": "top center",
         "bg_position_mobile": "center",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
         "color_scheme": "scheme-3",
         "star_rating": "",
         "star_size": 14,
@@ -1680,7 +1682,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -1693,7 +1695,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 48,
+        "padding-block-start-mobile": 48,
+        "padding-block-end-mobile": 48
       }
     }
   },
