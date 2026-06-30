@@ -173,7 +173,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 48,
+        "padding-block-start-mobile": 50,
+        "padding-block-end-mobile": 50
       }
     },
     "section_WkzmLy": {
@@ -275,7 +277,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 32,
-        "padding-block-end": 32
+        "padding-block-end": 32,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "marquee_NB3e49": {
@@ -732,7 +736,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 48,
-        "padding-block-end": 35
+        "padding-block-end": 35,
+        "padding-block-start-mobile": 55,
+        "padding-block-end-mobile": 41
       }
     },
     "feature_cards_carousel_UncweF": {
@@ -932,7 +938,7 @@
           "settings": {
             "text": "<p>Mekė Baby brings structure to feeding — a clear system designed to support every step, from preparation to on-the-go.</p>",
             "width": "fit-content",
-            "max_width": "normal",
+            "max_width": "none",
             "alignment": "left",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
@@ -947,8 +953,8 @@
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 100,
-            "padding-inline-end": 100
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         }
@@ -983,7 +989,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "category_grid_YR9T4y": {
