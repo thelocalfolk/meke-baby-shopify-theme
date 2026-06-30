@@ -1693,7 +1693,7 @@
         "columns": "5",
         "mobile_columns": "1",
         "columns_gap": 16,
-        "aspect_ratio": "9 / 16",
+        "aspect_ratio": "4 / 5",
         "card_radius": 12,
         "center_play": true,
         "loop_videos": true,
