@@ -938,7 +938,7 @@
           "settings": {
             "text": "<p>Mekė Baby brings structure to feeding — a clear system designed to support every step, from preparation to on-the-go.</p>",
             "width": "fit-content",
-            "max_width": "normal",
+            "max_width": "none",
             "alignment": "left",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
