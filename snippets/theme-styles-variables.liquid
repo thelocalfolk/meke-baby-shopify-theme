@@ -136,7 +136,7 @@
     font-family: 'Sequel Sans';
     src: url('{{ 'SequelSans-RomanBody.woff2' | file_url }}') format('woff2'),
          url('{{ 'SequelSans-RomanBody.woff' | file_url }}') format('woff');
-    font-weight: 400;
+    font-weight: 310;
     font-style: normal;
     font-display: swap;
   }
@@ -716,15 +716,39 @@
     --font-public-sans--family: 'Public Sans', sans-serif;
     --font-sequel-sans--family: 'Sequel Sans', sans-serif;
 
-    /* Headings -> Sequel Sans (native h1-h6 + custom sections using var(--font-heading--family)) */
+    /* Headings -> Sequel Sans Roman Body, matching Figma spec */
     --font-heading--family: var(--font-sequel-sans--family);
-    --font-heading--weight: 700; /* Bolder headings (synthetic bold from Sequel Sans Roman) */
+    --font-heading--weight: 310; /* Roman Body */
     --font-h1--family: var(--font-sequel-sans--family);
     --font-h2--family: var(--font-sequel-sans--family);
     --font-h3--family: var(--font-sequel-sans--family);
     --font-h4--family: var(--font-sequel-sans--family);
     --font-h5--family: var(--font-sequel-sans--family);
     --font-h6--family: var(--font-sequel-sans--family);
+
+    /* Weight 310 (Roman Body) across all heading levels */
+    --font-h1--weight: 310;
+    --font-h2--weight: 310;
+    --font-h3--weight: 310;
+    --font-h4--weight: 310;
+    --font-h5--weight: 310;
+    --font-h6--weight: 310;
+
+    /* Letter spacing -4% (Figma) */
+    --font-h1--letter-spacing: -0.04em;
+    --font-h2--letter-spacing: -0.04em;
+    --font-h3--letter-spacing: -0.04em;
+    --font-h4--letter-spacing: -0.04em;
+    --font-h5--letter-spacing: -0.04em;
+    --font-h6--letter-spacing: -0.04em;
+
+    /* Line height ~115% (Figma) */
+    --font-h1--line-height: 1.15;
+    --font-h2--line-height: 1.15;
+    --font-h3--line-height: 1.15;
+    --font-h4--line-height: 1.15;
+    --font-h5--line-height: 1.15;
+    --font-h6--line-height: 1.15;
 
     /* Body / paragraphs -> Public Sans */
     --font-body--family: var(--font-public-sans--family);
