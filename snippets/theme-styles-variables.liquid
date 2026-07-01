@@ -132,24 +132,6 @@
     font-display: swap;
   }
 
-  @font-face {
-    font-family: 'Sequel Sans';
-    src: url('{{ 'SequelSans-RomanBody.woff2' | file_url }}') format('woff2'),
-         url('{{ 'SequelSans-RomanBody.woff' | file_url }}') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Sequel Sans';
-    src: url('{{ 'SequelSans-BookBody.woff2' | file_url }}') format('woff2'),
-         url('{{ 'SequelSans-BookBody.woff' | file_url }}') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-
   :root {
     /* Page Layout */
     --sidebar-width: 25rem;
@@ -712,21 +694,15 @@
     --cart-secondary-font-style: var(--font-{{ settings.cart_price_font }}--style);
     --cart-secondary-font-weight: var(--font-{{ settings.cart_price_font }}--weight);
 
-    /* Brand fonts */
+    /* Public Sans - Roman Body */
     --font-public-sans--family: 'Public Sans', sans-serif;
-    --font-sequel-sans--family: 'Sequel Sans', sans-serif;
 
-    /* Headings -> Sequel Sans (native h1-h6 + custom sections using var(--font-heading--family)) */
-    --font-heading--family: var(--font-sequel-sans--family);
-    --font-heading--weight: 400; /* Roman. Change to 300 for the lighter Book weight */
-    --font-h1--family: var(--font-sequel-sans--family);
-    --font-h2--family: var(--font-sequel-sans--family);
-    --font-h3--family: var(--font-sequel-sans--family);
-    --font-h4--family: var(--font-sequel-sans--family);
-    --font-h5--family: var(--font-sequel-sans--family);
-    --font-h6--family: var(--font-sequel-sans--family);
-
-    /* Body / paragraphs -> Public Sans */
-    --font-body--family: var(--font-public-sans--family);
+    /* Apply Public Sans to all heading levels */
+    --font-h1--family: var(--font-public-sans--family);
+    --font-h2--family: var(--font-public-sans--family);
+    --font-h3--family: var(--font-public-sans--family);
+    --font-h4--family: var(--font-public-sans--family);
+    --font-h5--family: var(--font-public-sans--family);
+    --font-h6--family: var(--font-public-sans--family);
   }
 {% endstyle %}
