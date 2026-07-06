@@ -73,7 +73,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<h2></h2><p>Microwaves.<br/>Wrist tests.<br/>Plastic bottles and storage bags submerged in hot water.</p><p>For something as important as feeding your baby, guesswork should never be the standard.</p><p><strong>That's why MEKE was created: to deliver a safer, more considered standard of feeding.</strong></p>",
+            "text": "<p>Microwaves. Wrist tests.<br/>Plastic bottles and storage bags submerged in hot water.</p><p>For something as important as feeding your baby, guesswork should never be the standard.</p><p><strong>That's why MEKE was created: to deliver a safer, more considered standard of feeding.</strong></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "center",
@@ -88,7 +88,7 @@
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
-            "padding-block-start": 0,
+            "padding-block-start": 20,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
