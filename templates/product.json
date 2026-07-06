@@ -835,7 +835,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h4>Feeding outside the home often means adapting - improvising with hot water, rushing to find a microwave, or guessing if the temperature is right.</h4>",
+            "text": "<h4>For generations, warming milk has relied on guesswork.</h4>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -861,7 +861,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Mekė removes that. We’ve created a  considered system for warming milk safely and consistently — wherever feeding happens.</p>",
+            "text": "<p>Hot water. Microwaves. Wrist tests.</p><p><strong>MEKĖ Express and Express Pro</strong> were created to change that. <br/>Portable milk warmers that deliver safe, consistent warming for breast milk, formula and milk alternatives, wherever you are.</p><p><strong>The New Standard of Feeding.</strong></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
