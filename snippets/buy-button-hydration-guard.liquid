@@ -1,0 +1,85 @@
+{%- comment -%}
+  Snippet: buy-button-hydration-guard
+  Theme: Horizon (Meke Baby)
+
+  WHY THIS EXISTS
+  ----------------
+  Every Add-to-cart button on the store is powered by Horizon's
+  <product-form-component> custom element, which is defined in a deferred
+  JavaScript module (product-form-component.js / product-form.js). On a heavy
+  page (e.g. the homepage, which finishes loading ~5s in), there is a window
+  between when the buttons are visible and when that module finishes running.
+  A click during that window hits a button with no handler attached yet, so
+  "nothing happens" — and a second click after the page settles works fine.
+
+  WHAT THIS DOES
+  ----------------
+  Runs as a classic (non-deferred) inline script during <head> parsing, so it
+  is active before any button can be clicked. If a buy button is clicked
+  BEFORE <product-form-component> has finished loading, it:
+    1. prevents the broken early submit,
+    2. marks the button as busy (aria-busy),
+    3. replays the click automatically once the component is ready.
+  Once the component is defined, this guard does nothing — zero overhead and
+  zero behaviour change for the normal (hydrated) case.
+
+  HOW TO INSTALL
+  ----------------
+  Render it once, high in the <head> of layout/theme.liquid, e.g. right after
+  the opening <head> / before the theme's script modules:
+
+    {% render 'buy-button-hydration-guard' %}
+
+  It is safe to load on every page.
+{%- endcomment -%}
+
+<script>
+  (function () {
+    if (window.__mekeBuyButtonGuard) return;
+    window.__mekeBuyButtonGuard = true;
+
+    // Nothing to guard if custom elements aren't supported.
+    if (!('customElements' in window)) return;
+
+    var COMPONENT = 'product-form-component';
+    var BUTTON_SELECTOR = 'button[name="add"]';
+
+    // Already defined (e.g. fast page / cached module)? No guarding needed.
+    var isReady = function () { return !!customElements.get(COMPONENT); };
+
+    document.addEventListener(
+      'click',
+      function (event) {
+        if (isReady()) return;
+
+        var target = event.target;
+        if (!target || !target.closest) return;
+
+        var button = target.closest(BUTTON_SELECTOR);
+        if (!button) return;
+
+        // Only guard buttons that belong to a not-yet-upgraded product form.
+        var form = button.closest(COMPONENT);
+        if (!form) return;
+
+        // Stop the early (handler-less) submit so we don't lose or mis-fire it.
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        if (button.getAttribute('aria-busy') === 'true') return;
+        button.setAttribute('aria-busy', 'true');
+
+        customElements.whenDefined(COMPONENT).then(function () {
+          // Give the instance two frames to upgrade and attach its on:submit handler.
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              button.removeAttribute('aria-busy');
+              button.click();
+            });
+          });
+        });
+      },
+      true // capture phase: run before any other click handler
+    );
+  })();
+</script>
