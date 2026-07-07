@@ -6,6 +6,15 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+    {%- comment -%}
+      Meke Baby: hydration guard. Must load as early as possible in <head>, before any
+      buy button can be clicked, so a click during the JS load window is caught and
+      replayed instead of silently doing nothing. Fixes the "add to cart needs two taps"
+      issue and helps the cart drawer open reliably. Guard snippet already existed in the
+      theme but was never rendered — this line wires it in. Does nothing once hydrated.
+    {%- endcomment -%}
+    {%- render 'buy-button-hydration-guard' -%}
+
     {%- if settings.favicon != blank -%}
       <link
         rel="icon"
