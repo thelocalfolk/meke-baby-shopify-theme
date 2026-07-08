@@ -90,6 +90,8 @@
       --rec-img-radius: {{ block_settings.image_radius }}px;
       --rec-button-bg: {{ block_settings.button_color }};
       --rec-button-text: {{ block_settings.button_text_color }};
+      --rec-badge-bg: {{ block_settings.sale_badge_background }};
+      --rec-badge-text: {{ block_settings.sale_badge_text_color }};
     "
   >
     <div class="rec-block__heading">
@@ -141,6 +143,14 @@
                   }}
                 {%- else -%}
                   {{ 'product-1' | placeholder_svg_tag: 'rec-card__image rec-card__image--placeholder' }}
+                {%- endif -%}
+
+                {%- comment -%} Sale "Save X%" badge — only when on sale. Percentage = (compare-at − price) / compare-at, rounded. {%- endcomment -%}
+                {%- if block_settings.show_sale_badge and product.compare_at_price > product.price -%}
+                  {%- assign rec_saving_pct = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+                  <span class="rec-card__badge">
+                    {{- block_settings.sale_badge_text | default: 'Save' | escape }} {{ rec_saving_pct }}%
+                  </span>
                 {%- endif -%}
               </a>
 
@@ -274,6 +284,7 @@
   }
 
   .rec-card__image-wrap {
+    position: relative; /* anchor for the sale badge */
     flex: 0 0 var(--rec-img-size, 110px);
     width: var(--rec-img-size, 110px);
     height: var(--rec-img-size, 110px);
@@ -282,6 +293,22 @@
     overflow: hidden;
     background-color: #f5f0eb;
     display: block;
+  }
+
+  /* Sale "Save X%" badge — pill in the top-left corner of the product image */
+  .rec-card__badge {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    z-index: 2;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    background-color: var(--rec-badge-bg, #b44a4a);
+    color: var(--rec-badge-text, #ffffff);
   }
 
   .rec-card__image,
@@ -488,6 +515,35 @@
       "id": "button_text_color",
       "label": "Button text colour",
       "default": "#2E2A39"
+    },
+    {
+      "type": "header",
+      "content": "Sale badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sale_badge",
+      "label": "Show \"Save X%\" badge on sale items",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "sale_badge_text",
+      "label": "Badge prefix text",
+      "default": "Save",
+      "info": "Shown before the percentage, e.g. \"Save 20%\"."
+    },
+    {
+      "type": "color",
+      "id": "sale_badge_background",
+      "label": "Badge background colour",
+      "default": "#b44a4a"
+    },
+    {
+      "type": "color",
+      "id": "sale_badge_text_color",
+      "label": "Badge text colour",
+      "default": "#ffffff"
     },
     {
       "type": "header",
