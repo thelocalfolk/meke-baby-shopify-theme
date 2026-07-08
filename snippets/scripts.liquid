@@ -2,6 +2,21 @@
   Renders all global scripts, module preloads, and importmaps for the theme.
 
   @param {object} [product] - The product object, available on product pages.
+
+  PERF UPDATE: product-detail-only module scripts (media gallery, SKU, inventory,
+  volume/tiered pricing) have been moved out of the global list and into the
+  product-only conditional block near the bottom. Their DOM elements
+  (media-gallery, product-sku, product-inventory, volume-pricing,
+  volume-pricing-info, price-per-item) do not appear on the homepage or other
+  non-product templates, so loading them everywhere was wasted download +
+  parse/compile time (part of Lighthouse's "unused JavaScript").
+
+  NOTE: their importmap entries are intentionally LEFT in place so that if any
+  component dynamically imports them, the module URL still resolves. Only the
+  eager <script> tags were moved. Scripts whose elements DO appear on the
+  homepage (product-card, product-form, product-price, quick-add, slideshow,
+  rte-formatter, etc.) were deliberately left global — gating them would break
+  the homepage product cards, quick-add and carousels.
 {% enddoc %}
 
 <script type="importmap">
@@ -173,17 +188,7 @@
   fetchpriority="low"
 ></script>
 <script
-  src="{{ 'product-sku.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
   src="{{ 'product-title-truncation.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'product-inventory.js' | asset_url }}"
   type="module"
   fetchpriority="low"
 ></script>
@@ -223,27 +228,7 @@
   fetchpriority="low"
 ></script>
 <script
-  src="{{ 'media-gallery.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
   src="{{ 'rte-formatter.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'volume-pricing.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'price-per-item.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'volume-pricing-info.js' | asset_url }}"
   type="module"
   fetchpriority="low"
 ></script>
@@ -257,6 +242,43 @@
 {% endif %}
 
 {% if template == 'product' or template.name == 'product' or request.page_type == 'product' %}
+  {%- comment -%}
+    Product-detail-only modules. Moved here from the global list (PERF UPDATE)
+    because these elements only appear on the product page. If you later add a
+    section that uses any of these on another template, load it from that
+    section instead of moving it back to global.
+  {%- endcomment -%}
+  <script
+    src="{{ 'media-gallery.js' | asset_url }}"
+    type="module"
+    fetchpriority="low"
+  ></script>
+  <script
+    src="{{ 'product-sku.js' | asset_url }}"
+    type="module"
+    fetchpriority="low"
+  ></script>
+  <script
+    src="{{ 'product-inventory.js' | asset_url }}"
+    type="module"
+    fetchpriority="low"
+  ></script>
+  <script
+    src="{{ 'volume-pricing.js' | asset_url }}"
+    type="module"
+    fetchpriority="low"
+  ></script>
+  <script
+    src="{{ 'volume-pricing-info.js' | asset_url }}"
+    type="module"
+    fetchpriority="low"
+  ></script>
+  <script
+    src="{{ 'price-per-item.js' | asset_url }}"
+    type="module"
+    fetchpriority="low"
+  ></script>
+
   <script
     src="{{ 'fly-to-cart.js' | asset_url }}"
     type="module"
