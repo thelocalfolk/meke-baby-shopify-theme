@@ -14,7 +14,7 @@
   style="{% render 'spacing-padding', settings: section.settings %}; --border-bottom-width: {{ section.settings.divider_width }}px;"
 >
   {% liquid
-    assign autoplay = false
+    assign autoplay = true
     assign show_arrows = false
     if section.blocks.size > 1
       assign autoplay = true
