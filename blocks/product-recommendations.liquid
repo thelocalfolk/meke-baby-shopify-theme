@@ -145,11 +145,11 @@
                   {{ 'product-1' | placeholder_svg_tag: 'rec-card__image rec-card__image--placeholder' }}
                 {%- endif -%}
 
-                {%- comment -%} Sale "Save X%" badge — only when on sale. Percentage = (compare-at − price) / compare-at, rounded. {%- endcomment -%}
+                {%- comment -%} Sale "Save $X" badge — only when on sale. Saving = compare-at − price. {%- endcomment -%}
                 {%- if block_settings.show_sale_badge and product.compare_at_price > product.price -%}
-                  {%- assign rec_saving_pct = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+                  {%- assign rec_saving = product.compare_at_price | minus: product.price -%}
                   <span class="rec-card__badge">
-                    {{- block_settings.sale_badge_text | default: 'Save' | escape }} {{ rec_saving_pct }}%
+                    {{- block_settings.sale_badge_text | default: 'Save' | escape }} {{ rec_saving | money_without_trailing_zeros }}
                   </span>
                 {%- endif -%}
               </a>
@@ -523,7 +523,7 @@
     {
       "type": "checkbox",
       "id": "show_sale_badge",
-      "label": "Show \"Save X%\" badge on sale items",
+      "label": "Show \"Save $X\" badge on sale items",
       "default": true
     },
     {
@@ -531,7 +531,7 @@
       "id": "sale_badge_text",
       "label": "Badge prefix text",
       "default": "Save",
-      "info": "Shown before the percentage, e.g. \"Save 20%\"."
+      "info": "Shown before the dollar amount, e.g. \"Save $15\"."
     },
     {
       "type": "color",
