@@ -20,13 +20,13 @@
           {{ 'content.product_badge_sold_out' | t }}
         </div>
       {%- elsif product.compare_at_price > product.price -%}
-        {%- comment -%} Sale badge now shows the % saved: (compare-at − price) / compare-at, rounded {%- endcomment -%}
-        {%- assign card_saving_pct = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+        {%- comment -%} Sale badge shows the $ saved: compare-at − price {%- endcomment -%}
+        {%- assign card_saving = product.compare_at_price | minus: product.price -%}
         <div
           class="product-badges__badge product-badges__badge--rectangle product-badges__badge--sale color-{{ settings.badge_sale_color_scheme }}"
           style="background:#DCCBE4; color:#927F76; padding:5px 11px;"
         >
-          Save {{ card_saving_pct }}%
+          Save {{ card_saving | money_without_trailing_zeros }}
         </div>
       {%- endif -%}
     </div>
