@@ -1,0 +1,346 @@
+{% comment %}
+  Block: Free Shipping Bar
+  Theme: Horizon (Meke Baby)
+
+  A progress bar that shows how much more a customer needs to spend to unlock
+  free shipping, or a congratulations message once they've reached the threshold.
+
+  - Built as a theme block so it can be dragged into BOTH the cart page and the
+    cart drawer from the theme editor.
+  - Renders its initial state server-side from cart.total_price, then updates
+    LIVE as items are added / removed / quantities change, in either context.
+  - Live updates work by watching cart requests (add / change / update / clear)
+    and re-reading /cart.js — so it doesn't depend on how the theme re-renders.
+
+  Schema notes:
+  - "Free shipping threshold" is the dollar amount the customer must reach.
+    IMPORTANT: this is just the visual bar — make sure a matching free-shipping
+    shipping rate is set up in Shopify (Settings → Shipping) at the same amount,
+    or the promise won't be real at checkout.
+  - Use [amount] in the "before" message where the remaining dollar figure
+    should appear. It's automatically wrapped in bold.
+{% endcomment %}
+
+{%- liquid
+  assign threshold_cents = block.settings.threshold | times: 100
+  assign current_cents = cart.total_price
+
+  assign remaining_cents = threshold_cents | minus: current_cents
+  if remaining_cents < 0
+    assign remaining_cents = 0
+  endif
+
+  assign reached = false
+  if current_cents >= threshold_cents
+    assign reached = true
+  endif
+
+  assign percent = 0
+  if threshold_cents > 0
+    assign percent = current_cents | times: 100 | divided_by: threshold_cents
+  endif
+  if percent > 100
+    assign percent = 100
+  endif
+
+  assign remaining_formatted = remaining_cents | money
+  assign amount_html = '<strong>' | append: remaining_formatted | append: '</strong>'
+  assign before_rendered = block.settings.message_before | replace: '[amount]', amount_html
+-%}
+
+<free-shipping-bar
+  class="free-shipping-bar {% if reached %}free-shipping-bar--reached{% endif %}"
+  id="free-shipping-bar-{{ block.id }}"
+  data-threshold="{{ threshold_cents }}"
+  data-message-before="{{ block.settings.message_before | escape }}"
+  data-message-reached="{{ block.settings.message_reached | escape }}"
+  data-money-format="{{ shop.money_format | escape }}"
+  style="
+    --fsb-fill: {{ block.settings.fill_color }};
+    --fsb-track: {{ block.settings.track_color }};
+    --fsb-height: {{ block.settings.bar_height }}px;
+    --fsb-radius: {{ block.settings.bar_radius }}px;
+    --fsb-align: {{ block.settings.text_align }};
+    padding-block-start: {{ block.settings.padding_top }}px;
+    padding-block-end: {{ block.settings.padding_bottom }}px;
+  "
+  {{ block.shopify_attributes }}
+>
+  <p
+    class="free-shipping-bar__message {{ block.settings.type_preset }}"
+    data-fsb-message
+    style="{% render 'typography-style', settings: block.settings %}"
+  >
+    {%- if reached -%}
+      {{ block.settings.message_reached }}
+    {%- else -%}
+      {{ before_rendered }}
+    {%- endif -%}
+  </p>
+
+  <div class="free-shipping-bar__track" role="progressbar" aria-hidden="true">
+    <div class="free-shipping-bar__fill" data-fsb-fill style="width: {{ percent }}%;"></div>
+  </div>
+</free-shipping-bar>
+
+{% stylesheet %}
+  .free-shipping-bar {
+    display: block;
+    width: 100%;
+  }
+
+  .free-shipping-bar__message {
+    text-align: var(--fsb-align, center);
+    margin: 0 0 var(--margin-xs, 0.75rem);
+    color: var(--color-foreground);
+  }
+
+  .free-shipping-bar__message strong {
+    font-weight: var(--font-weight-bold, 700);
+  }
+
+  .free-shipping-bar__track {
+    position: relative;
+    width: 100%;
+    height: var(--fsb-height, 8px);
+    background-color: var(--fsb-track, rgb(var(--color-foreground-rgb) / 0.12));
+    border-radius: var(--fsb-radius, 999px);
+    overflow: hidden;
+  }
+
+  .free-shipping-bar__fill {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    height: 100%;
+    background-color: var(--fsb-fill, var(--color-foreground));
+    border-radius: inherit;
+    transition: width 0.4s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .free-shipping-bar__fill {
+      transition: none;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  // Install a single global watcher that re-reads the cart after any
+  // cart-mutating request, then tells every bar on the page to update.
+  if (!window.__fsbCartWatch) {
+    window.__fsbCartWatch = true;
+    var cartRoute = /\/cart\/(add|change|update|clear)/;
+    var origFetch = window.fetch;
+    window.fetch = function () {
+      var arg = arguments[0];
+      var url = (arg && arg.url) || arg || '';
+      var result = origFetch.apply(this, arguments);
+      if (typeof url === 'string' && cartRoute.test(url)) {
+        result
+          .then(function () {
+            return origFetch('/cart.js', { headers: { Accept: 'application/json' } });
+          })
+          .then(function (r) { return r.json(); })
+          .then(function (cart) {
+            document.dispatchEvent(
+              new CustomEvent('fsb:cart-updated', { detail: cart })
+            );
+          })
+          .catch(function () {});
+      }
+      return result;
+    };
+  }
+
+  class FreeShippingBar extends HTMLElement {
+    connectedCallback() {
+      this.threshold = parseInt(this.dataset.threshold, 10) || 0;
+      this.moneyFormat = this.dataset.moneyFormat || '${{amount}}';
+      this.messageBefore = this.dataset.messageBefore || '';
+      this.messageReached = this.dataset.messageReached || '';
+      this.messageEl = this.querySelector('[data-fsb-message]');
+      this.fillEl = this.querySelector('[data-fsb-fill]');
+      this._onUpdate = (e) => this.render(e.detail.total_price);
+      document.addEventListener('fsb:cart-updated', this._onUpdate);
+    }
+
+    disconnectedCallback() {
+      document.removeEventListener('fsb:cart-updated', this._onUpdate);
+    }
+
+    render(totalCents) {
+      if (typeof totalCents !== 'number') return;
+      const remaining = Math.max(this.threshold - totalCents, 0);
+      let percent = this.threshold > 0 ? (totalCents / this.threshold) * 100 : 0;
+      if (percent > 100) percent = 100;
+
+      const reached = totalCents >= this.threshold;
+      this.classList.toggle('free-shipping-bar--reached', reached);
+      if (this.fillEl) this.fillEl.style.width = percent + '%';
+
+      if (this.messageEl) {
+        if (reached) {
+          this.messageEl.textContent = this.messageReached;
+        } else {
+          const amount = '<strong>' + this.formatMoney(remaining) + '</strong>';
+          this.messageEl.innerHTML = this.messageBefore.replace('[amount]', amount);
+        }
+      }
+    }
+
+    formatMoney(cents) {
+      const format = this.moneyFormat;
+      const value = (cents / 100).toFixed(2);
+      const parts = value.split('.');
+      let dollars = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      const withDecimals = dollars + '.' + parts[1];
+      const noDecimals = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+      return format.replace(/\{\{\s*(\w+)\s*\}\}/g, function (match, token) {
+        switch (token) {
+          case 'amount':
+          case 'amount_with_comma_separator':
+            return withDecimals;
+          case 'amount_no_decimals':
+          case 'amount_no_decimals_with_comma_separator':
+            return noDecimals;
+          default:
+            return withDecimals;
+        }
+      });
+    }
+  }
+
+  if (!customElements.get('free-shipping-bar')) {
+    customElements.define('free-shipping-bar', FreeShippingBar);
+  }
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Free shipping bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Free shipping goal"
+    },
+    {
+      "type": "number",
+      "id": "threshold",
+      "label": "Free shipping threshold ($)",
+      "default": 99,
+      "info": "Make sure this matches a free-shipping rate set up in Settings → Shipping."
+    },
+    {
+      "type": "text",
+      "id": "message_before",
+      "label": "Message before goal reached",
+      "default": "You're only [amount] away from free shipping!",
+      "info": "Use [amount] where the remaining dollar figure should appear (shown in bold)."
+    },
+    {
+      "type": "text",
+      "id": "message_reached",
+      "label": "Message when goal reached",
+      "default": "Congratulations! You've got free shipping!"
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "Style preset",
+      "info": "Inherits from your theme typography settings",
+      "options": [
+        { "value": "paragraph", "label": "Paragraph" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
+      ],
+      "default": "paragraph"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text alignment",
+      "options": [
+        { "value": "start", "label": "Left" },
+        { "value": "center", "label": "Centre" },
+        { "value": "end", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Bar appearance"
+    },
+    {
+      "type": "color",
+      "id": "fill_color",
+      "label": "Progress fill colour",
+      "default": "#2b2b2b"
+    },
+    {
+      "type": "color",
+      "id": "track_color",
+      "label": "Track (background) colour",
+      "default": "#ececec"
+    },
+    {
+      "type": "range",
+      "id": "bar_height",
+      "label": "Bar thickness",
+      "min": 2,
+      "max": 24,
+      "step": 1,
+      "default": 8,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "bar_radius",
+      "label": "Bar corner radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "default": 8,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "default": 16,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Free shipping bar"
+    }
+  ]
+}
+{% endschema %}
