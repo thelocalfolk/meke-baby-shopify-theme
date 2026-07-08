@@ -187,6 +187,11 @@
         "type": "shopify://apps/essential-upsell/blocks/app-embed/50627fd9-24fd-4250-8614-accc12826d80",
         "disabled": false,
         "settings": {}
+      },
+      "6825264096516468816": {
+        "type": "shopify://apps/xb-free-shipping-upsell/blocks/free-shipping-upsell/019c2286-1e8b-72d7-855c-9d32db6f97be",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
