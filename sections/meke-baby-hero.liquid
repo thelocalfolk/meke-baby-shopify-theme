@@ -4,6 +4,12 @@
   The subheading uses a richtext setting so it can be connected to a metafield
   (e.g. a product/page/shop richtext metafield) via the theme editor's
   "Connect dynamic source" icon.
+
+  PERF UPDATE (LCP): the hero image is now rendered as a real <img>/<picture>
+  with loading="eager" + fetchpriority="high" instead of a CSS background-image.
+  A CSS background can't be seen by the browser's preload scanner or prioritised,
+  which delayed Largest Contentful Paint. Real markup at the top of the body is
+  discovered immediately. Focal point is now applied via object-position.
 {% endcomment %}
 
 {%- liquid
@@ -36,20 +42,50 @@ min-height: {{ section.settings.min_height }}vh;
     {% comment %} Overlay: tint sits between the background image and the content {% endcomment %}
     --hero-overlay-color: {{ section.settings.overlay_color }};
     --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
-    {% if bg_image != blank %}
-      --hero-bg-desktop: url('{{ bg_image | image_url: width: 2400 }}');
-    {% elsif fallback_url != blank %}
-      --hero-bg-desktop: url('{{ fallback_url }}');
-    {% endif %}
-    {% if mobile_image != blank %}
-      --hero-bg-mobile: url('{{ mobile_image | image_url: width: 1200 }}');
-    {% elsif bg_image != blank %}
-      --hero-bg-mobile: url('{{ bg_image | image_url: width: 1200 }}');
-    {% elsif fallback_url != blank %}
-      --hero-bg-mobile: url('{{ fallback_url }}');
-    {% endif %}
   "
 >
+  {%- comment -%}
+    LCP image. Rendered eagerly with high priority so it loads first.
+    <picture> lets us serve a separate mobile crop when one is set; otherwise
+    the responsive `widths` on the main <img> handles small screens automatically.
+    alt="" because the hero is decorative — the <h1> below carries the heading.
+  {%- endcomment -%}
+  {%- if mobile_image != blank or bg_image != blank or fallback_url != blank -%}
+    <picture class="meke-hero__bg">
+      {%- if mobile_image != blank -%}
+        <source
+          media="(max-width: 749px)"
+          srcset="
+            {{ mobile_image | image_url: width: 750 }} 750w,
+            {{ mobile_image | image_url: width: 1000 }} 1000w,
+            {{ mobile_image | image_url: width: 1200 }} 1200w
+          "
+          sizes="100vw"
+        >
+      {%- endif -%}
+      {%- if bg_image != blank -%}
+        {{
+          bg_image
+          | image_url: width: 1600
+          | image_tag:
+            loading: 'eager',
+            fetchpriority: 'high',
+            sizes: '100vw',
+            widths: '750, 1000, 1200, 1600, 2000, 2400',
+            alt: ''
+        }}
+      {%- elsif fallback_url != blank -%}
+        <img
+          src="{{ fallback_url }}"
+          alt=""
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        >
+      {%- endif -%}
+    </picture>
+  {%- endif -%}
+
   <div class="meke-hero__inner page-width">
     <div class="meke-hero__content">
       {%- if section.settings.star_rating != blank -%}
@@ -73,15 +109,25 @@ min-height: {{ section.settings.min_height }}vh;
 
 {% stylesheet %}
   .meke-hero {
-    background-size: cover;
-    background-position: var(--hero-bg-position, center);
-    background-image: var(--hero-bg-desktop);
     display: flex;
     align-items: var(--hero-align, flex-end);
     position: relative;
+    overflow: hidden;
   }
 
-  /* Overlay tint — sits above the background image, below the content */
+  /* LCP image — fills the hero, sits behind the overlay and content */
+  .meke-hero__bg,
+  .meke-hero__bg img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--hero-bg-position, center);
+    z-index: 0;
+  }
+
+  /* Overlay tint — sits above the image, below the content */
   .meke-hero::before {
     content: "";
     position: absolute;
@@ -89,7 +135,7 @@ min-height: {{ section.settings.min_height }}vh;
     background-color: var(--hero-overlay-color, #000000);
     opacity: var(--hero-overlay-opacity, 0);
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
   }
 
   .meke-hero__inner {
@@ -97,7 +143,7 @@ min-height: {{ section.settings.min_height }}vh;
     padding-block: var(--hero-padding-top, 40px) var(--hero-padding-bottom, 40px);
     padding-inline: max(var(--hero-padding-horizontal, 2rem), 5vw);
     position: relative; /* lift content above the overlay */
-    z-index: 1;
+    z-index: 2;
   }
 
   .meke-hero__content {
@@ -140,9 +186,9 @@ min-height: {{ section.settings.min_height }}vh;
   }
 
   @media screen and (max-width: 749px) {
-    .meke-hero {
-      background-image: var(--hero-bg-mobile);
-      background-position: var(--hero-bg-position-mobile, center);
+    /* Apply the mobile focal point to the image */
+    .meke-hero__bg img {
+      object-position: var(--hero-bg-position-mobile, center);
     }
 
     .meke-hero__inner {
