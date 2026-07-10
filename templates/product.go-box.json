@@ -194,6 +194,23 @@
                 "price_tVjtKg"
               ]
             },
+            "product_highlights_nRQRbf": {
+              "type": "product-highlights",
+              "name": "Product Highlights",
+              "settings": {
+                "highlight_text_1": "Heats meals in 5–25 minutes",
+                "highlight_icon_1": "shopify://shop_images/IconAsset_1_3.png",
+                "highlight_text_2": "",
+                "highlight_text_3": "",
+                "highlight_text_4": "",
+                "icon_size": 28,
+                "row_gap": 10,
+                "text_size": "0.875rem",
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
@@ -676,6 +693,7 @@
           },
           "block_order": [
             "group_icgrde",
+            "product_highlights_nRQRbf",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "afterpay_on_site_messaging_payments_messaging_amjaBL",
