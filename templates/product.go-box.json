@@ -200,8 +200,10 @@
               "settings": {
                 "highlight_text_1": "Heats meals in 5–25 minutes",
                 "highlight_icon_1": "shopify://shop_images/IconAsset_1_3.png",
-                "highlight_text_2": "",
-                "highlight_text_3": "",
+                "highlight_text_2": "USB Charging cable included",
+                "highlight_icon_2": "shopify://shop_images/Icon_4_Teddy.png",
+                "highlight_text_3": "Heats up to 90°C (degree Celsius)",
+                "highlight_icon_3": "shopify://shop_images/Icon_5_Teddy.png",
                 "highlight_text_4": "",
                 "icon_size": 28,
                 "row_gap": 10,
