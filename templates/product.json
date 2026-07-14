@@ -299,6 +299,10 @@
                 "add_to_cart_label": "Add to cart",
                 "button_color": "#dccbe4",
                 "button_text_color": "#927f76",
+                "show_sale_badge": true,
+                "sale_badge_text": "Save",
+                "sale_badge_background": "#dccbe4",
+                "sale_badge_text_color": "#927f76",
                 "show_description": true,
                 "card_background": "#ffffff",
                 "card_radius": 10,
@@ -993,7 +997,6 @@
         "video_VQYpRB",
         "group_BghjDD"
       ],
-      "disabled": true,
       "name": "t:names.video_section",
       "settings": {
         "content_direction": "column",
