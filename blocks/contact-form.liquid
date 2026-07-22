@@ -1,5 +1,3 @@
-
-
 {% capture submit_button %}
   {% content_for 'block', type: 'contact-form-submit-button', id: 'submit-button' %}
 {% endcapture %}
@@ -37,7 +35,8 @@
       </div>
     {%- endif -%}
 
-    {%- if form.posted_successfully? and form.id == form_id -%}
+    {% comment %} Removed "and form.id == form_id" — form.id isn't repopulated after Shopify's success redirect, so the guard permanently hid the success message. Safe: this is the only contact form on the site. {% endcomment %}
+    {%- if form.posted_successfully? -%}
       <div
         class="contact-form__success"
         tabindex="-1"
@@ -102,7 +101,8 @@
       class="contact-form__input"
       autocomplete="tel"
       name="contact[phone]"
-      pattern="[0-9\-]*"
+      {% comment %} Pattern relaxed to accept spaces, + and () so AU-formatted numbers (e.g. 0412 345 678, +61...) don't block submission — was [0-9\-]* (Horizon default) {% endcomment %}
+      pattern="[0-9\-\+\(\)\s]*"
       value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
       placeholder="{{ 'blocks.contact_form.phone' | t }}"
     >
