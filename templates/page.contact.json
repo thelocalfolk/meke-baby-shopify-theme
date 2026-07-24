@@ -204,6 +204,7 @@
       "blocks": {
         "contact_form_UwiCkQ": {
           "type": "contact-form",
+          "disabled": true,
           "settings": {
             "width": "custom",
             "custom_width": 50,
