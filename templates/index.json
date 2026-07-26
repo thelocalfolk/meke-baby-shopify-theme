@@ -13,7 +13,7 @@
       "type": "meke-baby-hero",
       "name": "Mekè Baby Hero",
       "settings": {
-        "image": "shopify://shop_images/MekeBabyxBabyBunting-234.jpg",
+        "image": "shopify://shop_images/MekeBabyxBabyBunting-234C.jpg",
         "image_mobile": "shopify://shop_images/rectangle-3-3.png",
         "image_url": "",
         "bg_position": "center",
@@ -23,7 +23,7 @@
         "color_scheme": "scheme-33ba007f-22c9-40a2-840b-75b7cdb7585f",
         "star_rating": "★★★★★   4.9 Stars",
         "star_size": 14,
-        "heading": "The new standard <br>of feeding",
+        "heading": "The new standard of feeding",
         "heading_size": 52,
         "heading_max_width": 560,
         "subheading": "<p>Engineered to protect your baby's milk.</p>",
