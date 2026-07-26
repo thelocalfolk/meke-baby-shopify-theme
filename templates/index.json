@@ -47,7 +47,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Need it today? Get it in-store at Baby Bunting! | <strong>Find your nearest stockist</strong></p>",
+            "text": "<p><a href=\"https://www.babybunting.com.au/find-a-store?srsltid=AfmBOopml-Xp0GWoLVllISVx0uRtgyRV3Eo2RSyzseFSUAA0HAt75osJ\" target=\"_blank\" title=\"https://www.babybunting.com.au/find-a-store?srsltid=AfmBOopml-Xp0GWoLVllISVx0uRtgyRV3Eo2RSyzseFSUAA0HAt75osJ\">Need it today? Get it in-store at Baby Bunting! | <strong>Find your nearest stockist</strong></a></p>",
             "width": "fit-content",
             "max_width": "none",
             "alignment": "left",
