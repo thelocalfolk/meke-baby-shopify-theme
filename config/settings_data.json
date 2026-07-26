@@ -187,11 +187,6 @@
         "type": "shopify://apps/essential-upsell/blocks/app-embed/50627fd9-24fd-4250-8614-accc12826d80",
         "disabled": false,
         "settings": {}
-      },
-      "6825264096516468816": {
-        "type": "shopify://apps/xb-free-shipping-upsell/blocks/free-shipping-upsell/019c2286-1e8b-72d7-855c-9d32db6f97be",
-        "disabled": false,
-        "settings": {}
       }
     },
     "color_schemes": {
@@ -275,7 +270,7 @@
       },
       "scheme-3": {
         "settings": {
-          "background": "#927F76",
+          "background": "#927f76",
           "foreground_heading": "#ffffff",
           "foreground": "#ffffff",
           "primary": "#928076",
@@ -477,10 +472,10 @@
           "primary_hover": "#000000",
           "border": "#0000000f",
           "shadow": "#000000",
-          "primary_button_background": "#000000",
-          "primary_button_text": "#ffffff",
+          "primary_button_background": "#DCCBE4",
+          "primary_button_text": "#928076",
           "primary_button_border": "#000000",
-          "primary_button_hover_background": "#333333",
+          "primary_button_hover_background": "#928076",
           "primary_button_hover_text": "#ffffff",
           "primary_button_hover_border": "#000000",
           "secondary_button_background": "rgba(0,0,0,0)",
