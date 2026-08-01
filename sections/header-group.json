@@ -19,7 +19,7 @@
           "name": "t:names.announcement",
           "disabled": true,
           "settings": {
-            "text": "Need to today? get it in-store at Baby Bunting | Stockists",
+            "text": "$34 OFF our Best Selling Breastfeeding Bundle",
             "link": "https://www.babybunting.com.au/find-a-store?srsltid=AfmBOopml-Xp0GWoLVllISVx0uRtgyRV3Eo2RSyzseFSUAA0HAt75osJ",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
