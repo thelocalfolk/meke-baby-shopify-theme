@@ -1063,7 +1063,7 @@
           "settings": {
             "collection": "bundles",
             "custom_link": "",
-            "image": "shopify://shop_images/Lifestyle_Image.png",
+            "image": "shopify://shop_images/MekeMegaBundle.webp",
             "title": "Feeding Systems",
             "description": "A complete end-to-end approach to feeding with clarity at every step.",
             "show_button": true,
@@ -1083,7 +1083,7 @@
           "settings": {
             "collection": "bottle-warmers",
             "custom_link": "",
-            "image": "shopify://shop_images/Rectangle_52_2.png",
+            "image": "shopify://shop_images/Express.webp",
             "title": "Milk Warmers",
             "description": "Precision-designed for consistent, reliable feeding.",
             "show_button": true,
