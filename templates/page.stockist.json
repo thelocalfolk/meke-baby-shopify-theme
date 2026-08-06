@@ -919,7 +919,7 @@
                 "text_QeCMnW": {
                   "type": "text",
                   "settings": {
-                    "text": "<p><span style=\"text-decoration:underline\">Baby Bunting</span></p>",
+                    "text": "<p><a href=\"https://www.babybunting.com.au/\" title=\"https://www.babybunting.com.au/\"><span style=\"text-decoration:underline\">Baby Bunting</span></a></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
