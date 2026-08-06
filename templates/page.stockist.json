@@ -274,7 +274,7 @@
                 "text_RhXcfQ": {
                   "type": "text",
                   "settings": {
-                    "text": "<p><span style=\"text-decoration:underline\">The Memo</span></p>",
+                    "text": "<p><a href=\"https://thememo.com.au/search?q=meke\" title=\"https://thememo.com.au/search?q=meke\"><span style=\"text-decoration:underline\">The Memo</span></a></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -870,7 +870,7 @@
               "type": "icon",
               "settings": {
                 "icon": "eye",
-                "image_upload": "shopify://shop_images/BB_horizontal_RGB_2025.png",
+                "image_upload": "shopify://shop_images/BB_stacked_RGB_2025.png",
                 "width": 200,
                 "link": "",
                 "open_in_new_tab": false
