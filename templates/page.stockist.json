@@ -676,7 +676,7 @@
       ],
       "name": "t:names.icons_with_text",
       "settings": {
-        "content_direction": "column",
+        "content_direction": "row",
         "vertical_on_mobile": true,
         "horizontal_alignment": "center",
         "vertical_alignment": "center",
