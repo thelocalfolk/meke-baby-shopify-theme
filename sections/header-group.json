@@ -18,7 +18,7 @@
           "type": "_announcement",
           "name": "t:names.announcement",
           "settings": {
-            "text": "$34 OFF our Best Selling Breastfeeding Bundle, Mumma is Pumping",
+            "text": "UP TO %30 OFF BUNDLES - Limited of Time",
             "link": "https://mekebaby.com/products/were-pumping?variant=50581832532267",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
