@@ -11,6 +11,7 @@
   "sections": {
     "meke_baby_hero_cJizPc": {
       "type": "meke-baby-hero",
+      "custom_css": [],
       "name": "Mekè Baby Hero",
       "settings": {
         "image": "shopify://shop_images/Fathers_Day_Campaign_2.jpg",
@@ -34,7 +35,7 @@
         "button_style": "primary",
         "content_position": "center",
         "content_max_width": 500,
-        "min_height": 90,
+        "min_height": 80,
         "padding_top": 0,
         "padding_bottom": 120,
         "padding_horizontal": 0
