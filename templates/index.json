@@ -11,11 +11,14 @@
   "sections": {
     "meke_baby_hero_cJizPc": {
       "type": "meke-baby-hero",
-      "custom_css": [],
+      "custom_css": [
+        "/* Desktop */.hero-content {position: absolute; top: 50%; left: 8%; transform: translateY(-50%);}",
+        " /* Mobile */@media (max-width: 767px) {.hero-content {top: auto; bottom: 30px; transform: none; }}"
+      ],
       "name": "Mekè Baby Hero",
       "settings": {
         "image": "shopify://shop_images/Fathers_Day_Campaign_2.jpg",
-        "image_mobile": "shopify://shop_images/MEKEBABYFATHERSDAYCAMPAIGN-Mob.jpg",
+        "image_mobile": "shopify://shop_images/MEKEBABYFATHERSDAYCAMPAIGN_Mob6.jpg",
         "image_url": "",
         "bg_position": "center",
         "bg_position_mobile": "center",
