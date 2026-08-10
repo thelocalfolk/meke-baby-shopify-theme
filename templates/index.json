@@ -13,8 +13,8 @@
       "type": "meke-baby-hero",
       "name": "Mekè Baby Hero",
       "settings": {
-        "image": "shopify://shop_images/Fathers_Day_Campaign_94b29bcd-c1c4-4abc-b19f-5d5a993dc423.jpg",
-        "image_mobile": "shopify://shop_images/MekeBabyxBabyBunting-Mob.jpg",
+        "image": "shopify://shop_images/Fathers_Day_Campaign_2.jpg",
+        "image_mobile": "shopify://shop_images/Fathers_Day_Campaign_Mob_2.jpg",
         "image_url": "",
         "bg_position": "center",
         "bg_position_mobile": "center",
@@ -32,10 +32,10 @@
         "button_label": "Shop Now",
         "button_link": "shopify://products/meke-go-box-portable-lunch-box",
         "button_style": "primary",
-        "content_position": "center",
+        "content_position": "flex-start",
         "content_max_width": 500,
         "min_height": 90,
-        "padding_top": 0,
+        "padding_top": 16,
         "padding_bottom": 80,
         "padding_horizontal": 0
       }
