@@ -114,8 +114,6 @@
         "settings": {
           "greeting_message": "",
           "button_color": "#000000",
-          "secondary_color": "#FFFFFF",
-          "ternary_color": "#6A6A6A",
           "button_icon": "chat_bubble",
           "button_text": "chat_with_us",
           "button_horizontal_position": "bottom_right",
@@ -233,7 +231,7 @@
         "settings": {
           "background": "#f5f5f5",
           "foreground_heading": "#928076",
-          "foreground": "#928076",
+          "foreground": "#000000",
           "primary": "#928076",
           "primary_hover": "#ccbeb6",
           "border": "#9280764f",
@@ -472,7 +470,7 @@
           "primary_hover": "#000000",
           "border": "#0000000f",
           "shadow": "#000000",
-          "primary_button_background": "#DCCBE4",
+          "primary_button_background": "#dccbe4",
           "primary_button_text": "#928076",
           "primary_button_border": "#000000",
           "primary_button_hover_background": "#928076",
