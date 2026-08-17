@@ -32,7 +32,7 @@
           "type": "_announcement",
           "name": "t:names.announcement",
           "settings": {
-            "text": "🎁 Limited Time: Free Drying Brush with Every Milk Warmer",
+            "text": "🎁 Limited Time: Free Drying Brush with orders over $199",
             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
