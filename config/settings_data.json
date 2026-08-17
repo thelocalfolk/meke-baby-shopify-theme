@@ -188,7 +188,7 @@
       },
       "9601484282230443226": {
         "type": "shopify://apps/unicorn/blocks/global-script/2d90b062-ef63-46b3-a57e-aa139cf3a1ef",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       }
     },
@@ -236,8 +236,8 @@
         "settings": {
           "background": "#f5f5f5",
           "foreground_heading": "#928076",
-          "foreground": "#7C6E67",
-          "primary": "#7C6E67",
+          "foreground": "#7c6e67",
+          "primary": "#7c6e67",
           "primary_hover": "#ccbeb6",
           "border": "#9280764f",
           "shadow": "#000000",
